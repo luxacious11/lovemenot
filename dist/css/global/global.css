@@ -116,7 +116,7 @@ tag-labels {
   .alert-select .alert-section .input-wrap:not(:last-child) {
     margin-bottom: var(--space-xs); }
   .alert-select .alert-section .input-wrap .fancy-input::before {
-    font-family: 'Font Awesome 6 Pro'; }
+    font-family: 'Font Awesome 7 Pro'; }
   .alert-select .alert-section label {
     cursor: pointer; }
   .alert-select .alert-section hr {
