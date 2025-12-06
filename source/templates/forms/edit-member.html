@@ -1,0 +1,106 @@
+<form id="form-edit-member" data-type="grid">
+    <label>
+        <b>OOC Profile</b>
+        <span><input type="text" id="parentid" placeholder="URL or ID" required=""></span>
+    </label>
+    <div class="form-multiselect" data-type="flex">
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-member" value="alias">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Update Alias</strong>
+        </label>
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-member" value="pronouns">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Update Pronouns</strong>
+        </label>
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-member" value="age">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Update Age</strong>
+        </label>
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-member" value="timezone">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Update Timezone</strong>
+        </label>
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-member" value="about">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Update About Text</strong>
+        </label>
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-member" value="triggers">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Update Triggers</strong>
+        </label>
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-member" value="ratings">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Update Ratings</strong>
+        </label>
+    </div>
+    <label class="hidden ifAlias">
+        <b>Alias</b>
+        <span><input type="text" id="alias" placeholder="Alias"></span>
+    </label>
+    <label class="hidden ifPronouns">
+        <b>Pronouns</b>
+        <span><input type="text" id="pronouns" placeholder="Pronouns"></span>
+    </label>
+    <label class="hidden ifAge">
+        <b>Age</b>
+        <span><input type="number" id="age" min="21"></span>
+    </label>
+    <label class="hidden ifTimezone">
+        <b>Timezone</b>
+        <span><input type="text" id="timezone" placeholder="GMT-based please!"></span>
+    </label>
+    <label class="hidden ifAbout">
+        <b>About</b>
+        <span><textarea id="about" placeholder="Tell us about yourself!"></textarea></span>
+    </label>
+    <label class="hidden ifTriggers">
+        <b>Triggers</b>
+        <span><textarea id="triggers" placeholder="If you have any triggers, please list them."></textarea></span>
+    </label>
+    <div class="hidden ifRatings" data-type="grid" data-columns="3">
+        <label>
+            <b>Mature Language</b>
+            <span>
+                <select id="language">
+                    <option value="">(select)</option>
+                    <option value="0">None</option>
+                    <option value="1">Mild</option>
+                    <option value="2">With Limits</option>
+                    <option value="3">Any</option>
+                </select>
+            </span>
+        </label>
+        <label>
+            <b>Sexual Content</b>
+            <span>
+                <select id="sex">
+                    <option value="">(select)</option>
+                    <option value="0">None</option>
+                    <option value="1">Mild</option>
+                    <option value="2">With Limits</option>
+                    <option value="3">Any</option>
+                </select>
+            </span>
+        </label>
+        <label>
+            <b>Violence</b>
+            <span>
+                <select id="violence">
+                    <option value="">(select)</option>
+                    <option value="0">None</option>
+                    <option value="1">Mild</option>
+                    <option value="2">With Limits</option>
+                    <option value="3">Any</option>
+                </select>
+            </span>
+        </label>
+    </div>
+    <button type="submit" id="submit" class="fullWidth">Submit</button>
+</form>

@@ -1,0 +1,147 @@
+<form id="form-sort" data-type="grid" data-columns="2">
+    <h3 class="fullWidth">Basic Information</h3>
+    <label>
+        <b>Character</b>
+        <span><input type="text" id="character" placeholder="Character name" required=""></span>
+    </label>
+    <label>
+        <b>Character Profile</b>
+        <span><input type="text" id="accountid" placeholder="URL or ID" required=""></span>
+    </label>
+    <label>
+        <b>Group</b>
+        <span><select id="group" required>
+            <option value="">(select)</option>
+            <option value="GROUP ID">Group Name</option>
+            <option value="GROUP ID">Group Name</option>
+            <option value="GROUP ID">Group Name</option>
+            <option value="GROUP ID">Group Name</option>
+        </select></span>
+    </label>
+    <label>
+        <b>Face</b>
+        <span><input type="text" id="face" placeholder="Face claim" required=""></span>
+    </label>
+    <label class="fullWidth">
+        <b>For request?</b>
+        <span><select id="requested" required>
+            <option value="">(select)</option>
+            <option value="y">Yes</option>
+            <option value="n">No</option>
+        </select></span>
+    </label>
+    <label class="hidden ifRequest fullWidth">
+        <b>Request Details</b>
+        <span><textarea id="request" placeholder="Name of requester and/or URL to wanted ad"></textarea></span>
+    </label>
+    <h3 class="fullWidth">Employment</h3>
+    <label class="fullWidth">
+        <b>Employed?</b>
+        <span><select id="employed" required>
+            <option value="">(select)</option>
+            <option value="y">Yes</option>
+            <option value="n">No</option>
+        </select></span>
+    </label>
+    <label class="fullWidth adjustable ifEmployed hidden">
+        <b>Jobs</b>
+        <div class="rows jobs-wrap"></div>
+        <div class="multi-buttons" data-row-type="jobs">
+            <button type="button" onclick="addRow(this)">+ New Row</button>
+            <button type="button" onclick="removeRow(this)">- Remove Row</button>
+        </div>
+    </label>
+    <h3 class="fullWidth">Subplots</h3>
+    <label class="fullWidth">
+        <b>Part of a Subplot?</b>
+        <span><select id="subplot" required>
+            <option value="">(select)</option>
+            <option value="y">Yes</option>
+            <option value="n">No</option>
+        </select></span>
+    </label>
+    <label class="fullWidth adjustable ifPlot hidden">
+        <b>Roles</b>
+        <div class="rows roles-wrap"></div>
+        <div class="multi-buttons" data-row-type="roles">
+            <button type="button" onclick="addRow(this)">+ New Row</button>
+            <button type="button" onclick="removeRow(this)">- Remove Row</button>
+        </div>
+    </label>
+    <h3 class="fullWidth">Member Info</h3>
+    <label>
+        <b>Alias</b>
+        <span><input type="text" id="alias" placeholder="Alias" required=""></span>
+    </label>
+    <label>
+        <b>OOC Profile</b>
+        <span><input type="text" id="parentid" placeholder="URL or ID" required=""></span>
+    </label>
+    <label class="fullWidth">
+        <b>First character?</b>
+        <span><select id="first" required>
+            <option value="">(select)</option>
+            <option value="y">Yes</option>
+            <option value="n">No</option>
+        </select></span>
+    </label>
+    <label class="hidden ifFirst">
+        <b>Pronouns</b>
+        <span><input type="text" id="pronouns" placeholder="Pronouns"></span>
+    </label>
+    <label class="hidden ifFirst">
+        <b>Age</b>
+        <span><input type="number" id="age" min="21"></span>
+    </label>
+    <label class="hidden ifFirst fullWidth">
+        <b>Timezone</b>
+        <span><input type="text" id="timezone" placeholder="GMT-based please!"></span>
+    </label>
+    <label class="hidden ifFirst fullWidth">
+        <b>About</b>
+        <span><textarea id="about" placeholder="Tell us about yourself!"></textarea></span>
+    </label>
+    <label class="hidden ifFirst fullWidth">
+        <b>Triggers</b>
+        <span><textarea id="triggers" placeholder="If you have any triggers, please list them."></textarea></span>
+    </label>
+    <div class="hidden ifFirst fullWidth" data-type="grid" data-columns="3">
+        <label>
+            <b>Mature Language</b>
+            <span>
+                <select id="language">
+                    <option value="">(select)</option>
+                    <option value="0">None</option>
+                    <option value="1">Mild</option>
+                    <option value="2">With Limits</option>
+                    <option value="3">Any</option>
+                </select>
+            </span>
+        </label>
+        <label>
+            <b>Sexual Content</b>
+            <span>
+                <select id="sex">
+                    <option value="">(select)</option>
+                    <option value="0">None</option>
+                    <option value="1">Mild</option>
+                    <option value="2">With Limits</option>
+                    <option value="3">Any</option>
+                </select>
+            </span>
+        </label>
+        <label>
+            <b>Violence</b>
+            <span>
+                <select id="violence">
+                    <option value="">(select)</option>
+                    <option value="0">None</option>
+                    <option value="1">Mild</option>
+                    <option value="2">With Limits</option>
+                    <option value="3">Any</option>
+                </select>
+            </span>
+        </label>
+    </div>
+    <button type="submit" id="submit" class="fullWidth">Submit</button>
+</form>

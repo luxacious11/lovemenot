@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        @@include('../source/templates/head.html', {
+            "prefix": "../dist"
+        })  
+    </head>
+    <body id="Pages" class="g-4">
+        @@include('../source/templates/header.html', {
+            "prefix": ".."
+        })
+      @@include('../source/templates/nav.html', {
+            "prefix": ".."
+        })
+
+        <!--Main Body-->
+        <main>
+            <a name="top"></a>
+		
+            <div id="loading">
+                <div class="loading-bubble">
+                    <i class="fa-regular fa-spinner fa-spin"></i>
+                    <p>Loading</p>
+                </div>
+            </div>
+
+            <!--Webpage-->
+            <section class="webpage">
+                <div class="webpage--menu">
+                    <button class="macro--button" onclick="toggleListMenu(this)">
+                        <i class="fa-solid fa-bars open-button"></i>
+                        <i class="fa-solid fa-xmark close-button"></i>
+                    </button>
+                    <tag-labels class="accordion scroll">
+                        <tag-label class="tab-category accordion--trigger" data-category="info">
+                            <span>Information</span>
+                        </tag-label>
+                        <div class="tab-category accordion--content" data-category="info">
+                            <a href="#tabone">Info Tab One</a>
+                            <a href="#tabtwo">Info Tab Two</a>
+                        </div>
+                        <tag-label class="tab-category accordion--trigger" data-category="forms">
+                            <span>Forms</span>
+                        </tag-label>
+                        <div class="tab-category accordion--content" data-category="forms">
+                            <a href="#address">Register an Address</a>
+                            <a href="#update-address">Change an Address</a>
+                            <a href="#connection">Submit a Connection</a>
+                        </div>
+                        <tag-label class="tab-category accordion--trigger" data-category="addresses">
+                            <span>Address Book</span>
+                        </tag-label>
+                        <div class="tab-category accordion--content" data-category="addresses">
+                            <a href="#lookup">Address Lookup</a>
+                            <a href="#location1">Location 1</a>
+                            <a href="#location2">Location 2</a>
+                        </div>
+                        <tag-label class="tab-category accordion--trigger" data-category="connections">
+                            <span>Other Connections</span>
+                        </tag-label>
+                        <div class="tab-category accordion--content" data-category="connections">
+                            <a href="#historical">Historical</a>
+                            <a href="#local">Local</a>
+                        </div>
+                    </tag-labels>
+                </div>
+                <tag-tabset class="webpage--content">
+                    <tag-tab class="tab-category" data-category="info">
+                        <tag-tabset>
+                            <tag-tab data-key="#tabone">
+                                <div class="webpage--content-inner">
+                                    Info Tab One
+                                </div>
+                            </tag-tab>
+                            <tag-tab data-key="#sydney-neighbourhoods">
+                                <div class="webpage--content-inner">
+                                    Info Tab 2
+                                </div>
+                            </tag-tab>
+                        </tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="forms">
+                        <tag-tabset>
+                            <tag-tab data-key="#address">
+                                <div class="webpage--content-inner">
+                                    @@include('../source/templates/forms/register-address.html')
+                                </div>
+                            </tag-tab>
+                            <tag-tab data-key="#update-address">
+                                <div class="webpage--content-inner">
+                                    @@include('../source/templates/forms/register-address.html')
+                                </div>
+                            </tag-tab>
+                            <tag-tab data-key="#connection">
+                                <div class="webpage--content-inner">
+                                    @@include('../source/templates/forms/add-connection.html')
+                                </div>
+                            </tag-tab>
+                        </tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="addresses">
+                        <tag-tabset>
+                            <tag-tab data-key="#lookup">
+                                <div class="webpage--content-inner">
+                                    @@include('../source/templates/forms/address-lookup.html')
+                                </div>
+                            </tag-tab>
+                            <tag-tab data-key="#location1">
+                                <div class="webpage--content-inner">
+                                    <div class="h8">No residents recorded.</div>
+                                </div>
+                            </tag-tab>
+                            <tag-tab data-key="#location2">
+                                <div class="webpage--content-inner">
+                                    <div class="h8">No residents recorded.</div>
+                                </div>
+                            </tag-tab>
+                        </tag-tabset>
+                    </tag-tab>
+                    <tag-tab class="tab-category" data-category="connections">
+                        <tag-tabset>
+                            <tag-tab data-key="#historical">
+                                <div class="webpage--content-inner">
+                                    <div class="h8">No figures of note.</div>
+                                </div>
+                            </tag-tab>
+                            <tag-tab data-key="#local">
+                                <div class="webpage--content-inner">
+                                    <div class="h8">No data submitted.</div>
+                                </div>
+                            </tag-tab>
+                        </tag-tabset>
+                    </tag-tab>
+                </tag-tabset>
+            </section>
+
+            <script src="../dist/js/formHelpers.js"></script>
+            <script src="../dist/js/connectionForms.js"></script>
+            <script src="../dist/js/formatting.js"></script>
+            <script>
+                let staticClaims = [], staticBusinesses = [];
+
+                fetch(claims)
+                .then((response) => response.json())
+                .then((claimsData) => {
+                    staticClaims = [...claimsData];
+                    formatConnections(claimsData);
+
+                    fetch(businesses)
+                    .then((response) => response.json())
+                    .then((businessData) => {
+                        staticBusinesses = [...businessData];
+                        setBusinessList(`.clip-businesses`, businessData);
+                        formatAddresses(staticClaims, businessData);
+
+                    }).then(() => {
+                        initWebpages();
+                    });
+
+                });
+            </script>
+
+            <!-- Copyright Information -->
+            <div class="tableborder" align="center">
+                <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
+                    <div class="copyright" align="center">
+                        Powered by 
+                        <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
+                        (<a href="http://jcink.com" target="_blank">Jcink.com </a>
+                        <a href="https://jcink.com" target="_blank">Forum Hosting</a>
+                        ) © 2020 &nbsp;
+                        <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
+                        <br>
+                        Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
+                        <a href="index.php?act=Mobile">Mobile Version</a> · 
+                        <a href="index.php?act=privacy">Privacy Policy</a>
+                    </div>
+                </div>
+            </div> 
+        </main>
+        
+        @@include('../source/templates/scripts.html', {
+            "prefix": "../dist"
+        })   
+    </body>
+</html>

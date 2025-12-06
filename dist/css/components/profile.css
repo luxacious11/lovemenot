@@ -1,0 +1,28 @@
+/*******************************
+    Extensions
+
+    Want these to be clean without repeated CSS on build? Follow the mixin template:
+
+    @mixin nameHere() {
+        styles
+    }
+
+    Then, in the file you want to use it, call it as an include:
+
+    .className {
+        @include nameHere;
+    }
+********************************/
+/*******************************
+    Profile
+********************************/
+.profile--account {
+  display: grid;
+  grid-template-columns: var(--size-switcher-image) auto;
+  gap: var(--space-sm); }
+  .profile--account-image {
+    width: var(--size-switcher-image);
+    height: var(--size-switcher-image);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; }

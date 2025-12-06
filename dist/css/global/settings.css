@@ -1,0 +1,15 @@
+.alert-section .input-wrap .fancy-input::before {
+  content: '\f00c'; }
+
+body.g-2 .memOnly,
+body:not(.g-2) .guestOnly,
+body:not(.g-4) .staffOnly {
+  display: none !important; }
+
+body.g-2 .guestOnly,
+body.g-4 .staffOnly {
+  display: initial; }
+
+body.g-4 .webpage--menu .accordion--content.staffOnly,
+body.g-4 .accordion--trigger.staffOnly {
+  display: flex; }

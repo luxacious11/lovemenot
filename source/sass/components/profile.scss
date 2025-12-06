@@ -1,0 +1,21 @@
+@import '../global/mixins.scss';
+@import '../global/extensions.scss';
+
+/*******************************
+    Profile
+********************************/
+.profile {
+    &--account {
+        display: grid;
+        grid-template-columns: var(--size-switcher-image) auto;
+        gap: var(--space-sm);
+
+        &-image {
+            width: var(--size-switcher-image);
+            height: var(--size-switcher-image);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+}

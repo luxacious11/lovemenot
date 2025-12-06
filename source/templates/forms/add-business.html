@@ -1,0 +1,71 @@
+<form id="form-add-business" data-type="grid" data-columns="2">
+    <label>
+        <b>Alias</b>
+        <span><input type="text" id="alias" placeholder="Alias" required=""></span>
+    </label>
+    <label>
+        <b>OOC Account</b>
+        <span><input type="text" id="id" placeholder="URL or ID" required=""></span>
+    </label>
+    <label>
+        <b>Business Name</b>
+        <span><input type="text" id="employer" placeholder="Business Name" required=""></span>
+    </label>
+    <label>
+        <b>Category</b>
+        <span><select id="category" required>
+            <option value="">(select)</option>
+            <option value="edu">Education</option>
+            <option value="entertain">Entertainment</option>
+            <option value="food">Food & Drink</option>
+            <option value="gov">Governmental</option>
+            <option value="shop">Retail</option>
+            <option value="serve">Services</option>
+            <option value="misc">Miscellaneous</option>
+        </select></span>
+    </label>
+    <label>
+        <b>Location</b>
+        <span><select id="location" required>
+            <option value="">(select)</option>
+            <option value="FORUM ID">Forum Name</option>
+            <option value="FORUM ID">Forum Name</option>
+            <option value="FORUM ID">Forum Name</option>
+        </select></span>
+    </label>
+    <label>
+        <b>Hiring?</b>
+        <span><select id="hiring" required>
+            <option value="">(select)</option>
+            <option value="yes">Yes</option>
+            <option value="ask first">Ask First</option>
+            <option value="no">No</option>
+        </select></span>
+    </label>
+    <label class="fullWidth">
+        <b>Summary</b>
+        <span><textarea id="summary" placeholder="Overview of the business; maximum 350 characters" required="" maxlength="350"></textarea></span>
+    </label>
+    <label class="fullWidth">
+        <b>Related Wanted Ad</b>
+        <span><input type="text" id="wanted" placeholder="URL (optional)"></span>
+    </label>
+    <label class="fullWidth">
+        <b>Type of Opening Hours</b>
+        <span><select id="hours" required>
+            <option value="">(select)</option>
+            <option value="set hours">Set Hours</option>
+            <option value="by appointment">By Appointment</option>
+            <option value="no set hours">No Set Hours / Not Open to the Public</option>
+        </select></span>
+    </label>
+    <label class="fullWidth adjustable ifSetHours hidden">
+        <b>Hours</b>
+        <div class="rows hours-wrap"></div>
+        <div class="multi-buttons" data-row-type="hours">
+            <button type="button" onclick="addRow(this)">+ New Row</button>
+            <button type="button" onclick="removeRow(this)">- Remove Row</button>
+        </div>
+    </label>
+    <button type="submit" id="submit" class="fullWidth">Submit</button>
+</form>

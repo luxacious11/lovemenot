@@ -1,0 +1,235 @@
+/*******************************
+    Extensions
+
+    Want these to be clean without repeated CSS on build? Follow the mixin template:
+
+    @mixin nameHere() {
+        styles
+    }
+
+    Then, in the file you want to use it, call it as an include:
+
+    .className {
+        @include nameHere;
+    }
+********************************/
+/*******************************
+    Utilities
+********************************/
+[data-box-align="left" i] {
+  margin-left: 0 !important;
+  margin-right: auto !important; }
+
+[data-box-align="center" i] {
+  margin-left: auto !important;
+  margin-right: auto !important; }
+
+[data-box-align="right" i] {
+  margin-left: auto !important;
+  margin-right: 0 !important; }
+
+[data-text-align="left" i] {
+  text-align: left !important; }
+
+[data-text-align="center" i] {
+  text-align: center !important; }
+
+[data-text-align="right" i] {
+  text-align: right !important; }
+
+[data-text-align="justify" i] {
+  text-align: justify !important; }
+
+.columns {
+  display: grid;
+  gap: var(--space-lg); }
+  @media (min-width: 601px) {
+    .columns.two {
+      grid-template-columns: 1fr 1fr; } }
+  @media (min-width: 601px) {
+    .columns.two.big-left {
+      grid-template-columns: 3fr 2fr; } }
+  @media (min-width: 601px) {
+    .columns.two.big-right {
+      grid-template-columns: 2fr 3fr; } }
+
+[data-type="flex" i] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm) var(--space-lg); }
+
+.fullWidth {
+  grid-column: 1 / -1 !important; }
+
+@media (min-width: 601px) {
+  .oneThird {
+    grid-column: span 2 !important; }
+  .threeQuarter {
+    grid-column: span 4 !important; }
+    .threeQuarter + tr {
+      grid-column: span 2 !important; } }
+
+[data-type="grid" i] {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-rows: max-content; }
+  [data-type="grid" i] > h2,
+  [data-type="grid" i] > h3,
+  [data-type="grid" i] > h4,
+  [data-type="grid" i] > h5,
+  [data-type="grid" i] > h6,
+  [data-type="grid" i] > h7,
+  [data-type="grid" i] > h8,
+  [data-type="grid" i] > .h2,
+  [data-type="grid" i] > .h3,
+  [data-type="grid" i] > .h4,
+  [data-type="grid" i] > .h5,
+  [data-type="grid" i] > .h6,
+  [data-type="grid" i] > .h7,
+  [data-type="grid" i] > .h8 {
+    margin-bottom: 0; }
+  [data-type="grid" i][data-columns="1"] {
+    grid-template-columns: repeat(1, 1fr); }
+  [data-type="grid" i][data-columns="2"] {
+    grid-template-columns: repeat(1, 1fr); }
+    @media (min-width: 1025px) {
+      [data-type="grid" i][data-columns="2"] {
+        grid-template-columns: repeat(2, 1fr); } }
+  [data-type="grid" i][data-columns="3"] {
+    grid-template-columns: repeat(1, 1fr); }
+    @media (min-width: 1025px) {
+      [data-type="grid" i][data-columns="3"] {
+        grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1281px) {
+      [data-type="grid" i][data-columns="3"] {
+        grid-template-columns: repeat(3, 1fr); } }
+  [data-type="grid" i][data-columns="4"] {
+    grid-template-columns: repeat(1, 1fr); }
+    @media (min-width: 1025px) {
+      [data-type="grid" i][data-columns="4"] {
+        grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 1281px) {
+      [data-type="grid" i][data-columns="4"] {
+        grid-template-columns: repeat(3, 1fr); } }
+    @media (min-width: 1441px) {
+      [data-type="grid" i][data-columns="4"] {
+        grid-template-columns: repeat(4, 1fr); } }
+  [data-type="grid" i] [data-box-align="left" i],
+  [data-type="grid" i] [data-box-align="center" i],
+  [data-type="grid" i] [data-box-align="right" i] {
+    max-width: max-content; }
+
+[data-gap="xsmall" i],
+[data-gap="xs" i] {
+  gap: var(--space-xs) var(--space-md); }
+
+[data-gap="xsmallsquare" i],
+[data-gap="xssquare" i],
+[data-gap="xssq" i] {
+  gap: var(--space-xs); }
+
+[data-gap="sm" i],
+[data-gap="small" i] {
+  gap: var(--space-sm) var(--space-lg); }
+
+[data-gap="smsq" i],
+[data-gap="smsquare" i],
+[data-gap="smallsquare" i] {
+  gap: var(--space-sm); }
+
+[data-gap="md" i],
+[data-gap="medium" i] {
+  gap: var(--space-md); }
+
+[data-gap="lg" i],
+[data-gap="large" i] {
+  gap: var(--space-lg); }
+
+[data-gap="xl" i],
+[data-gap="xlarge" i] {
+  gap: var(--space-xl); }
+
+[data-width="full" i] {
+  max-width: none; }
+
+[data-width="xs" i],
+[data-width="extrasmall" i] {
+  max-width: 275px; }
+
+[data-width="sm" i],
+[data-width="small" i] {
+  max-width: 350px; }
+
+[data-width="lg" i],
+[data-width="large" i] {
+  max-width: 500px; }
+
+[data-width="xl" i],
+[data-width="extralarge" i] {
+  max-width: 575px; }
+
+tag-image[data-ratio="1:1"],
+[data-ratio="1:1"] tag-image {
+  aspect-ratio: 1 / 1; }
+
+tag-image[data-ratio="2:3"],
+[data-ratio="2:3"] tag-image {
+  aspect-ratio: 2 / 3; }
+
+tag-image[data-ratio="3:2"],
+[data-ratio="3:2"] tag-image {
+  aspect-ratio: 3 / 2; }
+
+tag-image[data-ratio="3:4"],
+[data-ratio="3:4"] tag-image {
+  aspect-ratio: 3 / 4; }
+
+tag-image[data-ratio="4:3"],
+[data-ratio="4:3"] tag-image {
+  aspect-ratio: 4 / 3; }
+
+tag-image[data-ratio="4:5"],
+[data-ratio="4:5"] tag-image {
+  aspect-ratio: 4 / 5; }
+
+tag-image[data-ratio="5:4"],
+[data-ratio="5:4"] tag-image {
+  aspect-ratio: 5 / 4; }
+
+tag-image[data-ratio="9:16"],
+[data-ratio="9:16"] tag-image {
+  aspect-ratio: 9 / 16; }
+
+tag-image[data-ratio="16:9"],
+[data-ratio="16:9"] tag-image {
+  aspect-ratio: 16 / 9; }
+
+[data-scroll="xs" i] .scroll,
+.scroll[data-scroll="xs" i],
+[data-scroll="xsmall" i] .scroll,
+.scroll[data-scroll="xsmall" i] {
+  max-height: 100px; }
+
+[data-scroll="sm" i] .scroll,
+.scroll[data-scroll="sm" i],
+[data-scroll="small" i] .scroll,
+.scroll[data-scroll="small" i] {
+  max-height: 175px; }
+
+[data-scroll="md" i] .scroll,
+.scroll[data-scroll="md" i],
+[data-scroll="medium" i] .scroll,
+.scroll[data-scroll="medium" i] {
+  max-height: 250px; }
+
+[data-scroll="lg" i] .scroll,
+.scroll[data-scroll="lg" i],
+[data-scroll="large" i] .scroll,
+.scroll[data-scroll="large" i] {
+  max-height: 325px; }
+
+[data-scroll="xl" i] .scroll,
+.scroll[data-scroll="xl" i],
+[data-scroll="xlarge" i] .scroll,
+.scroll[data-scroll="xlarge" i] {
+  max-height: 400px; }

@@ -1,0 +1,56 @@
+<form id="form-edit-business" data-type="grid">
+    <label>
+        <b>Business Name</b>
+        <span><select id="employer" class="clip-businesses" required></select></span>
+    </label>
+    <div class="form-multiselect" data-type="flex">
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-business" value="wanted">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Add / Update Want Ad</strong>
+        </label>
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-business" value="hiring">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Update Hiring Status</strong>
+        </label>
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-business" value="hours">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Update Hours</strong>
+        </label>
+    </div>
+    <label class="hidden ifWanted fullWidth">
+        <b>Related Wanted Ad</b>
+        <span><input type="text" id="wanted" placeholder="URL"></span>
+    </label>
+    <label class="hidden ifHiring fullWidth">
+        <b>Hiring?</b>
+        <span><select id="hiring">
+            <option value="">(select)</option>
+            <option value="yes">Yes</option>
+            <option value="ask first">Ask First</option>
+            <option value="no">No</option>
+        </select></span>
+    </label>
+    <div data-type="grid" class="hidden ifHours fullWidth">
+        <label>
+            <b>Type of Opening Hours</b>
+            <span><select id="hours">
+                <option value="">(select)</option>
+                <option value="set hours">Set Hours</option>
+                <option value="by appointment">By Appointment</option>
+                <option value="no set hours">No Set Hours / Not Open to the Public</option>
+            </select></span>
+        </label>
+        <label class="adjustable ifSetHours hidden">
+            <b>Hours</b>
+            <div class="rows hours-wrap" data-type="grid"></div>
+            <div class="multi-buttons" data-row-type="hours">
+                <button type="button" onclick="addRow(this)">+ New Row</button>
+                <button type="button" onclick="removeRow(this)">- Remove Row</button>
+            </div>
+        </label>
+    </div>
+    <button type="submit" id="submit" class="fullWidth">Submit</button>
+</form>

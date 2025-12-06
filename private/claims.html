@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        @@include('../source/templates/head.html', {
+            "prefix": "../dist"
+        })  
+    </head>
+    <body id="Pages" class="g-4">
+        @@include('../source/templates/header.html', {
+            "prefix": ".."
+        })
+      @@include('../source/templates/nav.html', {
+            "prefix": ".."
+        })
+
+        <!--Main Body-->
+        <main>
+            <a name="top"></a>
+		
+            <div id="loading">
+                <div class="loading-bubble">
+                    <i class="fa-regular fa-spinner fa-spin"></i>
+                    <p>Loading</p>
+                </div>
+            </div>
+
+            <!--Webpage-->
+            <section class="webpage">
+                <div class="webpage--menu">
+                    <button class="macro--button" onclick="toggleListMenu(this)">
+                        <i class="fa-solid fa-bars open-button"></i>
+                        <i class="fa-solid fa-xmark close-button"></i>
+                    </button>
+                    <tag-labels class="accordion scroll">
+                        <tag-label class="tab-category accordion--trigger" data-category="claims">
+                            <span>Claims</span>
+                        </tag-label>
+                        <div class="tab-category accordion--content" data-category="claims">
+                            <a href="#reserves">Face Reserves</a>
+                            <a href="./members.html" class="external">Members</a>
+                            <a href="#faces">Faces</a>
+                            <a href="./businesses.html" class="external">Jobs</a>
+                            <a href="./connections.html" class="external">Connections</a>
+                        </div>
+                    </tag-labels>
+                </div>
+                <tag-tabset class="webpage--content">
+                    <tag-tab class="tab-category" data-category="claims">
+                        <tag-tabset>
+                            <tag-tab data-key="#reserves">
+                                <h2 class="tab-heading">Face Reserves</h2>
+                                <div class="webpage--content-inner">
+                                    <div class="claims--filter-wrap two-col" data-type="grid">
+                                        <div>
+                                            <strong class="h7">Filter by Face</strong>
+                                            <input type="text" data-filter="#reserves" data-objects="> b" data-headers=".h5" onkeyup="filterValue(this)" placeholder="Face" style="width: 100%;">
+                                        </div> 
+                                        <div>
+                                            <strong class="h7">Filter by Member</strong>
+                                            <input type="text" data-filter="#reserves" data-objects="> b + span" data-headers=".h5" onkeyup="filterValue(this)" placeholder="Member" style="width: 100%;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </tag-tab>
+                            <tag-tab data-key="#faces">
+                                <h2 class="tab-heading">Face Claims</h2>
+                                <div class="webpage--content-inner">
+                                    <div class="claims--filter-wrap" data-type="grid">
+                                        <div>
+                                            <strong class="h7">Filter by Face</strong>
+                                            <input type="text" data-filter="#faces" data-objects=" > a" data-headers=".h5" data-hide-wrap="true" onkeyup="filterValue(this)" placeholder="Face" style="width: 100%;">
+                                        </div>
+                                        <div>
+                                            <strong class="h7">Filter by Character</strong>
+                                            <input type="text" data-filter="#faces" data-objects="> a + span > a" data-headers=".h5" data-hide-wrap="true" onkeyup="filterValue(this)" placeholder="Character" style="width: 100%;">
+                                        </div>
+                                        <div>
+                                            <strong class="h7">Filter by Member</strong>
+                                            <input type="text" data-filter="#faces" data-objects="> a + span + span > a" data-headers=".h5" data-hide-wrap="true" onkeyup="filterValue(this)" placeholder="Member" style="width: 100%;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </tag-tab>
+                        </tag-tabset>
+                    </tag-tab>
+                </tag-tabset>
+            </section>
+
+            <script src="../dist/js/formatting.js"></script>
+            <script>
+                fetch(claims)
+                .then((response) => response.json())
+                .then((claimsData) => {
+                    formatFaceClaims(claimsData);
+
+                    fetch(faceReserves)
+                    .then((response) => response.json())
+                    .then((reservesData) => {
+                        formatFaceReserves(reservesData);
+
+                    }).then(() => {
+                        initWebpages();
+                    });
+
+                });
+            </script>
+
+            <!-- Copyright Information -->
+            <div class="tableborder" align="center">
+                <div class="row4" style="font-size: 7.5pt; padding-top: 1px; padding-bottom: 1px; line-height: 8pt;">
+                    <div class="copyright" align="center">
+                        Powered by 
+                        <a href="https://www.invisionboard.com" target="_blank">Invision Power Board</a>
+                        (<a href="http://jcink.com" target="_blank">Jcink.com </a>
+                        <a href="https://jcink.com" target="_blank">Forum Hosting</a>
+                        ) © 2020 &nbsp;
+                        <a href="https://www.invisionpower.com" target="_blank">IPS, Inc.</a>
+                        <br>
+                        Page creation time: 0.0054 <!-- http://luxtradition.b1.jcink.com -->  · 
+                        <a href="index.php?act=Mobile">Mobile Version</a> · 
+                        <a href="index.php?act=privacy">Privacy Policy</a>
+                    </div>
+                </div>
+            </div> 
+        </main>
+        
+        @@include('../source/templates/scripts.html', {
+            "prefix": "../dist"
+        })   
+    </body>
+</html>

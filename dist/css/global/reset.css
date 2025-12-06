@@ -1,0 +1,86 @@
+/*******************************
+    Extensions
+
+    Want these to be clean without repeated CSS on build? Follow the mixin template:
+
+    @mixin nameHere() {
+        styles
+    }
+
+    Then, in the file you want to use it, call it as an include:
+
+    .className {
+        @include nameHere;
+    }
+********************************/
+/*******************************
+    Reset
+********************************/
+* {
+  position: relative;
+  box-sizing: border-box; }
+
+body {
+  line-height: 200%;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+  padding: 0; }
+
+img {
+  max-width: 100%;
+  object-fit: cover; }
+
+input,
+button,
+textarea,
+select {
+  font: inherit; }
+
+a {
+  text-decoration: none; }
+
+.fa-brands {
+  font-family: 'Font Awesome 6 Brands' !important;
+  font-style: normal !important;
+  font-weight: 700 !important; }
+
+.fa-solid,
+.fa-regular,
+.fa-light,
+.fa-thin {
+  font-family: 'Font Awesome 6 Pro' !important;
+  font-style: normal !important; }
+
+.fa-solid {
+  font-weight: 700 !important; }
+
+.fa-regular {
+  font-weight: 500 !important; }
+
+.fa-light {
+  font-weight: 300 !important; }
+
+.fa-thin {
+  font-weight: 100 !important; }
+
+.hidden,
+.onlySolo:not(:only-child) {
+  display: none !important; }
+
+#quick-login-clip .hidden {
+  display: block !important; }
+
+@media (min-width: 1025px) {
+  .onlyMobile {
+    display: none !important; } }
+
+@media (max-width: 1024px) {
+  .notMobile {
+    display: none !important; } }
+
+.onlyOnly:not(:only-of-type),
+.onlyPopout {
+  display: none !important; }
+
+#popout .onlyPopout {
+  display: block !important; }

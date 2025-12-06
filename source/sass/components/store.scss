@@ -1,0 +1,598 @@
+@import '../global/mixins.scss';
+@import '../global/extensions.scss';
+
+/*******************************
+    Store
+********************************/
+
+//General
+#store {
+    main {
+        & > table:first-of-type {
+            display: block;
+
+            & ~ * {
+                display: none;
+            }
+
+            & > tbody {
+                display: block;
+
+                & > tr {
+                    display: flex;
+                    gap: var(--space-lg);
+                    
+                    & > td {
+                        &#ucpmenu {
+                            flex: 0 0 150px;
+
+                            .sticky {
+                                display: flex;
+                                flex-direction: column;
+                                gap: var(--space-sm);
+                                position: sticky;
+                                top: var(--size-menu-height);
+                            }
+                            .menu-section {
+                                display: flex;
+                                flex-direction: column;
+                                gap: var(--space-sm);
+                            }
+                        }
+                        &:nth-child(2) {
+                            display: none;
+                        }
+                        &#ucpcontent {
+                            flex-grow: 1;
+                            padding: var(--space-md);
+
+                            @include mq-up(xs) {
+                                padding: var(--space-lg);
+                            }
+
+                            input[type="text"],
+                            input[type="file"],
+                            input[type="password"],
+                            textarea,
+                            select {
+                                width: 100%;
+                            }
+
+                            .maintitle {
+                                display: none;
+                            }
+                    
+                            form {
+                                & > table {
+                                    display: block;
+                        
+                                    & > tbody {
+                                        display: block;
+                        
+                                        & > tr {
+                                            display: flex;
+                                            flex-direction: column;
+                                            gap: var(--space-sm);
+                                            margin-bottom: var(--space-md);
+                    
+                                            @include mq-up(xxs) {
+                                                margin-bottom: var(--space-lg);
+                                            }
+                    
+                                            @include mq-up(sm) {
+                                                gap: var(--space-md);
+                                            }
+                        
+                                            .pformleft {
+                                                b,
+                                                strong,
+                                                label {
+                                                    line-height: 160%;
+                                                    display: block;
+                                                    max-width: max-content;
+                                                    padding: var(--space-xs) var(--space-sm);
+                    
+                                                    & ~ br {
+                                                        display: none;
+                                                    }
+                                                }
+                                            }
+                                            .pformright {
+                                                display: flex;
+                                                gap: var(--space-xs);
+                                                height: max-content;
+                                            }
+                    
+                                            & > :only-child {
+                                                grid-column: 1 / -1;
+                                            }
+                        
+                                            &:last-child {
+                                                .pformstrip:only-child {
+                                                    margin-bottom: 0;
+                                                    padding: 0;
+                                                    text-align: center;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+//Store Home
+#store.store-home {
+    #ucpcontent {
+        & > table {
+            & > tbody {
+                & > tr {
+                    display: flex;
+                    flex-direction: column;
+                    text-align: left;
+                    
+                    &:not(:nth-child(4)) {
+                        margin-top: var(--space-lg);
+                    }
+
+                    td {
+                        text-align: left;
+                        padding: 0;
+
+                        a {
+                            display: block;
+                            line-height: 160%;
+                            max-width: max-content;
+                            margin-bottom: var(--space-sm);
+
+                            & + br {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    &:nth-child(1),
+                    &:nth-child(2),
+                    &:nth-child(3) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+//Store Shop
+#store.store-shop {
+    #ucpcontent {
+        & > table {
+            display: block;
+
+            & > tbody {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: var(--space-md);
+
+                @include mq-up(sm) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                @include mq-up(md) {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                & > tr {
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    @include mq-up(sm) {
+                        flex: 0 0 calc(50% - calc(var(--space-md) / 2));
+                    }
+
+                    @include mq-up(md) {
+                        flex: 0 0 calc((100% / 3) - calc(var(--space-md) * 2 / 3));
+                    }
+
+                    img {
+                        width: var(--size-store-image);
+                        height: var(--size-store-image);
+                        object-fit: contain;
+                        object-position: center;
+                    }
+                    &:first-child {
+                        display: none;
+                    }
+                    &:last-child {
+                        grid-column: 1 / -1;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+    
+                        a {
+                            display: block;
+                            max-width: max-content;
+                            margin: 0 0 0 auto;
+                            padding: var(--space-sm);
+                            z-index: 1;
+                        }
+
+                        & > td {
+                            display: block;
+                            text-align: left;
+
+                            &:nth-child(2) {
+                                text-align: center;
+                            }
+
+                            &:last-child {
+                                text-align: right;
+                            }
+                        }
+                    }
+                    &:not(:first-child):not(:last-child) {
+                        padding: var(--space-md);
+                        display: grid;
+                        grid-template-columns: var(--size-store-image) 1fr 1fr var(--size-store-image);
+                        grid-template-rows: repeat(auto-fit, minmax(0, max-content));
+                        gap: var(--space-md);
+
+                        & > td {
+                            padding: 0;
+                            text-align: left;
+
+                            &:first-child {
+                                height: var(--size-store-image);
+                                align-self: center;
+                            }
+    
+                            &:nth-child(2) {
+                                grid-column: span 3;
+                                line-height: 160%;
+                                max-width: max-content;
+                                padding: var(--space-xs) 0 var(--space-xs) var(--space-md);
+                            }
+    
+                            &:nth-child(3) {
+                                grid-column: 1 / -1;
+                                padding: var(--space-sm) 0 var(--space-md);
+                            }
+    
+                            &:nth-child(4),
+                            &:nth-child(5) {
+                                grid-column: span 2;
+                            }
+    
+                            &:nth-child(4) {
+                                &::before {
+                                    content: '$';
+                                }
+                            }
+    
+                            &:nth-child(5) {
+                                text-align: right;
+
+                                &::after {
+                                    content: ' In Stock';
+                                }
+                            }
+    
+                            &:nth-child(6):last-child {
+                                grid-column: 1 / -1;
+                                padding: var(--space-md) 0 0;
+    
+                                a {
+                                    display: block;
+                                    max-width: max-content;
+                                    margin: 0 0 0 auto;
+                                    padding: var(--space-sm);
+                                    z-index: 1;
+                                }
+                            }
+    
+                            &:nth-child(6):not(:last-child),
+                            &:nth-child(7):last-child {
+                                grid-column: span 2;
+                                padding: var(--space-md) 0 0;
+                                font-size: 0;
+    
+                                a {
+                                    max-width: max-content;
+                                    margin: 0 0 0 auto;
+                                    padding: var(--space-sm);
+                                    z-index: 1;
+                                    font-size: var(--text-size-md);
+                                }
+                            }
+    
+                            &:nth-child(7):last-child {
+                                a {
+                                    &::before {
+                                        content: 'Buy ';
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//Store Inventory
+#store.store-inventory {
+    #ucpcontent {
+        & > table {
+            display: block;
+
+            & > tbody {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                gap: var(--space-md);
+
+                @include mq-up(sm) {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+
+                @include mq-up(md) {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+
+                & > tr {
+                    display: flex;
+                    flex-wrap: wrap;
+
+                    @include mq-up(sm) {
+                        flex: 0 0 calc(50% - calc(var(--space-md) / 2));
+                    }
+
+                    @include mq-up(md) {
+                        flex: 0 0 calc((100% / 3) - calc(var(--space-md) * 2 / 3));
+                    }
+
+                    img {
+                        width: var(--size-store-image);
+                        height: 24px;
+                        object-fit: contain;
+                        object-position: center;
+                    }
+                    &:first-child {
+                        grid-column: 1 / -1;
+                        display: grid;
+
+                        & > td {
+                            width: 100%;
+                            padding: 0;
+
+                            &:first-child {
+                                line-height: 160%;
+                                max-width: max-content;
+                                display: block;
+                                max-width: max-content;
+                                padding: var(--space-xs) var(--space-sm);
+                            }
+                        }
+                    }
+                    &:nth-child(3),
+                    &:nth-child(2) {
+                        display: none;
+                    }
+                    &:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) {
+                        padding: var(--space-md);
+                        display: grid;
+                        grid-template-columns: var(--size-store-image) calc(100% - var(--size-store-image) - var(--space-md));
+                        grid-template-rows: max-content max-content max-content max-content auto;
+                        gap: var(--space-md);
+
+                        td {
+                            padding: 0;
+                            width: 100%;
+
+                            &:first-child {
+                                order: 1;
+                            }
+    
+                            &:nth-child(2) {
+                                order: 2;
+                                line-height: 160%;
+                                max-width: max-content;
+                                padding: var(--space-xs) 0 var(--space-xs) var(--space-md);
+                            }
+
+                            &:not(:first-child):not(:nth-child(2)) {
+                                grid-column: 1 / -1;
+                            }
+    
+                            &:nth-child(3) {
+                                text-align: justify;
+                                order: 4;
+                                padding: var(--space-sm) 0 0;
+
+                                &:empty {
+                                    display: none;
+                                }
+                            }
+    
+                            &:nth-child(4) {
+                                flex: 0 0 100%;
+                                order: 3;
+                                text-align: left;
+                                margin-bottom: calc(-1 * var(--space-xs));
+    
+                                &::after {
+                                    content: ' Owned';
+                                }
+                            }
+    
+                            &:last-child {
+                                display: flex;
+                                align-items: end;
+                                flex: 0 0 100%;
+                                order: 5;
+                                padding: var(--space-md) 0 0;
+    
+                                a {
+                                    display: block;
+                                    max-width: max-content;
+                                    margin: 0 0 0 auto;
+                                    padding: var(--space-sm);
+                                    z-index: 1;
+                                }
+    
+                                br {
+                                    display: none;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//Store Forms
+#store.store-donate_money,
+#store.store-donate_item,
+#store.store-fine,
+#store.store-edit_points,
+#store.store-do_edit_points,
+#store.store-edit_inventory {
+    #ucpcontent {
+        & > table {
+            & > tbody {
+                & > tr {
+                    &:not(:last-child) {
+                        display: grid;
+    
+                        @include mq-up(sm) {
+                            grid-template-columns: 250px calc(100% - 265px);
+                        }
+    
+                        & > td {
+                            width: 100%;
+                        }
+                        .pformleft:first-child {
+                            b,
+                            strong,
+                            label {
+                                display: block;
+                                line-height: 160%;
+                                max-width: max-content;
+                                padding: var(--space-xs) var(--space-sm);
+    
+                                & ~ br {
+                                    display: none;
+                                }
+                            }
+                        }
+                        .pformleft + .pformleft {
+                            display: flex;
+                            height: max-content;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+//Store Edit Inventory Item List
+#store.store-do_staff_inventory {
+    #ucpcontent {
+        & > table {
+            display: block;
+
+            & > tbody {
+                display: flex;
+                flex-wrap: wrap;
+                gap: var(--space-xs);
+
+                @include mq-up(xxs) {
+                    gap: var(--space-md);
+                }
+
+                & > tr {
+                    display: flex;
+                    flex-wrap: wrap;
+                    height: max-content;
+                    flex: 0 0 100%;
+
+                    @include mq-up(sm) {
+                        flex: 0 0 calc(50% - ( var(--space-md) / 2));
+                    }
+
+                    @include mq-up(md) {
+                        flex: 0 0 calc((100% / 3) - ( var(--space-lg) * 2 / 3));
+                    }
+
+                    img {
+                        width: var(--size-store-image);
+                        height: var(--size-store-image);
+                        object-fit: contain;
+                        object-position: center;
+                    }
+
+                    & > td {
+                        padding: 0;
+                        height: max-content;
+                        text-align: left;
+
+                        &:first-child {
+                            flex: 0 0 calc(var(--space-lg) + var(--size-store-image));
+                            padding: var(--space-sm) 0 0 var(--space-sm);
+
+                            @include mq-up(xxs) {
+                                padding: var(--space-md) 0 0 var(--space-md);
+                            }
+                        }
+
+                        &:nth-child(2) {
+                            flex: 0 0 calc(100% - (var(--space-lg) + var(--size-store-image) + 10px));
+                        }
+
+                        &:nth-child(3) {
+                            flex: 0 0 calc(100% - var(--space-sm));
+                            text-align: justify;
+
+                            @include mq-up(xxs) {
+                                flex: 0 0 calc(100% - var(--space-md));
+                            }
+
+                            &:empty {
+                                display: none;
+                            }
+                        }
+
+                        &:nth-child(4) {
+                            display: none;
+                        }
+
+                        &:nth-child(5) {
+                            flex: 0 0 100%;
+
+                            .input-wrap {
+                                &::after {
+                                    content: 'Delete';
+                                }
+                            }
+                        }
+                    }
+                    &:first-child,
+                    &:nth-last-child(2):not(:nth-child(2)) {
+                        display: none;
+                    }
+                    &:last-child {
+                        flex: 0 0 100%;
+                        border: none;
+                        
+                        td {
+                            flex: 0 0 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

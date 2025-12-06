@@ -1,0 +1,230 @@
+/*******************************
+    Extensions
+
+    Want these to be clean without repeated CSS on build? Follow the mixin template:
+
+    @mixin nameHere() {
+        styles
+    }
+
+    Then, in the file you want to use it, call it as an include:
+
+    .className {
+        @include nameHere;
+    }
+********************************/
+/*******************************
+    Navigation
+********************************/
+.nav {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  z-index: 10;
+  background: white; }
+  .nav--top {
+    z-index: 11;
+    top: 0;
+    left: var(--size-menu-width);
+    height: var(--size-menu-height);
+    width: calc(100% - var(--size-menu-width));
+    border-bottom: 1px solid black; }
+    .nav--top #navstrip {
+      flex: 0 0 auto;
+      height: max-content;
+      line-height: 160%;
+      display: flex;
+      flex-wrap: wrap;
+      max-width: calc(100% - var(--size-menu)); }
+  .nav--left {
+    top: 0;
+    left: 0;
+    width: var(--size-menu-width);
+    height: 100vh;
+    flex-direction: column;
+    border-right: 1px solid black;
+    gap: var(--space-md); }
+  .nav .button--menu,
+  .nav > a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition-duration: var(--transition-standard-duration);
+    border: none;
+    background: none;
+    width: 100%;
+    height: var(--size-menu-width);
+    padding: 0;
+    margin: 0; }
+    body.g-2 .nav .button--menu.guestOnly,
+    body.g-4 .nav .button--menu.staffOnly, body.g-2
+    .nav > a.guestOnly,
+    body.g-4
+    .nav > a.staffOnly {
+      display: flex; }
+  .nav--inline {
+    width: 100%; }
+    .nav--inline .button--menu:not(.is-open) .fa-xmark,
+    .nav--inline .button--menu.is-open i:not(.fa-xmark) {
+      display: none; }
+  .nav--popout {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    background: white;
+    padding: var(--space-md);
+    transform: scaleX(0);
+    opacity: 0;
+    transition-duration: var(--transition-tab-duration);
+    transform-origin: left;
+    z-index: 9; }
+    .nav--popout:not(.fullHeight) {
+      border: 1px solid black;
+      border-left-width: 0; }
+    .nav--popout.fullHeight {
+      top: var(--size-menu-height);
+      position: fixed;
+      left: var(--size-menu-width);
+      width: calc(100% - var(--size-menu-width));
+      height: calc(100vh - var(--size-menu-height));
+      max-width: 350px;
+      border-right: 1px solid black; }
+    .nav--popout.is-open {
+      transform: scaleX(1);
+      opacity: 1; }
+    .nav--popout > .scroll {
+      display: grid;
+      gap: var(--space-sm); }
+    .nav--popout.options button {
+      display: grid;
+      align-items: center;
+      gap: var(--space-sm);
+      background: none;
+      border: none;
+      grid-template-columns: 1fr 1fr;
+      color: black; }
+      .nav--popout.options button div {
+        width: var(--space-lg);
+        height: var(--space-xs);
+        border-radius: calc(var(--space-xs) / 2);
+        background: #cccccc;
+        transition-duration: var(--transition-standard-duration);
+        cursor: pointer; }
+        .nav--popout.options button div span {
+          display: block;
+          width: 9px;
+          height: 9px;
+          margin: -2px auto -2px 0;
+          border-radius: 50%;
+          background: black;
+          transition-duration: var(--transition-standard-duration); }
+      body.light .nav--popout.options button.toggle--theme div,
+      body.xlFont .nav--popout.options button.toggle--size div {
+        background: #4680a4; }
+        body.light .nav--popout.options button.toggle--theme div span,
+        body.xlFont .nav--popout.options button.toggle--size div span {
+          margin: -2px 0 -2px auto; }
+      body.lgFont .nav--popout.options button.toggle--size div::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        background: #4680a4;
+        border-radius: 2.5px; }
+      body.lgFont .nav--popout.options button.toggle--size div span {
+        margin: -2px auto; }
+  .nav #quick-login {
+    width: calc(100vw - var(--size-menu-width) - var(--space-lg));
+    max-width: 200px; }
+    .nav #quick-login form > div {
+      display: grid;
+      gap: var(--space-xs);
+      text-align: center; }
+      .nav #quick-login form > div strong {
+        display: none; }
+
+.switch {
+  display: grid;
+  gap: var(--space-sm); }
+  .switch--block {
+    display: grid;
+    grid-template-columns: var(--size-switcher-image) auto;
+    gap: var(--space-md);
+    cursor: pointer; }
+    .switch--block input {
+      display: none; }
+  .switch--image {
+    width: var(--size-switcher-image);
+    height: var(--size-switcher-image);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; }
+
+.alert--menu {
+  display: flex;
+  gap: var(--space-sm);
+  height: var(--size-switcher-image);
+  flex-wrap: wrap;
+  justify-content: end;
+  border-bottom: 1px solid black;
+  padding-bottom: var(--space-sm);
+  margin-bottom: var(--space-sm); }
+  .alert--menu a {
+    width: var(--space-lg);
+    height: var(--space-lg); }
+    .alert--menu a .fa-xmark {
+      right: -0.1em; }
+
+.alert--main {
+  max-height: calc(100% - var(--space-lg) - var(--space-sm)); }
+  .alert--main > div:not(.row2) {
+    display: none; }
+  .alert--main .recent-alerts-msg {
+    font-size: 0;
+    display: grid;
+    align-items: center;
+    grid-template-columns: var(--size-switcher-image) 1fr; }
+    .alert--main .recent-alerts-msg > div:only-of-type {
+      grid-column: 1 / -1;
+      font-size: var(--size-lg); }
+    .alert--main .recent-alerts-msg br {
+      display: none; }
+    .alert--main .recent-alerts-msg > img {
+      grid-row: 1 / 3;
+      width: var(--size-switcher-image);
+      height: var(--size-switcher-image); }
+    .alert--main .recent-alerts-msg > a {
+      border: none;
+      padding: 0 0 0 var(--space-md);
+      text-align: left;
+      justify-content: start; }
+      .alert--main .recent-alerts-msg > a:hover {
+        background: none;
+        color: var(--text-accent); }
+    .alert--main .recent-alerts-msg:not(.reg-alert) > a:first-of-type {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      font-size: var(--size-md); }
+    .alert--main .recent-alerts-msg:not(.reg-alert) > a:nth-of-type(2):not(:last-of-type) {
+      display: none; }
+    .alert--main .recent-alerts-msg:not(.reg-alert) > a:last-of-type {
+      grid-row: 1 / 2;
+      grid-column: 2 / 3;
+      font-size: var(--size-md); }
+    .alert--main .recent-alerts-msg.reg-alert > a {
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      font-size: var(--size-md); }
+    .alert--main .recent-alerts-msg.reg-alert::after {
+      content: 'New Registration';
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+      font-size: var(--size-md);
+      padding: 0 0 0 var(--space-md); }
+
+[data-new]:not([data-new="0"]) {
+  background: black;
+  color: white; }

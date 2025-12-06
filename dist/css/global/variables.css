@@ -1,0 +1,40 @@
+/*******************************
+    Extensions
+
+    Want these to be clean without repeated CSS on build? Follow the mixin template:
+
+    @mixin nameHere() {
+        styles
+    }
+
+    Then, in the file you want to use it, call it as an include:
+
+    .className {
+        @include nameHere;
+    }
+********************************/
+/*******************************
+    Variables
+********************************/
+:root {
+  --text-size-xs: 8px;
+  --text-size-sm: 10px;
+  --text-size-md: 12px;
+  --text-size-lg: 14px;
+  --text-size-xl: 16px;
+  --space-xs: 5px;
+  --space-sm: 10px;
+  --space-md: 15px;
+  --space-lg: 30px;
+  --space-xl: 60px;
+  --transition-standard-duration: 0.3s;
+  --transition-tab-duration: 0.5s;
+  --bg-overlay: rgba(0, 0, 0, 0.8);
+  --size-alert-max-height: 80px;
+  --size-menu-height: 30px;
+  --size-menu-width: 30px;
+  --size-store-image: 24px;
+  --size-switcher-image: 40px; }
+  @media (min-width: 601px) {
+    :root {
+      --size-alert-max-height: 150px; } }

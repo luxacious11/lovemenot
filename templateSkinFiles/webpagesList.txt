@@ -1,0 +1,12 @@
+--------------------------------------------
+|  Key      |  Get Contents From            |
+--------------------------------------------
+| header    | /source/templates/header.html |
+| temp-css  | /dist/css/templates.css       |
+| set-css   | /dist/css/settings.css        |
+| menus     | /source/templates/nav.html    |
+| scripts   | /dist/js/scripts.js           |
+| utilities | /dist/js/utilities.js         |
+| functions | /dist/js/functions.js         |
+| set-js    | /dist/js/settings.js          |
+--------------------------------------------

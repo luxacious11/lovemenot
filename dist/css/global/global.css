@@ -1,0 +1,129 @@
+/*******************************
+    Extensions
+
+    Want these to be clean without repeated CSS on build? Follow the mixin template:
+
+    @mixin nameHere() {
+        styles
+    }
+
+    Then, in the file you want to use it, call it as an include:
+
+    .className {
+        @include nameHere;
+    }
+********************************/
+/*******************************
+    Global
+********************************/
+body {
+  padding: calc(var(--size-menu-height) + var(--space-lg)) var(--space-lg) var(--space-lg) calc(var(--size-menu-width) + var(--space-lg)); }
+
+.scroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+  max-height: 100%;
+  padding-right: var(--space-md);
+  margin-right: calc(-1 * var(--space-md));
+  scrollbar-width: thin;
+  scrollbar-color: black transparent; }
+  .scroll::-webkit-scrollbar {
+    width: 6px; }
+  .scroll::-webkit-scrollbar-track {
+    background: transparent; }
+  .scroll::-webkit-scrollbar-thumb {
+    background: black; }
+  .scroll.accent {
+    scrollbar-color: red transparent; }
+    .scroll.accent::-webkit-scrollbar-thumb {
+      background: red; }
+
+.macro--button[onclick] {
+  cursor: pointer; }
+  .is-open > .macro--button[onclick] .open-button {
+    display: none; }
+  *:not(.is-open) > .macro--button[onclick] .close-button {
+    display: none; }
+  *:not(.is-open) > .macro--button[onclick] + tag-labels,
+  *:not(.is-open) > .macro--button[onclick] ~ .accordion {
+    display: none; }
+
+tag-tabset {
+  display: flex;
+  overflow: hidden; }
+  tag-tabset > tag-tab {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    top: 0;
+    left: 0;
+    transition-duration: var(--transition-tab-duration); }
+
+tag-labels {
+  display: flex;
+  flex-direction: column; }
+  tag-labels .tab-category.accordion--content:not(:last-child) {
+    margin-bottom: var(--space-lg); }
+  tag-labels .tab-category.accordion--content.is-active {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm); }
+
+.accordion--trigger {
+  cursor: pointer; }
+
+.accordion--content:not(.is-active) {
+  display: none; }
+
+.invisibleElTagging.menu-open + .alert-options .fa-tags,
+.invisibleElTagging:not(.menu-open) + .alert-options .fa-xmark {
+  display: none; }
+
+.invisibleElTagging,
+.invisibleEl {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 0;
+  background: var(--bg-overlay);
+  transition-duration: var(--transition-tab-duration); }
+  .invisibleElTagging.menu-open,
+  .invisibleEl.menu-open {
+    height: 100vh;
+    z-index: 2; }
+
+.alert-select {
+  display: none;
+  position: absolute;
+  top: calc(100% + 11px + var(--space-sm));
+  right: 0;
+  z-index: 5;
+  background: white;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  max-width: 500px;
+  text-align: left; }
+  @media (min-width: 601px) {
+    .alert-select {
+      grid-template-columns: repeat(3, 1fr);
+      width: calc(100vw - 35px); } }
+  .alert-select.is-open {
+    display: grid; }
+  .alert-select .alert-section .scroll {
+    max-height: var(--size-alert-max-height); }
+  .alert-select .alert-section .input-wrap:not(:last-child) {
+    margin-bottom: var(--space-xs); }
+  .alert-select .alert-section .input-wrap .fancy-input::before {
+    font-family: 'Font Awesome 6 Pro'; }
+  .alert-select .alert-section label {
+    cursor: pointer; }
+  .alert-select .alert-section hr {
+    border: 0;
+    border-top: 1px solid black;
+    margin: var(--space-sm) 0; }
+  .alert-select input[type="button"] {
+    grid-column: 1 / -1;
+    cursor: pointer;
+    margin: 0 auto; }

@@ -1,0 +1,368 @@
+<?xml version="1.0"?>
+		<skin>
+
+		<skinname>Lux Personal Base</skinname>
+
+		<templates>
+		 <item name='board_stats'><section class="category"><div id="quick-login" class="hidden"><!-- |quick_login| --></div>
+                <a href="?act=Members&name=&name_box=contains&filter=ALL&sort_key=name&sort_order=asc&max_results=1000">Member List</a>
+                <a href="?act=Online&CODE=listall&sort_key=click">Online By Click</a>
+                <a href="?act=Search&CODE=getactive">Active Topics</a>
+	<div class="stats--recent"></div>
+</section></item>
+ <item name='post_row'><a name='entry<!-- |pid| -->' class="anchorLink"></a>
+<section class="post g-7 type-Character p-1" data-full-name="<!-- |author_name| -->" data-author="<!-- |field_3| -->">
+        <a href="javascript:void(0)" class="post--permalink" data-clipboard-text="<!-- |permalink| -->"><div class="macro--small" title="Get Link"><i class="fa-regular fa-link"></i></div></a>
+        <!-- |edit_button| -->
+        <!-- |quote_button| -->
+        <!-- |delete_button| -->
+        <!-- |report_link| -->
+        <label class="staffOnly input-wrap">
+        	<!-- |mod_checkbox| -->
+        	<div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+        </label>
+        <!-- |mini_profile| -->
+	<div class="post--content"><div id="pid_<!-- |pid| -->"><!-- THE POST <!-- |pid| --> --><div class='postcolor'><!-- |post| --></div><!-- |signature| --><!-- THE POST --></div></div>
+</section></item>
+ <item name='profile'><section class="profile g-<!-- |g_id| --> type--<!-- |field_1| -->">
+	<div class="profile--header"><h1></h1></div>
+        <b>Ratings</b>
+        <lang-clip></lang-clip>
+        <sex-clip></sex-clip>
+        <vio-clip></vio-clip>
+	<span class="hidden"><!-- |subaccounts| --></span>
+</section>
+<script src="https://files.jcink.net/uploads2/godlybehaviour/GB25/fizzyelf_profile_tracker.js"></script>
+<script>
+    let ratings = [
+      {'type': 'lang','value': '<!-- |field_4| -->'},
+      {'type': 'sex','value': '<!-- |field_5| -->'},
+      {'type': 'vio','value': '<!-- |field_6| -->'}
+    ];
+    let images = {
+      'tall-1': `<!-- |field_7| -->`,
+      'tall-2': `<!-- |field_8| -->`,
+      'wide-1': `<!-- |field_9| -->`,
+      'square-1': `<!-- |field_10| -->`,
+      'square-2': `<!-- |field_11| -->`,
+      'square-3': `<!-- |field_12| -->`,
+    };
+    let birthday = {
+      'year': `<!-- |field_13| -->`,
+      'month': setMonth(`<!-- |field_14| -->`),
+      'day': `<!-- |field_15| -->`,
+    }
+    
+    if(oocGroups.includes(`<!-- |g_id| -->`) || (optGroups.includes(`<!-- |g_id| -->`) && `<!-- |field_1| -->`.toLowerCase() === `member`)) {
+      initMember();
+    } else {
+      initCharacter(`<!-- |field_2| -->`, images, `<!-- |field_16| -->`, `<!-- |name| -->`, birthday);
+    }
+    
+    initProfile(`<!-- |name| -->`, ratings);
+</script></item>
+ <item name='memberlist_head'><script type='text/javascript' src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/2.2.2/isotope.pkgd.min.js"></script>
+<div id="loading">
+    <div class="loading-bubble">
+        <i class="fa-regular fa-spinner fa-spin"></i>
+        <p>Loading</p>
+    </div>
+</div>
+
+<section class="members">
+    <div class="members--menu">
+        <button class="macro--button" onclick="toggleListMenu(this)">
+            <i class="fa-solid fa-bars open-button"></i>
+            <i class="fa-solid fa-xmark close-button"></i>
+        </button>
+        <input id="quicksearch" class="forminput members--search" type="text" size="25" name="name" value="" placeholder="Filter by name...">
+        <div class="accordion scroll">
+            <!-- |pages| -->
+            <div class="accordion--trigger">
+                <span>Sort By</span>
+            </div>
+            <div class="accordion--content members--sort-buttons">
+                <button type="button" class="members--sort is-checked" data-sort="nameAsc">Name (A - Z)</button>
+                <button type="button" class="members--sort" data-sort="nameDesc">Name (Z - A)</button>
+                <button type="button" class="members--sort" data-sort="ageAsc">Age (Asc)</button>
+                <button type="button" class="members--sort" data-sort="ageDesc">Age (Desc)</button>
+                <button type="button" class="members--sort" data-sort="postsAsc">Posts (Asc)</button>
+                <button type="button" class="members--sort" data-sort="postsDesc">Posts (Desc)</button>
+                <button type="button" class="members--sort" data-sort="newest">Newest</button>
+                <button type="button" class="members--sort" data-sort="oldest">Oldest</button>
+            </div>
+            <div class="accordion--trigger">
+                <span>Status</span>
+            </div>
+            <div class="accordion--content members--filter-group" data-filter-group="status">
+                <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all</label>
+                <label><input type="checkbox" value=".active">active</label>
+                <label><input type="checkbox" value=".pending">pending</label>
+            </div>
+            <div class="accordion--trigger">
+                <span>Type</span>
+            </div>
+            <div class="accordion--content members--filter-group" data-filter-group="type">
+                <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all</label>
+                <label><input type="checkbox" value=".character">character</label>
+                <label><input type="checkbox" value=".writer">writer</label>
+            </div>
+            <div class="accordion--trigger">
+                <span>Alias</span>
+            </div>
+            <div class="accordion--content members--filter-group" data-filter-group="alias">
+                <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all</label>
+            </div>
+            <div class="accordion--trigger">
+                <span>Age</span>
+            </div>
+            <div class="accordion--content members--filter-group" data-filter-group="age">
+                <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all</label>
+                <label><input type="checkbox" value=".1825">18 - 25</label>
+                <label><input type="checkbox" value=".2635">26 - 35</label>
+                <label><input type="checkbox" value=".3645">36 - 45</label>
+                <label><input type="checkbox" value=".4655">46 - 55</label>
+                <label><input type="checkbox" value=".55">56+</label>
+            </div>
+            <div class="accordion--trigger">
+                <span>Relationship</span>
+            </div>
+            <div class="accordion--content members--filter-group" data-filter-group="relationship">
+                <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all</label>
+                <label><input type="checkbox" value=".single">single</label>
+                <label><input type="checkbox" value=".dating">dating</label>
+                <label><input type="checkbox" value=".engaged">engaged</label>
+                <label><input type="checkbox" value=".married">married</label>
+                <label><input type="checkbox" value=".itscomplicated">complicated</label>
+                <label><input type="checkbox" value=".separated">separated</label>
+                <label><input type="checkbox" value=".divorced">divorced</label>
+                <label><input type="checkbox" value=".widowed">widowed</label>
+            </div>
+            <div class="accordion--trigger">
+                <span>Location</span>
+            </div>
+            <div class="accordion--content members--filter-group" data-filter-group="location">
+                <label class="all is-checked"><input type="checkbox" class="all" value="" checked="">all</label>
+                <label><input type="checkbox" value=".location">Location 1</label>
+                <label><input type="checkbox" value=".location2">Location 2</label>
+            </div>
+        </div>
+    </div>
+    <div class="members--list"><div class="members--list-inner"><form action='index.php' method='get'><input type='hidden' name='act' value='Members' />
+        <div class="scroll"><div id="members--rows"><div class="member-sizer"></div></div></div>
+    </form></div></div>
+    <script>
+        //remove loading screen
+        document.onreadystatechange = function() {
+            if (
+                (document.querySelectorAll('body#Members').length > 0 && document.readyState === "complete")
+                || (document.querySelectorAll('body#Members').length === 0 && document.readyState === "interactive")
+            ) {
+                document.querySelector('body').classList.remove('loading');
+                document.querySelector('#loading').remove();
+            }
+        };
+
+
+        //set variables
+        let accounts = [];
+        let filters = {};
+        let $container = $('#members--rows');
+        let typeSearch = `#quicksearch`;
+        let memName = `.member--name`;
+        let visible = `is-visible`;
+        let filterGroup = `.members--filter-group`;
+        let filterOptions = `.members--filter-group input`;
+        let sorts = `.members--sort-buttons button`;
+        let gridItem = `.grid-item`;
+        let defaultShow = `.active.character`;
+
+        <% MEMBERLIST_ROWS %>
+
+        populatePage(accounts);
+
+        //initialize isotope
+        // quick search regex
+        let qsRegex;
+        let elements = document.querySelectorAll(gridItem);
+        
+        // init Isotope
+        $(window).on('load', function() {
+            $container.isotope({
+                itemSelector: gridItem,
+                percentPosition: true,
+                masonry: {
+                    columnWidth: '.member-sizer',
+                    gutter: 30
+                },
+                filter: defaultShow,
+                sortBy: 'name',
+                getSortData: {
+                    nameAsc: '.member--name',
+                    nameDesc: '.member--name',
+                    ageAsc: '.member--age parseInt',
+                    ageDesc: '.member--age parseInt',
+                    postsAsc: '.member--posts parseInt',
+                    postsDesc: '.member--posts parseInt',
+                    newest: function ($elem) {
+                        return Date.parse($elem.querySelector('.member--join').innerText);
+                    },
+                    oldest: function ($elem) {
+                        return Date.parse($elem.querySelector('.member--join').innerText);
+                    },
+                },
+                sortAscending: {
+                    nameAsc: true,
+                    nameDesc: false,
+                    ageAsc: true,
+                    ageDesc: false,
+                    postsAsc: true,
+                    postsDesc: false,
+                    newest: false,
+                    oldest: true,
+                }
+            });
+
+            //handle filter storage
+            let queryParamsArray = window.location.search.split('&').map(param => param.split('='));
+            let queryParams = {};
+            queryParamsArray.forEach(param => {
+                queryParams[param[0]] = param[1];
+            });
+            for (const param in queryParams) {
+                if(param !== '') {
+                    let key = param;
+                    let values = queryParams[param].split('_');
+    
+                    if(document.querySelector(`[data-filter-group="${key}"]`) && values.length > 0) {
+                        document.querySelector(`[data-filter-group="${key}"] .all`).classList.remove('is-checked');
+                        values.forEach(value => {
+                            document.querySelector(`[data-filter-group="${key}"] [value="${value}"]`)
+                            .closest('label')
+                            .classList.add('is-checked');
+                        });
+                        setCustomFilter();
+                    }
+                }
+            }
+
+            if(window.location.search.split('typesearch=')[1]) {
+                document.querySelector(typeSearch).value = window.location.search.split('typesearch=')[1].split('&')[0];
+                setCustomFilter();
+            }
+        });
+    
+        //use value of input select to filter
+        let checkboxes = document.querySelectorAll(filterOptions);
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', e => {
+                if(e.currentTarget.classList.contains('all')) {
+                    e.currentTarget.checked = true;
+                    e.currentTarget.parentElement.classList.add('is-checked');
+                    e.currentTarget.parentElement.parentElement.querySelectorAll('input:not(.all)').forEach(input => {
+                        input.checked = false;
+                        input.parentElement.classList.remove('is-checked');
+                    });
+                } else {
+                    if(e.currentTarget.parentElement.classList.contains('is-checked')) {
+                        e.currentTarget.checked = false;
+                        e.currentTarget.parentElement.classList.remove('is-checked');
+                    } else {
+                        e.currentTarget.checked = true;
+                        e.currentTarget.parentElement.classList.add('is-checked');
+                        e.currentTarget.parentElement.parentElement.querySelector('input.all').checked = false;
+                        e.currentTarget.parentElement.parentElement.querySelector('input.all').parentElement.classList.remove('is-checked');
+                    }
+                }
+                let labels = e.currentTarget.parentElement.parentElement.querySelectorAll('label');
+                let checked = 0;
+                labels.forEach(label => {
+                    if(label.classList.contains('is-checked')) {
+                        checked++;
+                    }
+                });
+                if(checked === 0) {
+                    e.currentTarget.parentElement.parentElement.querySelector('input.all').checked = true;
+                    e.currentTarget.parentElement.parentElement.querySelector('input.all').parentElement.classList.add('is-checked');
+                }
+                //set filters
+                setCustomFilter();
+            });
+        });
+    
+        // use value of search field to filter
+        document.querySelector(typeSearch).addEventListener('keyup', e => {
+        appendSearchQuery('typesearch', e.currentTarget.value);
+            setCustomFilter();
+        });
+
+        // bind sort button click
+        let sortButtons = document.querySelectorAll(sorts);
+        sortButtons.forEach(button => {
+            button.addEventListener('click', e => {
+                let sortValue = e.currentTarget.dataset.sort;
+                $container.isotope({ sortBy: sortValue });
+                sortButtons.forEach(button => {
+                    button.classList.remove('is-checked');
+                });
+                e.currentTarget.classList.add('is-checked');
+            });
+        });
+    </script>
+</section></item>
+ <item name='memberlist_row'>var age = calculateAge({
+    'year': `<!-- |field_13| -->`,
+    'month': `<!-- |field_14| -->`,
+    'day': `<!-- |field_15| -->`,
+});
+
+var ageClass = setAgeClass(age);
+
+var accountType = `<!-- |field_1| -->`.toLowerCase();
+if(staffGroups.includes(parseInt(`<!-- |g_id| -->`))) {
+    accountType = `staff`;
+}
+if(accountType === `member`) {
+    accountType = `writer`;
+}
+
+accounts.push({
+        universal: {
+            name: standardizeLower(`<!-- |member_name| -->`),
+            id: parseInt(`<!-- |id| -->`),
+            groupID: parseInt(`<!-- |g_id| -->`),
+            groupName: standardizeLower(`<!-- |group| -->`),
+            imageWide: `<!-- |field_18| -->`,
+            type: standardizeLower(accountType),
+            parentID: parseInt(`<!-- |parent_id| -->`),
+            posts: parseInt(`<!-- |posts| -->`),
+            dates: {
+                joined: `<!-- |joined| -->`,
+                lastActive: `<!-- |last_activity| -->`,
+                lastPost: `<!-- |last_post| -->`
+            }
+        },
+        character: {
+            pronouns: standardizeLower(`<!-- |field_24| -->`),
+            relationship: standardizeLower(`<!-- |field_25| -->`),
+            relationshipClass: standardizeLower(cleanText(`<!-- |field_25| -->`)),
+            age: age,
+            ageClass: ageClass,
+            location: standardizeLower(`<!-- |field_26| -->`),
+            locationClass: standardizeLower(cleanText(`<!-- |field_26| -->`)),
+            overview: `<!-- |field_27| -->`,
+        },
+        writer: {
+            aliasClass: standardizeLower(cleanText(`<!-- |field_3| -->`)),
+            alias: standardizeLower(`<!-- |field_3| -->`),
+            age: parseInt(`<!-- |field_19| -->`),
+            pronouns: standardizeLower(`<!-- |field_20| -->`),
+            timezone: standardizeLower(`<!-- |field_21| -->`),
+            contact: standardizeLower(`<!-- |field_22| -->`),
+            triggers: `<!-- |field_23| -->`,
+        }
+    });</item>
+
+		</templates>
+				
+		</skin>

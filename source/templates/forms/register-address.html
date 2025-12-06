@@ -1,0 +1,51 @@
+<form class="form-address" data-type="grid" data-columns="2">
+    <label class="fullWidth">
+        <b>Address Type</b>
+        <span><select id="type" required>
+            <option value="">(select)</option>
+            <option value="residential">Residential</option>
+            <option value="business">Business</option>
+        </select></span>
+    </label>
+    <label class="hidden residentOnly fullWidth">
+        <b>Profile</b>
+        <span><input type="text" id="id" placeholder="URL or ID" /></span>
+    </label>
+    <label class="hidden businessOnly fullWidth">
+        <b>Business Name</b>
+        <span><select id="employer" class="clip-businesses"></select></span>
+    </label>
+    <label class="hidden typeOnly">
+        <b>Region</b>
+        <span><select id="region" required>
+            <option value="">(select)</option>
+            <option value="location1">Location 1</option>
+            <option value="location2">Location 2</option>
+        </select></span>
+    </label>
+    <label class="hidden typeOnly">
+        <b>Neighborhood</b>
+        <span><select id="neighbourhood" required>
+            <option value="">(select)</option>
+            <option value="1" class="hidden loc1Only">Location 1 Neighbourhood 1</option>
+            <option value="2" class="hidden loc1Only">Location 1 Neighbourhood 2</option>
+            <option value="3" class="hidden loc1Only">Location 1 Neighbourhood 3</option>
+            <option value="4" class="hidden loc2Only">Location 2 Neighbourhood 1</option>
+            <option value="5" class="hidden loc2Only">Location 2 Neighbourhood 2</option>
+            <option value="6" class="hidden loc2Only">Location 2 Neighbourhood 3</option>
+        </select></span>
+    </label>
+    <label class="fullWidth hidden typeOnly">
+        <b>Street Name</b>
+        <span><input type="text" id="street" placeholder="Street Name" required /></span>
+    </label>
+    <label class="hidden typeOnly">
+        <b>House / Building Number</b>
+        <span><input type="number" id="houseNumber" min="1" placeholder="1" required /></span>
+    </label>
+    <label class="hidden typeOnly">
+        <b>Unit Number (optional)</b>
+        <span><input type="number" id="apartmentNumber" min="1" placeholder="1" /></span>
+    </label>
+    <button type="submit" id="submit" class="fullWidth">Submit</button>
+</form>

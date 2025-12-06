@@ -1,0 +1,99 @@
+<form id="form-edit-character" data-type="grid">
+    <label>
+        <b>Profile</b>
+        <span><input type="text" id="accountid" placeholder="URL or ID" required=""></span>
+    </label>
+    <div class="form-multiselect" data-type="flex">
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-character" value="character">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Update Name</strong>
+        </label>
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-character" value="group">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Update Group</strong>
+        </label>
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-character" value="jobs-add">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Add Job(s)</strong>
+        </label>
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-character" value="jobs-change">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Change Job(s)</strong>
+        </label>
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-character" value="jobs-remove">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Remove Job(s)</strong>
+        </label>
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-character" value="roles-add">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Add Subplot Role(s)</strong>
+        </label>
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-character" value="roles-change">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Change Subplot Role(s)</strong>
+        </label>
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-character" value="roles-remove">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Remove Subplot Role(s)</strong>
+        </label>
+    </div>
+    <label class="hidden ifName">
+        <b>Name</b>
+        <span><input type="text" id="character" placeholder="Character Name"></span>
+    </label>
+    <label class="hidden ifGroup">
+        <b>Group</b>
+        <span><select id="group">
+            <option value="">(select)</option>
+            <option value="GROUP ID">Group Name</option>
+            <option value="GROUP ID">Group Name</option>
+            <option value="GROUP ID">Group Name</option>
+            <option value="GROUP ID">Group Name</option>
+        </select></span>
+    </label>
+    <div class="hidden ifJobAdd adjustable field-wrap">
+        <b>Add Job(s)</b>
+        <div class="rows jobs-wrap" data-type="grid"></div>
+        <div class="multi-buttons" data-row-type="jobs">
+            <button type="button" onclick="addRow(this)">+ New Row</button>
+            <button type="button" onclick="removeRow(this)">- Remove Row</button>
+        </div>
+    </div>
+    <div class="hidden ifJobChange field-wrap">
+        <b>Change Job(s)</b>
+        <div id="clip-job-change" data-type="grid" data-gap="sm"></div>
+        <blockquote>There are no submitted characters matching the profile entered. Please confirm you have entered a profile correctly in the field above.</blockquote>
+    </div>
+    <div class="hidden ifJobRemove field-wrap">
+        <b>Remove Job(s)</b>
+        <div id="clip-job-remove"></div>
+        <blockquote>There are no submitted characters matching the profile entered. Please confirm you have entered a profile correctly in the field above.</blockquote>
+    </div>
+    <div class="hidden ifRoleAdd adjustable field-wrap">
+        <b>Add Role(s)</b>
+        <div class="rows roles-wrap" data-type="grid"></div>
+        <div class="multi-buttons" data-row-type="roles">
+            <button type="button" onclick="addRow(this)">+ New Row</button>
+            <button type="button" onclick="removeRow(this)">- Remove Row</button>
+        </div>
+    </div>
+    <div class="hidden ifRoleChange field-wrap">
+        <b>Change Role(s)</b>
+        <div id="clip-role-change"></div>
+        <blockquote>There are no submitted characters matching the profile entered. Please confirm you have entered a profile correctly in the field above.</blockquote>
+    </div>
+    <div class="hidden ifRoleRemove field-wrap">
+        <b>Remove Role(s)</b>
+        <div id="clip-role-remove"></div>
+        <blockquote>There are no submitted characters matching the profile entered. Please confirm you have entered a profile correctly in the field above.</blockquote>
+    </div>
+    <button type="submit" id="submit" class="fullWidth">Submit</button>
+</form>

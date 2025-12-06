@@ -1,0 +1,119 @@
+<div class="invisibleEl"></div>
+<nav class="nav nav--top">
+    <div id="navstrip" align="left">&nbsp;<a href="@@prefix/public/index.html">Site Name</a></div>
+</nav>
+<nav class="nav nav--left">
+    <a href="/" title="Index"><i class="fa-solid fa-home"></i></a>
+    <div class="nav--inline guestOnly">
+        <button onclick="toggleMenu(this)" class="button--menu" title="Login">
+            <i class="fa-solid fa-sign-in"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <nav class="nav--popout">
+            <div class="scroll" id="quick-login-clip"></div>
+        </nav>
+    </div>
+    <a href="@@prefix/public/defaults/register1.html" class="guestOnly" title="Register"><i class="fa-solid fa-user-plus"></i></a>
+    <a href="@@prefix/public/profile.html" class="memOnly" title="View <!-- |name| -->"><i class="fa-solid fa-user"></i></a>
+    <a href="@@prefix/public/usercp/user-edit.html" class="memOnly" title="Edit Profile"><i class="fa-solid fa-pen"></i></a>
+    <div class="nav--inline memOnly">
+        <button onclick="toggleMenu(this)" class="button--menu" data-menu="accounts" title="Switch Accounts">
+            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+    <a href="@@prefix/public/usercp/user-inbox.html" data-new="<!-- |new_msg| -->" class="memOnly"><i class="fa-solid fa-envelope"></i></a>
+    <div class="nav--inline memOnly">
+        <button onclick="toggleMenu(this)" data-new="<!-- |new_alerts| -->" class="button--menu" data-menu="alerts" title="View Alerts">
+            <i class="fa-solid fa-bell"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+    </div>
+    <a href="@@prefix/public/defaults/login.html" class="memOnly" title="Logout"><i class="fa-solid fa-power-off"></i></a>
+    <a href="@@prefix/public/store/store.html" class="memOnly" title="Store"><i class="fa-solid fa-store"></i></a>
+    <div class="nav--inline options">
+        <button onclick="toggleMenu(this)" class="button--menu" title="Skin Options">
+            <i class="fa-solid fa-gear"></i>
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <nav class="nav--popout options">
+            <div class="scroll">
+                <button onclick="toggleTheme()" class="toggle--theme">
+                    <i class="fa-solid fa-sun"></i>
+                    <div><span></span></div>
+                </button>
+                <button onclick="toggleSize()" class="toggle--size">
+                    <i class="fa-solid fa-font-case"></i>
+                    <div><span></span></div>
+                </button>
+            </div>
+        </nav>
+    </div>
+    <a href="/admin.php" target="_blank" class="staffOnly" title="Admin Panel"><i class="fa-solid fa-screwdriver-wrench"></i></a>
+</nav>
+
+<nav class="nav--popout fullHeight" data-menu="accounts">
+    <div id="account-switch" class="scroll">
+        <span id='subaccounts_menu'>
+            <form action='https://godlybehaviour.jcink.net/index.php?&act=Login&CODE=01&CookieDate=1' name='subswitch' method='POST'>
+            <input type='hidden' name='auth_key' value='8edb8fcbc900e0d57613fec89cd6796c'>
+            <input type='hidden' name='UserName' value='subacct'>
+            <input type='hidden' name='PassWord' value='subacct'>
+            <input type='hidden' name='referer' value='' />
+            <select class='forminput' name='sub_id' onchange='this.form.submit()'>
+            <option value='------------' selected='selected'>Switch Account</option>
+            <option value='71'>&nbsp;&nbsp;&raquo; abigail amesbury </option><option value='7'>&nbsp;&nbsp;&raquo; aiden mitchell </option><option value='635'>&nbsp;&nbsp;&raquo; alastair knox </option><option value='175'>&nbsp;&nbsp;&raquo; brennan cormac </option><option value='328'>&nbsp;&nbsp;&raquo; bryn williams </option><option value='490'>&nbsp;&nbsp;&raquo; cassiopeia o&#39;neill </option><option value='271'>&nbsp;&nbsp;&raquo; christopher reeves </option><option value='17'>&nbsp;&nbsp;&raquo; cynbel edevane </option><option value='226'>&nbsp;&nbsp;&raquo; damian bartlett </option><option value='329'>&nbsp;&nbsp;&raquo; duncan taggart </option><option value='593'>&nbsp;&nbsp;&raquo; emmalina fawley </option><option value='418'>&nbsp;&nbsp;&raquo; evangeline cannon </option><option value='685'>&nbsp;&nbsp;&raquo; fiore amoretti </option><option value='656'>&nbsp;&nbsp;&raquo; hanne rydell </option><option value='611'>&nbsp;&nbsp;&raquo; harley hennessey </option><option value='263'>&nbsp;&nbsp;&raquo; harriet clarke </option><option value='246'>&nbsp;&nbsp;&raquo; hayden donovan </option><option value='117'>&nbsp;&nbsp;&raquo; isaiah blackwood </option><option value='153'>&nbsp;&nbsp;&raquo; isobel alexander </option><option value='79'>&nbsp;&nbsp;&raquo; jesse dunn </option><option value='429'>&nbsp;&nbsp;&raquo; jude bennett </option><option value='430'>&nbsp;&nbsp;&raquo; lincoln foster </option><option value='732'>&nbsp;&nbsp;&raquo; liu hai </option><option value='80'>&nbsp;&nbsp;&raquo; malcolm murdock </option><option value='69'>&nbsp;&nbsp;&raquo; marlowe blake </option><option value='626'>&nbsp;&nbsp;&raquo; michel laurent </option><option value='70'>&nbsp;&nbsp;&raquo; morgan redmond </option><option value='825'>&nbsp;&nbsp;&raquo; naomi bell </option><option value='3'>&nbsp;&nbsp;&raquo; nikolas kovac </option><option value='8'>&nbsp;&nbsp;&raquo; raphael amesbury </option><option value='584'>&nbsp;&nbsp;&raquo; reed campbell </option><option value='44'>&nbsp;&nbsp;&raquo; remy rivard </option><option value='637'>&nbsp;&nbsp;&raquo; riley montgomery-price </option><option value='154'>&nbsp;&nbsp;&raquo; riordan hemlock </option><option value='43'>&nbsp;&nbsp;&raquo; satiah el masry </option><option value='227'>&nbsp;&nbsp;&raquo; sebastian araya lopez </option><option value='116'>&nbsp;&nbsp;&raquo; silas graves </option><option value='636'>&nbsp;&nbsp;&raquo; sorren laugharne </option><option value='45'>&nbsp;&nbsp;&raquo; spencer al-nazari </option><option value='16'>&nbsp;&nbsp;&raquo; sterling de mitri </option><option value='6'>&nbsp;&nbsp;&raquo; vitae sitka </option><option value='330'>&nbsp;&nbsp;&raquo; viveka strand </option><option value='718'>&nbsp;&nbsp;&raquo; willa kidd </option><option value='657'>&nbsp;&nbsp;&raquo; william talbot </option>
+            </select>
+            </form>
+        </span>
+    </div>
+</nav>
+
+<nav class="nav--popout fullHeight" data-menu="alerts">
+    <div class="alert--menu">
+        <a href="?act=UserCP&amp;CODE=alerts"><i class="fa-solid fa-inbox"></i></a>
+        <a href="javascript:read_alerts();"><i class="fa-solid fa-envelope-open"></i></a>
+        <a href="javascript:close_alerts();" class="close-alerts"><i class="fa-solid fa-xmark"></i></a>
+    </div>
+    <div id="recent-alerts-data" class="alert--main scroll"><div style="height: 1px;"></div>
+        <div class="row2">
+        <div class="recent-alerts-msg reg-alert">
+            <img src="https://files.jcink.net/themes/default/no-avatar.png" border="0" width="20" height="20" alt=""> New member registered: <a href="https://godlybehaviour.jcink.net/index.php?showuser=859">Achlys Armour</a>  <br>
+        </div>		
+    </div><div style="height: 1px;"></div>
+        <div class="row2">
+        <div class="recent-alerts-msg reg-alert">
+            <img src="https://files.jcink.net/uploads2/godlybehaviour//av-858.gif?1722483896" border="0" width="20" height="20" alt=""> New member registered: <a href="https://godlybehaviour.jcink.net/index.php?showuser=858">florian stanford</a>  <br>
+        </div>		
+    </div><div style="height: 1px;"></div>
+        <div class="row2">
+        <div class="recent-alerts-msg reg-alert">
+            <img src="https://files.jcink.net/themes/default/no-avatar.png" border="0" width="20" height="20" alt=""> New member registered: <a href="https://godlybehaviour.jcink.net/index.php?showuser=857">Beatrice Lovett</a>  <br>
+        </div>		
+    </div><div style="height: 1px;"></div>
+        <div class="row2">
+        <div class="recent-alerts-msg">
+            <img src="https://files.jcink.net/uploads2/godlybehaviour//av-1.jpg?1688169351" border="0" width="20" height="20" alt=""> <a href="https://godlybehaviour.jcink.net/index.php?showuser=1">lux</a> tagged you in <a href="https://godlybehaviour.jcink.net/index.php?showtopic=2957&amp;view=findpost&amp;p=16465">a post</a> in "<a href="https://godlybehaviour.jcink.net/index.php?showtopic=2957&amp;view=findpost&amp;p=16465">activity sweep 004</a>"  <br>
+        </div>		
+    </div><div style="height: 1px;"></div>
+        <div class="row2">
+        <div class="recent-alerts-msg">
+            <img src="https://files.jcink.net/uploads2/godlybehaviour//av-1.jpg?1688169351" border="0" width="20" height="20" alt=""> <a href="https://godlybehaviour.jcink.net/index.php?showuser=1">lux</a> tagged you in <a href="https://godlybehaviour.jcink.net/index.php?showtopic=2957&amp;view=findpost&amp;p=16465">a post</a> in "<a href="https://godlybehaviour.jcink.net/index.php?showtopic=2957&amp;view=findpost&amp;p=16465">activity sweep 004</a>"  <br>
+        </div>		
+    </div><div style="height: 1px;"></div>
+        <div class="row2">
+        <div class="recent-alerts-msg reg-alert">
+            <img src="https://files.jcink.net/uploads2/godlybehaviour//av-856.png?1722228111" border="0" width="20" height="20" alt=""> New member registered: <a href="https://godlybehaviour.jcink.net/index.php?showuser=856">Cethin Greymore</a>  <br>
+        </div>		
+    </div><div style="height: 1px;"></div>
+        <div class="row2">
+        <div class="recent-alerts-msg reg-alert">
+            <img src="https://files.jcink.net/uploads2/godlybehaviour//av-855.png?1722455155" border="0" width="20" height="20" alt=""> New member registered: <a href="https://godlybehaviour.jcink.net/index.php?showuser=855">Oliver Gates</a>  <br>
+        </div>		
+    </div><div style="height: 1px;"></div>
+        <div class="row2">
+        <div class="recent-alerts-msg reg-alert">
+            <img src="https://files.jcink.net/uploads2/godlybehaviour//av-854.png?1722084839" border="0" width="20" height="20" alt=""> New member registered: <a href="https://godlybehaviour.jcink.net/index.php?showuser=854">Samuel Ojeda</a>  <br>
+        </div>		
+    </div></div>
+</nav>
