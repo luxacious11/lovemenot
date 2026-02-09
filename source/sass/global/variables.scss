@@ -17,12 +17,20 @@
     --space-lg: 30px;
     --space-xl: 60px;
 
-    --transition-standard-duration: 0.3s;
-    --transition-tab-duration: 0.5s;
+    --font-script: 'antagon', script;
+    --font-sans: 'Lato', sans-serif;
+    --font-serif: 'EB Garamond', serif;
 
-    --bg-overlay: rgba(0, 0, 0, 0.8);
+    --transition-quick: all 0.1s ease-in-out;
+    --transition-standard: all 0.3s ease-in-out;
+    --transition-long: all 0.5s ease-in-out;
+
+    --radius-container: 20px;
+
+    --bg-image: url(https://64.media.tumblr.com/3db0ab060a4524e27acd6ddb9e831362/c7fb00f435adb034-38/s2048x3072/847d2735ef60659b7dcc97568ccd68df2227d455.pnj);
 
     --size-alert-max-height: 80px;
+    --size-container-margin: 25px;
     --size-menu-height: 30px;
     --size-menu-width: 30px;
     --size-store-image: 24px;
@@ -30,5 +38,363 @@
 
     @include mq-up(xs) {
         --size-alert-max-height: 150px;
+    }
+
+    //dark is default
+    --bg-container: rgba(24, 24, 24, 0.3);
+    --bg-primary: rgba(24, 24, 24, 1);
+    --bg-secondary: rgba(37, 37, 37, 1);
+    --bg-tertiary: rgba(53, 51, 51, 1);
+    --bg-overlay: rgba(24, 24, 24, 0.7);
+
+    --text-primary: rgb(185, 185, 185);
+    --text-secondary: rgb(245, 245, 245);
+
+    --border-primary: 1px solid rgba(231, 231, 231, 0.15);
+    --border-primary-color: rgba(231, 231, 231, 0.15);
+    --border-primary-solid: 1px solid rgb(68, 68, 68);
+    --border-secondary: 1px solid rgba(148, 148, 148, 0.15);
+    --border-secondary-color: rgba(148, 148, 148, 0.15);
+    --border-secondary-solid: 1px solid rgb(53, 53, 53);
+}
+
+body {
+    &.lgFont {
+        --text-size-xs: 10px;
+        --text-size-sm: 12px;
+        --text-size-md: 14px;
+        --text-size-lg: 16px;
+        --text-size-xl: 18px;
+    }
+    &.xlFont {
+        --text-size-xs: 12px;
+        --text-size-sm: 14px;
+        --text-size-md: 16px;
+        --text-size-lg: 18px;
+        --text-size-xl: 20px;
+    }
+    &.light {
+        --bg-primary: rgba(201, 201, 201, 1);
+        --bg-secondary: rgb(193, 193, 193, 1);
+        --bg-tertiary: rgba(220, 220, 220, 1);
+
+        --text-primary: rgb(86, 86, 86);
+        --text-secondary: rgb(40, 40, 40);
+
+        --border-primary: 1px solid rgba(98, 98, 98, 0.5);
+        --border-primary-color: rgba(98, 98, 98, 0.5);
+    }
+
+    //Set up
+    &[class*="g-"],
+    [class*="g-"],
+    &[class*="mgroup-"],
+    [class*="mgroup-"],
+    &:has(.profile[class*="g-"]) {
+        --accent-1: rgb(var(--rgb-1));
+        --accent-2: rgb(var(--rgb-2));
+        --accent-3: rgb(var(--rgb-3));
+
+        --bg-accent: var(--accent-3);
+        --bg-gradient: linear-gradient(to right, var(--accent-1), var(--accent-2), var(--accent-3));
+        
+        --text-accent: var(--accent-1);
+        --text-on-accent: rgb(225, 225, 225);
+        
+        --border-accent: 1px solid var(--accent-1);
+        --border-gradient: linear-gradient(to right, var(--accent-1), var(--accent-2), var(--accent-3));
+    }
+    &.light {
+        &[class*="g-"],
+        [class*="g-"],
+        &[class*="mgroup-"],
+        [class*="mgroup-"],
+        &:has(.profile[class*="g-"]) {
+            --text-accent: var(--accent);
+        }
+    }
+
+    //Banned/Validating
+    &.g-1,
+    .g-1,
+    &.mgroup-1,
+    .mgroup-1,
+    &.g-5,
+    .g-5,
+    &.mgroup-5,
+    .mgroup-5 {
+        --rgb-1: 105, 105, 105;
+        --rgb-2: 105, 105, 105;
+        --rgb-3: 105, 105, 105;
+    }
+
+    //Guests
+    &.g-2,
+    .g-2,
+    &.mgroup-2,
+    .mgroup-2 {
+        --rgb-1: 133, 171, 146;
+        --rgb-2: 191, 133, 134;
+        --rgb-3: 140, 202, 29;
+    }
+
+    //Unsorted
+    &.g-3,
+    .g-3,
+    &.mgroup-3,
+    .mgroup-3 {
+        --rgb-1: 192, 142, 142;
+        --rgb-2: 157, 165, 179;
+        --rgb-3: 183, 163, 147;
+    }
+
+    //Staff
+    &.g-4,
+    .g-4,
+    &.mgroup-4,
+    .mgroup-4 {
+        --rgb-1: 2, 60, 133;
+        --rgb-2: 14, 102, 126;
+        --rgb-3: 0, 144, 191;
+    }
+
+    //altair
+    &.g-6,
+    .g-6,
+    &.mgroup-6,
+    .mgroup-6 {
+        --rgb-1: 165, 65, 55;
+        --rgb-2: 225, 127, 136;
+        --rgb-3: 122, 84, 81;
+    }
+    
+    //andromeda
+    &.g-7,
+    .g-7,
+    &.mgroup-7,
+    .mgroup-7 {
+        --rgb-1: 244, 180, 112;
+        --rgb-2: 215, 114, 129;
+        --rgb-3: 123, 96, 172;
+    }
+    
+    //betelgeuse
+    &.g-8,
+    .g-8,
+    &.mgroup-8,
+    .mgroup-8 {
+        --rgb-1: 255,128,7;
+        --rgb-2: 107,107,107;
+        --rgb-3: 5,186,221;
+    }
+    
+    //capella
+    &.g-9,
+    .g-9,
+    &.mgroup-9,
+    .mgroup-9 {
+        --rgb-1: 200, 144, 160;
+        --rgb-2: 171, 144, 183;
+        --rgb-3: 218, 144, 122;
+    }
+    
+    //carina
+    &.g-10,
+    .g-10,
+    &.mgroup-10,
+    .mgroup-10 {
+        --rgb-1: 172, 41, 134;
+        --rgb-2: 93, 45, 126;
+        --rgb-3: 58, 103, 171;
+    }
+    
+    //cassiopeia
+    &.g-11,
+    .g-11,
+    &.mgroup-11,
+    .mgroup-11 {
+        --rgb-1: 245, 157, 185;
+        --rgb-2: 108, 197, 225;
+        --rgb-3: 73, 207, 203;
+    }
+    
+    //cepheus
+    &.g-12,
+    .g-12,
+    &.mgroup-12,
+    .mgroup-12 {
+        --rgb-1: 209, 192, 124;
+        --rgb-2: 214, 169, 172;
+        --rgb-3: 192, 130, 172;
+    }
+    
+    //cetus
+    &.g-13,
+    .g-13,
+    &.mgroup-13,
+    .mgroup-13 {
+        --rgb-1: 71, 57, 147;
+        --rgb-2: 149, 59, 113;
+        --rgb-3: 195, 59, 93;
+    }
+    
+    //cygnus
+    &.g-14,
+    .g-14,
+    &.mgroup-14,
+    .mgroup-14 {
+        --rgb-1: 2, 60, 133;
+        --rgb-2: 14, 102, 126;
+        --rgb-3: 0, 144, 191;
+    }
+    
+    //delphinus
+    &.g-15,
+    .g-15,
+    &.mgroup-15,
+    .mgroup-15 {
+        --rgb-1: 134, 204, 206;
+        --rgb-2: 139, 189, 141;
+        --rgb-3: 215, 172, 76;
+    }
+    
+    //draco
+    &.g-16,
+    .g-16,
+    &.mgroup-16,
+    .mgroup-16 {
+        --rgb-1: 116, 191, 181;
+        --rgb-2: 101, 171, 206;
+        --rgb-3: 162, 88, 189;
+    }
+    
+    //eridanus
+    &.g-17,
+    .g-17,
+    &.mgroup-17,
+    .mgroup-17 {
+        --rgb-1: 47, 21, 102;
+        --rgb-2: 65, 107, 151;
+        --rgb-3: 97, 190, 199;
+    }
+    
+    //hydra
+    &.g-18,
+    .g-18,
+    &.mgroup-18,
+    .mgroup-18 {
+        --rgb-1: 70, 20, 57;
+        --rgb-2: 181, 153, 125;
+        --rgb-3: 197, 54, 100;
+    }
+    
+    //maia
+    &.g-19,
+    .g-19,
+    &.mgroup-19,
+    .mgroup-19 {
+        --rgb-1: 234, 140, 106;
+        --rgb-2: 232, 176, 106;
+        --rgb-3: 181, 118, 82;
+    }
+    
+    //merak
+    &.g-20,
+    .g-20,
+    &.mgroup-20,
+    .mgroup-20 {
+        --rgb-1: 196, 212, 170;
+        --rgb-2: 182, 207, 186;
+        --rgb-3: 161, 184, 192;
+    }
+    
+    //orion
+    &.g-21,
+    .g-21,
+    &.mgroup-21,
+    .mgroup-21 {
+        --rgb-1: 143, 162, 163;
+        --rgb-2: 138, 147, 167;
+        --rgb-3: 202, 172, 103;
+    }
+    
+    //pegasus
+    &.g-22,
+    .g-22,
+    &.mgroup-22,
+    .mgroup-22 {
+        --rgb-1: 84, 199, 189;
+        --rgb-2: 209, 185, 225;
+        --rgb-3: 135, 115, 224;
+    }
+    
+    //phoenix
+    &.g-23,
+    .g-23,
+    &.mgroup-23,
+    .mgroup-23 {
+        --rgb-1: 165, 160, 219;
+        --rgb-2: 208, 67, 133;
+        --rgb-3: 210, 146, 174;
+    }
+    
+    //polaris
+    &.g-24,
+    .g-24,
+    &.mgroup-24,
+    .mgroup-24 {
+        --rgb-1: 50, 22, 110;
+        --rgb-2: 51, 103, 155;
+        --rgb-3: 129, 138, 178;
+    }
+    
+    //sirius
+    &.g-25,
+    .g-25,
+    &.mgroup-25,
+    .mgroup-25 {
+        --rgb-1: 179, 167, 148;
+        --rgb-2: 248, 224, 146;
+        --rgb-3: 202, 145, 93;
+    }
+   
+    //spica
+    &.g-26,
+    .g-26,
+    &.mgroup-26,
+    .mgroup-26 {
+        --rgb-1: 193, 167, 154;
+        --rgb-2: 176, 165, 161;
+        --rgb-3: 180, 150, 154;
+    }
+   
+    //thuban
+    &.g-27,
+    .g-27,
+    &.mgroup-27,
+    .mgroup-27 {
+        --rgb-1: 115, 144, 142;
+        --rgb-2: 188, 178, 163;
+        --rgb-3: 76, 87, 104;
+    }
+   
+    //vela
+    &.g-28,
+    .g-28,
+    &.mgroup-28,
+    .mgroup-28 {
+        --rgb-1: 56, 162, 173;
+        --rgb-2: 115, 192, 98;
+        --rgb-3: 227, 211, 27;
+    }
+   
+    //grus
+    &.g-29,
+    .g-29,
+    &.mgroup-29,
+    .mgroup-29 {
+        --rgb-1: 184, 134, 121;
+        --rgb-2: 111, 124, 161;
+        --rgb-3: 111, 162, 197;
     }
 }

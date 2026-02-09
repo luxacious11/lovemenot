@@ -6,16 +6,17 @@
         })   
     </head>
     <body id="idx" class="g-4">
-        @@include('../source/templates/header.html', {
-            "prefix": ".."
-        })
+        
       @@include('../source/templates/nav.html', {
             "prefix": ".."
         })
         
         <!--Main Body-->
-        <main>
+        <main><div class="container">
             <a name="top"></a>
+@@include('../source/templates/header.html', {
+            "prefix": ".."
+        })
 		
 
             <!--Category-->
@@ -194,7 +195,7 @@
                     </div>
                 </div>
             </div> 
-        </main>
+        </div></main>
 
         @@include('../source/templates/scripts.html', {
             "prefix": "../dist"

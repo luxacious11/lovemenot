@@ -16,3 +16,66 @@
 /*******************************
     Header
 ********************************/
+header {
+  height: calc(100vh - (2 * var(--size-menu-height))); }
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  padding: calc(var(--space-xl) + var(--space-md)) calc((2 * var(--space-xl)) - var(--space-lg));
+  background: linear-gradient(-190deg, var(--bg-overlay), transparent 70%), linear-gradient(190deg, var(--bg-overlay), transparent 70%); }
+  .header--content {
+    width: max-content;
+    max-width: 100%; }
+    .header--content > a {
+      display: block;
+      padding-left: calc(2 * var(--space-xl));
+      padding-right: var(--space-lg); }
+      .header--content > a::before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background: var(--bg-gradient);
+        border-radius: 2px; }
+    .header--content h1 {
+      margin: 0;
+      text-align: right;
+      font-family: var(--font-script);
+      font-size: 36px;
+      line-height: 100%;
+      color: var(--text-primary);
+      font-weight: 400; }
+      @media only screen and (min-width: 480px) {
+        .header--content h1 {
+          font-size: calc(36px + 36 * (100vw - 480px) / (1280 - 480)); } }
+      @media only screen and (min-width: 1280px) {
+        .header--content h1 {
+          font-size: 72px; } }
+      .header--content h1 i {
+        text-transform: uppercase;
+        font-family: var(--font-sans);
+        font-style: normal;
+        font-weight: 900;
+        color: var(--text-secondary);
+        font-size: 1.4em;
+        margin-right: -0.15em; }
+    .header--content > p {
+      margin: 0;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-weight: 800;
+      font-size: var(--text-size-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.4em; }
+      .header--content > p::before {
+        content: 'tagline or something here'; }
+  .header--svg {
+    position: absolute;
+    bottom: 0;
+    left: 0; }
+    .header--svg svg {
+      width: 100%; }

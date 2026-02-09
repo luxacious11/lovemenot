@@ -4,36 +4,56 @@
 /*******************************
     Global
 ********************************/
+@font-face {
+    font-family: 'antagon';
+    src: url('https://files.jcink.net/uploads2/seeingstars/antagon_regular.otf');
+}
 body {
-    padding: calc(var(--size-menu-height) + var(--space-lg)) var(--space-lg) var(--space-lg)  calc(var(--size-menu-width) + var(--space-lg));
+    background-image: var(--bg-image);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    padding: var(--size-container-margin);
+    font-family: var(--font-sans);
+    font-size: var(--text-size-md);
+    line-height: 200%;
+    color: var(--text-primary);
+
+    main {
+        height: calc(100vh - (2 * var(--size-container-margin)));
+        border-radius: var(--radius-container);
+        background-image: var(--bg-image), var(--border-gradient);
+        background-origin: border-box;
+        background-clip: padding-box, border-box;
+        border: double 2px transparent;
+        overflow: hidden;
+
+        &::before {
+            content: '';
+            position: fixed;
+            top: calc(var(--size-container-margin) + 2px);
+            left: calc(var(--size-container-margin) + 2px);
+            width: calc(100% - (2 * var(--size-container-margin)) - 4px);
+            height: calc(100% - (2 * var(--size-container-margin)) - 4px);
+            background: var(--bg-container);
+            backdrop-filter: blur(10px);
+            border-radius: var(--radius-container);
+        }
+
+        .container {
+            @include scroll(var(--bg-accent), 0);
+        }
+    }
+}
+
+.clouds {
+    fill: url(#grad1);
+    stroke: none;
 }
 
 .scroll {
-    overflow-x: hidden;
-    overflow-y: auto;
-    max-height: 100%;
-    padding-right: var(--space-md);
-    margin-right: calc(-1 * var(--space-md));
-    scrollbar-width: thin;
-    scrollbar-color: black transparent;
-
-    &::-webkit-scrollbar {
-        width: 6px;
-    }
-    &::-webkit-scrollbar-track {
-        background: transparent;
-    }
-    &::-webkit-scrollbar-thumb {
-        background: black;
-    }
-
-    &.accent {
-        scrollbar-color: red transparent;
-
-        &::-webkit-scrollbar-thumb {
-            background: red;
-        }
-    }
+    @include scroll;
 }
 
 .macro {
@@ -113,15 +133,16 @@ tag-labels {
 .invisibleEl {
     position: fixed;
     z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
+    top: calc(var(--size-container-margin) + 2px);
+    left: calc(var(--size-container-margin) + 2px);
+    width: calc(100% - (2 * var(--size-container-margin)) - 4px);
     height: 0;
     background: var(--bg-overlay);
-    transition-duration: var(--transition-tab-duration);
+    transition: var(--transition-standard);
+    border-radius: var(--radius-container);
 
     &.menu-open {
-        height: 100vh;
+        height: calc(100vh - (2 * var(--size-container-margin)) - 4px);
         z-index: 2;
     }
 }

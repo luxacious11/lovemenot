@@ -16,27 +16,74 @@
 /*******************************
     Global
 ********************************/
+@font-face {
+  font-family: 'antagon';
+  src: url("https://files.jcink.net/uploads2/seeingstars/antagon_regular.otf"); }
+
 body {
-  padding: calc(var(--size-menu-height) + var(--space-lg)) var(--space-lg) var(--space-lg) calc(var(--size-menu-width) + var(--space-lg)); }
+  background-image: var(--bg-image);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  padding: var(--size-container-margin);
+  font-family: var(--font-sans);
+  font-size: var(--text-size-md);
+  line-height: 200%;
+  color: var(--text-primary); }
+  body main {
+    height: calc(100vh - (2 * var(--size-container-margin)));
+    border-radius: var(--radius-container);
+    background-image: var(--bg-image), var(--border-gradient);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    border: double 2px transparent;
+    overflow: hidden; }
+    body main::before {
+      content: '';
+      position: fixed;
+      top: calc(var(--size-container-margin) + 2px);
+      left: calc(var(--size-container-margin) + 2px);
+      width: calc(100% - (2 * var(--size-container-margin)) - 4px);
+      height: calc(100% - (2 * var(--size-container-margin)) - 4px);
+      background: var(--bg-container);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius-container); }
+    body main .container {
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: 100%;
+      padding-right: 0;
+      margin-right: calc(-1 * $spacing);
+      scrollbar-width: thin;
+      scrollbar-color: var(--bg-accent) transparent; }
+      body main .container::-webkit-scrollbar {
+        width: 6px; }
+      body main .container::-webkit-scrollbar-track {
+        background: transparent; }
+      body main .container::-webkit-scrollbar-thumb {
+        background: var(--bg-accent);
+        border: none; }
+
+.clouds {
+  fill: url(#grad1);
+  stroke: none; }
 
 .scroll {
   overflow-x: hidden;
   overflow-y: auto;
   max-height: 100%;
   padding-right: var(--space-md);
-  margin-right: calc(-1 * var(--space-md));
+  margin-right: calc(-1 * $spacing);
   scrollbar-width: thin;
-  scrollbar-color: black transparent; }
+  scrollbar-color: var(--bg-accent) transparent; }
   .scroll::-webkit-scrollbar {
     width: 6px; }
   .scroll::-webkit-scrollbar-track {
     background: transparent; }
   .scroll::-webkit-scrollbar-thumb {
-    background: black; }
-  .scroll.accent {
-    scrollbar-color: red transparent; }
-    .scroll.accent::-webkit-scrollbar-thumb {
-      background: red; }
+    background: var(--bg-accent);
+    border: none; }
 
 .macro--button[onclick] {
   cursor: pointer; }
@@ -83,15 +130,16 @@ tag-labels {
 .invisibleEl {
   position: fixed;
   z-index: -1;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: calc(var(--size-container-margin) + 2px);
+  left: calc(var(--size-container-margin) + 2px);
+  width: calc(100% - (2 * var(--size-container-margin)) - 4px);
   height: 0;
   background: var(--bg-overlay);
-  transition-duration: var(--transition-tab-duration); }
+  transition: var(--transition-standard);
+  border-radius: var(--radius-container); }
   .invisibleElTagging.menu-open,
   .invisibleEl.menu-open {
-    height: 100vh;
+    height: calc(100vh - (2 * var(--size-container-margin)) - 4px);
     z-index: 2; }
 
 .alert-select {

@@ -15,3 +15,35 @@
         @include nameHere;
     }
 ********************************/
+@mixin scroll($color: var(--bg-accent), $spacing: var(--space-md)) {
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-height: 100%;
+    padding-right: $spacing;
+    margin-right: calc(-1 * $spacing);
+    scrollbar-width: thin;
+    scrollbar-color: $color transparent;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background: $color;
+        border: none;
+    }
+}
+
+@mixin info($size: xs, $color: var(--text-primary), $weight: 600) {
+    color: $color;
+    font-family: var(--font-sans);
+    font-weight: $weight;
+
+    @if($size == xs) {
+        font-size: var(--text-size-xs);
+        text-transform: uppercase;
+        letter-spacing: 0.4em;
+    }
+}
