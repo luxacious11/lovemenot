@@ -37,6 +37,8 @@
     --size-menu-width: 30px;
     --size-store-image: 24px;
     --size-switcher-image: 60px;
+    --size-options-menu: 50px;
+    --size-alerts-menu: 40px;
 
     @include mq-up(xs) {
         --size-alert-max-height: 150px;
@@ -118,7 +120,14 @@ body {
         &[class*="mgroup-"],
         [class*="mgroup-"],
         &:has(.profile[class*="g-"]) {
-            --text-accent: var(--accent);
+            --text-accent: var(--accent-1);
+        }
+
+        &.g-4,
+        .g-4,
+        &.mgroup-4,
+        .mgroup-4 {
+            --text-accent: var(--accent-3);
         }
     }
 
@@ -164,6 +173,7 @@ body {
         --rgb-1: 2, 60, 133;
         --rgb-2: 14, 102, 126;
         --rgb-3: 0, 144, 191;
+        --text-accent: var(--accent-3);
     }
 
     //altair

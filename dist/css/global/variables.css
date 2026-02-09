@@ -43,6 +43,8 @@
   --size-menu-width: 30px;
   --size-store-image: 24px;
   --size-switcher-image: 60px;
+  --size-options-menu: 50px;
+  --size-alerts-menu: 40px;
   --bg-container: rgba(24, 24, 24, 0.3);
   --bg-primary: rgba(24, 24, 24, 1);
   --bg-secondary: rgba(37, 37, 37, 1);
@@ -105,7 +107,12 @@ body [class*="mgroup-"], body:has(.profile[class*="g-"]) {
 body.light[class*="g-"],
 body.light [class*="g-"], body.light[class*="mgroup-"],
 body.light [class*="mgroup-"], body.light:has(.profile[class*="g-"]) {
-  --text-accent: var(--accent); }
+  --text-accent: var(--accent-1); }
+
+body.light.g-4,
+body.light .g-4, body.light.mgroup-4,
+body.light .mgroup-4 {
+  --text-accent: var(--accent-3); }
 
 body.g-1,
 body .g-1, body.mgroup-1,
@@ -135,7 +142,8 @@ body .g-4, body.mgroup-4,
 body .mgroup-4 {
   --rgb-1: 2, 60, 133;
   --rgb-2: 14, 102, 126;
-  --rgb-3: 0, 144, 191; }
+  --rgb-3: 0, 144, 191;
+  --text-accent: var(--accent-3); }
 
 body.g-6,
 body .g-6, body.mgroup-6,

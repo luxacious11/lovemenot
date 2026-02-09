@@ -48,3 +48,13 @@
         letter-spacing: 0.4em;
     }
 }
+
+@mixin heading($size) {
+    @if($size == h3) {
+        line-height: 120%;
+        font-family: var(--font-script);
+        text-transform: lowercase;
+        font-size: 28px;
+        color: var(--text-secondary);
+    }
+}
