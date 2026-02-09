@@ -74,15 +74,21 @@ body {
         --text-size-xl: 20px;
     }
     &.light {
-        --bg-primary: rgba(201, 201, 201, 1);
-        --bg-secondary: rgb(193, 193, 193, 1);
-        --bg-tertiary: rgba(220, 220, 220, 1);
-
-        --text-primary: rgb(86, 86, 86);
-        --text-secondary: rgb(40, 40, 40);
-
+        --bg-container: rgba(245, 245, 245, 0.5);
+        --bg-primary: rgba(215, 215, 215, 1);
+        --bg-secondary: rgb(225, 225, 225, 1);
+        --bg-tertiary: rgba(235, 235, 235, 1);
+        --bg-overlay: rgba(245, 245, 245, 0.7);
+    
+        --text-primary: rgb(101, 101, 101);
+        --text-secondary: rgb(58, 58, 58);
+    
         --border-primary: 1px solid rgba(98, 98, 98, 0.5);
         --border-primary-color: rgba(98, 98, 98, 0.5);
+        --border-primary-solid: 1px solid rgb(162, 162, 162);
+        --border-secondary: 1px solid rgba(71, 71, 71, 0.15);
+        --border-secondary-color: rgba(71, 71, 71, 0.15);
+        --border-secondary-solid: 1px solid rgb(203, 203, 203);
     }
 
     //Set up

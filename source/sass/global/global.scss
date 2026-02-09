@@ -19,6 +19,8 @@ body {
     font-size: var(--text-size-md);
     line-height: 200%;
     color: var(--text-primary);
+    background-color: var(--bg-tertiary);
+    background-blend-mode: hard-light;
 
     main {
         height: calc(100vh - (2 * var(--size-container-margin)));
