@@ -26,6 +26,8 @@
     --transition-long: all 0.5s ease-in-out;
 
     --radius-container: 20px;
+    --radius-medium: 10px;
+    --radius-small: 5px;
 
     --bg-image: url(https://64.media.tumblr.com/3db0ab060a4524e27acd6ddb9e831362/c7fb00f435adb034-38/s2048x3072/847d2735ef60659b7dcc97568ccd68df2227d455.pnj);
 
@@ -34,7 +36,7 @@
     --size-menu-height: 30px;
     --size-menu-width: 30px;
     --size-store-image: 24px;
-    --size-switcher-image: 40px;
+    --size-switcher-image: 60px;
 
     @include mq-up(xs) {
         --size-alert-max-height: 150px;

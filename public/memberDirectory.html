@@ -79,22 +79,10 @@
     <a href="../public/defaults/login.html" class="memOnly" title="Logout"><i class="fa-light fa-power-off"></i></a>
     <a href="../public/store/store.html" class="memOnly" title="Store"><i class="fa-light fa-store"></i></a>
     <div class="nav--inline options">
-        <button onclick="toggleMenu(this)" class="button--menu" title="Skin Options">
+        <button onclick="toggleMenu(this)" class="button--menu" data-menu="options" title="Skin Options">
             <i class="fa-light fa-gear"></i>
             <i class="fa-light fa-xmark"></i>
         </button>
-        <nav class="nav--popout options">
-            <div class="scroll">
-                <button onclick="toggleTheme()" class="toggle--theme">
-                    <i class="fa-light fa-sun"></i>
-                    <div><span></span></div>
-                </button>
-                <button onclick="toggleSize()" class="toggle--size">
-                    <i class="fa-light fa-font-case"></i>
-                    <div><span></span></div>
-                </button>
-            </div>
-        </nav>
     </div>
     <a href="/admin.php" target="_blank" class="staffOnly" title="Admin Panel"><i class="fa-light fa-screwdriver-wrench"></i></a>
 </nav>
@@ -142,6 +130,21 @@
             <a href="/"><span>Link Title</span></a>
         </div>
     </div>
+</nav>
+
+<nav class="nav--popout options" data-menu="options">
+    <button onclick="toggleTheme()" class="toggle--theme">
+        <i class="fa-light fa-sun"></i>
+        <div><span></span></div>
+    </button>
+    <button onclick="toggleSize()" class="toggle--size">
+        <i class="fa-light fa-font-case"></i>
+        <div><span></span></div>
+    </button>
+    <button onclick="toggleImages()" class="toggle--images">
+        <i class="fa-light fa-image"></i>
+        <div><span></span></div>
+    </button>
 </nav>
 
 <nav class="nav--popout fullHeight" data-menu="accounts">

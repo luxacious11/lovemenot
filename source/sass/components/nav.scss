@@ -52,6 +52,10 @@
         max-width: calc(100% - (2 * var(--size-container-margin)));
         transition: var(--transition-long);
 
+        &:has(.options .is-open) {
+            top: 50px;
+        }
+
         &:has(.is-open) {
             top: calc(100% - (2.5 * var(--size-container-margin)));
         }
@@ -107,6 +111,21 @@
             border-left-width: 0;
         }
 
+        &.options {
+            transition: var(--transition-long);
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 50px;
+            max-width: 376px;
+            width: calc(100% - (2 * var(--size-container-margin)));
+            background: var(--bg-primary);
+            border-right: 2px solid var(--accent-2);
+            border-right: 1px solid var(--accent-1);
+            border-bottom: 1px solid var(--accent-1);
+            display: flex;
+        }
+
         &.fullHeight {
             transition: var(--transition-long);
             position: fixed;
@@ -133,19 +152,21 @@
 
         &.options {
             button {
-                display: grid;
+                display: flex;
                 align-items: center;
                 gap: var(--space-sm);
                 background: none;
                 border: none;
-                grid-template-columns: 1fr 1fr;
-                color: black;
+                color: var(--text-secondary);
+                flex-grow: 1;
+                transition: var(--transition-standard);
 
                 div {
-                    width: var(--space-lg);
+                    width: 100%;
                     height: var(--space-xs);
                     border-radius: calc(var(--space-xs) / 2);
-                    background: #cccccc;
+                    background: var(--bg-secondary);
+                    border: var(--border-secondary);
                     transition: var(--transition-standard);
                     cursor: pointer;
 
@@ -153,19 +174,20 @@
                         display: block;
                         width: 9px;
                         height: 9px;
-                        margin: -2px auto -2px 0;
+                        margin: -3px auto -3px 0;
                         border-radius: 50%;
-                        background: black;
+                        background: var(--text-primary);
                         transition: var(--transition-standard);
                     }
                 }
 
                 body.light &.toggle--theme div,
-                body.xlFont &.toggle--size div {
-                    background: #4680a4;
+                body.xlFont &.toggle--size div,
+                body.maximalist &.toggle--images div {
+                    background: var(--bg-gradient);
 
                     span {
-                        margin: -2px 0 -2px auto;
+                        margin: -3px 0 -3px auto;
                     }
                 }
                 body.lgFont &.toggle--size div {
@@ -176,11 +198,11 @@
                         left: 0;
                         width: 50%;
                         height: 100%;
-                        background: #4680a4;
+                        background: var(--bg-gradient);
                         border-radius: 2.5px;
                     }
                     span {
-                        margin: -2px auto;
+                        margin: -3px auto;
                     }
                 }
             }
@@ -209,7 +231,7 @@
         gap: var(--space-sm);
         background: var(--bg-secondary);
         padding: var(--space-sm);
-        border-radius: 10px;
+        border-radius: var(--radius-medium);
         flex-wrap: wrap;
         border: var(--border-secondary);
     }
@@ -280,9 +302,12 @@
 
     &--block {
         display: grid;
-        grid-template-columns: var(--size-switcher-image) auto;
         gap: var(--space-md);
         cursor: pointer;
+
+        body.maximalist & {
+            grid-template-columns: var(--size-switcher-image) auto;
+        }
 
         input {
             display: none;
@@ -294,6 +319,27 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
+        border-radius: var(--radius-small);
+
+        body.minimalist & {
+            display: none;
+        }
+    }
+    &--name {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        b {
+            line-height: 120%;
+            font-family: var(--font-script);
+            text-transform: lowercase;
+            font-size: 28px;
+        }
+
+        span {
+            @include info();
+        }
     }
 }
 

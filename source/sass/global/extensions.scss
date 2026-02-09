@@ -40,6 +40,7 @@
     color: $color;
     font-family: var(--font-sans);
     font-weight: $weight;
+    line-height: 160%;
 
     @if($size == xs) {
         font-size: var(--text-size-xs);

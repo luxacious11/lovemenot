@@ -55,6 +55,7 @@ if (typeof tippy === 'function') {
 /********** Initializations **********/
 setTheme();
 setSize();
+setStyle();
 initCopyLink();
 //init clipboards
 let clipboards = document.querySelectorAll('tag-code');

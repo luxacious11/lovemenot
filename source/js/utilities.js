@@ -1,4 +1,23 @@
 /****** Settings ******/
+function setStyle() {
+    if(localStorage.getItem('images') !== null) {
+        switch(localStorage.getItem('images')) {
+            case 'maximalist':
+                document.querySelector('body').classList.remove('minimalist');
+                document.querySelector('body').classList.add('maximalist');
+                break;
+            case 'minimalist':
+            default:
+                document.querySelector('body').classList.add('minimalist');
+                document.querySelector('body').classList.remove('maximalist');
+                break;
+        }
+    } else {
+        document.querySelector('body').classList.add('maximalist');
+        document.querySelector('body').classList.remove('minimalist');
+        localStorage.setItem('images', 'maximalist');
+    }
+}
 function setTheme() {
     if(localStorage.getItem('theme') !== null) {
         switch(localStorage.getItem('theme')) {
@@ -47,6 +66,15 @@ function setSize() {
 }
 
 /****** Toggles ******/
+function toggleImages() {
+    if(localStorage.getItem('images') === 'minimalist') {
+        localStorage.setItem('images', 'maximalist');
+        setStyle();
+    } else {
+        localStorage.setItem('images', 'minimalist');
+        setStyle();
+    }
+}
 function toggleTheme() {
     if(localStorage.getItem('theme') === 'dark') {
         localStorage.setItem('theme', 'light');
