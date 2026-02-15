@@ -19,8 +19,55 @@
         })
 		
 
-            <!--Category-->
-            <section class="category"></section>
+        <!--Category-->
+        <section class="category c-1">
+            <h2>Category Title</h2>
+            <div class="category--main">
+                @@include('../source/templates/blocks/forum.html', {
+                    "id": "1",
+                    "name": "With Subforums",
+                    "subforums": "yes",
+                    "links": "no",
+                    "image": "yes"
+                })
+                @@include('../source/templates/blocks/forum.html', {
+                    "id": "1",
+                    "name": "With Links",
+                    "subforums": "no",
+                    "links": "yes",
+                    "image": "no"
+                })
+                @@include('../source/templates/blocks/forum.html', {
+                    "id": "1",
+                    "name": "With Both",
+                    "subforums": "yes",
+                    "links": "yes",
+                    "image": "no"
+                })
+                @@include('../source/templates/blocks/forum.html', {
+                    "id": "1",
+                    "name": "With Neither",
+                    "subforums": "no",
+                    "links": "no",
+                    "image": "no"
+                })
+            </div>
+        </section>
+		
+
+        <!--Locations Category-->
+        <section class="category c-3">
+            <h2>City Name</h2>
+            <div class="category--main">
+                @@include('../source/templates/blocks/forum.html', {
+                    "id": "1",
+                    "name": "Forum Name",
+                    "subforums": "yes",
+                    "links": "no",
+                    "image": "no"
+                })
+            </div>
+        </section>
 
 
             <div class="tableborder" id="recent-topics">

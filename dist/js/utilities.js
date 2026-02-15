@@ -444,6 +444,9 @@ function initForums() {
             linkSet.closest('.forum--links').classList.add('hidden');
         }
     });
+    document.querySelectorAll('.forum--image').forEach(image => {
+        image.closest('.forum').querySelector('.forum--avatar').insertAdjacentHTML('afterend', `<div class="forum--clipped-image">${image.innerHTML}</div>`);
+    });
     document.querySelectorAll('.forum--desc').forEach(el => el.remove());
 }
 

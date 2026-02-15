@@ -1,0 +1,23 @@
+<div class="forum redirect f-@@id">
+    <div class="forum--decor"></div>
+    <div class="forum--title">
+        <a href="./guidebook.html">@@name</a>
+    </div>
+    <div class="forum--links">
+        @@if (subforums === 'yes') {
+            <span class="subforums">
+                <a class="subforums-macro" href="./topicList.html">Macro</a>
+                <a class="tooltip" href="./topicList.html">Subforum Link</a>
+            </span>
+        }
+    </div>
+    @@if (links === 'yes') {
+        <div class="forum--manual-links">
+            <a href="/">Manual Link</a>
+            <a href="/">Manual Link</a>
+            <a href="/">Manual Link</a>
+            <a href="/">Manual Link</a>
+            <a href="/">Manual Link</a>
+        </div>
+    }
+</div>

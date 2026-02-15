@@ -34,17 +34,23 @@
   --transition-standard: all 0.3s ease-in-out;
   --transition-long: all 0.5s ease-in-out;
   --radius-container: 20px;
+  --radius-xl: 160px;
+  --radius-large: 30px;
   --radius-medium: 10px;
   --radius-small: 5px;
   --bg-image: url(https://64.media.tumblr.com/3db0ab060a4524e27acd6ddb9e831362/c7fb00f435adb034-38/s2048x3072/847d2735ef60659b7dcc97568ccd68df2227d455.pnj);
-  --size-alert-max-height: 80px;
-  --size-container-margin: 25px;
+  --size-container-margin: 15px;
+  --size-max-screen: 1160px;
   --size-menu-height: 30px;
   --size-menu-width: 30px;
   --size-store-image: 24px;
   --size-switcher-image: 60px;
   --size-options-menu: 50px;
   --size-alerts-menu: 40px;
+  --size-alert-max-height: 80px;
+  --size-forum-image: 200px;
+  --size-forum-avatar: 95px;
+  --size-max-link-scroll: 160px;
   --bg-container: rgba(24, 24, 24, 0.3);
   --bg-primary: rgba(24, 24, 24, 1);
   --bg-secondary: rgba(37, 37, 37, 1);
@@ -58,9 +64,14 @@
   --border-secondary: 1px solid rgba(148, 148, 148, 0.15);
   --border-secondary-color: rgba(148, 148, 148, 0.15);
   --border-secondary-solid: 1px solid rgb(53, 53, 53); }
+  @media (min-width: 481px) {
+    :root {
+      --size-container-margin: 25px;
+      --size-forum-image: 250px; } }
   @media (min-width: 601px) {
     :root {
-      --size-alert-max-height: 150px; } }
+      --size-alert-max-height: 150px;
+      --size-forum-image: 300px; } }
 
 body.lgFont {
   --text-size-xs: 10px;
@@ -78,7 +89,7 @@ body.xlFont {
 
 body.light {
   --bg-container: rgba(245, 245, 245, 0.5);
-  --bg-primary: rgba(215, 215, 215, 1);
+  --bg-primary: rgb(205, 205, 205);
   --bg-secondary: rgb(225, 225, 225, 1);
   --bg-tertiary: rgba(235, 235, 235, 1);
   --bg-overlay: rgba(245, 245, 245, 0.7);
@@ -95,13 +106,18 @@ body[class*="g-"],
 body [class*="g-"], body[class*="mgroup-"],
 body [class*="mgroup-"], body:has(.profile[class*="g-"]) {
   --accent-1: rgb(var(--rgb-1));
+  --accent-1-75: rgba(var(--rgb-1), 0.75);
   --accent-2: rgb(var(--rgb-2));
+  --accent-2-75: rgba(var(--rgb-2), 0.75);
   --accent-3: rgb(var(--rgb-3));
+  --accent-3-75: rgba(var(--rgb-3), 0.75);
   --bg-accent: var(--accent-3);
   --bg-gradient: linear-gradient(to right, var(--accent-1), var(--accent-2), var(--accent-3));
+  --bg-gradient-75: linear-gradient(to right, var(--accent-1-75), var(--accent-2-75), var(--accent-3-75));
   --text-accent: var(--accent-1);
   --text-on-accent: rgb(225, 225, 225);
   --border-accent: 1px solid var(--accent-1);
+  --border-accent-alt: 1px solid var(--accent-3);
   --border-gradient: linear-gradient(to right, var(--accent-1), var(--accent-2), var(--accent-3)); }
 
 body.light[class*="g-"],

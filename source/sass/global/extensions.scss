@@ -42,6 +42,19 @@
     font-weight: $weight;
     line-height: 160%;
 
+    @if($size == sm) {
+        font-size: var(--text-size-sm);
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+    }
+
+    @if($size == details) {
+        font-size: var(--text-size-xs);
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-style: italic;
+    }
+
     @if($size == xs) {
         font-size: var(--text-size-xs);
         text-transform: uppercase;
@@ -50,6 +63,20 @@
 }
 
 @mixin heading($size) {
+    @if($size == h1) {
+        line-height: 120%;
+        font-family: var(--font-script);
+        text-transform: lowercase;
+        font-size: 60px;
+        color: var(--text-secondary);
+    }
+    @if($size == h2) {
+        line-height: 120%;
+        font-family: var(--font-script);
+        text-transform: lowercase;
+        font-size: 42px;
+        color: var(--text-secondary);
+    }
     @if($size == h3) {
         line-height: 120%;
         font-family: var(--font-script);

@@ -16,3 +16,6 @@ body.g-4 .accordion--trigger.staffOnly {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex; }
+
+.category.c-1 h2::after {
+  content: 'Category #1 subtitle'; }
