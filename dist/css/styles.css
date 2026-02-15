@@ -1308,7 +1308,8 @@ tag-image[data-ratio="16:9"],
       font-family: var(--font-script);
       text-transform: lowercase;
       font-size: 20px;
-      color: var(--text-secondary); }
+      color: var(--text-secondary);
+      font-weight: 400; }
       @media only screen and (min-width: 480px) {
         .switch--name b {
           font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
@@ -1385,7 +1386,8 @@ tag-image[data-ratio="16:9"],
       font-family: var(--font-script);
       text-transform: lowercase;
       font-size: 20px;
-      color: var(--text-secondary); }
+      color: var(--text-secondary);
+      font-weight: 400; }
       @media only screen and (min-width: 480px) {
         .alert--main .recent-alerts-msg > div:only-of-type {
           font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
@@ -1419,7 +1421,8 @@ tag-image[data-ratio="16:9"],
       font-family: var(--font-script);
       text-transform: lowercase;
       font-size: 20px;
-      color: var(--text-secondary); }
+      color: var(--text-secondary);
+      font-weight: 400; }
       @media only screen and (min-width: 480px) {
         .alert--main .recent-alerts-msg:not(.reg-alert) > a:first-of-type {
           font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
@@ -1459,7 +1462,8 @@ tag-image[data-ratio="16:9"],
       font-family: var(--font-script);
       text-transform: lowercase;
       font-size: 20px;
-      color: var(--text-secondary); }
+      color: var(--text-secondary);
+      font-weight: 400; }
       @media only screen and (min-width: 480px) {
         .alert--main .recent-alerts-msg.reg-alert > a {
           font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
@@ -1653,6 +1657,7 @@ header {
     text-transform: lowercase;
     font-size: 36px;
     color: var(--text-secondary);
+    font-weight: 400;
     padding: 0 var(--space-md);
     margin: 0 0 var(--space-lg) 0; }
     @media only screen and (min-width: 480px) {

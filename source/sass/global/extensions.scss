@@ -75,6 +75,7 @@
         text-transform: lowercase;
         @include fluid-type(36, 60, 480, 1280);
         color: var(--text-secondary);
+        font-weight: 400;
     }
     @if($size == h2) {
         line-height: 120%;
@@ -82,6 +83,7 @@
         text-transform: lowercase;
         @include fluid-type(30, 42, 480, 1280);
         color: var(--text-secondary);
+        font-weight: 400;
     }
     @if($size == h3) {
         line-height: 120%;
@@ -89,5 +91,6 @@
         text-transform: lowercase;
         @include fluid-type(20, 28, 480, 1280);
         color: var(--text-secondary);
+        font-weight: 400;
     }
 }
