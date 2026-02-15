@@ -74,11 +74,31 @@
       width: var(--size-forum-avatar);
       aspect-ratio: 1 / 1;
       border-radius: 50%;
-      overflow: hidden;
-      z-index: 1;
+      z-index: 2;
       background: var(--bg-gradient-75);
       padding: var(--space-sm);
       border: var(--border-accent);
+      line-height: 0;
+      font-size: 0;
+
+      &::before {
+         content: '';
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background: var(--bg-gradient-25);
+         border-radius: 50%;
+         scale: 1;
+         transition: var(--transition-standard);
+      }
+
+      &:hover {
+         &::before {
+            scale: 1.3;
+         }
+      }
 
       @include mq-up(sm) {
          top: calc(50% - (var(--size-forum-avatar) / 2));
@@ -110,6 +130,9 @@
             grid-template-columns: var(--size-forum-image) auto;
          }
          .forum--links {
+            @include mq-up(xs) {
+               margin-top: var(--space-md);
+            }
             @include mq-up(md) {
                margin: var(--space-md);
             }
@@ -211,12 +234,42 @@
          font-size: 24px;
       }
    }
+   &.redirect {
+      overflow: hidden;
+
+      &::before {
+         content: '';
+         position: absolute;
+         bottom: -40%;
+         right: -20%;
+         aspect-ratio: 1 / 1;
+         height: 140%;
+         background: linear-gradient(to bottom, var(--accent-1), var(--accent-2), var(--accent-3));
+         rotate: 25deg;
+      }
+
+      & > * {
+         z-index: 1;
+      }
+
+      .forum--title {
+         margin-bottom: var(--space-sm);
+
+         a {
+            @include fluid-type(24, 48, 480, 1280);
+         }
+      }
+   }
 
    &--stats {
       display: flex;
       flex-wrap: wrap;
       gap: 0 var(--space-md);
       @include info($size: sm, $weight: 400);
+
+      b {
+         color: var(--text-accent);
+      }
    }
 
    &--latest {
@@ -228,7 +281,7 @@
 
       & > a {
          font-weight: 700;
-         font-size: 1.2em;
+         font-size: 1.1em;
          color: var(--text-secondary);
       }
       & > div {
@@ -239,6 +292,7 @@
 
          a {
             color: var(--text-accent);
+            font-weight: 900;
          }
       }
    }

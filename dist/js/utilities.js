@@ -445,7 +445,11 @@ function initForums() {
         }
     });
     document.querySelectorAll('.forum--image').forEach(image => {
-        image.closest('.forum').querySelector('.forum--avatar').insertAdjacentHTML('afterend', `<div class="forum--clipped-image">${image.innerHTML}</div>`);
+        if(image.closest('.forum').querySelector('.forum--avatar')) {
+            image.closest('.forum').querySelector('.forum--avatar').insertAdjacentHTML('afterend', `<div class="forum--clipped-image">${image.innerHTML}</div>`);
+        } else {
+            image.closest('.forum').insertAdjacentHTML('afterbegin', `<div class="forum--clipped-image">${image.innerHTML}</div>`);
+        }
     });
     document.querySelectorAll('.forum--desc').forEach(el => el.remove());
 }

@@ -49,7 +49,7 @@ body {
       width: calc(100% - (2 * var(--size-container-margin)) - 4px);
       height: calc(100% - (2 * var(--size-container-margin)) - 4px);
       background: var(--bg-container);
-      backdrop-filter: blur(10px);
+      backdrop-filter: var(--filter-backdrop);
       border-radius: var(--radius-container); }
     body main .container {
       overflow-x: hidden;

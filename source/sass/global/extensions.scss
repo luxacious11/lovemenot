@@ -60,6 +60,12 @@
         text-transform: uppercase;
         letter-spacing: 0.4em;
     }
+
+    @if($size == xxs) {
+        font-size: var(--text-size-xs);
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+    }
 }
 
 @mixin heading($size) {

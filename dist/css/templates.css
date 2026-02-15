@@ -16,6 +16,14 @@
 /*******************************
     Utilities
 ********************************/
+grad {
+  color: var(--text-accent);
+  background-image: var(--bg-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent; }
+
 [data-box-align="left" i] {
   margin-left: 0 !important;
   margin-right: auto !important; }

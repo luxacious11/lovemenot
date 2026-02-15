@@ -25,6 +25,8 @@
     --transition-standard: all 0.3s ease-in-out;
     --transition-long: all 0.5s ease-in-out;
 
+    --filter-backdrop: brightness(0.8) blur(10px);
+
     --radius-container: 20px;
     --radius-xl: 160px;
     --radius-large: 30px;
@@ -112,6 +114,8 @@ body {
         --border-secondary: 1px solid rgba(71, 71, 71, 0.15);
         --border-secondary-color: rgba(71, 71, 71, 0.15);
         --border-secondary-solid: 1px solid rgb(203, 203, 203);
+
+        --filter-backdrop: brightness(1.5) blur(6px);
     }
 
     //Set up
@@ -122,16 +126,20 @@ body {
     &:has(.profile[class*="g-"]) {
         --accent-1: rgb(var(--rgb-1));
         --accent-1-75: rgba(var(--rgb-1), 0.75);
+        --accent-1-25: rgba(var(--rgb-1), 0.25);
 
         --accent-2: rgb(var(--rgb-2));
         --accent-2-75: rgba(var(--rgb-2), 0.75);
+        --accent-2-25: rgba(var(--rgb-2), 0.25);
 
         --accent-3: rgb(var(--rgb-3));
         --accent-3-75: rgba(var(--rgb-3), 0.75);
+        --accent-3-25: rgba(var(--rgb-3), 0.25);
 
         --bg-accent: var(--accent-3);
         --bg-gradient: linear-gradient(to right, var(--accent-1), var(--accent-2), var(--accent-3));
         --bg-gradient-75: linear-gradient(to right, var(--accent-1-75), var(--accent-2-75), var(--accent-3-75));
+        --bg-gradient-25: linear-gradient(to right, var(--accent-1-25), var(--accent-2-25), var(--accent-3-25));
         
         --text-accent: var(--accent-1);
         --text-on-accent: rgb(225, 225, 225);

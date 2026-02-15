@@ -1,23 +1,30 @@
 <div class="forum redirect f-@@id">
-    <div class="forum--decor"></div>
-    <div class="forum--title">
-        <a href="./guidebook.html">@@name</a>
+    <div class="forum--left">
+        <div class="forum--title">
+            <a href="./topicList.html">@@name</a>
+        </div>
+        <div class="forum--stats">
+            <div class="forum--stat"><b>000</b> Redirects</div>
+        </div>
     </div>
-    <div class="forum--links">
-        @@if (subforums === 'yes') {
+    <div class="forum--links">@@if (subforums === 'yes') {
             <span class="subforums">
                 <a class="subforums-macro" href="./topicList.html">Macro</a>
                 <a class="tooltip" href="./topicList.html">Subforum Link</a>
+                <a class="subforums-macro" href="./topicList.html">Macro</a>
+                <a class="tooltip" href="./topicList.html">Subforum 2</a>
+                <a class="subforums-macro" href="./topicList.html">Macro</a>
+                <a class="tooltip" href="./topicList.html">Link Three</a>
             </span>
+        }</div>
+    <div class="forum--desc">
+        <div class="forum--image">
+            <img src="https://picsum.photos/1000" loading="lazy" />
+        </div>
+        @@if (links === 'yes') {
+            <div class="forum--manual-links">
+                <a href="/">Manual Link</a>
+            </div>
         }
     </div>
-    @@if (links === 'yes') {
-        <div class="forum--manual-links">
-            <a href="/">Manual Link</a>
-            <a href="/">Manual Link</a>
-            <a href="/">Manual Link</a>
-            <a href="/">Manual Link</a>
-            <a href="/">Manual Link</a>
-        </div>
-    }
 </div>
