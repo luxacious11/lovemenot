@@ -37,10 +37,16 @@
     line-height: 120%;
     font-family: var(--font-script);
     text-transform: lowercase;
-    font-size: 60px;
+    font-size: 36px;
     color: var(--text-secondary);
     padding: 0 var(--space-md);
     margin: 0 0 var(--space-lg) 0; }
+    @media only screen and (min-width: 480px) {
+      .category h2 {
+        font-size: calc(36px + 24 * (100vw - 480px) / (1280 - 480)); } }
+    @media only screen and (min-width: 1280px) {
+      .category h2 {
+        font-size: 60px; } }
     .category h2::after {
       content: '';
       display: block;
@@ -206,16 +212,30 @@
     font-weight: 900;
     font-size: 24px; }
   .forum.redirect {
-    overflow: hidden; }
+    overflow: hidden;
+    margin-top: 0 !important; }
     .forum.redirect::before {
       content: '';
       position: absolute;
-      bottom: -40%;
-      right: -20%;
       aspect-ratio: 1 / 1;
-      height: 140%;
+      bottom: -40%;
+      right: -80%;
+      height: 160%;
       background: linear-gradient(to bottom, var(--accent-1), var(--accent-2), var(--accent-3));
       rotate: 25deg; }
+      @media (max-width: 480px) {
+        .forum.redirect::before {
+          display: none; } }
+      @media (min-width: 769px) {
+        .forum.redirect::before {
+          bottom: -40%;
+          right: -50%;
+          height: 160%; } }
+      @media (min-width: 1025px) {
+        .forum.redirect::before {
+          bottom: -40%;
+          right: -20%;
+          height: 140%; } }
     .forum.redirect > * {
       z-index: 1; }
     .forum.redirect .forum--title {

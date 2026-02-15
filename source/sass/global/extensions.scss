@@ -73,21 +73,21 @@
         line-height: 120%;
         font-family: var(--font-script);
         text-transform: lowercase;
-        font-size: 60px;
+        @include fluid-type(36, 60, 480, 1280);
         color: var(--text-secondary);
     }
     @if($size == h2) {
         line-height: 120%;
         font-family: var(--font-script);
         text-transform: lowercase;
-        font-size: 42px;
+        @include fluid-type(30, 42, 480, 1280);
         color: var(--text-secondary);
     }
     @if($size == h3) {
         line-height: 120%;
         font-family: var(--font-script);
         text-transform: lowercase;
-        font-size: 28px;
+        @include fluid-type(20, 28, 480, 1280);
         color: var(--text-secondary);
     }
 }

@@ -236,18 +236,35 @@
    }
    &.redirect {
       overflow: hidden;
+      margin-top: 0 !important;
 
       &::before {
          content: '';
          position: absolute;
-         bottom: -40%;
-         right: -20%;
          aspect-ratio: 1 / 1;
-         height: 140%;
+         bottom: -40%;
+         right: -80%;
+         height: 160%;
          background: linear-gradient(to bottom, var(--accent-1), var(--accent-2), var(--accent-3));
          rotate: 25deg;
-      }
 
+         @include mq-down(xxs) {
+            display: none;
+         }
+
+         @include mq-up(sm) {
+            bottom: -40%;
+            right: -50%;
+            height: 160%;
+         }
+
+         @include mq-up(md) {
+            bottom: -40%;
+            right: -20%;
+            height: 140%;
+         }
+      }
+   
       & > * {
          z-index: 1;
       }

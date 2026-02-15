@@ -5,16 +5,28 @@
     Header
 ********************************/
 header {
-    height: calc(100vh - (2 * var(--size-menu-height)));
+    height: calc(75vh - (2 * var(--size-menu-height)));
+
+    @include mq-up(xs) {
+        height: calc(75vh - (2 * var(--size-menu-height)));
+    }
+
+    @include mq-up(md) {
+        height: calc(100vh - (2 * var(--size-menu-height)));
+    }
 }
 
 .header {
     display: flex;
     flex-direction: column;
     align-items: end;
-    padding: calc(var(--space-xl) + var(--space-md)) calc((2 * var(--space-xl)) - var(--space-lg));
+    padding: calc(var(--space-xl) + var(--space-md)) var(--space-lg);
     background: linear-gradient(-190deg, var(--bg-overlay), transparent 70%),
                 linear-gradient(190deg, var(--bg-overlay), transparent 70%);
+
+    @include mq-up(xs) {
+        padding: calc(var(--space-xl) + var(--space-md)) calc((2 * var(--space-xl)) - var(--space-lg));
+    }
 
     &--content {
         width: max-content;
@@ -22,8 +34,12 @@ header {
 
         & > a {
             display: block;
-            padding-left: calc(2 * var(--space-xl));
+            padding-left: var(--space-xl);
             padding-right: var(--space-lg);
+
+            @include mq-up(xs) {
+                padding-left: calc(2 * var(--space-xl));
+            }
 
             &::before {
                 content: '';
