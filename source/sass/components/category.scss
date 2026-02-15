@@ -78,6 +78,7 @@
       z-index: 1;
       background: var(--bg-gradient-75);
       padding: var(--space-sm);
+      border: var(--border-accent);
 
       @include mq-up(sm) {
          top: calc(50% - (var(--size-forum-avatar) / 2));

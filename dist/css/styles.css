@@ -1655,7 +1655,8 @@ header {
     overflow: hidden;
     z-index: 1;
     background: var(--bg-gradient-75);
-    padding: var(--space-sm); }
+    padding: var(--space-sm);
+    border: var(--border-accent); }
     @media (min-width: 769px) {
       .forum--avatar {
         top: calc(50% - (var(--size-forum-avatar) / 2));
