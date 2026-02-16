@@ -91,9 +91,11 @@ if(pageType === 'idx' || pageType === 'SC') {
         catWrapper.querySelector('h2').insertAdjacentHTML('afterend', `<div class="category--navigation"><div class="splide__arrows"></div><ul class="splide__pagination"></ul></div>`);
         new Splide(catWrapper, {
             padding: { right: '120px' },
+            gap: '30px',
             breakpoints: {
-                640: {
+                600: {
                     padding: { right: '0' },
+                    gap: 0,
                 },
             }
         }).mount();

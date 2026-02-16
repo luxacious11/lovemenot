@@ -80,6 +80,11 @@
          align-self: end;
          margin: 0;
       }
+      .splide__list {
+         @include mq-down(xs) {
+            gap: 0;
+         }
+      }
       .splide__pagination {
          position: relative;
          top: auto;

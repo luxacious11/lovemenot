@@ -1733,6 +1733,9 @@ header {
                   -ms-grid-row-align: end;
               align-self: end;
       margin: 0; }
+    @media (max-width: 600px) {
+      .category.splide .splide__list {
+        gap: 0; } }
     .category.splide .splide__pagination {
       position: relative;
       top: auto;
