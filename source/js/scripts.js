@@ -80,6 +80,30 @@ if(pageType === 'idx' || pageType === 'SC') {
 
     document.querySelector('.stats--recent').innerHTML = document.querySelector('#recent-topics table').outerHTML;
     document.querySelector('#recent-topics').remove();
+
+    const carouselCategories = [3];
+    carouselCategories.forEach(category => {
+        let catWrapper = document.querySelector(`.category.c-${category}`);
+        let forumWrapper = catWrapper.querySelector('.category--main');
+        forumWrapper.closest('.category').classList.add('splide');
+        forumWrapper.parentElement.classList.add('splide__track');
+        forumWrapper.classList.add('splide__list');
+        catWrapper.querySelector('h2').insertAdjacentHTML('afterend', `<div class="category--navigation"><div class="splide__arrows"></div><ul class="splide__pagination"></ul></div>`);
+        new Splide(catWrapper, {
+            padding: { right: '120px' },
+            breakpoints: {
+                640: {
+                    padding: { right: '0' },
+                },
+            }
+        }).mount();
+        let forumTitles = catWrapper.querySelectorAll('.forum--title a');
+        let paginationButtons = catWrapper.querySelectorAll('.splide__pagination__page');
+        paginationButtons.forEach((button, i) => {
+            button.setAttribute('aria-label', forumTitles[i].innerText);
+            button.setAttribute('title', forumTitles[i].innerText);
+        })
+    });
 }
 
 /********** Profile **********/

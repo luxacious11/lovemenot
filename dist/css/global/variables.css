@@ -52,6 +52,8 @@
   --size-forum-image: 200px;
   --size-forum-avatar: 95px;
   --size-max-link-scroll: 160px;
+  --size-progress-bar: 3px;
+  --size-pagination-arrows: 12px;
   --bg-container: rgba(24, 24, 24, 0.3);
   --bg-primary: rgba(24, 24, 24, 1);
   --bg-secondary: rgba(37, 37, 37, 1);

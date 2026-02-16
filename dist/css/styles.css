@@ -141,6 +141,8 @@ a {
   --size-forum-image: 200px;
   --size-forum-avatar: 95px;
   --size-max-link-scroll: 160px;
+  --size-progress-bar: 3px;
+  --size-pagination-arrows: 12px;
   --bg-container: rgba(24, 24, 24, 0.3);
   --bg-primary: rgba(24, 24, 24, 1);
   --bg-secondary: rgba(37, 37, 37, 1);
@@ -1691,6 +1693,138 @@ header {
     -ms-grid-columns: 100%;
     grid-template-columns: 100%;
     gap: var(--space-md); }
+  .category--navigation {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-align-self: end;
+        -ms-flex-item-align: end;
+                -ms-grid-row-align: end;
+            align-self: end;
+    padding: 0 var(--space-lg);
+    height: var(--size-pagination-arrows);
+    width: 100%; }
+    @media (min-width: 769px) {
+      .category--navigation {
+        width: -webkit-max-content;
+        width: -moz-max-content;
+        width: max-content;
+        max-width: 100%; } }
+  .category.splide {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 100%;
+    grid-template-columns: 100%;
+    gap: var(--space-lg) 0; }
+    @media (min-width: 769px) {
+      .category.splide {
+        -ms-grid-columns: 1fr -webkit-max-content;
+        -ms-grid-columns: 1fr max-content;
+        grid-template-columns: 1fr -webkit-max-content;
+        grid-template-columns: 1fr max-content; } }
+    .category.splide h2 {
+      -webkit-align-self: end;
+          -ms-flex-item-align: end;
+                  -ms-grid-row-align: end;
+              align-self: end;
+      margin: 0; }
+    .category.splide .splide__pagination {
+      position: relative;
+      top: auto;
+      bottom: auto;
+      left: auto;
+      right: auto;
+      padding: 0;
+      width: 100%;
+      -webkit-flex-wrap: nowrap;
+          -ms-flex-wrap: nowrap;
+              flex-wrap: nowrap; }
+      .category.splide .splide__pagination li {
+        height: var(--size-progress-bar);
+        width: 100%;
+        overflow: hidden;
+        line-height: 0;
+        font-size: 0;
+        -webkit-box-flex: 1;
+        -webkit-flex-grow: 1;
+            -ms-flex-positive: 1;
+                flex-grow: 1; }
+        @media (min-width: 769px) {
+          .category.splide .splide__pagination li {
+            width: var(--space-lg); } }
+        @media (min-width: 1025px) {
+          .category.splide .splide__pagination li {
+            width: var(--space-xl); } }
+        .category.splide .splide__pagination li:first-child {
+          border-radius: calc(var(--size-progress-bar) / 2) 0 0 calc(var(--size-progress-bar) / 2); }
+        .category.splide .splide__pagination li:last-child {
+          border-radius: 0 calc(var(--size-progress-bar) / 2) calc(var(--size-progress-bar) / 2) 0; }
+        .category.splide .splide__pagination li:has(~ li > .is-active) .splide__pagination__page::before {
+          width: 100%; }
+      .category.splide .splide__pagination .splide__pagination__page {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        -webkit-transform: none;
+            -ms-transform: none;
+                transform: none;
+        border-radius: 0;
+        background: var(--bg-primary);
+        opacity: 1; }
+        @media (min-width: 1025px) {
+          .category.splide .splide__pagination .splide__pagination__page {
+            width: var(--space-xl); } }
+        .category.splide .splide__pagination .splide__pagination__page::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 0;
+          height: 100%;
+          background: var(--bg-accent);
+          -webkit-transition: var(--transition-standard);
+          transition: var(--transition-standard); }
+        .category.splide .splide__pagination .splide__pagination__page.is-active::before {
+          width: 100%; }
+    .category.splide .splide__arrows {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      height: 0;
+      width: 100%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+          -ms-flex-pack: justify;
+              justify-content: space-between; }
+      .category.splide .splide__arrows .splide__arrow {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        background: none;
+        padding: 0;
+        margin: 0;
+        opacity: 1; }
+        .category.splide .splide__arrows .splide__arrow:disabled {
+          -webkit-filter: grayscale(1);
+                  filter: grayscale(1);
+          opacity: 0.5; }
+        .category.splide .splide__arrows .splide__arrow svg {
+          fill: var(--text-accent);
+          height: var(--size-pagination-arrows);
+          width: var(--size-pagination-arrows); }
+    .category.splide .splide__track {
+      grid-column: 1 / -1; }
 
 .forum {
   display: -ms-grid;
@@ -1985,6 +2119,112 @@ header {
         border: var(--border-accent-alt);
         color: var(--text-secondary);
         background: var(--bg-tertiary); }
+  .splide__list .forum {
+    overflow: hidden;
+    -ms-grid-columns: 100% !important;
+    grid-template-columns: 100% !important;
+    -ms-grid-rows: -webkit-max-content -webkit-max-content -webkit-max-content;
+    -ms-grid-rows: max-content max-content max-content;
+    grid-template-rows: -webkit-max-content -webkit-max-content -webkit-max-content;
+    grid-template-rows: max-content max-content max-content;
+    gap: var(--space-md);
+    margin: 0 !important; }
+    @media (min-width: 481px) {
+      .splide__list .forum {
+        gap: var(--space-lg); } }
+    @media (min-width: 1025px) {
+      .splide__list .forum {
+        gap: var(--space-lg) calc(var(--space-lg) + (var(--size-forum-avatar) / 2));
+        -ms-grid-columns: 1fr 1.5fr !important;
+        grid-template-columns: 1fr 1.5fr !important;
+        -ms-grid-rows: 1fr -webkit-max-content;
+        -ms-grid-rows: 1fr max-content;
+        grid-template-rows: 1fr -webkit-max-content;
+        grid-template-rows: 1fr max-content; } }
+    @media (min-width: 1281px) {
+      .splide__list .forum {
+        -ms-grid-columns: 1fr 1fr !important;
+        grid-template-columns: 1fr 1fr !important; } }
+    .splide__list .forum .forum--avatar {
+      top: calc(250px - (var(--size-forum-avatar) / 2) - (1 * var(--space-md))) !important;
+      left: calc(50% - (var(--size-forum-avatar) / 2)) !important; }
+      @media (min-width: 1025px) {
+        .splide__list .forum .forum--avatar {
+          top: calc(50% - (var(--size-forum-avatar) / 2)) !important;
+          left: calc((100% * (2 / 5)) - (var(--size-forum-avatar) / 2) - (2 * var(--space-md))) !important; } }
+      @media (min-width: 1281px) {
+        .splide__list .forum .forum--avatar {
+          left: calc(50% - (var(--size-forum-avatar) / 2) - (2 * var(--space-md))) !important; } }
+    .splide__list .forum .forum--clipped-image {
+      width: calc(100% + (2 * var(--space-md)));
+      padding: var(--space-md);
+      overflow: hidden;
+      aspect-ratio: auto; }
+      @media (max-width: 1024px) {
+        .splide__list .forum .forum--clipped-image {
+          border-left: var(--border-primary);
+          border-radius: var(--radius-large) var(--radius-large) 50% 50%;
+          height: 250px;
+          margin: calc(-1 * var(--space-md)) calc(-1 * var(--space-md)) 0 calc(-1 * var(--space-md)); } }
+      @media (min-width: 1025px) {
+        .splide__list .forum .forum--clipped-image {
+          -ms-grid-row: 1;
+          -ms-grid-row-span: 2;
+          grid-row: 1 / 3;
+          border-top: var(--border-primary);
+          border-radius: var(--radius-large) 50% 50% var(--radius-large);
+          height: calc(100% + (2 * var(--space-md)));
+          margin: calc(-1 * var(--space-md)) 0 calc(-1 * var(--space-md)) calc(-1 * var(--space-md)); } }
+      .splide__list .forum .forum--clipped-image img {
+        border-radius: 0 0 50% 50%; }
+        @media (min-width: 1025px) {
+          .splide__list .forum .forum--clipped-image img {
+            border-radius: 0 50% 50% 0; } }
+    .splide__list .forum .forum--left {
+      padding-bottom: 0;
+      -webkit-align-self: end;
+          -ms-flex-item-align: end;
+                  -ms-grid-row-align: end;
+              align-self: end;
+      text-align: right; }
+      @media (max-width: 1024px) {
+        .splide__list .forum .forum--left {
+          padding-top: calc(var(--size-forum-avatar) / 2); } }
+    .splide__list .forum .forum--stats {
+      -webkit-box-pack: end;
+      -webkit-justify-content: end;
+          -ms-flex-pack: end;
+              justify-content: end; }
+    .splide__list .forum .forum--title a {
+      font-size: 24px; }
+      @media only screen and (min-width: 480px) {
+        .splide__list .forum .forum--title a {
+          font-size: calc(24px + 18 * (100vw - 480px) / (1280 - 480)); } }
+      @media only screen and (min-width: 1280px) {
+        .splide__list .forum .forum--title a {
+          font-size: 42px; } }
+    .splide__list .forum .forum--links {
+      grid-column: unset;
+      border-bottom: none;
+      border-right: none;
+      margin: 0 !important;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      border-radius: 0;
+      padding: var(--space-md); }
+      @media (min-width: 481px) {
+        .splide__list .forum .forum--links {
+          border-radius: var(--radius-xl) 0 0 0;
+          padding: var(--space-lg) var(--space-lg) var(--space-lg) calc(var(--space-xl) * 2); } }
+      .splide__list .forum .forum--links .subforums {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column; }
 
 /*******************************
     Extensions

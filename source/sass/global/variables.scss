@@ -54,6 +54,8 @@
     --size-forum-image: 200px;
     --size-forum-avatar: 95px;
     --size-max-link-scroll: 160px;
+    --size-progress-bar: 3px;
+    --size-pagination-arrows: 12px;
 
     @include mq-up(xxs) {
         --size-container-margin: 25px;

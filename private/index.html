@@ -22,7 +22,7 @@
         <!--Category-->
         <section class="category c-1">
             <h2>Category Title</h2>
-            <div class="category--main">
+            <div><div class="category--main">
                 @@include('../source/templates/blocks/redirect.html', {
                     "id": "1",
                     "name": "Guidebook",
@@ -57,22 +57,36 @@
                     "links": "no",
                     "image": "no"
                 })
-            </div>
+            </div></div>
         </section>
 		
 
         <!--Locations Category-->
         <section class="category c-3">
             <h2>City Name</h2>
-            <div class="category--main">
+            <div><div class="category--main">
                 @@include('../source/templates/blocks/forum.html', {
                     "id": "1",
-                    "name": "Forum Name",
+                    "name": "Location One",
                     "subforums": "yes",
                     "links": "no",
-                    "image": "no"
+                    "image": "yes"
                 })
-            </div>
+                @@include('../source/templates/blocks/forum.html', {
+                    "id": "1",
+                    "name": "Location Two",
+                    "subforums": "yes",
+                    "links": "no",
+                    "image": "yes"
+                })
+                @@include('../source/templates/blocks/forum.html', {
+                    "id": "1",
+                    "name": "Location Three",
+                    "subforums": "yes",
+                    "links": "no",
+                    "image": "yes"
+                })
+            </div></div>
         </section>
 
 

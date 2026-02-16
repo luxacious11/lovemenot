@@ -52,6 +52,143 @@
       grid-template-columns: 100%;
       gap: var(--space-md);
    }
+
+   &--navigation {
+      display: flex;
+      align-items: center;
+      align-self: end;
+      padding: 0 var(--space-lg);
+      height: var(--size-pagination-arrows);
+      width: 100%;
+
+      @include mq-up(sm) {
+         width: max-content;
+         max-width: 100%;
+      }
+   }
+
+   &.splide {
+      display: grid;
+      grid-template-columns: 100%;
+      gap: var(--space-lg) 0;
+
+      @include mq-up(sm) {
+         grid-template-columns: 1fr max-content;
+      }
+
+      h2 {
+         align-self: end;
+         margin: 0;
+      }
+      .splide__pagination {
+         position: relative;
+         top: auto;
+         bottom: auto;
+         left: auto;
+         right: auto;
+         padding: 0;
+         width: 100%;
+         flex-wrap: nowrap;
+
+         li {
+            height: var(--size-progress-bar);
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            font-size: 0;
+            flex-grow: 1;
+
+            @include mq-up(sm) {
+               width: var(--space-lg);
+            }
+
+            @include mq-up(md) {
+               width: var(--space-xl);
+            }
+
+            &:first-child {
+               border-radius: calc(var(--size-progress-bar) / 2) 0 0 calc(var(--size-progress-bar) / 2);
+            }
+            &:last-child {
+               border-radius: 0 calc(var(--size-progress-bar) / 2) calc(var(--size-progress-bar) / 2) 0;
+            }
+
+            &:has(~ li > .is-active) {
+               .splide__pagination__page {
+                  &::before {
+                     width: 100%;
+                  }
+               }
+            }
+         }
+
+         .splide__pagination__page {
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            transform: none;
+            border-radius: 0;
+            background: var(--bg-primary);
+            opacity: 1;
+
+            @include mq-up(md) {
+               width: var(--space-xl);
+            }
+
+            &::before {
+               content: '';
+               position: absolute;
+               top: 0;
+               left: 0;
+               width: 0;
+               height: 100%;
+               background: var(--bg-accent);
+               transition: var(--transition-standard);
+            }
+
+            &.is-active {
+               &::before {
+                  width: 100%;
+               }
+            }
+         }
+      }
+      .splide__arrows {
+         position: absolute;
+         top: 50%;
+         left: 0;
+         height: 0;
+         width: 100%;
+         display: flex;
+         justify-content: space-between;
+
+         .splide__arrow {
+            position: relative;
+            top: auto;
+            left: auto;
+            right: auto;
+            bottom: auto;
+            background: none;
+            padding: 0;
+            margin: 0;
+            opacity: 1;
+
+            &:disabled {
+               filter: grayscale(1);
+               opacity: 0.5;
+            }
+
+            svg {
+               fill: var(--text-accent);
+               height: var(--size-pagination-arrows);
+               width: var(--size-pagination-arrows);
+            }
+         }
+      }
+      .splide__track {
+         grid-column: 1 / -1;
+      }
+   }
 }
 .forum {
    display: grid;
@@ -356,6 +493,111 @@
             border: var(--border-accent-alt);
             color: var(--text-secondary);
             background: var(--bg-tertiary);
+         }
+      }
+   }
+
+   .splide__list & {
+      overflow: hidden;
+      grid-template-columns: 100% !important;
+      grid-template-rows: max-content max-content max-content;
+      gap: var(--space-md);
+      margin: 0 !important;
+
+      @include mq-up(xxs) {
+         gap: var(--space-lg);
+      }
+
+      @include mq-up(md) {
+         gap: var(--space-lg) calc(var(--space-lg) + (var(--size-forum-avatar) / 2));
+         grid-template-columns: 1fr 1.5fr !important;
+         grid-template-rows: 1fr max-content;
+      }
+
+      @include mq-up(lg) {
+         grid-template-columns: 1fr 1fr !important;
+      }
+
+      .forum--avatar {
+         top: calc(250px - (var(--size-forum-avatar) / 2) - (1 * var(--space-md))) !important;
+         left: calc(50% - (var(--size-forum-avatar) / 2)) !important;
+
+         @include mq-up(md) {
+            top: calc(50% - (var(--size-forum-avatar) / 2)) !important;
+            left: calc((100% * (2 / 5)) - (var(--size-forum-avatar) / 2) - (2 * var(--space-md))) !important;
+         }
+
+         @include mq-up(lg) {
+            left: calc(50% - (var(--size-forum-avatar) / 2) - (2 * var(--space-md))) !important;
+         }
+      }
+
+      .forum--clipped-image {
+         width: calc(100% + (2 * var(--space-md)));
+         padding: var(--space-md);
+         overflow: hidden;
+         aspect-ratio: auto;
+
+         @include mq-down(md) {
+            border-left: var(--border-primary);
+            border-radius: var(--radius-large) var(--radius-large) 50% 50%;
+            height: 250px;
+            margin: calc(-1 * var(--space-md)) calc(-1 * var(--space-md)) 0 calc(-1 * var(--space-md));
+         }
+
+         @include mq-up(md) {
+            grid-row: 1 / 3;
+            border-top: var(--border-primary);
+            border-radius: var(--radius-large) 50% 50% var(--radius-large);
+            height: calc(100% + (2 * var(--space-md)));
+            margin: calc(-1 * var(--space-md)) 0 calc(-1 * var(--space-md)) calc(-1 * var(--space-md));
+         }
+
+         img {
+            border-radius: 0 0 50% 50%;
+
+            @include mq-up(md) {
+               border-radius: 0 50% 50% 0;
+            }
+         }
+      }
+
+      .forum--left {
+         padding-bottom: 0;
+         align-self: end;
+         text-align: right;
+
+         @include mq-down(md) {
+            padding-top: calc(var(--size-forum-avatar) / 2);
+         }
+      }
+
+      .forum--stats {
+         justify-content: end;
+      }
+
+      .forum--title {
+         a {
+            @include fluid-type(24, 42, 480, 1280);
+         }
+      }
+
+      .forum--links {
+         grid-column: unset;
+         border-bottom: none;
+         border-right: none;
+         margin: 0 !important;
+         flex-direction: column;
+         border-radius: 0;
+         padding: var(--space-md);
+
+         @include mq-up(xxs) {
+            border-radius: var(--radius-xl) 0 0 0;
+            padding: var(--space-lg) var(--space-lg) var(--space-lg) calc(var(--space-xl) * 2);
+         }
+
+         .subforums {
+            flex-direction: column;
          }
       }
    }
