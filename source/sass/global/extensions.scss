@@ -1,20 +1,5 @@
 @import '../global/mixins.scss';
 
-/*******************************
-    Extensions
-
-    Want these to be clean without repeated CSS on build? Follow the mixin template:
-
-    @mixin nameHere() {
-        styles
-    }
-
-    Then, in the file you want to use it, call it as an include:
-
-    .className {
-        @include nameHere;
-    }
-********************************/
 @mixin scroll($color: var(--bg-accent), $spacing: var(--space-md)) {
     overflow-x: hidden;
     overflow-y: auto;
@@ -92,5 +77,19 @@
         @include fluid-type(20, 28, 480, 1280);
         color: var(--text-secondary);
         font-weight: 400;
+    }
+    @if($size == h4) {
+        line-height: 120%;
+        text-transform: uppercase;
+        @include fluid-type(20, 28, 480, 1280);
+        color: var(--text-secondary);
+        font-weight: 900;
+    }
+    @if($size == h5) {
+        line-height: 120%;
+        text-transform: uppercase;
+        @include fluid-type(16, 20, 480, 1280);
+        color: var(--text-secondary);
+        font-weight: 900;
     }
 }

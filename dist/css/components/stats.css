@@ -1,19 +1,4 @@
 /*******************************
-    Extensions
-
-    Want these to be clean without repeated CSS on build? Follow the mixin template:
-
-    @mixin nameHere() {
-        styles
-    }
-
-    Then, in the file you want to use it, call it as an include:
-
-    .className {
-        @include nameHere;
-    }
-********************************/
-/*******************************
     Board Stats
 ********************************/
 .stats {
@@ -211,7 +196,8 @@
     font-weight: 900;
     text-transform: uppercase;
     height: 120px; }
-    .stats--now a span {
+    .stats--now a span,
+    .stats--now a grad {
       color: var(--text-accent);
       background-image: var(--bg-gradient);
       -webkit-background-clip: text;
@@ -232,17 +218,34 @@
     text-transform: uppercase;
     letter-spacing: 0.2em;
     text-align: justify; }
-    .stats--today a span:not(.g-1):not(.g-3):not(.g-4):not(.g-5) {
+    .stats--today a span:not(.g-1):not(.g-3):not(.g-4):not(.g-5),
+    .stats--today a grad:not(.g-1):not(.g-3):not(.g-4):not(.g-5) {
       color: var(--text-accent);
       background-image: var(--bg-gradient);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       text-fill-color: transparent; }
-    .stats--today a span.g-1, .stats--today a span.g-3, .stats--today a span.g-5 {
+    .stats--today a span.g-1, .stats--today a span.g-3, .stats--today a span.g-4, .stats--today a span.g-5,
+    .stats--today a grad.g-1,
+    .stats--today a grad.g-3,
+    .stats--today a grad.g-4,
+    .stats--today a grad.g-5 {
+      background-image: unset;
+      -webkit-background-clip: unset;
+      background-clip: unset;
+      -webkit-text-fill-color: unset;
+      text-fill-color: unset; }
+    .stats--today a span.g-1, .stats--today a span.g-3, .stats--today a span.g-5,
+    .stats--today a grad.g-1,
+    .stats--today a grad.g-3,
+    .stats--today a grad.g-5 {
       color: var(--text-secondary);
       opacity: 0.75; }
-    .stats--today a span.g-1, .stats--today a span.g-5 {
+    .stats--today a span.g-1, .stats--today a span.g-5,
+    .stats--today a grad.g-1,
+    .stats--today a grad.g-5 {
       text-decoration: line-through; }
-    .stats--today a span.g-4 {
+    .stats--today a span.g-4,
+    .stats--today a grad.g-4 {
       color: var(--text-secondary); }

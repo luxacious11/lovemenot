@@ -4,6 +4,12 @@
 /*******************************
     Header
 ********************************/
+body#Profile {
+    header {
+        display: none;
+    }
+}
+
 header {
     height: calc(75vh - (2 * var(--size-menu-height)));
 

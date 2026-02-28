@@ -1,19 +1,4 @@
 /*******************************
-    Extensions
-
-    Want these to be clean without repeated CSS on build? Follow the mixin template:
-
-    @mixin nameHere() {
-        styles
-    }
-
-    Then, in the file you want to use it, call it as an include:
-
-    .className {
-        @include nameHere;
-    }
-********************************/
-/*******************************
    Categories and Forums
 ********************************/
 .category {
@@ -172,6 +157,42 @@
           width: var(--size-pagination-arrows); }
     .category.splide .splide__track {
       grid-column: 1 / -1; }
+  @media (min-width: 1025px) {
+    .category.condensed .category--main {
+      grid-template-columns: 1fr 1fr; } }
+  .category.condensed .forum {
+    grid-template-columns: 100% !important;
+    padding: 0 !important;
+    align-items: start;
+    grid-template-rows: 1fr max-content;
+    margin: 0 !important; }
+  .category.condensed .forum--avatar,
+  .category.condensed .forum--clipped-image {
+    display: none; }
+  .category.condensed .forum--links {
+    border: none !important;
+    border-top: var(--border-secondary) !important;
+    border-radius: 0 0 var(--radius-large) var(--radius-large) !important;
+    margin: 0 !important;
+    padding: var(--space-md) !important; }
+  @media (max-width: 1024px) {
+    .category.condensed .forum--left {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 var(--space-lg); } }
+  @media (max-width: 600px) {
+    .category.condensed .forum--left {
+      grid-template-columns: 100%; } }
+  @media (max-width: 1024px) {
+    .category.condensed .forum--latest {
+      grid-row: 1 / 3;
+      grid-column: 2 / 3;
+      margin-top: 0; } }
+  @media (max-width: 600px) {
+    .category.condensed .forum--latest {
+      grid-row: auto;
+      grid-column: auto;
+      margin-top: var(--space-lg); } }
 
 .forum {
   display: grid;
@@ -220,6 +241,12 @@
       border: var(--border-accent); }
     body.minimalist .forum--avatar {
       display: none; }
+    .forum--avatar:has(img[src="https://"]) a {
+      background: var(--avatar-default);
+      width: 100%;
+      height: 100%;
+      display: block;
+      border-radius: 50%; }
   @media (min-width: 481px) {
     body.maximalist .forum:has(.forum--clipped-image) .forum--avatar {
       top: calc((var(--size-forum-image) * (3 / 4)) - var(--size-forum-avatar) - var(--space-md));

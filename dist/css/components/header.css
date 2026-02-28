@@ -1,21 +1,9 @@
 /*******************************
-    Extensions
-
-    Want these to be clean without repeated CSS on build? Follow the mixin template:
-
-    @mixin nameHere() {
-        styles
-    }
-
-    Then, in the file you want to use it, call it as an include:
-
-    .className {
-        @include nameHere;
-    }
-********************************/
-/*******************************
     Header
 ********************************/
+body#Profile header {
+  display: none; }
+
 header {
   height: calc(75vh - (2 * var(--size-menu-height))); }
   @media (min-width: 601px) {

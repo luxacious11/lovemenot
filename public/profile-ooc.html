@@ -213,7 +213,7 @@
 </nav>
 
         <!--Main Body-->
-        <main>
+        <main><div class="container">
             <a name="top"></a>
 <div class="bg"></div>
 <header class="header">
@@ -239,71 +239,240 @@
 
             <!--Profile-->
             <section class="profile g-4 type-Member">
-                <div class="profile--header"><h1></h1></div>
-                    <div>
-                    <b>Ratings</b>
-                        <lang-clip></lang-clip>
-                        <sex-clip></sex-clip>
-                        <vio-clip></vio-clip>
+                <div class="profile--inner">
+                    <div class="profile--avatar">
+                        <img src="https://picsum.photos/500/800" class="desktop" loading="lazy" />
+                        <img src="https://picsum.photos/800/500" class="mobile" loading="lazy" />
+                        <div class="profile--partners"></div>
+                    </div>
+                    <div class="profile--gif charOnly"><img src="https://64.media.tumblr.com/5b88317fa423b84494ada56cf3150c4a/905f53e710799278-30/s1280x1920/13cd37c73210a45820a649a61d1d35fb6faa908a.gif" loading="lazy" /></div>
+                    <nav class="profile--labels">
+                        <a href="#basics" title="Basics" class="charOnly"><i class="fa-solid fa-user"></i></a>
+                        <a href="#freeform" title="Freeform" class="charOnly"><i class="fa-solid fa-book-open-lines"></i></a>
+                        <a href="#tracker" title="Tracker" class="charOnly"><i class="fa-solid fa-list-tree"></i></a>
+                        <a href="#development" title="Development" class="charOnly"><i class="fa-solid fa-palette"></i></a>
+                        <a href="#roster" title="Roster" class="memAccOnly"><i class="fa-solid fa-users"></i></a>
+                        <a href="#about" title="About" class="memAccOnly"><i class="fa-solid fa-book-open-lines"></i></a>
+                    </nav>
+                    <div class="profile--body">
+                        <div class="profile--body-inner">
+                            <div class="profile--header"><h1></h1></div>
+                            <div class="profile--links">
+                                <a href="/">Topics</a>
+                                <a href="/">Posts</a>
+                                <a href="/">Custom</a>
+                                <a href="/">Custom</a>
+                                <a href="">Custom</a>
+                            </div>
+                            <tag-tabset class="profile--tabs">
+                                <tag-tab class="profile--tab charOnly" data-key="#basics"><div class="profile--tab-inner">
+                                    <div class="items">
+                                        <div class="items--item">
+                                            <b>Full Name</b>
+                                            <span>First Middle Last</span>
+                                        </div>
+                                        <div class="items--item optional">
+                                            <b>Nickname(s)</b>
+                                            <span><i>No Information</i></span>
+                                        </div>
+                                        <div class="items--item">
+                                            <b>Pronouns</b>
+                                            <span>Answer</span>
+                                        </div>
+                                        <div class="items--item">
+                                            <b>Orientation</b>
+                                            <span>Answer</span>
+                                        </div>
+                                        <div class="items--item">
+                                            <b>Age</b>
+                                            <span><age-clip></age-clip></span>
+                                        </div>
+                                        <div class="items--item">
+                                            <b>Birthday</b>
+                                            <span><birthday-clip></birthday-clip></span>
+                                        </div>
+                                        <div class="items--item">
+                                            <b>Occupation</b>
+                                            <span>Answer</span>
+                                        </div>
+                                        <div class="items--item">
+                                            <b>Neighborhood</b>
+                                            <span>Answer</span>
+                                        </div>
+                                        <div class="items--item">
+                                            <b>Height</b>
+                                            <span>Answer</span>
+                                        </div>
+                                        <div class="items--item">
+                                            <b>Face Claim</b>
+                                            <span>Answer</span>
+                                        </div>
+                                        <div class="items--item">
+                                            <b>Astrology</b>
+                                            <span>Answer</span>
+                                        </div>
+                                        <div class="items--item">
+                                            <b>Alter Ego / Twinning</b>
+                                            <span>Answer / Answer</span>
+                                        </div>
+                                    </div>
+                                </div></tag-tab>
+                                <tag-tab class="profile--tab charOnly" data-key="#freeform"><div class="profile--tab-inner freeform">
+                                    <div class="items--item warning">
+                                        <b>warning!</b>
+                                        <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+                                    </div>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit placerat condimentum. Nullam nec justo nisi. Duis mattis ullamcorper elit, at gravida erat tempor sed. Nunc mollis libero at luctus rutrum. Nullam porta libero risus, nec lobortis nulla varius ac. Cras nec vestibulum elit, ac tempor mauris. Donec placerat imperdiet nibh et porta. Nunc sagittis metus quis justo dapibus, quis efficitur nibh aliquam.<br><br>
+                                    Integer ut ex nibh. Integer nec consectetur est. Sed lacinia purus non pharetra scelerisque. Sed condimentum est semper nulla congue, et blandit ex ornare. Proin in diam orci. Nunc posuere varius vehicula. Duis ornare sit amet magna eu pharetra. Mauris non libero sed magna pretium elementum. Curabitur nisi augue, commodo non ultricies a, egestas eu est.<br><br>
+                                    Suspendisse potenti. Fusce nulla tortor, fringilla sollicitudin suscipit at, molestie et ligula. Praesent viverra urna ipsum, a rhoncus nibh molestie in. Curabitur vel mi at nisl rutrum mollis at sit amet mi. Nunc non scelerisque mauris. Fusce quis interdum mauris. Praesent neque sem, dignissim sed varius quis, suscipit a lectus. Vivamus id velit eget odio scelerisque iaculis quis maximus libero. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus venenatis lacinia malesuada. Vivamus aliquam varius ante eget euismod. Nulla semper aliquam ipsum vel iaculis. Suspendisse potenti. Cras fermentum porta erat vitae vehicula.<br><br>
+                                    Donec venenatis, eros non ultrices fringilla, neque risus viverra justo, eu congue ex ligula vitae eros. Pellentesque id massa non arcu volutpat gravida maximus vel sapien. Duis luctus nunc non dui porta, vel vestibulum arcu efficitur. Nulla a nunc sit amet nulla faucibus consectetur vel vitae neque. Vivamus accumsan non libero sit amet mollis. Aenean vel tellus volutpat, facilisis dui ac, venenatis sem. Sed dui mi, porttitor vel ultrices in, congue porttitor urna.<br><br>
+                                    Etiam tortor turpis, laoreet eu gravida eget, posuere eu nibh. Duis sed efficitur orci, ac auctor tortor. Proin vitae blandit est. Suspendisse facilisis ligula et nunc placerat, sed elementum neque tincidunt. Nunc in fringilla tellus. Morbi ac semper quam. Ut venenatis augue sed pulvinar facilisis. Nulla fringilla risus lorem, at lobortis elit mattis sed. Vestibulum tincidunt bibendum enim quis malesuada. Vivamus nec arcu nibh. Etiam sollicitudin urna vitae odio tempus mollis. Praesent pharetra turpis eu est ullamcorper ultricies. Curabitur vitae leo turpis. Cras ut dolor est. Donec ac diam consequat, laoreet erat ac, venenatis mauris. 
+                                </div></tag-tab>
+                                <tag-tab class="profile--tab charOnly" data-key="#tracker"><div class="profile--tab-inner">
+                                    <div class="accordion">
+                                        <div class="accordion--trigger">Tracker Section</div>
+                                        <div class="accordion--content">
+                                            <div class="profile--tracker-item" data-owing="owing">
+                                                <a href="/">owing thread</a>
+                                                <span><tag-highlight>highlight tag</tag-highlight><tag-highlight>highlight tag</tag-highlight></span>
+                                                <span>Posted in <a href="/">Location</a></span>
+                                                <span>Last post by <a href="/">First Last</a></span>
+                                                <span>Date/time</span>
+                                            </div>
+                                            <div class="profile--tracker-item" data-owing="caughtup">
+                                                <a href="/">not owing thread</a>
+                                                <span><tag-highlight>highlight tag</tag-highlight><tag-highlight>highlight tag</tag-highlight></span>
+                                                <span>Posted in <a href="/">Location</a></span>
+                                                <span>Last post by <a href="/">First Last</a></span>
+                                                <span>Date/time</span>
+                                            </div>
+                                            <div class="profile--tracker-item" data-owing="dev">
+                                                <a href="/">dev thread</a>
+                                                <span><tag-highlight>highlight tag</tag-highlight> non highlight</span>
+                                                <span>Posted in <a href="/">Location</a></span>
+                                                <span>Last post by <a href="/">First Last</a></span>
+                                                <span>Date/time</span>
+                                            </div>
+                                            <div class="profile--tracker-item" data-owing="archived">
+                                                <a href="/">archived thread</a>
+                                                <span><tag-highlight>highlight tag</tag-highlight><tag-highlight>highlight tag</tag-highlight></span>
+                                                <span>Posted in <a href="/">Location</a></span>
+                                                <span>Last post by <a href="/">First Last</a></span>
+                                                <span>Date/time</span>
+                                            </div>
+                                        </div>
+                                        <div class="accordion--trigger">Tracker Section</div>
+                                        <div class="accordion--content">
+                                            <div class="profile--tracker-item" data-owing="owing">
+                                                <a href="/">owing thread</a>
+                                                <span><tag-highlight>highlight tag</tag-highlight><tag-highlight>highlight tag</tag-highlight></span>
+                                                <span>Posted in <a href="/">Location</a></span>
+                                                <span>Last post by <a href="/">First Last</a></span>
+                                                <span>Date/time</span>
+                                            </div>
+                                            <div class="profile--tracker-item" data-owing="caughtup">
+                                                <a href="/">not owing thread</a>
+                                                <span><tag-highlight>highlight tag</tag-highlight><tag-highlight>highlight tag</tag-highlight></span>
+                                                <span>Posted in <a href="/">Location</a></span>
+                                                <span>Last post by <a href="/">First Last</a></span>
+                                                <span>Date/time</span>
+                                            </div>
+                                            <div class="profile--tracker-item" data-owing="dev">
+                                                <a href="/">dev thread</a>
+                                                <span><tag-highlight>highlight tag</tag-highlight> non highlight</span>
+                                                <span>Posted in <a href="/">Location</a></span>
+                                                <span>Last post by <a href="/">First Last</a></span>
+                                                <span>Date/time</span>
+                                            </div>
+                                            <div class="profile--tracker-item" data-owing="archived">
+                                                <a href="/">archived thread</a>
+                                                <span><tag-highlight>highlight tag</tag-highlight><tag-highlight>highlight tag</tag-highlight></span>
+                                                <span>Posted in <a href="/">Location</a></span>
+                                                <span>Last post by <a href="/">First Last</a></span>
+                                                <span>Date/time</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div></tag-tab>
+                                <tag-tab class="profile--tab charOnly" data-key="#development"><div class="profile--tab-inner">Dev stuff!</div></tag-tab>
+                                <tag-tab class="profile--tab memAccOnly" data-key="#roster"><div class="profile--tab-inner">
+                                    <div class="profile--roster"></div>
+                                </div></tag-tab>
+                                <tag-tab class="profile--tab memAccOnly" data-key="#about"><div class="profile--tab-inner">
+                                    <div class="optional">
+                                        <div class="accordion--trigger is-active">About</div>
+                                        <div class="accordion--content is-active">Lorem ipsum etc</div>
+                                    </div>
+                                    <div class="accordion optional">
+                                        <div class="accordion--trigger">Want to Write</div>
+                                        <div class="accordion--content">Etc</div>
+                                    </div>
+                                </div></tag-tab>
+                            </tag-tabset>
+                        </div>
+                    </div>
+                    <div class="profile--footer">
+                        <div class="profile--triggers optional">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <div class="profile--triggers-hover">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit placerat condimentum. Nullam nec justo nisi.</div>
+                        </div>
+                        <a href="./profile-ooc.html" class="charOnly">LongAliasTesting</a>
+                        <div class="profile--footer-flex">
+                            <span>33</span>
+                            <span>she/her</span>
+                            <span>mature? ask</span>
+                            <span>discord</span>
+                            <span>moderate activity</span>
+                            <span>prefers comm + threads</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="charOnly">
-                    <b>Age</b>
-                    <age-clip></age-clip>
-                </div>
-                <div class="charOnly">
-                    <b>Birthday</b>
-                    <birthday-clip></birthday-clip>
-                </div>
-                <div class="charOnly">
-                    <b>Freeform w/ Overflow</b>
-                    <div class="profile--freeform"><div class="scroll clip-freeform-overflow"><!-- |field_28| --></div></div>
-                </div>
-                <div class="charOnly">
-                    <b>Aesthetic Images</b>
-                    <div class="profile--aesthetic"></div>
-                </div>
-                <div class="oocOnly">
-                    <b>Roster</b>
-                    <div class="profile--roster"></div>
-                </div>
-                <span class="hidden oocOnly"><form action="index.php" name="subprofilemenu" method="GET">
+                <span class="hidden memAccOnly"><form action="index.php" name="subprofilemenu" method="GET">
                     <select class="forminput" name="showuser" style="width: 180px;" onchange="this.form.submit()">
                     <option value="-------------------" selected="selected">------------------------------</option>
                     <option value="3">&nbsp;&nbsp;» nikolas kovac </option><option value="7">&nbsp;&nbsp;» aiden mitchell </option><option value="8">&nbsp;&nbsp;» fiore amoretti </option><option value="9">&nbsp;&nbsp;» malcolm murdock </option><option value="10">&nbsp;&nbsp;» emmalina fawley </option><option value="11">&nbsp;&nbsp;» naomi bell </option><option value="16">&nbsp;&nbsp;» riordan hemlock </option><option value="17">&nbsp;&nbsp;» casper miyamoto </option><option value="30">&nbsp;&nbsp;» simon flynn </option><option value="33">&nbsp;&nbsp;» hayden donovan </option><option value="45">&nbsp;&nbsp;» christopher reeves </option><option value="49">&nbsp;&nbsp;» harriet clarke </option><option value="52">&nbsp;&nbsp;» spencer al-nazari </option><option value="81">&nbsp;&nbsp;» liam buchanan </option><option value="82">&nbsp;&nbsp;» lily sable </option><option value="104">&nbsp;&nbsp;» gideon cahill </option><option value="103">&nbsp;&nbsp;» oliver hobbes </option>
                     </select>
-                    </form></span>
+                    </form>
+                </span>
             </section>
 
             <!--Uncomment for live: <script src="https://files.jcink.net/uploads2/idolsandichor/Skin1/fizzyelf_profile_tracker_no_indicators_28oct2025_2020.js"></script>-->
             <script>
-                let ratings = [
-                    {'type': 'lang','value': 'All'},
-                    {'type': 'sex','value': 'With Limits'},
-                    {'type': 'vio','value': 'All'}
-                ];
-                let images = {
-                    'tall-1': `<i>No Information</i>`,
-                    'tall-2': `<i>No Information</i>`,
-                    'wide-1': `<i>No Information</i>`,
-                    'square-1': `<i>No Information</i>`,
-                    'square-2': `<i>No Information</i>`,
-                    'square-3': `<i>No Information</i>`,
-                };
                 let birthday = {
                     'year': `<i>No Information</i>`,
                     'month': `<i>No Information</i>`,
                     'day': `<i>No Information</i>`,
                 }
+                let partners = [
+                    {
+                        line1: `<i>No Information</i>`,
+                        line2: `<i>No Information</i>`,
+                        link: `<i>No Information</i>`,
+                        image: `<i>No Information</i>`
+                    },
+                    {
+                        line1: `<i>No Information</i>`,
+                        line2: `<i>No Information</i>`,
+                        link: `<i>No Information</i>`,
+                        image: `<i>No Information</i>`
+                    },
+                    {
+                        line1: `<i>No Information</i>`,
+                        line2: `<i>No Information</i>`,
+                        link: `<i>No Information</i>`,
+                        image: `<i>No Information</i>`
+                    }
+                ]
                 
                 if(oocGroups.includes(`4`) ||
-                  (optGroups.includes(`4`) && `member`.toLowerCase() === `member`)
+                  (optGroups.includes(`4`) && `character`.toLowerCase() === `member`)
                 ) {
                     initMember();
                 } else {
-                    initCharacter(`Mosaic`, images, `<i>No Information</i>`, `Lux`, birthday, true);
+                    initCharacter(`Lux`, birthday, partners, true);
                 }
                 
-                initProfile(`Lux`, ratings);
+                initProfile(`Lux`);
             </script>
 
             <!-- Copyright Information -->
@@ -323,7 +492,7 @@
                     </div>
                 </div>
             </div> 
-        </main>
+        </div></main>
 
         <script src="../dist/js/scripts.js"></script>   
     </body>

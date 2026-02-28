@@ -81,7 +81,11 @@ if(pageType === 'idx' || pageType === 'SC') {
     document.querySelector('.stats--recent').innerHTML = document.querySelector('#recent-topics table').outerHTML;
     document.querySelector('#recent-topics').remove();
 
-    const carouselCategories = [3];
+    condensedCategories.forEach(category => {
+        let categoryWrap = document.querySelector(`.category.c-${category}`);
+        categoryWrap.classList.add('condensed');
+    });
+
     carouselCategories.forEach(category => {
         let catWrapper = document.querySelector(`.category.c-${category}`);
         let forumWrapper = catWrapper.querySelector('.category--main');
@@ -301,8 +305,8 @@ if(pageType === 'UserCP' || pageType === 'Msg') {
         document.querySelector('#ucpcontent form > table > tbody > tr:last-child > td').insertAdjacentHTML('afterbegin', completedButton);
         cpShift();
         splitProfile();
-        ucpAesthetics();
-        ucpAvatars();
+        //ucpAesthetics();
+        //ucpAvatars();
         if(fullWidthFields.length > 0) {
             fields = createFieldArray(fullWidthFields);
             document.querySelectorAll(fields).forEach(field => field.classList.add('fullWidth'));
@@ -324,15 +328,15 @@ if(pageType === 'UserCP' || pageType === 'Msg') {
             document.querySelector(toggle).addEventListener('change', () => {
                 cpShift();
                 splitProfile();
-                ucpAesthetics();
-                ucpAvatars();
+                //ucpAesthetics();
+                //ucpAvatars();
             });
         });
 
         avatarImageFields.forEach(field => {
             document.querySelector(field).addEventListener('keyup', () => {
                 setTimeout(() => {
-                    ucpAvatars();
+                    //ucpAvatars();
                 }, 500);
             });
         });

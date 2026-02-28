@@ -226,7 +226,8 @@
         height: 120px;
 
         a {
-            span {
+            span,
+            grad {
                 color: var(--text-accent);
                 background-image: var(--bg-gradient);
                 -webkit-background-clip: text;
@@ -247,7 +248,8 @@
         text-align: justify;
         
         a {
-            span {
+            span,
+            grad {
                 &:not(.g-1):not(.g-3):not(.g-4):not(.g-5) {
                     color: var(--text-accent);
                     background-image: var(--bg-gradient);
@@ -255,6 +257,16 @@
                     background-clip: text;
                     -webkit-text-fill-color: transparent;
                     text-fill-color: transparent;
+                }
+                &.g-1,
+                &.g-3,
+                &.g-4,
+                &.g-5 {
+                    background-image: unset;
+                    -webkit-background-clip: unset;
+                    background-clip: unset;
+                    -webkit-text-fill-color: unset;
+                    text-fill-color: unset;
                 }
                 &.g-1,
                 &.g-3,

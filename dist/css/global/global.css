@@ -1,19 +1,4 @@
 /*******************************
-    Extensions
-
-    Want these to be clean without repeated CSS on build? Follow the mixin template:
-
-    @mixin nameHere() {
-        styles
-    }
-
-    Then, in the file you want to use it, call it as an include:
-
-    .className {
-        @include nameHere;
-    }
-********************************/
-/*******************************
     Global
 ********************************/
 @font-face {
@@ -180,3 +165,112 @@ tag-labels {
 
 button {
   cursor: pointer; }
+
+.items {
+  display: grid;
+  gap: calc(var(--space-lg) - var(--space-md)); }
+  @media (max-width: 480px) {
+    .items .items--item {
+      flex-direction: column-reverse;
+      gap: 0;
+      margin-bottom: var(--space-lg); }
+      .items .items--item b {
+        margin-top: calc(-1 * var(--space-xs)); } }
+  .items--item {
+    display: flex;
+    align-items: end;
+    width: 100%;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md); }
+    .items--item b {
+      display: flex;
+      align-items: center;
+      gap: var(--space-md);
+      flex-grow: 1;
+      line-height: 120%;
+      font-family: var(--font-script);
+      text-transform: lowercase;
+      font-size: 20px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      color: var(--text-secondary);
+      text-wrap: nowrap;
+      padding-left: var(--space-xs);
+      transform: translateY(50%); }
+      @media only screen and (min-width: 480px) {
+        .items--item b {
+          font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
+      @media only screen and (min-width: 1280px) {
+        .items--item b {
+          font-size: 28px; } }
+    .items--item span {
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      line-height: 160%;
+      font-size: var(--text-size-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      text-align: right;
+      width: 100%; }
+      .items--item span.lower {
+        text-transform: none;
+        letter-spacing: 0;
+        font-size: var(--text-size-sm); }
+      .items--item span::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: var(--bg-gradient);
+        margin-top: var(--space-xs); }
+
+.accordion--trigger {
+  line-height: 120%;
+  text-transform: uppercase;
+  font-size: 16px;
+  color: var(--text-secondary);
+  font-weight: 900; }
+  @media only screen and (min-width: 480px) {
+    .accordion--trigger {
+      font-size: calc(16px + 4 * (100vw - 480px) / (1280 - 480)); } }
+  @media only screen and (min-width: 1280px) {
+    .accordion--trigger {
+      font-size: 20px; } }
+  .accordion--trigger::before {
+    display: inline-block;
+    color: var(--text-accent);
+    background-image: var(--bg-gradient-v);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+    font-family: 'Font Awesome 7 Pro';
+    margin-right: var(--space-sm);
+    transform: rotate(0deg);
+    transform-origin: center;
+    transition: var(--transition-standard); }
+  .accordion--trigger.is-active::before {
+    transform: rotate(90deg); }
+  .accordion--trigger:not(:first-child) {
+    margin-top: var(--space-md); }
+
+.accordion--content {
+  margin-bottom: var(--space-lg); }
+
+.accordion:not(:first-child) {
+  margin-top: var(--space-md); }
+
+tag-highlight {
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 160%;
+  font-size: var(--text-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  background: var(--bg-accent);
+  border-radius: var(--radius-small);
+  padding: var(--space-xs) var(--space-sm);
+  color: var(--text-on-accent);
+  line-height: 100%; }

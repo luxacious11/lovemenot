@@ -873,7 +873,7 @@ function setAgeClass(age, canBeImmortal = false) {
 }
 function removeBlankFields() {
     document.querySelectorAll('.optional i').forEach(italic => {
-        if(italic.innerText === 'No Information') {
+        if(italic.innerText.toLowerCase() === 'no information') {
             italic.closest('.optional').remove();
         }
     })

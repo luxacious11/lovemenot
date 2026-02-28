@@ -1,6 +1,20 @@
-.alert-section .input-wrap .fancy-input::before {
-  content: '\f00c'; }
+/***** Customization *****/
+.category.c-1 h2::after {
+  content: 'Category #1 subtitle'; }
 
+.category.c-2 h2::after {
+  content: 'Category #2 subtitle'; }
+
+.category.c-3 h2::after {
+  content: 'Category #3 subtitle'; }
+
+.category.c-4 h2::after {
+  content: 'Category #4 subtitle'; }
+
+.category.c-5 h2::after {
+  content: 'Category #5 subtitle'; }
+
+/***** Group-related *****/
 body.g-2 .memOnly,
 body:not(.g-2) .guestOnly,
 body:not(.g-4) .staffOnly {
@@ -14,5 +28,9 @@ body.g-4 .webpage--menu .accordion--content.staffOnly,
 body.g-4 .accordion--trigger.staffOnly {
   display: flex; }
 
-.category.c-1 h2::after {
-  content: 'Category #1 subtitle'; }
+/***** Just because they get stripped in the stylesheets *****/
+.alert-section .input-wrap .fancy-input::before {
+  content: '\f00c'; }
+
+.accordion--trigger::before {
+  content: '\f101'; }

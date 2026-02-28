@@ -36,19 +36,15 @@ function setRoster() {
         document.querySelector('.profile--roster').insertAdjacentHTML('beforeend', html);
     });
 }
-function initProfile (title, ratings) {
-    document.querySelector('.profile--header h1').innerHTML = capitalize(title);
-    ratings.forEach(rating => formatRating(rating));
+function initProfile (title) {
+    document.querySelector('.profile--header h1').innerHTML = formatName(title, 'b');
     removeBlankFields();
+    initTabs(true, '.profile--body', '.profile--labels', '.profile--tabs', 'is-active', null, ['.profile--tab:first-child', '.profile--labels a:first-child']);
+    initAccordion();
 }
-function initCharacter(aesthetics, images, overflow, title, birthday, isLocal = false) {
+function initCharacter(title, birthday, partners, partnerNum, isLocal = false) {
     //remove member sections
     document.querySelectorAll('.memAccOnly').forEach(item => item.remove());
-
-    //set up aesthetics
-    if(aesthetics !== `<i>No Information</i>` && aesthetics !== ``) {
-        document.querySelector('.profile--aesthetic').innerHTML = formatAesthetics(aesthetics, images);
-    }
 
     //set up age & birthday
     document.querySelector('age-clip').innerText = calculateAge(birthday);
@@ -58,10 +54,15 @@ function initCharacter(aesthetics, images, overflow, title, birthday, isLocal = 
         document.querySelector('birthday-clip').innerText = `${birthday.month} ${birthday.day}, ${parseInt(birthday.year)}`;
     }
 
-    //Freeform Overflow
-    if(overflow !== `` && overflow !== `<i>No Information</i>`) {
-        document.querySelector('.clip-freeform-overflow').insertAdjacentHTML('beforeend', overflow);
+    let partnersHTML = ``;
+    for (let i = 0; i < parseInt(partnerNum); i++) {
+        if(partners[i].link.toLowerCase() !== '<i>no information</i>') {
+            partnersHTML += `<div class="profile--partner"><a href="${partners[i].link}" title="${partners[i].line1}, ${partners[i].line2}"><img src="${partners[i].image}" loading="lazy" /><i class="fa-solid fa-heart"></i></a></div>`;
+        } else {
+            partnersHTML += `<div class="profile--partner"><img src="${partners[i].image}" loading="lazy" title="${partners[i].line1}, ${partners[i].line2}" /><i class="fa-solid fa-heart"></i></div>`;
+        }
     }
+    document.querySelector('.profile--partners').innerHTML = partnersHTML;
 
     //Tracker
     if(!isLocal) {
@@ -281,46 +282,51 @@ function editMember(existing, data) {
 
 /****** UserCP/Messages ******/
 function cpShift() {
-	let imageType = document.querySelector(toggleFields[1]).value,
+	let partnerCount = document.querySelector(toggleFields[1]).value,
 	    account = document.querySelector(toggleFields[0]).value,
 	    showFields = [],
 	    hideFields = characterFields
-                    .concat(defaultImages)
-                    .concat(gridImages)
-                    .concat(mosaicImages),
+                    .concat(onePartner)
+                    .concat(twoPartner)
+                    .concat(threePartner),
 	    showHeaders = allHeaders;
 
 	if(account.toLowerCase() == 'character') {
-        if(imageType.toLowerCase() === 'grid') {
+        if(partnerCount.toLowerCase() === '2') {
             showFields = characterFields
-                        .concat(defaultImages)
-                        .concat(gridImages);
-            hideFields = mosaicImages;
+                        .concat(onePartner)
+                        .concat(twoPartner);
+            hideFields = threePartner;
             showHeaders = allHeaders
                         .concat(charHeaders);
-            document.querySelector(defaultImages[0]).classList.remove('fullWidth');
-        } else if (imageType.toLowerCase() === 'mosaic') {
+        } else if (partnerCount.toLowerCase() === '3') {
             showFields = characterFields
-                        .concat(defaultImages)
-                        .concat(gridImages)
-                        .concat(mosaicImages);
+                        .concat(onePartner)
+                        .concat(twoPartner)
+                        .concat(threePartner);
             hideFields = [];
             showHeaders = allHeaders
                         .concat(charHeaders);
-            document.querySelector(defaultImages[0]).classList.remove('fullWidth');
-        } else {
+        } else if (partnerCount.toLowerCase() === '1') {
             showFields = characterFields
-                        .concat(defaultImages);
-            hideFields = gridImages
-                        .concat(mosaicImages);
+                        .concat(onePartner);
+            hideFields = twoPartner
+                        .concat(threePartner);
             showHeaders = allHeaders
                         .concat(charHeaders);
-            document.querySelector(defaultImages[0]).classList.add('fullWidth');
+        } else {
+            showFields = characterFields;
+            hideFields = onePartner
+                        .concat(twoPartner)
+                        .concat(threePartner);
+            showHeaders = allHeaders
+                        .concat(charHeaders);
         }
     }
     
     adjustCP(showFields, hideFields, showHeaders);
 }
+/*
 function setUpAesthetics() {
     let aestheticsObj = {
         'tall-1': document.querySelector('#field_20_input').value,
@@ -373,6 +379,7 @@ function formatAvatars(images) {
     <span class="wide"><img src="${images['wide']}" title="Wide Avatar" alt="Wide Avatar" loading="lazy" /></span>`;
     return imageHTML;
 }
+*/
 function createFieldArray(arr, input = false) {
     if(input) {
         return arr.map(item => `#field_${item}_input`);
