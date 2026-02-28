@@ -13,21 +13,27 @@ a[href="<i>No Information</i>"] {
   display: none !important; }
 
 /***** Custom Defaults - Input Wraps *****/
-.input-wrap input {
-  display: none; }
-  .input-wrap input:checked ~ .fancy-input {
-    color: black; }
-
-.input-wrap .fancy-input {
-  border: 1px solid black;
+.input-wrap {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  color: transparent;
-  width: var(--space-lg);
-  height: var(--space-lg); }
-  .input-wrap .fancy-input.radio {
-    border-radius: 50%; }
+  gap: var(--space-sm);
+  align-items: center; }
+  .input-wrap input {
+    display: none; }
+    .input-wrap input:checked ~ .fancy-input {
+      color: var(--text-secondary); }
+  .input-wrap .fancy-input {
+    border: var(--border-primary);
+    background: var(--bg-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    width: var(--size-input);
+    height: var(--size-input);
+    border-radius: var(--radius-small);
+    cursor: pointer; }
+    .input-wrap .fancy-input.radio {
+      border-radius: 50%; }
 
 /***** Online List ******/
 #Online main > .tableborder:nth-of-type(2) .maintitle {

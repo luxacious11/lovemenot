@@ -12,6 +12,9 @@
   @media (min-width: 1025px) {
     .stats {
       grid-template-columns: 300px auto; } }
+  @media (min-width: 1441px) {
+    .stats {
+      grid-template-columns: 450px auto; } }
   .stats--recent {
     background: var(--bg-secondary);
     padding: var(--space-md); }
@@ -137,7 +140,8 @@
     .stats--links a {
       background: var(--bg-gradient-75);
       padding: var(--space-xs);
-      border-radius: 50%; }
+      border-radius: 50%;
+      border: none; }
       .stats--links a::before {
         content: '';
         position: absolute;

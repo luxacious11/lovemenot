@@ -12,6 +12,11 @@ header {
   @media (min-width: 1025px) {
     header {
       height: calc(100vh - (2 * var(--size-menu-height))); } }
+  body:not(#idx) header {
+    height: auto !important;
+    background: none; }
+    body:not(#idx) header .header--svg {
+      opacity: 0.25; }
 
 .header {
   display: flex;
@@ -23,6 +28,7 @@ header {
     .header {
       padding: calc(var(--space-xl) + var(--space-md)) calc((2 * var(--space-xl)) - var(--space-lg)); } }
   .header--content {
+    z-index: 1;
     width: max-content;
     max-width: 100%; }
     .header--content > a {

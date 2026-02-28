@@ -19,21 +19,28 @@ a[href="<i>No Information</i>"] {
 
 /***** Custom Defaults - Input Wraps *****/
 .input-wrap {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+    
     input {
         display: none;
         
         &:checked ~ .fancy-input {
-            color: black;
+            color: var(--text-secondary);
         }
     }
     .fancy-input {
-        border: 1px solid black;
+        border: var(--border-primary);
+        background: var(--bg-secondary);
         display: flex;
         align-items: center;
         justify-content: center;
         color: transparent;
-        width: var(--space-lg);
-        height: var(--space-lg);
+        width: var(--size-input);
+        height: var(--size-input);
+        border-radius: var(--radius-small);
+        cursor: pointer;
 
         &.radio {
             border-radius: 50%;

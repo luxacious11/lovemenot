@@ -20,6 +20,15 @@ header {
     @include mq-up(md) {
         height: calc(100vh - (2 * var(--size-menu-height)));
     }
+
+    body:not(#idx) & {
+        height: auto !important;
+        background: none;
+
+        .header--svg {
+            opacity: 0.25;
+        }
+    }
 }
 
 .header {
@@ -35,6 +44,7 @@ header {
     }
 
     &--content {
+        z-index: 1;
         width: max-content;
         max-width: 100%;
 

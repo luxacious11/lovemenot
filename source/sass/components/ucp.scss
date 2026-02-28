@@ -8,9 +8,16 @@
 //General
 #UserCP,
 #Msg {
-    main {
+    main .container {
         & > table:first-of-type {
             display: block;
+            padding: calc(var(--space-md) + var(--size-container-margin)) var(--space-md);
+            max-width: var(--size-max-screen);
+            margin: 0 auto;
+        
+            @include mq-up(xxs) {
+                padding: calc(var(--space-lg) + var(--size-container-margin)) var(--space-lg);
+            }
 
             & ~ * {
                 display: none;
@@ -18,6 +25,8 @@
 
             & > tbody {
                 display: block;
+                border-radius: var(--radius-large);
+                background: var(--bg-primary);
 
                 & > tr {
                     display: flex;
@@ -25,19 +34,46 @@
                     
                     & > td {
                         &#ucpmenu {
-                            flex: 0 0 150px;
+                            flex: 0 0 71px;
+                            transition: var(--transition-standard);
+
+                            &.is-open {
+                                flex: 0 0 var(--size-ucp-menu);
+                            }
 
                             .sticky {
                                 display: flex;
                                 flex-direction: column;
                                 gap: var(--space-sm);
                                 position: sticky;
-                                top: var(--size-menu-height);
-                            }
-                            .menu-section {
+                                top: calc(var(--size-container-margin) - 1px);
+                                background: var(--bg-secondary);
                                 display: flex;
                                 flex-direction: column;
-                                gap: var(--space-sm);
+                                padding: var(--space-md);
+                                gap: var(--space-md);
+                                justify-content: end;
+                                border-bottom: var(--border-primary);
+                                border-right: var(--border-primary);
+                                border-bottom-right-radius: var(--radius-xl);
+                                border-top-left-radius: var(--radius-large);
+                        
+                                @include mq-up(xxs) {
+                                    padding: var(--space-lg) var(--space-md) var(--space-xl);
+                                }
+                            }
+                            .accordion--content {
+                                flex-direction: column;
+                                gap: var(--space-xs);
+                                padding-top: var(--space-sm);
+
+                                &.is-active {
+                                    display: flex;
+                                }
+
+                                a {
+                                    @include link;
+                                }
                             }
                         }
                         &:nth-child(2) {
@@ -79,19 +115,17 @@
                                             @include mq-up(xxs) {
                                                 margin-bottom: var(--space-lg);
                                             }
-                    
-                                            @include mq-up(sm) {
-                                                gap: var(--space-md);
-                                            }
                         
                                             .pformleft {
+                                                @include info(details);
+
                                                 b,
                                                 strong,
                                                 label {
-                                                    line-height: 160%;
+                                                    @include heading(h3, thin);
                                                     display: block;
                                                     max-width: max-content;
-                                                    padding: var(--space-xs) var(--space-sm);
+                                                    padding: 0 var(--space-xs);
                     
                                                     & ~ br {
                                                         display: none;
@@ -127,15 +161,92 @@
     }
 }
 
+//Anywhere BUT edit profile
+#UserCP,
+#Msg {
+    .pformstrip {
+        &:not(:has(> input[type="submit"])) {
+            @include heading(h4, true);
+            margin-bottom: var(--space-md);
+
+            a {
+                color: var(--text-secondary);
+                @include heading(h6);
+            }
+        }
+    }
+}
+
 //Specific Pages
 //Edit Profile
+.ucp {
+    &--button {
+        @include link(circle);
+        width: 40px;
+        height: 40px;
+
+        .is-open > .sticky > & {
+            &::before {
+                scale: 1.3;
+            }
+        }
+
+        &[onclick] {
+            cursor: pointer;
+
+            .is-open > .sticky > & {
+                .open-button {
+                    display: none !important;
+                }
+            }
+
+            *:not(.is-open) > .sticky > & {
+                .close-button {
+                    display: none !important;
+                }
+                & + tag-labels,
+                & ~ .accordion {
+                    display: none !important;
+                }
+            }
+        }
+    }
+    &--header-title {
+        @include heading(h4, true);
+        margin-bottom: var(--space-md);
+    }
+    &--description {
+        margin: 0 0 var(--space-md);
+        background: var(--bg-secondary);
+        border: var(--border-primary);
+        border-radius: var(--radius-medium);
+        padding: var(--space-sm) var(--space-md);
+        text-align: justify;
+        font-size: calc(var(--text-size-md) + 1px);
+        line-height: 200%;
+    }
+    &--section {
+        margin-bottom: var(--space-lg);
+    }
+}
 #UserCP.code-01 {
     #ucpcontent {
         form {
             & > .pformstrip {
                 display: none;
             }
-            #field-birthday,
+            #field-birthday {
+                grid-column: 1 / -1;
+
+                .pformright {
+                    display: grid !important;
+                    gap: var(--space-sm) var(--space-lg);
+
+                    @include mq-up(md) {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+                }
+            }
             #field-website,
             #field-location,
             #field-interests {
@@ -152,11 +263,75 @@
                 tr {
                     margin-bottom: 0 !important;
                     grid-column: span 3;
+                    display: grid;
+                    gap: var(--space-sm);
+
+                    &:has(img) {
+                        display: grid !important;
+                        grid-template-columns: 100px auto;
+                        grid-template-rows: max-content 1fr;
+
+                        &#field_2 {
+                            img {
+                                aspect-ratio: var(--size-large-avatar-ratio);
+                            }
+                        }
+
+                        &#field_5 {
+                            img {
+                                aspect-ratio: 5 / 4;
+                            }
+                        }
+
+                        &#field_3 {
+                            img {
+                                aspect-ratio: var(--size-profile-gif-ratio);
+                            }
+                        }
+
+                        &#field_4 {
+                            img {
+                                aspect-ratio: 1 / 1;
+                            }
+                        }
+
+                        img {
+                            grid-row: span 2;
+                            width: 100%;
+                            height: auto;
+                        }
+                    }
+
+                    &:has(.pformstrip:only-child) {
+                        grid-column: 1 / -1;
+                    }
+
+                    @include mq-down(md) {
+                        grid-column: 1 / -1 !important;
+                    }
 
                     .pformleft {
                         display: flex;
                         flex-direction: column;
                         gap: var(--space-sm);
+                        @include info(details);
+
+                        b,
+                        strong,
+                        label {
+                            @include heading(h3, thin);
+                            display: block;
+                            max-width: max-content;
+                            padding: 0 var(--space-xs);
+
+                            & ~ br {
+                                display: none;
+                            }
+                        }
+                    }
+
+                    td {
+                        display: block;
                     }
                 }
             }
@@ -259,12 +434,18 @@
 
                         & > td {
                             margin: 0;
-                            padding: 0 0 0 calc(var(--space-sm) + 20px);
+                            padding: 0 0 0 calc(var(--size-input) + var(--space-sm));
                             text-align: left;
+                            @include info();
 
                             &:first-child {
-                                padding-bottom: var(--space-sm);
                                 margin-top: -5px;
+                                @include heading(h3);
+                                letter-spacing: 0;
+
+                                a {
+                                    color: var(--text-secondary);
+                                }
                             }
                             
                             &:last-child {
@@ -370,6 +551,9 @@
             }
         }
         & > form {
+            & + div {
+                display: none;
+            }
             & > .tableborder {
                 & > table {
                     display: block;
@@ -390,12 +574,17 @@
                             }
                             &:last-child {
                                 flex: 0 0 100%;
+                                @include info(xxs);
 
                                 td {
                                     display: flex;
                                     flex-direction: column;
                                     align-items: end;
                                     gap: var(--space-sm);
+
+                                    select {
+                                        font-size: var(--text-size-md);
+                                    }
 
                                     input {
                                         margin: 0;
@@ -429,18 +618,27 @@
         
                                 & > td {
                                     margin: 0;
-                                    padding: 0 0 0 calc(var(--space-sm) + 20px);
+                                    padding: 0 0 0 calc(var(--size-input) + var(--space-sm));
                                     text-align: left;
             
                                     &:first-child {
                                         display: none;
                                     }
                                     &.alert-text {
-                                        padding-bottom: var(--space-sm);
+                                        padding-bottom: var(--space-xs);
                                         margin-top: -1px;
+                                        @include info(sm);
+
+                                        a {
+                                            color: var(--text-secondary);
+                                        }
 
                                         img {
                                             display: none;
+                                        }
+
+                                        & + td {
+                                            @include info(details);
                                         }
                                     }
                                     
@@ -477,9 +675,17 @@
                     display: flex;
                     flex-wrap: wrap;
 
+                    a {
+                        color: var(--text-secondary);
+                    }
+
                     &:not(.pformstrip) {
                         flex: 0 0 100%;
                         padding: var(--space-sm);
+                        @include info(xxs);
+                        background: var(--bg-secondary);
+                        border: var(--border-primary);
+                        border-radius: var(--radius-medium);
         
                         @include mq-up(sm) {
                             flex: 0 0 calc(50% - (var(--space-md) / 2));
@@ -503,8 +709,8 @@
                                 line-height: 200%;
 
                                 b:first-of-type {
-                                    padding-bottom: var(--space-sm);
-                                    margin-top: -5px;
+                                    padding-bottom: var(--space-xs);
+                                    @include heading(h6);
                                 }
     
                                 br {
@@ -534,11 +740,16 @@
                     &.pformstrip {
                         flex: 0 0 100%;
                         padding: var(--space-xs) var(--space-sm) !important;
+                        @include heading(h5, true);
 
                         &:nth-child(2) {
                             border-top: none;
                             margin-top: 0;
                             padding-top: 0 !important;
+
+                            &:nth-last-child(2) {
+                                @include heading(h6, false);
+                            }
                         }
 
                         td {
@@ -552,6 +763,10 @@
     }
 }
 #UserCP.code-26 {
+    main .container > table:first-of-type > tbody > tr > td#ucpcontent select {
+        width: auto;
+        margin-left: var(--space-xs);
+    }
     #ucpcontent {
         & > .pformstrip {
             span {
@@ -568,23 +783,40 @@
                     &:not(.pformstrip) {
                         & > td {
                             &:nth-child(2) {
-                                display: block;
+                                display: block !important;
+                                margin-bottom: var(--space-sm);
 
                                 br {
                                     display: initial;
                                 }
-                                a:first-child {
+                                a:first-child,
+                                span {
                                     display: block;
                                 }
                             }
                             &:nth-child(5) {
                                 flex: 0 0 100%;
+                                margin-top: var(--space-sm);
                             }
                             &:not(:last-child) {
-                                padding: 0 0 0 calc(var(--space-sm) + 20px);
+                                padding: 0 0 0 calc(var(--size-input) + var(--space-sm));
                             }
                             &:last-child {
                                 position: absolute;
+                                padding: 0;
+                            }
+                        }
+                    }
+                    &.pformstrip {
+                        &:last-child {
+                            font-size: 0 !important;
+
+                            &::before {
+                                display: none;
+                            }
+
+                            td {
+                                text-align: right;
                             }
                         }
                     }
@@ -597,6 +829,33 @@
 #UserCP.code-04 {
     #ucpcontent {
         & > form {
+            & > .pformstrip {
+                & + p {
+                    @include info(details);
+                    margin-bottom: var(--space-lg);
+
+                    & > b:first-child {
+                        line-height: 160%;
+                        max-width: max-content;
+                        width: 100%;
+                        display: block;
+                        max-width: max-content;
+                        margin: 0 0 var(--space-sm) 0;
+                        @include heading(h6, thin);
+                        font-style: normal;
+
+                        & + br {
+                            display: none;
+                        }
+                    }
+
+                    select {
+                        margin-top: var(--space-sm);
+                        font-size: var(--text-size-md);
+                        font-style: normal;
+                    }
+                }
+            }
             & > table {
                 & > tbody {
                     & > tr {
@@ -607,8 +866,8 @@
                                 width: 100%;
                                 display: block;
                                 max-width: max-content;
-                                padding: var(--space-xs) var(--space-sm);
                                 margin: var(--space-sm) 0 0;
+                                @include heading(h6, thin);
 
                                 b {
                                     & ~ br {
@@ -631,11 +890,6 @@
                 }
             }
         }
-        .input-wrap {
-            & + br {
-                display: none;
-            }
-        }
         .pformstrip:last-child {
             margin-bottom: 0;
             padding: 0;
@@ -649,6 +903,7 @@
             padding: 0;
             line-height: 160%;
             margin: var(--space-sm) 0 0;
+            @include heading(h6, true);
 
             &:first-child {
                 text-align: left;
@@ -667,7 +922,11 @@
     tr {
         &:not(:nth-last-child(4)):not(:first-child) {
             td {
-                padding: 0 0 var(--space-md);
+                padding: var(--space-sm) 0;
+
+                .input-wrap {
+                    width: max-content;
+                }
             }
         }
         &:nth-last-child(4) {
@@ -699,9 +958,13 @@
 
 //Inbox
 #Msg.code-01 {
-    .ucp--inner {
+    #ucpcontent {
         & > table {
-            padding: 0 !important;
+            @include info;
+
+            a {
+                color: var(--text-primary);
+            }
 
             & > tbody {
                 & > tr {
@@ -722,6 +985,11 @@
             & > .tableborder {
                 & > table {
                     & > tbody {
+                        display: flex;
+                        flex-wrap: wrap;
+                        gap: var(--space-md);
+                        margin-top: var(--space-md);
+
                         & > tr {
                             &:first-child {
                                 display: none;
@@ -729,63 +997,78 @@
                             &:last-child {
                                 font-size: 0;
                                 line-height: 0;
+                                flex: 0 0 100% !important;
+                                display: flex;
+                                justify-content: center;
 
                                 div,
                                 select,
                                 input:not([name="delete"]) {
                                     display: none;
                                 }
+
+                                input[name="delete"] {
+                                    font-size: 16px;
+                                    line-height: 120%;
+                                }
                             }
                             &:not(:first-child):not(:last-child) {
                                 display: flex;
                                 flex-direction: column;
-                                padding-left: calc(var(--space-sm) + var(--space-lg));
-                                padding-bottom: var(--space-md);
-                                margin: calc(var(--space-xs) / -2) 0 var(--space-md);
-                                border-bottom: black;
+                                padding: var(--space-sm) var(--space-md) var(--space-sm) calc((2 * var(--space-sm)) + var(--size-input));
+                                background: var(--bg-secondary);
+                                border: var(--border-primary);
+                                flex: 0 0 100%;
+                                border-radius: var(--radius-medium);
+
+                                @include mq-up(xs) {
+                                    flex: 0 0 calc(50% - calc(var(--space-md) / 2));
+                                }
+
+                                @include mq-up(sm) {
+                                    flex: 0 0 calc((100% / 3) - calc(var(--space-md) * 2 / 3));
+                                }
+
+                                @include mq-up(md) {
+                                    flex: 0 0 calc(50% - calc(var(--space-md) / 2));
+                                }
                                 
                                 &:nth-child(2) {
                                     padding-top: var(--space-md);
-    
-                                    & > td {
-                                        &:last-child {
-                                            top: calc(var(--space-md) + var(--space-xs));
-                                        }
-                                    }
+                                    flex: 0 0 100%;
+                                    background: none;
+                                    border: none;
+                                    @include heading(h6);
                                 }
     
                                 & > td {
                                     padding: 0;
     
                                     &:first-child {
+                                        @include info(xxs);
                                         text-align: left;
-                                        width: 100%;
+                                        line-height: 100%;
                                     }
                                     &:nth-child(2) {
-                                        a {
-                                            margin-top: -5px;
-                                            margin-bottom: -5px;
+                                        @include heading(h6);
+                                        margin-top: var(--space-sm);
 
-                                            &::before {
-                                                display: none;
-                                            }
+                                        a {
+                                            color: var(--text-secondary);
                                         }
                                     }
                                     &:nth-child(3) {
                                         font-size: 0;
                                         line-height: 0;
-                                        margin: 0;
+                                        margin: var(--space-sm) 0 0;
     
                                         a {
                                             &:first-of-type {
-                                                font-size: var(--size-xs);
-                                                padding: var(--space-xs) 0;
-                                                display: flex;
-                                                flex-wrap: wrap;
-                                                gap: var(--space-xs);
+                                                @include info(xxs);
     
                                                 &::before {
                                                     content: 'Sent from ';
+                                                    color: var(--text-primary);
                                                     width: auto;
                                                     position: relative;
                                                     bottom: auto;
@@ -800,14 +1083,12 @@
                                         }
                                     }
                                     &:nth-child(4) {
-                                        width: 100%;
-                                        font-size: var(--size-xs);
-                                        line-height: 120%;
+                                        @include info(details);
                                     }
                                     &:last-child {
                                         position: absolute;
-                                        top: var(--space-xs);
-                                        left: 0;
+                                        top: var(--space-md);
+                                        left: var(--space-sm);
                                     }
                                 }
                             }
@@ -820,7 +1101,7 @@
 }
 //Send Message
 #Msg.code-04 {
-    form {
+    main .container > table:first-of-type > tbody > tr > td#ucpcontent form {
         & > table {
             & > tbody {
                 & > tr {
@@ -864,6 +1145,11 @@
                         .pformleft {
                             border: none;
                             padding: 0;
+
+                            b {
+                                @include heading(h4, true);
+                                margin-bottom: var(--space-md);
+                            }
                         }
                         .pformright {
                             padding: 0;
@@ -910,6 +1196,25 @@
                                 select {
                                     width: max-content;
                                     max-width: max-content;
+                                    height: 26px !important;
+                                    border: var(--border-primary) !important;
+                                    font-size: var(--text-size-sm) !important;
+                                    letter-spacing: 0.05em;
+                                    font-weight: 900;
+                                    cursor: pointer !important;
+                                    transition: var(--transition-standard);
+                                    background: var(--bg-accent-low) !important;
+                                    letter-spacing: var(--leading-standard);
+                                    margin: 0;
+
+                                    &:hover {
+                                        background: var(--bg-accent) !important;
+                                    }
+
+                                    option {
+                                        font-size: var(--text-size-md);
+                                        letter-spacing: 0;
+                                    }
                                 }
 
                                 & > a,
@@ -953,10 +1258,14 @@
 }
 //View Message
 #Msg.code-03 {
-    .ucp--inner {
+    #ucpcontent {
         & > .pformstrip {
             & ~ div:not(.tableborder) {
-                font-size: var(--size-xs);
+                @include info(xxs);
+
+                a {
+                    color: var(--text-secondary);
+                }
             }
         }
         & > .tableborder {
@@ -988,13 +1297,16 @@
                         td {
                             padding: 0;
                             width: 100%;
-                            font-size: var(--size-xs);
 
                             &:not(:first-child) {
                                 display: flex;
                                 gap: var(--space-lg);
                                 justify-content: space-between;
                                 align-items: center;
+
+                                .postdetails {
+                                    @include heading(h6, thin);
+                                }
 
                                 & > * {
                                     float: none !important;
@@ -1009,18 +1321,31 @@
                                     display: flex;
                                     align-items: center;
                                     justify-content: center;
+                                    width: 30px;
+                                    height: 30px;
+                                    border: var(--border-accent-mid);
+                                    color: var(--text-primary);
+                                    font-size: 12px;
                                     cursor: pointer;
+                                    transition: var(--transition-standard);
 
                                     &::before {
                                         display: none;
+                                    }
+
+                                    &:hover {
+                                        background: var(--bg-accent-low);
+                                        color: var(--text-secondary);
                                     }
                                 }
                             }
 
                             &:first-child {
+                                @include heading(h5, true);
+                                justify-content: start;
+
                                 a {
-                                    font-size: var(--size-md);
-                                    letter-spacing: 0;
+                                    color: var(--text-secondary);
                                 }
                             }
                         }
@@ -1030,8 +1355,9 @@
                         display: block;
                         padding: var(--space-lg);
                         margin: var(--space-md) 0 var(--space-lg);
-                        border-top: black;
-                        border-bottom: black;
+                        background: var(--bg-secondary);
+                        border: var(--border-primary);
+                        border-radius: var(--radius-medium);
 
                         td {
                             display: block;

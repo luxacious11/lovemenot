@@ -51,6 +51,7 @@ if (typeof tippy === 'function') {
         arrow: false
     });
 }
+document.querySelectorAll('.pagination_page').forEach(el => el.innerHTML = `<i>${el.innerHTML}</i>`)
 
 /********** Initializations **********/
 setTheme();
@@ -302,11 +303,11 @@ if(pageType === 'UserCP' || pageType === 'Msg') {
 
 	//Edit Profile Edits
 	if($('body.code-01').length > 0 && pageType === 'UserCP') {
+        document.querySelector(`#field_${birthdayBefore}`).after(document.querySelector('#field-birthday'));
         document.querySelector('#ucpcontent form > table > tbody > tr:last-child > td').insertAdjacentHTML('afterbegin', completedButton);
         cpShift();
         splitProfile();
-        //ucpAesthetics();
-        //ucpAvatars();
+        
         if(fullWidthFields.length > 0) {
             fields = createFieldArray(fullWidthFields);
             document.querySelectorAll(fields).forEach(field => field.classList.add('fullWidth'));
@@ -328,15 +329,33 @@ if(pageType === 'UserCP' || pageType === 'Msg') {
             document.querySelector(toggle).addEventListener('change', () => {
                 cpShift();
                 splitProfile();
-                //ucpAesthetics();
-                //ucpAvatars();
             });
         });
 
-        avatarImageFields.forEach(field => {
-            document.querySelector(field).addEventListener('keyup', () => {
+        avatarImageFields.forEach(el => {
+            let field = document.querySelector(`${el} input`);
+            if(field.value !== '') {
+                let parent = field.closest('tr');
+                if(parent.querySelector('img')) {
+                    parent.querySelector('img').setAttribute('src', field.value);
+                } else {
+                    field.closest('tr').insertAdjacentHTML('afterbegin', `<img src="${field.value}" />`);
+                }
+            }
+            field.addEventListener('keyup', () => {
                 setTimeout(() => {
-                    //ucpAvatars();
+                    if(field.value !== '') {
+                        let parent = field.closest('tr');
+                        if(parent.querySelector('img')) {
+                            parent.querySelector('img').setAttribute('src', field.value);
+                        } else {
+                            field.closest('tr').insertAdjacentHTML('afterbegin', `<img src="${field.value}" />`);
+                        }
+                    } else {
+                        if(parent.querySelector('img')) {
+                            parent.querySelector('img').setAttribute('src', '');
+                        }
+                    }
                 }, 500);
             });
         });

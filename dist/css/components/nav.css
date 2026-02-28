@@ -304,6 +304,8 @@
       @media only screen and (min-width: 1280px) {
         .switch--name b {
           font-size: 28px; } }
+      .switch--name b::before {
+        display: none; }
     .switch--name span {
       color: var(--text-primary);
       font-family: var(--font-sans);
@@ -362,6 +364,8 @@
       @media only screen and (min-width: 1280px) {
         .alert--main .recent-alerts-msg > div:only-of-type {
           font-size: 28px; } }
+      .alert--main .recent-alerts-msg > div:only-of-type::before {
+        display: none; }
     .alert--main .recent-alerts-msg br {
       display: none; }
     .alert--main .recent-alerts-msg > img {
@@ -392,6 +396,8 @@
       @media only screen and (min-width: 1280px) {
         .alert--main .recent-alerts-msg:not(.reg-alert) > a:first-of-type {
           font-size: 28px; } }
+      .alert--main .recent-alerts-msg:not(.reg-alert) > a:first-of-type::before {
+        display: none; }
       body.maximalist .alert--main .recent-alerts-msg:not(.reg-alert) > a:first-of-type {
         grid-column: 2 / 3;
         grid-row: 1 / 2; }
@@ -425,6 +431,8 @@
       @media only screen and (min-width: 1280px) {
         .alert--main .recent-alerts-msg.reg-alert > a {
           font-size: 28px; } }
+      .alert--main .recent-alerts-msg.reg-alert > a::before {
+        display: none; }
       body.maximalist .alert--main .recent-alerts-msg.reg-alert > a {
         grid-column: 2 / 3;
         grid-row: 1 / 2; }

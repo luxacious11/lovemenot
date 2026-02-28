@@ -18,6 +18,10 @@
         grid-template-columns: 300px auto;
     }
 
+    @include mq-up(xl) {
+        grid-template-columns: 450px auto;
+    }
+
     &--recent {
         background: var(--bg-secondary);
         padding: var(--space-md);
@@ -151,40 +155,7 @@
         }
 
         a {
-            background: var(--bg-gradient-75);
-            padding: var(--space-xs);
-            border-radius: 50%;
-
-            &::before {
-                content: '';
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: var(--bg-gradient-25);
-                border-radius: 50%;
-                scale: 1;
-                transition: var(--transition-standard);
-            }
-
-            &:hover {
-                &::before {
-                    scale: 1.3;
-                }
-            }
-
-            i {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: var(--bg-secondary);
-                color: var(--text-secondary);
-                width: 30px;
-                aspect-ratio: 1 / 1;
-                border-radius: 50%;
-                font-size: 10px;
-            }
+            @include link(circle);
         }
     }
 

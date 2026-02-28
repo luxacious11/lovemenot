@@ -971,13 +971,13 @@ function toggleModCPMenu(e) {
     e.closest('#modcp-menu').classList.toggle('is-open');
 }
 function initUCPMenu() {
-    document.querySelector('#ucpmenu').innerHTML = `<button class="macro--button" onclick="toggleUCPMenu(this)">
+    document.querySelector('#ucpmenu').innerHTML = `<div class="sticky"><button class="ucp--button" onclick="toggleUCPMenu(this)">
         <i class="fa-solid fa-bars open-button"></i>
         <i class="fa-solid fa-xmark close-button"></i>
     </button>
     <div class="accordion">
         ${typeof localUCPLinks !== 'undefined' ? localUCPLinks : jcinkUCPLinks}
-    </div>`;
+    </div></div>`;
 
     initAccordion();
     initAccordionActive();
@@ -990,25 +990,25 @@ function initUCPMenu() {
     });
 }
 function initStoreMenu() {
-    document.querySelector('#ucpmenu').innerHTML = `<button class="macro--button" onclick="toggleUCPMenu(this)">
+    document.querySelector('#ucpmenu').innerHTML = `<div class="sticky"><button class="ucp--button" onclick="toggleUCPMenu(this)">
         <i class="fa-solid fa-bars open-button"></i>
         <i class="fa-solid fa-xmark close-button"></i>
     </button>
     <div class="accordion">
         ${typeof localStoreLinks !== 'undefined' ? localStoreLinks : jcinkStoreLinks}
-    </div>`;
+    </div></div>`;
 
     initAccordion();
     initAccordionActive();
 }
 function initModCPMenu() {
-    document.querySelector('#modcp-menu').innerHTML = `<button class="macro--button" onclick="toggleModCPMenu(this)">
+    document.querySelector('#modcp-menu').innerHTML = `<div class="sticky"><button class="ucp--button" onclick="toggleModCPMenu(this)">
         <i class="fa-solid fa-bars open-button"></i>
         <i class="fa-solid fa-xmark close-button"></i>
     </button>
     <div class="accordion">
         ${typeof localModCPLinks !== 'undefined' ? localModCPLinks : jcinkModCPLinks}
-    </div>`;
+    </div></div>`;
 
     initAccordion();
     initAccordionActive();

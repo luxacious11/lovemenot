@@ -28,7 +28,7 @@ const fileTypes = ['gif', 'jpg', 'jpeg', 'png'];
 const defaultSquare = 'https://picsum.photos/100';
 const checkboxChecked = `<i class="fa-solid fa-check"></i>`;
 const carouselCategories = [3];
-const condensedCategories = [2, 5];
+const condensedCategories = [2];
 
 //this is for character sorting, highlighting the edge of the sorting related messages
 //the group name should by lowercase and should match what would appear in the Group column of the google sheet
@@ -319,20 +319,21 @@ trackerParams = {
 }
 
 //should be plain numbers in a comma separated list, do not wrap in quotes
-const fullWidthFields = []; //for ucp that has been gridded, sets the field to span the full grid width
-const thirdWidthFields = []; //for when using manual birthday fields and there are six columns with default being 1/2 width in ucp
+const fullWidthFields = [69, 50, 51]; //for ucp that has been gridded, sets the field to span the full grid width
+const thirdWidthFields = [36, 37, 38]; //for when using manual birthday fields and there are six columns with default being 1/2 width in ucp
 const setHeightFields = []; //for when you want a text area field to allow some coding, apostrophes, etc but want it to look like a standard text input
-const requiredFields = []; //will add an asterisk to required field labels, with the class of 'required'
+const requiredFields = [1, 63, 64, 65, 66, 67, 68, 70, 2, 5, 3, 4, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 10, 11, 12, 15, 16, 17, 19, 20, 21, 23, 51]; //will add an asterisk to required field labels, with the class of 'required'
+const birthdayBefore = 34;
 
 //toggle fields: account type, image type
 const toggleFields = createFieldArray([1, 10], true);
-const characterFields = createFieldArray([3, 4, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 50, 51]); //character only fields
+const characterFields = [...createFieldArray([3, 4, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 10, 11, 12, 13, 15, 16, 17, 18, 19, 20, 21, 22, 23, 50, 51]), '#field-birthday']; //character only fields
 
-const onePartner = createFieldArray([11, 12, 13, 15]); //default aesthetics set up
-const twoPartner = createFieldArray([16, 17, 18, 19]); //grid style aesthetics set up
-const threePartner = createFieldArray([20, 21, 22, 23]); //mosaic style aesthetic set up
+const onePartner = createFieldArray([11, 12, 13, 15]); //first partner fields
+const twoPartner = createFieldArray([16, 17, 18, 19]); //second partner fields
+const threePartner = createFieldArray([20, 21, 22, 23]); //third partner fields
 
-const avatarImageFields = createFieldArray([17, 18]); //which images are avatars, not aesthetics?
+const avatarImageFields = createFieldArray([2, 5, 3, 4]); //image fields
 
 //shouldn't need to change this
 const aestheticFields = {
@@ -364,7 +365,7 @@ const allHeaders = [
     {
         sectionTitle: `Player`,
         insertBefore: 1,
-        sectionDescription: ``,
+        sectionDescription: `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.`,
     },
     {
         sectionTitle: `Images`,
