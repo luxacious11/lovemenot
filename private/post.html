@@ -47,8 +47,8 @@
                             )</span>
                         </td>
                         <td width="80%" align="right">
-                            <a href="?act=Post&amp;CODE=02&amp;f=1&amp;t=1&amp;st=0"><span class="macro--button">Add Reply</span></a>
-                            <a href="?act=Post&amp;CODE=00&amp;f=1" title="Start a new topic"><span class="macro--button">New Topic</span></a>
+                            <a href="?act=Post&amp;CODE=02&amp;f=1&amp;t=1&amp;st=0"><span class="macro--button"><i class="fa-solid fa-plus"></i></span></a>
+                            <a href="?act=Post&amp;CODE=00&amp;f=1" title="Start a new topic"><span class="macro--button"><i class="fa-solid fa-plus"></i></span></a>
                         </td>
                     </tr>
                 </tbody>
@@ -74,16 +74,71 @@
                 <!--Post Content-->
                 <a name='entry1' class="anchorLink"></a>
                 <section class="post g-7 type-Character p-1" data-full-name="Character Name" data-author="Alias">
-                        <a href="javascript:void(0)" class="post--permalink" data-clipboard-text="permalink"><div class="macro--small" title="Get Link"><i class="fa-regular fa-link"></i></div></a>
-                        <span class="macro--small"><i class="fa-regular fa-pen"></i></span>
-                        <span class="macro--small"><i class="fa-regular fa-quote-left"></i></span>
-                        <span class="macro--small"><i class="fa-regular fa-trash"></i></span>
-                        <span class="macro--small"><i class="fa-regular fa-flag-pennant"></i></span>
-                        <label class="staffOnly input-wrap">
-                            <input type="checkbox" />
-                            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
-                        </label>
-                    <div class="post--content"><div class='postcolor'>Post content</div></div>
+                    <div class="post--buttons">
+                        <div class="sticky">
+                            <a href="javascript:void(0)" class="post--permalink" data-clipboard-text="permalink"><div class="macro--small" title="Get Link"><i class="fa-regular fa-link"></i></div></a>
+                            <a class="macro--small"><i class="fa-regular fa-pen"></i></a>
+                            <a class="macro--small"><i class="fa-regular fa-quote-left"></i></a>
+                            <a class="macro--small"><i class="fa-regular fa-trash"></i></a>
+                            <a class="macro--small"><i class="fa-regular fa-flag-pennant"></i></a>
+                            <label class="staffOnly input-wrap">
+                                <input type="checkbox" />
+                                <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="post--side">
+                        <div class="sticky">
+                            <div class="post--avatar">
+                                <img src="https://picsum.photos/500" loading="lazy" class="tabletUp" />
+                                <img src="https://picsum.photos/1000" loading="lazy" class="tabletDown" />
+                                <div class="post--hover">
+                                    <div class="items">
+                                        <div class="items--item">
+                                            <b>Title</b>
+                                            <span>Answer</span>
+                                        </div>
+                                        <div class="items--item">
+                                            <b>Title</b>
+                                            <span>Answer</span>
+                                        </div>
+                                        <div class="items--item">
+                                            <b>Title</b>
+                                            <span>Answer</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post--main">
+                        <div class="post--header">
+                            <a href="./profile.html"></a>
+                            <div class="post--links">
+                                <a href="/">Topics</a>
+                                <a href="/">Posts</a>
+                                <a href="/">Custom</a>
+                                <a href="/">Custom</a>
+                                <a href="">Custom</a>
+                            </div>
+                        </div>
+                        <div class="post--content"><div class='postcolor'>Post content</div></div>
+                    </div>
+                    <div class="post--footer">
+                        <div class="post--triggers optional">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <div class="post--triggers-hover">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris hendrerit placerat condimentum. Nullam nec justo nisi.</div>
+                        </div>
+                        <a href="./profile-ooc.html">LongAliasTesting</a>
+                        <div class="post--footer-flex">
+                            <span>33</span>
+                            <span>she/her</span>
+                            <span>mature? ask</span>
+                            <span>discord</span>
+                            <span>moderate activity</span>
+                            <span>prefers comm + threads</span>
+                        </div>
+                    </div>
                 </section>
 
                 <!--Remaining Defaults-->
@@ -106,12 +161,12 @@
                 <tbody>
                     <tr>
                         <td width="20%" nowrap="nowrap" align="left">
-                            <a href="javascript:$('#topic_open').toggle();void(0);" title="Open Topic Options"><span class="macro--button">Topic Options</span></a>
+                            <a href="javascript:$('#topic_open').toggle();void(0);" title="Open Topic Options"><span class="macro--button"><i class="fa-solid fa-plus"></i></span></a>
                         </td>
                         <td width="80%" align="right">
-                            <a href="?act=Post&amp;CODE=02&amp;f=1&amp;t=1&amp;st=0"><span class="macro--button">Add Reply</span></a>
-                            <a href="javascript:ShowHide('qr_open','qr_closed');" title="Open Fast Reply Window" accesskey="f"><span class="macro--button">Fast Reply</span></a>
-                            <a href="?act=Post&amp;CODE=00&amp;f=1" title="Start a new topic"><span class="macro--button">New Topic</span></a>
+                            <a href="?act=Post&amp;CODE=02&amp;f=1&amp;t=1&amp;st=0"><span class="macro--button"><i class="fa-solid fa-plus"></i></span></a>
+                            <a href="javascript:ShowHide('qr_open','qr_closed');" title="Open Fast Reply Window" accesskey="f"><span class="macro--button"><i class="fa-solid fa-plus"></i></span></a>
+                            <a href="?act=Post&amp;CODE=00&amp;f=1" title="Start a new topic"><span class="macro--button"><i class="fa-solid fa-plus"></i></span></a>
                         </td>
                     </tr>
                 </tbody>

@@ -130,7 +130,7 @@ if(pageType === 'Profile') {
 if(pageType === 'ST') {
     initPostRowDescription();
     initPostContentAlter();
-    initDiscordTagging('#ST main > table > tbody > tr > td:last-child');
+    initDiscordTagging('#ST main .container > table > tbody > tr > td:last-child');
     if(document.querySelector('.post.social')) {
         initSocials();
     } else if (document.querySelector('.post.comm')) {

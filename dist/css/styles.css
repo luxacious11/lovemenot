@@ -92,6 +92,7 @@ a {
   --transition-quick: all 0.1s ease-in-out;
   --transition-standard: all 0.3s ease-in-out;
   --transition-long: all 0.5s ease-in-out;
+  --transition-xlong: all 0.75s ease-in-out;
   --filter-backdrop: brightness(0.8) blur(10px);
   --radius-container: 20px;
   --radius-xl: 160px;
@@ -127,6 +128,9 @@ a {
   --size-ml-avatar-ratio: 4 / 5;
   --size-group-aesthetics: 80px;
   --size-max-web-content: 900px;
+  --size-min-post-avatar: 225px;
+  --size-max-post-avatar: 500px;
+  --size-post-avatar-ratio: 4 / 5;
   --bg-container: rgba(24, 24, 24, 0.3);
   --bg-primary: rgba(24, 24, 24, 1);
   --bg-secondary: rgba(37, 37, 37, 1);
@@ -1152,34 +1156,34 @@ fieldset {
 .webpage .h7,
 .webpage h8,
 .webpage .h8,
-.profile h2,
-.profile .h2,
-.profile h3,
-.profile .h3,
-.profile h4,
-.profile .h4,
-.profile h5,
-.profile .h5,
-.profile h6,
-.profile .h6,
-.profile h7,
-.profile .h7,
-.profile h8,
-.profile .h8,
-.post h2,
-.post .h2,
-.post h3,
-.post .h3,
-.post h4,
-.post .h4,
-.post h5,
-.post .h5,
-.post h6,
-.post .h6,
-.post h7,
-.post .h7,
-.post h8,
-.post .h8 {
+.profile .canStyle h2,
+.profile .canStyle .h2,
+.profile .canStyle h3,
+.profile .canStyle .h3,
+.profile .canStyle h4,
+.profile .canStyle .h4,
+.profile .canStyle h5,
+.profile .canStyle .h5,
+.profile .canStyle h6,
+.profile .canStyle .h6,
+.profile .canStyle h7,
+.profile .canStyle .h7,
+.profile .canStyle h8,
+.profile .canStyle .h8,
+.post--content h2,
+.post--content .h2,
+.post--content h3,
+.post--content .h3,
+.post--content h4,
+.post--content .h4,
+.post--content h5,
+.post--content .h5,
+.post--content h6,
+.post--content .h6,
+.post--content h7,
+.post--content .h7,
+.post--content h8,
+.post--content .h8 {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -1199,34 +1203,34 @@ fieldset {
   .webpage .h7:first-child,
   .webpage h8:first-child,
   .webpage .h8:first-child,
-  .profile h2:first-child,
-  .profile .h2:first-child,
-  .profile h3:first-child,
-  .profile .h3:first-child,
-  .profile h4:first-child,
-  .profile .h4:first-child,
-  .profile h5:first-child,
-  .profile .h5:first-child,
-  .profile h6:first-child,
-  .profile .h6:first-child,
-  .profile h7:first-child,
-  .profile .h7:first-child,
-  .profile h8:first-child,
-  .profile .h8:first-child,
-  .post h2:first-child,
-  .post .h2:first-child,
-  .post h3:first-child,
-  .post .h3:first-child,
-  .post h4:first-child,
-  .post .h4:first-child,
-  .post h5:first-child,
-  .post .h5:first-child,
-  .post h6:first-child,
-  .post .h6:first-child,
-  .post h7:first-child,
-  .post .h7:first-child,
-  .post h8:first-child,
-  .post .h8:first-child {
+  .profile .canStyle h2:first-child,
+  .profile .canStyle .h2:first-child,
+  .profile .canStyle h3:first-child,
+  .profile .canStyle .h3:first-child,
+  .profile .canStyle h4:first-child,
+  .profile .canStyle .h4:first-child,
+  .profile .canStyle h5:first-child,
+  .profile .canStyle .h5:first-child,
+  .profile .canStyle h6:first-child,
+  .profile .canStyle .h6:first-child,
+  .profile .canStyle h7:first-child,
+  .profile .canStyle .h7:first-child,
+  .profile .canStyle h8:first-child,
+  .profile .canStyle .h8:first-child,
+  .post--content h2:first-child,
+  .post--content .h2:first-child,
+  .post--content h3:first-child,
+  .post--content .h3:first-child,
+  .post--content h4:first-child,
+  .post--content .h4:first-child,
+  .post--content h5:first-child,
+  .post--content .h5:first-child,
+  .post--content h6:first-child,
+  .post--content .h6:first-child,
+  .post--content h7:first-child,
+  .post--content .h7:first-child,
+  .post--content h8:first-child,
+  .post--content .h8:first-child {
     margin-top: 0; }
   .webpage h2:last-child,
   .webpage .h2:last-child,
@@ -1242,34 +1246,34 @@ fieldset {
   .webpage .h7:last-child,
   .webpage h8:last-child,
   .webpage .h8:last-child,
-  .profile h2:last-child,
-  .profile .h2:last-child,
-  .profile h3:last-child,
-  .profile .h3:last-child,
-  .profile h4:last-child,
-  .profile .h4:last-child,
-  .profile h5:last-child,
-  .profile .h5:last-child,
-  .profile h6:last-child,
-  .profile .h6:last-child,
-  .profile h7:last-child,
-  .profile .h7:last-child,
-  .profile h8:last-child,
-  .profile .h8:last-child,
-  .post h2:last-child,
-  .post .h2:last-child,
-  .post h3:last-child,
-  .post .h3:last-child,
-  .post h4:last-child,
-  .post .h4:last-child,
-  .post h5:last-child,
-  .post .h5:last-child,
-  .post h6:last-child,
-  .post .h6:last-child,
-  .post h7:last-child,
-  .post .h7:last-child,
-  .post h8:last-child,
-  .post .h8:last-child {
+  .profile .canStyle h2:last-child,
+  .profile .canStyle .h2:last-child,
+  .profile .canStyle h3:last-child,
+  .profile .canStyle .h3:last-child,
+  .profile .canStyle h4:last-child,
+  .profile .canStyle .h4:last-child,
+  .profile .canStyle h5:last-child,
+  .profile .canStyle .h5:last-child,
+  .profile .canStyle h6:last-child,
+  .profile .canStyle .h6:last-child,
+  .profile .canStyle h7:last-child,
+  .profile .canStyle .h7:last-child,
+  .profile .canStyle h8:last-child,
+  .profile .canStyle .h8:last-child,
+  .post--content h2:last-child,
+  .post--content .h2:last-child,
+  .post--content h3:last-child,
+  .post--content .h3:last-child,
+  .post--content h4:last-child,
+  .post--content .h4:last-child,
+  .post--content h5:last-child,
+  .post--content .h5:last-child,
+  .post--content h6:last-child,
+  .post--content .h6:last-child,
+  .post--content h7:last-child,
+  .post--content .h7:last-child,
+  .post--content h8:last-child,
+  .post--content .h8:last-child {
     margin-bottom: 0; }
   .webpage h2 + h2,
   .webpage h2 + .h2,
@@ -1467,398 +1471,398 @@ fieldset {
   .webpage .h8 + .h7,
   .webpage .h8 + h8,
   .webpage .h8 + .h8,
-  .profile h2 + h2,
-  .profile h2 + .h2,
-  .profile h2 + h3,
-  .profile h2 + .h3,
-  .profile h2 + h4,
-  .profile h2 + .h4,
-  .profile h2 + h5,
-  .profile h2 + .h5,
-  .profile h2 + h6,
-  .profile h2 + .h6,
-  .profile h2 + h7,
-  .profile h2 + .h7,
-  .profile h2 + h8,
-  .profile h2 + .h8,
-  .profile .h2 + h2,
-  .profile .h2 + .h2,
-  .profile .h2 + h3,
-  .profile .h2 + .h3,
-  .profile .h2 + h4,
-  .profile .h2 + .h4,
-  .profile .h2 + h5,
-  .profile .h2 + .h5,
-  .profile .h2 + h6,
-  .profile .h2 + .h6,
-  .profile .h2 + h7,
-  .profile .h2 + .h7,
-  .profile .h2 + h8,
-  .profile .h2 + .h8,
-  .profile h3 + h2,
-  .profile h3 + .h2,
-  .profile h3 + h3,
-  .profile h3 + .h3,
-  .profile h3 + h4,
-  .profile h3 + .h4,
-  .profile h3 + h5,
-  .profile h3 + .h5,
-  .profile h3 + h6,
-  .profile h3 + .h6,
-  .profile h3 + h7,
-  .profile h3 + .h7,
-  .profile h3 + h8,
-  .profile h3 + .h8,
-  .profile .h3 + h2,
-  .profile .h3 + .h2,
-  .profile .h3 + h3,
-  .profile .h3 + .h3,
-  .profile .h3 + h4,
-  .profile .h3 + .h4,
-  .profile .h3 + h5,
-  .profile .h3 + .h5,
-  .profile .h3 + h6,
-  .profile .h3 + .h6,
-  .profile .h3 + h7,
-  .profile .h3 + .h7,
-  .profile .h3 + h8,
-  .profile .h3 + .h8,
-  .profile h4 + h2,
-  .profile h4 + .h2,
-  .profile h4 + h3,
-  .profile h4 + .h3,
-  .profile h4 + h4,
-  .profile h4 + .h4,
-  .profile h4 + h5,
-  .profile h4 + .h5,
-  .profile h4 + h6,
-  .profile h4 + .h6,
-  .profile h4 + h7,
-  .profile h4 + .h7,
-  .profile h4 + h8,
-  .profile h4 + .h8,
-  .profile .h4 + h2,
-  .profile .h4 + .h2,
-  .profile .h4 + h3,
-  .profile .h4 + .h3,
-  .profile .h4 + h4,
-  .profile .h4 + .h4,
-  .profile .h4 + h5,
-  .profile .h4 + .h5,
-  .profile .h4 + h6,
-  .profile .h4 + .h6,
-  .profile .h4 + h7,
-  .profile .h4 + .h7,
-  .profile .h4 + h8,
-  .profile .h4 + .h8,
-  .profile h5 + h2,
-  .profile h5 + .h2,
-  .profile h5 + h3,
-  .profile h5 + .h3,
-  .profile h5 + h4,
-  .profile h5 + .h4,
-  .profile h5 + h5,
-  .profile h5 + .h5,
-  .profile h5 + h6,
-  .profile h5 + .h6,
-  .profile h5 + h7,
-  .profile h5 + .h7,
-  .profile h5 + h8,
-  .profile h5 + .h8,
-  .profile .h5 + h2,
-  .profile .h5 + .h2,
-  .profile .h5 + h3,
-  .profile .h5 + .h3,
-  .profile .h5 + h4,
-  .profile .h5 + .h4,
-  .profile .h5 + h5,
-  .profile .h5 + .h5,
-  .profile .h5 + h6,
-  .profile .h5 + .h6,
-  .profile .h5 + h7,
-  .profile .h5 + .h7,
-  .profile .h5 + h8,
-  .profile .h5 + .h8,
-  .profile h6 + h2,
-  .profile h6 + .h2,
-  .profile h6 + h3,
-  .profile h6 + .h3,
-  .profile h6 + h4,
-  .profile h6 + .h4,
-  .profile h6 + h5,
-  .profile h6 + .h5,
-  .profile h6 + h6,
-  .profile h6 + .h6,
-  .profile h6 + h7,
-  .profile h6 + .h7,
-  .profile h6 + h8,
-  .profile h6 + .h8,
-  .profile .h6 + h2,
-  .profile .h6 + .h2,
-  .profile .h6 + h3,
-  .profile .h6 + .h3,
-  .profile .h6 + h4,
-  .profile .h6 + .h4,
-  .profile .h6 + h5,
-  .profile .h6 + .h5,
-  .profile .h6 + h6,
-  .profile .h6 + .h6,
-  .profile .h6 + h7,
-  .profile .h6 + .h7,
-  .profile .h6 + h8,
-  .profile .h6 + .h8,
-  .profile h7 + h2,
-  .profile h7 + .h2,
-  .profile h7 + h3,
-  .profile h7 + .h3,
-  .profile h7 + h4,
-  .profile h7 + .h4,
-  .profile h7 + h5,
-  .profile h7 + .h5,
-  .profile h7 + h6,
-  .profile h7 + .h6,
-  .profile h7 + h7,
-  .profile h7 + .h7,
-  .profile h7 + h8,
-  .profile h7 + .h8,
-  .profile .h7 + h2,
-  .profile .h7 + .h2,
-  .profile .h7 + h3,
-  .profile .h7 + .h3,
-  .profile .h7 + h4,
-  .profile .h7 + .h4,
-  .profile .h7 + h5,
-  .profile .h7 + .h5,
-  .profile .h7 + h6,
-  .profile .h7 + .h6,
-  .profile .h7 + h7,
-  .profile .h7 + .h7,
-  .profile .h7 + h8,
-  .profile .h7 + .h8,
-  .profile h8 + h2,
-  .profile h8 + .h2,
-  .profile h8 + h3,
-  .profile h8 + .h3,
-  .profile h8 + h4,
-  .profile h8 + .h4,
-  .profile h8 + h5,
-  .profile h8 + .h5,
-  .profile h8 + h6,
-  .profile h8 + .h6,
-  .profile h8 + h7,
-  .profile h8 + .h7,
-  .profile h8 + h8,
-  .profile h8 + .h8,
-  .profile .h8 + h2,
-  .profile .h8 + .h2,
-  .profile .h8 + h3,
-  .profile .h8 + .h3,
-  .profile .h8 + h4,
-  .profile .h8 + .h4,
-  .profile .h8 + h5,
-  .profile .h8 + .h5,
-  .profile .h8 + h6,
-  .profile .h8 + .h6,
-  .profile .h8 + h7,
-  .profile .h8 + .h7,
-  .profile .h8 + h8,
-  .profile .h8 + .h8,
-  .post h2 + h2,
-  .post h2 + .h2,
-  .post h2 + h3,
-  .post h2 + .h3,
-  .post h2 + h4,
-  .post h2 + .h4,
-  .post h2 + h5,
-  .post h2 + .h5,
-  .post h2 + h6,
-  .post h2 + .h6,
-  .post h2 + h7,
-  .post h2 + .h7,
-  .post h2 + h8,
-  .post h2 + .h8,
-  .post .h2 + h2,
-  .post .h2 + .h2,
-  .post .h2 + h3,
-  .post .h2 + .h3,
-  .post .h2 + h4,
-  .post .h2 + .h4,
-  .post .h2 + h5,
-  .post .h2 + .h5,
-  .post .h2 + h6,
-  .post .h2 + .h6,
-  .post .h2 + h7,
-  .post .h2 + .h7,
-  .post .h2 + h8,
-  .post .h2 + .h8,
-  .post h3 + h2,
-  .post h3 + .h2,
-  .post h3 + h3,
-  .post h3 + .h3,
-  .post h3 + h4,
-  .post h3 + .h4,
-  .post h3 + h5,
-  .post h3 + .h5,
-  .post h3 + h6,
-  .post h3 + .h6,
-  .post h3 + h7,
-  .post h3 + .h7,
-  .post h3 + h8,
-  .post h3 + .h8,
-  .post .h3 + h2,
-  .post .h3 + .h2,
-  .post .h3 + h3,
-  .post .h3 + .h3,
-  .post .h3 + h4,
-  .post .h3 + .h4,
-  .post .h3 + h5,
-  .post .h3 + .h5,
-  .post .h3 + h6,
-  .post .h3 + .h6,
-  .post .h3 + h7,
-  .post .h3 + .h7,
-  .post .h3 + h8,
-  .post .h3 + .h8,
-  .post h4 + h2,
-  .post h4 + .h2,
-  .post h4 + h3,
-  .post h4 + .h3,
-  .post h4 + h4,
-  .post h4 + .h4,
-  .post h4 + h5,
-  .post h4 + .h5,
-  .post h4 + h6,
-  .post h4 + .h6,
-  .post h4 + h7,
-  .post h4 + .h7,
-  .post h4 + h8,
-  .post h4 + .h8,
-  .post .h4 + h2,
-  .post .h4 + .h2,
-  .post .h4 + h3,
-  .post .h4 + .h3,
-  .post .h4 + h4,
-  .post .h4 + .h4,
-  .post .h4 + h5,
-  .post .h4 + .h5,
-  .post .h4 + h6,
-  .post .h4 + .h6,
-  .post .h4 + h7,
-  .post .h4 + .h7,
-  .post .h4 + h8,
-  .post .h4 + .h8,
-  .post h5 + h2,
-  .post h5 + .h2,
-  .post h5 + h3,
-  .post h5 + .h3,
-  .post h5 + h4,
-  .post h5 + .h4,
-  .post h5 + h5,
-  .post h5 + .h5,
-  .post h5 + h6,
-  .post h5 + .h6,
-  .post h5 + h7,
-  .post h5 + .h7,
-  .post h5 + h8,
-  .post h5 + .h8,
-  .post .h5 + h2,
-  .post .h5 + .h2,
-  .post .h5 + h3,
-  .post .h5 + .h3,
-  .post .h5 + h4,
-  .post .h5 + .h4,
-  .post .h5 + h5,
-  .post .h5 + .h5,
-  .post .h5 + h6,
-  .post .h5 + .h6,
-  .post .h5 + h7,
-  .post .h5 + .h7,
-  .post .h5 + h8,
-  .post .h5 + .h8,
-  .post h6 + h2,
-  .post h6 + .h2,
-  .post h6 + h3,
-  .post h6 + .h3,
-  .post h6 + h4,
-  .post h6 + .h4,
-  .post h6 + h5,
-  .post h6 + .h5,
-  .post h6 + h6,
-  .post h6 + .h6,
-  .post h6 + h7,
-  .post h6 + .h7,
-  .post h6 + h8,
-  .post h6 + .h8,
-  .post .h6 + h2,
-  .post .h6 + .h2,
-  .post .h6 + h3,
-  .post .h6 + .h3,
-  .post .h6 + h4,
-  .post .h6 + .h4,
-  .post .h6 + h5,
-  .post .h6 + .h5,
-  .post .h6 + h6,
-  .post .h6 + .h6,
-  .post .h6 + h7,
-  .post .h6 + .h7,
-  .post .h6 + h8,
-  .post .h6 + .h8,
-  .post h7 + h2,
-  .post h7 + .h2,
-  .post h7 + h3,
-  .post h7 + .h3,
-  .post h7 + h4,
-  .post h7 + .h4,
-  .post h7 + h5,
-  .post h7 + .h5,
-  .post h7 + h6,
-  .post h7 + .h6,
-  .post h7 + h7,
-  .post h7 + .h7,
-  .post h7 + h8,
-  .post h7 + .h8,
-  .post .h7 + h2,
-  .post .h7 + .h2,
-  .post .h7 + h3,
-  .post .h7 + .h3,
-  .post .h7 + h4,
-  .post .h7 + .h4,
-  .post .h7 + h5,
-  .post .h7 + .h5,
-  .post .h7 + h6,
-  .post .h7 + .h6,
-  .post .h7 + h7,
-  .post .h7 + .h7,
-  .post .h7 + h8,
-  .post .h7 + .h8,
-  .post h8 + h2,
-  .post h8 + .h2,
-  .post h8 + h3,
-  .post h8 + .h3,
-  .post h8 + h4,
-  .post h8 + .h4,
-  .post h8 + h5,
-  .post h8 + .h5,
-  .post h8 + h6,
-  .post h8 + .h6,
-  .post h8 + h7,
-  .post h8 + .h7,
-  .post h8 + h8,
-  .post h8 + .h8,
-  .post .h8 + h2,
-  .post .h8 + .h2,
-  .post .h8 + h3,
-  .post .h8 + .h3,
-  .post .h8 + h4,
-  .post .h8 + .h4,
-  .post .h8 + h5,
-  .post .h8 + .h5,
-  .post .h8 + h6,
-  .post .h8 + .h6,
-  .post .h8 + h7,
-  .post .h8 + .h7,
-  .post .h8 + h8,
-  .post .h8 + .h8 {
+  .profile .canStyle h2 + h2,
+  .profile .canStyle h2 + .h2,
+  .profile .canStyle h2 + h3,
+  .profile .canStyle h2 + .h3,
+  .profile .canStyle h2 + h4,
+  .profile .canStyle h2 + .h4,
+  .profile .canStyle h2 + h5,
+  .profile .canStyle h2 + .h5,
+  .profile .canStyle h2 + h6,
+  .profile .canStyle h2 + .h6,
+  .profile .canStyle h2 + h7,
+  .profile .canStyle h2 + .h7,
+  .profile .canStyle h2 + h8,
+  .profile .canStyle h2 + .h8,
+  .profile .canStyle .h2 + h2,
+  .profile .canStyle .h2 + .h2,
+  .profile .canStyle .h2 + h3,
+  .profile .canStyle .h2 + .h3,
+  .profile .canStyle .h2 + h4,
+  .profile .canStyle .h2 + .h4,
+  .profile .canStyle .h2 + h5,
+  .profile .canStyle .h2 + .h5,
+  .profile .canStyle .h2 + h6,
+  .profile .canStyle .h2 + .h6,
+  .profile .canStyle .h2 + h7,
+  .profile .canStyle .h2 + .h7,
+  .profile .canStyle .h2 + h8,
+  .profile .canStyle .h2 + .h8,
+  .profile .canStyle h3 + h2,
+  .profile .canStyle h3 + .h2,
+  .profile .canStyle h3 + h3,
+  .profile .canStyle h3 + .h3,
+  .profile .canStyle h3 + h4,
+  .profile .canStyle h3 + .h4,
+  .profile .canStyle h3 + h5,
+  .profile .canStyle h3 + .h5,
+  .profile .canStyle h3 + h6,
+  .profile .canStyle h3 + .h6,
+  .profile .canStyle h3 + h7,
+  .profile .canStyle h3 + .h7,
+  .profile .canStyle h3 + h8,
+  .profile .canStyle h3 + .h8,
+  .profile .canStyle .h3 + h2,
+  .profile .canStyle .h3 + .h2,
+  .profile .canStyle .h3 + h3,
+  .profile .canStyle .h3 + .h3,
+  .profile .canStyle .h3 + h4,
+  .profile .canStyle .h3 + .h4,
+  .profile .canStyle .h3 + h5,
+  .profile .canStyle .h3 + .h5,
+  .profile .canStyle .h3 + h6,
+  .profile .canStyle .h3 + .h6,
+  .profile .canStyle .h3 + h7,
+  .profile .canStyle .h3 + .h7,
+  .profile .canStyle .h3 + h8,
+  .profile .canStyle .h3 + .h8,
+  .profile .canStyle h4 + h2,
+  .profile .canStyle h4 + .h2,
+  .profile .canStyle h4 + h3,
+  .profile .canStyle h4 + .h3,
+  .profile .canStyle h4 + h4,
+  .profile .canStyle h4 + .h4,
+  .profile .canStyle h4 + h5,
+  .profile .canStyle h4 + .h5,
+  .profile .canStyle h4 + h6,
+  .profile .canStyle h4 + .h6,
+  .profile .canStyle h4 + h7,
+  .profile .canStyle h4 + .h7,
+  .profile .canStyle h4 + h8,
+  .profile .canStyle h4 + .h8,
+  .profile .canStyle .h4 + h2,
+  .profile .canStyle .h4 + .h2,
+  .profile .canStyle .h4 + h3,
+  .profile .canStyle .h4 + .h3,
+  .profile .canStyle .h4 + h4,
+  .profile .canStyle .h4 + .h4,
+  .profile .canStyle .h4 + h5,
+  .profile .canStyle .h4 + .h5,
+  .profile .canStyle .h4 + h6,
+  .profile .canStyle .h4 + .h6,
+  .profile .canStyle .h4 + h7,
+  .profile .canStyle .h4 + .h7,
+  .profile .canStyle .h4 + h8,
+  .profile .canStyle .h4 + .h8,
+  .profile .canStyle h5 + h2,
+  .profile .canStyle h5 + .h2,
+  .profile .canStyle h5 + h3,
+  .profile .canStyle h5 + .h3,
+  .profile .canStyle h5 + h4,
+  .profile .canStyle h5 + .h4,
+  .profile .canStyle h5 + h5,
+  .profile .canStyle h5 + .h5,
+  .profile .canStyle h5 + h6,
+  .profile .canStyle h5 + .h6,
+  .profile .canStyle h5 + h7,
+  .profile .canStyle h5 + .h7,
+  .profile .canStyle h5 + h8,
+  .profile .canStyle h5 + .h8,
+  .profile .canStyle .h5 + h2,
+  .profile .canStyle .h5 + .h2,
+  .profile .canStyle .h5 + h3,
+  .profile .canStyle .h5 + .h3,
+  .profile .canStyle .h5 + h4,
+  .profile .canStyle .h5 + .h4,
+  .profile .canStyle .h5 + h5,
+  .profile .canStyle .h5 + .h5,
+  .profile .canStyle .h5 + h6,
+  .profile .canStyle .h5 + .h6,
+  .profile .canStyle .h5 + h7,
+  .profile .canStyle .h5 + .h7,
+  .profile .canStyle .h5 + h8,
+  .profile .canStyle .h5 + .h8,
+  .profile .canStyle h6 + h2,
+  .profile .canStyle h6 + .h2,
+  .profile .canStyle h6 + h3,
+  .profile .canStyle h6 + .h3,
+  .profile .canStyle h6 + h4,
+  .profile .canStyle h6 + .h4,
+  .profile .canStyle h6 + h5,
+  .profile .canStyle h6 + .h5,
+  .profile .canStyle h6 + h6,
+  .profile .canStyle h6 + .h6,
+  .profile .canStyle h6 + h7,
+  .profile .canStyle h6 + .h7,
+  .profile .canStyle h6 + h8,
+  .profile .canStyle h6 + .h8,
+  .profile .canStyle .h6 + h2,
+  .profile .canStyle .h6 + .h2,
+  .profile .canStyle .h6 + h3,
+  .profile .canStyle .h6 + .h3,
+  .profile .canStyle .h6 + h4,
+  .profile .canStyle .h6 + .h4,
+  .profile .canStyle .h6 + h5,
+  .profile .canStyle .h6 + .h5,
+  .profile .canStyle .h6 + h6,
+  .profile .canStyle .h6 + .h6,
+  .profile .canStyle .h6 + h7,
+  .profile .canStyle .h6 + .h7,
+  .profile .canStyle .h6 + h8,
+  .profile .canStyle .h6 + .h8,
+  .profile .canStyle h7 + h2,
+  .profile .canStyle h7 + .h2,
+  .profile .canStyle h7 + h3,
+  .profile .canStyle h7 + .h3,
+  .profile .canStyle h7 + h4,
+  .profile .canStyle h7 + .h4,
+  .profile .canStyle h7 + h5,
+  .profile .canStyle h7 + .h5,
+  .profile .canStyle h7 + h6,
+  .profile .canStyle h7 + .h6,
+  .profile .canStyle h7 + h7,
+  .profile .canStyle h7 + .h7,
+  .profile .canStyle h7 + h8,
+  .profile .canStyle h7 + .h8,
+  .profile .canStyle .h7 + h2,
+  .profile .canStyle .h7 + .h2,
+  .profile .canStyle .h7 + h3,
+  .profile .canStyle .h7 + .h3,
+  .profile .canStyle .h7 + h4,
+  .profile .canStyle .h7 + .h4,
+  .profile .canStyle .h7 + h5,
+  .profile .canStyle .h7 + .h5,
+  .profile .canStyle .h7 + h6,
+  .profile .canStyle .h7 + .h6,
+  .profile .canStyle .h7 + h7,
+  .profile .canStyle .h7 + .h7,
+  .profile .canStyle .h7 + h8,
+  .profile .canStyle .h7 + .h8,
+  .profile .canStyle h8 + h2,
+  .profile .canStyle h8 + .h2,
+  .profile .canStyle h8 + h3,
+  .profile .canStyle h8 + .h3,
+  .profile .canStyle h8 + h4,
+  .profile .canStyle h8 + .h4,
+  .profile .canStyle h8 + h5,
+  .profile .canStyle h8 + .h5,
+  .profile .canStyle h8 + h6,
+  .profile .canStyle h8 + .h6,
+  .profile .canStyle h8 + h7,
+  .profile .canStyle h8 + .h7,
+  .profile .canStyle h8 + h8,
+  .profile .canStyle h8 + .h8,
+  .profile .canStyle .h8 + h2,
+  .profile .canStyle .h8 + .h2,
+  .profile .canStyle .h8 + h3,
+  .profile .canStyle .h8 + .h3,
+  .profile .canStyle .h8 + h4,
+  .profile .canStyle .h8 + .h4,
+  .profile .canStyle .h8 + h5,
+  .profile .canStyle .h8 + .h5,
+  .profile .canStyle .h8 + h6,
+  .profile .canStyle .h8 + .h6,
+  .profile .canStyle .h8 + h7,
+  .profile .canStyle .h8 + .h7,
+  .profile .canStyle .h8 + h8,
+  .profile .canStyle .h8 + .h8,
+  .post--content h2 + h2,
+  .post--content h2 + .h2,
+  .post--content h2 + h3,
+  .post--content h2 + .h3,
+  .post--content h2 + h4,
+  .post--content h2 + .h4,
+  .post--content h2 + h5,
+  .post--content h2 + .h5,
+  .post--content h2 + h6,
+  .post--content h2 + .h6,
+  .post--content h2 + h7,
+  .post--content h2 + .h7,
+  .post--content h2 + h8,
+  .post--content h2 + .h8,
+  .post--content .h2 + h2,
+  .post--content .h2 + .h2,
+  .post--content .h2 + h3,
+  .post--content .h2 + .h3,
+  .post--content .h2 + h4,
+  .post--content .h2 + .h4,
+  .post--content .h2 + h5,
+  .post--content .h2 + .h5,
+  .post--content .h2 + h6,
+  .post--content .h2 + .h6,
+  .post--content .h2 + h7,
+  .post--content .h2 + .h7,
+  .post--content .h2 + h8,
+  .post--content .h2 + .h8,
+  .post--content h3 + h2,
+  .post--content h3 + .h2,
+  .post--content h3 + h3,
+  .post--content h3 + .h3,
+  .post--content h3 + h4,
+  .post--content h3 + .h4,
+  .post--content h3 + h5,
+  .post--content h3 + .h5,
+  .post--content h3 + h6,
+  .post--content h3 + .h6,
+  .post--content h3 + h7,
+  .post--content h3 + .h7,
+  .post--content h3 + h8,
+  .post--content h3 + .h8,
+  .post--content .h3 + h2,
+  .post--content .h3 + .h2,
+  .post--content .h3 + h3,
+  .post--content .h3 + .h3,
+  .post--content .h3 + h4,
+  .post--content .h3 + .h4,
+  .post--content .h3 + h5,
+  .post--content .h3 + .h5,
+  .post--content .h3 + h6,
+  .post--content .h3 + .h6,
+  .post--content .h3 + h7,
+  .post--content .h3 + .h7,
+  .post--content .h3 + h8,
+  .post--content .h3 + .h8,
+  .post--content h4 + h2,
+  .post--content h4 + .h2,
+  .post--content h4 + h3,
+  .post--content h4 + .h3,
+  .post--content h4 + h4,
+  .post--content h4 + .h4,
+  .post--content h4 + h5,
+  .post--content h4 + .h5,
+  .post--content h4 + h6,
+  .post--content h4 + .h6,
+  .post--content h4 + h7,
+  .post--content h4 + .h7,
+  .post--content h4 + h8,
+  .post--content h4 + .h8,
+  .post--content .h4 + h2,
+  .post--content .h4 + .h2,
+  .post--content .h4 + h3,
+  .post--content .h4 + .h3,
+  .post--content .h4 + h4,
+  .post--content .h4 + .h4,
+  .post--content .h4 + h5,
+  .post--content .h4 + .h5,
+  .post--content .h4 + h6,
+  .post--content .h4 + .h6,
+  .post--content .h4 + h7,
+  .post--content .h4 + .h7,
+  .post--content .h4 + h8,
+  .post--content .h4 + .h8,
+  .post--content h5 + h2,
+  .post--content h5 + .h2,
+  .post--content h5 + h3,
+  .post--content h5 + .h3,
+  .post--content h5 + h4,
+  .post--content h5 + .h4,
+  .post--content h5 + h5,
+  .post--content h5 + .h5,
+  .post--content h5 + h6,
+  .post--content h5 + .h6,
+  .post--content h5 + h7,
+  .post--content h5 + .h7,
+  .post--content h5 + h8,
+  .post--content h5 + .h8,
+  .post--content .h5 + h2,
+  .post--content .h5 + .h2,
+  .post--content .h5 + h3,
+  .post--content .h5 + .h3,
+  .post--content .h5 + h4,
+  .post--content .h5 + .h4,
+  .post--content .h5 + h5,
+  .post--content .h5 + .h5,
+  .post--content .h5 + h6,
+  .post--content .h5 + .h6,
+  .post--content .h5 + h7,
+  .post--content .h5 + .h7,
+  .post--content .h5 + h8,
+  .post--content .h5 + .h8,
+  .post--content h6 + h2,
+  .post--content h6 + .h2,
+  .post--content h6 + h3,
+  .post--content h6 + .h3,
+  .post--content h6 + h4,
+  .post--content h6 + .h4,
+  .post--content h6 + h5,
+  .post--content h6 + .h5,
+  .post--content h6 + h6,
+  .post--content h6 + .h6,
+  .post--content h6 + h7,
+  .post--content h6 + .h7,
+  .post--content h6 + h8,
+  .post--content h6 + .h8,
+  .post--content .h6 + h2,
+  .post--content .h6 + .h2,
+  .post--content .h6 + h3,
+  .post--content .h6 + .h3,
+  .post--content .h6 + h4,
+  .post--content .h6 + .h4,
+  .post--content .h6 + h5,
+  .post--content .h6 + .h5,
+  .post--content .h6 + h6,
+  .post--content .h6 + .h6,
+  .post--content .h6 + h7,
+  .post--content .h6 + .h7,
+  .post--content .h6 + h8,
+  .post--content .h6 + .h8,
+  .post--content h7 + h2,
+  .post--content h7 + .h2,
+  .post--content h7 + h3,
+  .post--content h7 + .h3,
+  .post--content h7 + h4,
+  .post--content h7 + .h4,
+  .post--content h7 + h5,
+  .post--content h7 + .h5,
+  .post--content h7 + h6,
+  .post--content h7 + .h6,
+  .post--content h7 + h7,
+  .post--content h7 + .h7,
+  .post--content h7 + h8,
+  .post--content h7 + .h8,
+  .post--content .h7 + h2,
+  .post--content .h7 + .h2,
+  .post--content .h7 + h3,
+  .post--content .h7 + .h3,
+  .post--content .h7 + h4,
+  .post--content .h7 + .h4,
+  .post--content .h7 + h5,
+  .post--content .h7 + .h5,
+  .post--content .h7 + h6,
+  .post--content .h7 + .h6,
+  .post--content .h7 + h7,
+  .post--content .h7 + .h7,
+  .post--content .h7 + h8,
+  .post--content .h7 + .h8,
+  .post--content h8 + h2,
+  .post--content h8 + .h2,
+  .post--content h8 + h3,
+  .post--content h8 + .h3,
+  .post--content h8 + h4,
+  .post--content h8 + .h4,
+  .post--content h8 + h5,
+  .post--content h8 + .h5,
+  .post--content h8 + h6,
+  .post--content h8 + .h6,
+  .post--content h8 + h7,
+  .post--content h8 + .h7,
+  .post--content h8 + h8,
+  .post--content h8 + .h8,
+  .post--content .h8 + h2,
+  .post--content .h8 + .h2,
+  .post--content .h8 + h3,
+  .post--content .h8 + .h3,
+  .post--content .h8 + h4,
+  .post--content .h8 + .h4,
+  .post--content .h8 + h5,
+  .post--content .h8 + .h5,
+  .post--content .h8 + h6,
+  .post--content .h8 + .h6,
+  .post--content .h8 + h7,
+  .post--content .h8 + .h7,
+  .post--content .h8 + h8,
+  .post--content .h8 + .h8 {
     margin-top: 1em; }
   .webpage h2 a,
   .webpage .h2 a,
@@ -1874,42 +1878,42 @@ fieldset {
   .webpage .h7 a,
   .webpage h8 a,
   .webpage .h8 a,
-  .profile h2 a,
-  .profile .h2 a,
-  .profile h3 a,
-  .profile .h3 a,
-  .profile h4 a,
-  .profile .h4 a,
-  .profile h5 a,
-  .profile .h5 a,
-  .profile h6 a,
-  .profile .h6 a,
-  .profile h7 a,
-  .profile .h7 a,
-  .profile h8 a,
-  .profile .h8 a,
-  .post h2 a,
-  .post .h2 a,
-  .post h3 a,
-  .post .h3 a,
-  .post h4 a,
-  .post .h4 a,
-  .post h5 a,
-  .post .h5 a,
-  .post h6 a,
-  .post .h6 a,
-  .post h7 a,
-  .post .h7 a,
-  .post h8 a,
-  .post .h8 a {
+  .profile .canStyle h2 a,
+  .profile .canStyle .h2 a,
+  .profile .canStyle h3 a,
+  .profile .canStyle .h3 a,
+  .profile .canStyle h4 a,
+  .profile .canStyle .h4 a,
+  .profile .canStyle h5 a,
+  .profile .canStyle .h5 a,
+  .profile .canStyle h6 a,
+  .profile .canStyle .h6 a,
+  .profile .canStyle h7 a,
+  .profile .canStyle .h7 a,
+  .profile .canStyle h8 a,
+  .profile .canStyle .h8 a,
+  .post--content h2 a,
+  .post--content .h2 a,
+  .post--content h3 a,
+  .post--content .h3 a,
+  .post--content h4 a,
+  .post--content .h4 a,
+  .post--content h5 a,
+  .post--content .h5 a,
+  .post--content h6 a,
+  .post--content .h6 a,
+  .post--content h7 a,
+  .post--content .h7 a,
+  .post--content h8 a,
+  .post--content .h8 a {
     color: var(--text-accent); }
 
 .webpage h2:not(.underline),
 .webpage .h2:not(.underline),
-.profile h2:not(.underline),
-.profile .h2:not(.underline),
-.post h2:not(.underline),
-.post .h2:not(.underline) {
+.profile .canStyle h2:not(.underline),
+.profile .canStyle .h2:not(.underline),
+.post--content h2:not(.underline),
+.post--content .h2:not(.underline) {
   line-height: 120%;
   font-family: var(--font-script);
   text-transform: lowercase;
@@ -1919,33 +1923,33 @@ fieldset {
   @media only screen and (min-width: 480px) {
     .webpage h2:not(.underline),
     .webpage .h2:not(.underline),
-    .profile h2:not(.underline),
-    .profile .h2:not(.underline),
-    .post h2:not(.underline),
-    .post .h2:not(.underline) {
+    .profile .canStyle h2:not(.underline),
+    .profile .canStyle .h2:not(.underline),
+    .post--content h2:not(.underline),
+    .post--content .h2:not(.underline) {
       font-size: calc(30px + 12 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .webpage h2:not(.underline),
     .webpage .h2:not(.underline),
-    .profile h2:not(.underline),
-    .profile .h2:not(.underline),
-    .post h2:not(.underline),
-    .post .h2:not(.underline) {
+    .profile .canStyle h2:not(.underline),
+    .profile .canStyle .h2:not(.underline),
+    .post--content h2:not(.underline),
+    .post--content .h2:not(.underline) {
       font-size: 42px; } }
   .webpage h2:not(.underline)::after,
   .webpage .h2:not(.underline)::after,
-  .profile h2:not(.underline)::after,
-  .profile .h2:not(.underline)::after,
-  .post h2:not(.underline)::after,
-  .post .h2:not(.underline)::after {
+  .profile .canStyle h2:not(.underline)::after,
+  .profile .canStyle .h2:not(.underline)::after,
+  .post--content h2:not(.underline)::after,
+  .post--content .h2:not(.underline)::after {
     display: none; }
 
 .webpage h2.underline,
 .webpage .h2.underline,
-.profile h2.underline,
-.profile .h2.underline,
-.post h2.underline,
-.post .h2.underline {
+.profile .canStyle h2.underline,
+.profile .canStyle .h2.underline,
+.post--content h2.underline,
+.post--content .h2.underline {
   line-height: 120%;
   font-family: var(--font-script);
   text-transform: lowercase;
@@ -1958,25 +1962,25 @@ fieldset {
   @media only screen and (min-width: 480px) {
     .webpage h2.underline,
     .webpage .h2.underline,
-    .profile h2.underline,
-    .profile .h2.underline,
-    .post h2.underline,
-    .post .h2.underline {
+    .profile .canStyle h2.underline,
+    .profile .canStyle .h2.underline,
+    .post--content h2.underline,
+    .post--content .h2.underline {
       font-size: calc(30px + 12 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .webpage h2.underline,
     .webpage .h2.underline,
-    .profile h2.underline,
-    .profile .h2.underline,
-    .post h2.underline,
-    .post .h2.underline {
+    .profile .canStyle h2.underline,
+    .profile .canStyle .h2.underline,
+    .post--content h2.underline,
+    .post--content .h2.underline {
       font-size: 42px; } }
   .webpage h2.underline::after,
   .webpage .h2.underline::after,
-  .profile h2.underline::after,
-  .profile .h2.underline::after,
-  .post h2.underline::after,
-  .post .h2.underline::after {
+  .profile .canStyle h2.underline::after,
+  .profile .canStyle .h2.underline::after,
+  .post--content h2.underline::after,
+  .post--content .h2.underline::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -1988,10 +1992,10 @@ fieldset {
 
 .webpage h3:not(.underline),
 .webpage .h3:not(.underline),
-.profile h3:not(.underline),
-.profile .h3:not(.underline),
-.post h3:not(.underline),
-.post .h3:not(.underline) {
+.profile .canStyle h3:not(.underline),
+.profile .canStyle .h3:not(.underline),
+.post--content h3:not(.underline),
+.post--content .h3:not(.underline) {
   line-height: 120%;
   font-family: var(--font-script);
   text-transform: lowercase;
@@ -2001,33 +2005,33 @@ fieldset {
   @media only screen and (min-width: 480px) {
     .webpage h3:not(.underline),
     .webpage .h3:not(.underline),
-    .profile h3:not(.underline),
-    .profile .h3:not(.underline),
-    .post h3:not(.underline),
-    .post .h3:not(.underline) {
+    .profile .canStyle h3:not(.underline),
+    .profile .canStyle .h3:not(.underline),
+    .post--content h3:not(.underline),
+    .post--content .h3:not(.underline) {
       font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .webpage h3:not(.underline),
     .webpage .h3:not(.underline),
-    .profile h3:not(.underline),
-    .profile .h3:not(.underline),
-    .post h3:not(.underline),
-    .post .h3:not(.underline) {
+    .profile .canStyle h3:not(.underline),
+    .profile .canStyle .h3:not(.underline),
+    .post--content h3:not(.underline),
+    .post--content .h3:not(.underline) {
       font-size: 28px; } }
   .webpage h3:not(.underline)::after,
   .webpage .h3:not(.underline)::after,
-  .profile h3:not(.underline)::after,
-  .profile .h3:not(.underline)::after,
-  .post h3:not(.underline)::after,
-  .post .h3:not(.underline)::after {
+  .profile .canStyle h3:not(.underline)::after,
+  .profile .canStyle .h3:not(.underline)::after,
+  .post--content h3:not(.underline)::after,
+  .post--content .h3:not(.underline)::after {
     display: none; }
 
 .webpage h3.underline,
 .webpage .h3.underline,
-.profile h3.underline,
-.profile .h3.underline,
-.post h3.underline,
-.post .h3.underline {
+.profile .canStyle h3.underline,
+.profile .canStyle .h3.underline,
+.post--content h3.underline,
+.post--content .h3.underline {
   line-height: 120%;
   font-family: var(--font-script);
   text-transform: lowercase;
@@ -2040,25 +2044,25 @@ fieldset {
   @media only screen and (min-width: 480px) {
     .webpage h3.underline,
     .webpage .h3.underline,
-    .profile h3.underline,
-    .profile .h3.underline,
-    .post h3.underline,
-    .post .h3.underline {
+    .profile .canStyle h3.underline,
+    .profile .canStyle .h3.underline,
+    .post--content h3.underline,
+    .post--content .h3.underline {
       font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .webpage h3.underline,
     .webpage .h3.underline,
-    .profile h3.underline,
-    .profile .h3.underline,
-    .post h3.underline,
-    .post .h3.underline {
+    .profile .canStyle h3.underline,
+    .profile .canStyle .h3.underline,
+    .post--content h3.underline,
+    .post--content .h3.underline {
       font-size: 28px; } }
   .webpage h3.underline::after,
   .webpage .h3.underline::after,
-  .profile h3.underline::after,
-  .profile .h3.underline::after,
-  .post h3.underline::after,
-  .post .h3.underline::after {
+  .profile .canStyle h3.underline::after,
+  .profile .canStyle .h3.underline::after,
+  .post--content h3.underline::after,
+  .post--content .h3.underline::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -2070,10 +2074,10 @@ fieldset {
 
 .webpage h4:not(.underline),
 .webpage .h4:not(.underline),
-.profile h4:not(.underline),
-.profile .h4:not(.underline),
-.post h4:not(.underline),
-.post .h4:not(.underline) {
+.profile .canStyle h4:not(.underline),
+.profile .canStyle .h4:not(.underline),
+.post--content h4:not(.underline),
+.post--content .h4:not(.underline) {
   font-family: var(--font-sans);
   font-style: normal;
   line-height: 120%;
@@ -2084,33 +2088,33 @@ fieldset {
   @media only screen and (min-width: 480px) {
     .webpage h4:not(.underline),
     .webpage .h4:not(.underline),
-    .profile h4:not(.underline),
-    .profile .h4:not(.underline),
-    .post h4:not(.underline),
-    .post .h4:not(.underline) {
+    .profile .canStyle h4:not(.underline),
+    .profile .canStyle .h4:not(.underline),
+    .post--content h4:not(.underline),
+    .post--content .h4:not(.underline) {
       font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .webpage h4:not(.underline),
     .webpage .h4:not(.underline),
-    .profile h4:not(.underline),
-    .profile .h4:not(.underline),
-    .post h4:not(.underline),
-    .post .h4:not(.underline) {
+    .profile .canStyle h4:not(.underline),
+    .profile .canStyle .h4:not(.underline),
+    .post--content h4:not(.underline),
+    .post--content .h4:not(.underline) {
       font-size: 28px; } }
   .webpage h4:not(.underline)::after,
   .webpage .h4:not(.underline)::after,
-  .profile h4:not(.underline)::after,
-  .profile .h4:not(.underline)::after,
-  .post h4:not(.underline)::after,
-  .post .h4:not(.underline)::after {
+  .profile .canStyle h4:not(.underline)::after,
+  .profile .canStyle .h4:not(.underline)::after,
+  .post--content h4:not(.underline)::after,
+  .post--content .h4:not(.underline)::after {
     display: none; }
 
 .webpage h4.underline,
 .webpage .h4.underline,
-.profile h4.underline,
-.profile .h4.underline,
-.post h4.underline,
-.post .h4.underline {
+.profile .canStyle h4.underline,
+.profile .canStyle .h4.underline,
+.post--content h4.underline,
+.post--content .h4.underline {
   font-family: var(--font-sans);
   font-style: normal;
   line-height: 120%;
@@ -2124,25 +2128,25 @@ fieldset {
   @media only screen and (min-width: 480px) {
     .webpage h4.underline,
     .webpage .h4.underline,
-    .profile h4.underline,
-    .profile .h4.underline,
-    .post h4.underline,
-    .post .h4.underline {
+    .profile .canStyle h4.underline,
+    .profile .canStyle .h4.underline,
+    .post--content h4.underline,
+    .post--content .h4.underline {
       font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .webpage h4.underline,
     .webpage .h4.underline,
-    .profile h4.underline,
-    .profile .h4.underline,
-    .post h4.underline,
-    .post .h4.underline {
+    .profile .canStyle h4.underline,
+    .profile .canStyle .h4.underline,
+    .post--content h4.underline,
+    .post--content .h4.underline {
       font-size: 28px; } }
   .webpage h4.underline::after,
   .webpage .h4.underline::after,
-  .profile h4.underline::after,
-  .profile .h4.underline::after,
-  .post h4.underline::after,
-  .post .h4.underline::after {
+  .profile .canStyle h4.underline::after,
+  .profile .canStyle .h4.underline::after,
+  .post--content h4.underline::after,
+  .post--content .h4.underline::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -2154,10 +2158,10 @@ fieldset {
 
 .webpage h5:not(.underline),
 .webpage .h5:not(.underline),
-.profile h5:not(.underline),
-.profile .h5:not(.underline),
-.post h5:not(.underline),
-.post .h5:not(.underline) {
+.profile .canStyle h5:not(.underline),
+.profile .canStyle .h5:not(.underline),
+.post--content h5:not(.underline),
+.post--content .h5:not(.underline) {
   font-family: var(--font-sans);
   font-style: normal;
   line-height: 120%;
@@ -2167,18 +2171,18 @@ fieldset {
   font-weight: 900; }
   .webpage h5:not(.underline)::after,
   .webpage .h5:not(.underline)::after,
-  .profile h5:not(.underline)::after,
-  .profile .h5:not(.underline)::after,
-  .post h5:not(.underline)::after,
-  .post .h5:not(.underline)::after {
+  .profile .canStyle h5:not(.underline)::after,
+  .profile .canStyle .h5:not(.underline)::after,
+  .post--content h5:not(.underline)::after,
+  .post--content .h5:not(.underline)::after {
     display: none; }
 
 .webpage h5.underline,
 .webpage .h5.underline,
-.profile h5.underline,
-.profile .h5.underline,
-.post h5.underline,
-.post .h5.underline {
+.profile .canStyle h5.underline,
+.profile .canStyle .h5.underline,
+.post--content h5.underline,
+.post--content .h5.underline {
   font-family: var(--font-sans);
   font-style: normal;
   line-height: 120%;
@@ -2191,10 +2195,10 @@ fieldset {
   padding-right: var(--space-xs); }
   .webpage h5.underline::after,
   .webpage .h5.underline::after,
-  .profile h5.underline::after,
-  .profile .h5.underline::after,
-  .post h5.underline::after,
-  .post .h5.underline::after {
+  .profile .canStyle h5.underline::after,
+  .profile .canStyle .h5.underline::after,
+  .post--content h5.underline::after,
+  .post--content .h5.underline::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -2206,10 +2210,10 @@ fieldset {
 
 .webpage h6:not(.underline),
 .webpage .h6:not(.underline),
-.profile h6:not(.underline),
-.profile .h6:not(.underline),
-.post h6:not(.underline),
-.post .h6:not(.underline) {
+.profile .canStyle h6:not(.underline),
+.profile .canStyle .h6:not(.underline),
+.post--content h6:not(.underline),
+.post--content .h6:not(.underline) {
   font-family: var(--font-sans);
   font-style: normal;
   line-height: 120%;
@@ -2220,18 +2224,18 @@ fieldset {
   font-weight: 900; }
   .webpage h6:not(.underline)::after,
   .webpage .h6:not(.underline)::after,
-  .profile h6:not(.underline)::after,
-  .profile .h6:not(.underline)::after,
-  .post h6:not(.underline)::after,
-  .post .h6:not(.underline)::after {
+  .profile .canStyle h6:not(.underline)::after,
+  .profile .canStyle .h6:not(.underline)::after,
+  .post--content h6:not(.underline)::after,
+  .post--content .h6:not(.underline)::after {
     display: none; }
 
 .webpage h6.underline,
 .webpage .h6.underline,
-.profile h6.underline,
-.profile .h6.underline,
-.post h6.underline,
-.post .h6.underline {
+.profile .canStyle h6.underline,
+.profile .canStyle .h6.underline,
+.post--content h6.underline,
+.post--content .h6.underline {
   font-family: var(--font-sans);
   font-style: normal;
   line-height: 120%;
@@ -2245,10 +2249,10 @@ fieldset {
   padding-right: var(--space-xs); }
   .webpage h6.underline::after,
   .webpage .h6.underline::after,
-  .profile h6.underline::after,
-  .profile .h6.underline::after,
-  .post h6.underline::after,
-  .post .h6.underline::after {
+  .profile .canStyle h6.underline::after,
+  .profile .canStyle .h6.underline::after,
+  .post--content h6.underline::after,
+  .post--content .h6.underline::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -2259,10 +2263,10 @@ fieldset {
 
 .webpage h7:not(.underline),
 .webpage .h7:not(.underline),
-.profile h7:not(.underline),
-.profile .h7:not(.underline),
-.post h7:not(.underline),
-.post .h7:not(.underline) {
+.profile .canStyle h7:not(.underline),
+.profile .canStyle .h7:not(.underline),
+.post--content h7:not(.underline),
+.post--content .h7:not(.underline) {
   display: block;
   font-family: var(--font-sans);
   font-style: normal;
@@ -2274,18 +2278,18 @@ fieldset {
   font-weight: 900; }
   .webpage h7:not(.underline)::after,
   .webpage .h7:not(.underline)::after,
-  .profile h7:not(.underline)::after,
-  .profile .h7:not(.underline)::after,
-  .post h7:not(.underline)::after,
-  .post .h7:not(.underline)::after {
+  .profile .canStyle h7:not(.underline)::after,
+  .profile .canStyle .h7:not(.underline)::after,
+  .post--content h7:not(.underline)::after,
+  .post--content .h7:not(.underline)::after {
     display: none; }
 
 .webpage h7.underline,
 .webpage .h7.underline,
-.profile h7.underline,
-.profile .h7.underline,
-.post h7.underline,
-.post .h7.underline {
+.profile .canStyle h7.underline,
+.profile .canStyle .h7.underline,
+.post--content h7.underline,
+.post--content .h7.underline {
   display: block;
   font-family: var(--font-sans);
   font-style: normal;
@@ -2300,10 +2304,10 @@ fieldset {
   padding-right: var(--space-xs); }
   .webpage h7.underline::after,
   .webpage .h7.underline::after,
-  .profile h7.underline::after,
-  .profile .h7.underline::after,
-  .post h7.underline::after,
-  .post .h7.underline::after {
+  .profile .canStyle h7.underline::after,
+  .profile .canStyle .h7.underline::after,
+  .post--content h7.underline::after,
+  .post--content .h7.underline::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -2314,10 +2318,10 @@ fieldset {
 
 .webpage h8,
 .webpage .h8,
-.profile h8,
-.profile .h8,
-.post h8,
-.post .h8 {
+.profile .canStyle h8,
+.profile .canStyle .h8,
+.post--content h8,
+.post--content .h8 {
   display: block;
   font-family: var(--font-sans);
   font-style: normal;
@@ -2335,22 +2339,22 @@ fieldset {
   line-height: 200%; }
   .webpage h8::after,
   .webpage .h8::after,
-  .profile h8::after,
-  .profile .h8::after,
-  .post h8::after,
-  .post .h8::after {
+  .profile .canStyle h8::after,
+  .profile .canStyle .h8::after,
+  .post--content h8::after,
+  .post--content .h8::after {
     display: none; }
   .webpage h8::before, .webpage h8::after,
   .webpage .h8::before,
   .webpage .h8::after,
-  .profile h8::before,
-  .profile h8::after,
-  .profile .h8::before,
-  .profile .h8::after,
-  .post h8::before,
-  .post h8::after,
-  .post .h8::before,
-  .post .h8::after {
+  .profile .canStyle h8::before,
+  .profile .canStyle h8::after,
+  .profile .canStyle .h8::before,
+  .profile .canStyle .h8::after,
+  .post--content h8::before,
+  .post--content h8::after,
+  .post--content .h8::before,
+  .post--content .h8::after {
     display: block !important;
     content: '';
     position: absolute;
@@ -2360,37 +2364,37 @@ fieldset {
     background: var(--bg-gradient); }
   .webpage h8::before,
   .webpage .h8::before,
-  .profile h8::before,
-  .profile .h8::before,
-  .post h8::before,
-  .post .h8::before {
+  .profile .canStyle h8::before,
+  .profile .canStyle .h8::before,
+  .post--content h8::before,
+  .post--content .h8::before {
     top: 0; }
   .webpage h8::after,
   .webpage .h8::after,
-  .profile h8::after,
-  .profile .h8::after,
-  .post h8::after,
-  .post .h8::after {
+  .profile .canStyle h8::after,
+  .profile .canStyle .h8::after,
+  .post--content h8::after,
+  .post--content .h8::after {
     bottom: 0; }
 
 .webpage b,
 .webpage i,
 .webpage u,
 .webpage s,
-.profile b,
-.profile i,
-.profile u,
-.profile s,
-.post b,
-.post i,
-.post u,
-.post s {
+.profile .canStyle b,
+.profile .canStyle i,
+.profile .canStyle u,
+.profile .canStyle s,
+.post--content b,
+.post--content i,
+.post--content u,
+.post--content s {
   color: var(--text-secondary);
   font-size: 1.05em; }
 
 .webpage b,
-.profile b,
-.post b {
+.profile .canStyle b,
+.post--content b {
   padding: var(--space-xs) var(--space-sm);
   background: var(--bg-gradient-25);
   border-radius: var(--radius-small);
@@ -2398,22 +2402,22 @@ fieldset {
   -webkit-box-decoration-break: clone; }
 
 .webpage u,
-.profile u,
-.post u {
+.profile .canStyle u,
+.post--content u {
   -webkit-text-decoration-color: var(--text-accent);
           text-decoration-color: var(--text-accent);
   text-underline-offset: var(--space-xs); }
 
 .webpage s,
-.profile s,
-.post s {
+.profile .canStyle s,
+.post--content s {
   -webkit-text-decoration-color: var(--text-accent);
           text-decoration-color: var(--text-accent);
   text-decoration-thickness: 2px; }
 
 .webpage tag-spoiler,
-.profile tag-spoiler,
-.post tag-spoiler {
+.profile .canStyle tag-spoiler,
+.post--content tag-spoiler {
   background: var(--bg-secondary);
   color: transparent;
   padding: var(--space-xs) var(--space-sm);
@@ -2421,31 +2425,31 @@ fieldset {
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone; }
   .webpage tag-spoiler:not(.is-visible),
-  .profile tag-spoiler:not(.is-visible),
-  .post tag-spoiler:not(.is-visible) {
+  .profile .canStyle tag-spoiler:not(.is-visible),
+  .post--content tag-spoiler:not(.is-visible) {
     pointer: cursor; }
   .webpage tag-spoiler.is-visible,
-  .profile tag-spoiler.is-visible,
-  .post tag-spoiler.is-visible {
+  .profile .canStyle tag-spoiler.is-visible,
+  .post--content tag-spoiler.is-visible {
     color: var(--text-primary); }
 
 .webpage ul,
-.profile ul,
-.post ul {
+.profile .canStyle ul,
+.post--content ul {
   padding-left: 12px;
   margin: var(--space-lg) 0; }
   .webpage ul li,
-  .profile ul li,
-  .post ul li {
+  .profile .canStyle ul li,
+  .post--content ul li {
     padding-left: var(--space-sm);
     line-height: 160%; }
     .webpage ul li:not(:last-child),
-    .profile ul li:not(:last-child),
-    .post ul li:not(:last-child) {
+    .profile .canStyle ul li:not(:last-child),
+    .post--content ul li:not(:last-child) {
       margin-bottom: var(--space-sm); }
     .webpage ul li::marker,
-    .profile ul li::marker,
-    .post ul li::marker {
+    .profile .canStyle ul li::marker,
+    .post--content ul li::marker {
       font-family: 'Font Awesome 7 Pro';
       color: var(--text-accent);
       background-image: var(--bg-gradient);
@@ -2456,8 +2460,8 @@ fieldset {
       font-weight: 900; }
 
 .webpage blockquote,
-.profile blockquote,
-.post blockquote {
+.profile .canStyle blockquote,
+.post--content blockquote {
   background: var(--bg-gradient-25);
   border: var(--border-accent-alt);
   padding: var(--space-lg) calc(var(--space-lg) + 5px);
@@ -4650,22 +4654,38 @@ header {
       -webkit-box-align: center;
       -webkit-align-items: center;
           -ms-flex-align: center;
-              align-items: center; }
-      #SF main .container > table > tbody > tr > td:first-child,
-      #ST main .container > table > tbody > tr > td:first-child {
+              align-items: center;
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+      gap: var(--space-sm) var(--space-lg); }
+      #SF main .container > table > tbody > tr > td,
+      #ST main .container > table > tbody > tr > td {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
-        display: flex;
-        -webkit-box-flex: 1;
-        -webkit-flex-grow: 1;
-            -ms-flex-positive: 1;
-                flex-grow: 1; }
+        display: flex; }
+        #SF main .container > table > tbody > tr > td:first-child,
+        #ST main .container > table > tbody > tr > td:first-child {
+          -webkit-box-flex: 1;
+          -webkit-flex-grow: 1;
+              -ms-flex-positive: 1;
+                  flex-grow: 1;
+          width: auto;
+          max-width: 100%; }
+        #SF main .container > table > tbody > tr > td:last-child,
+        #ST main .container > table > tbody > tr > td:last-child {
+          width: -webkit-max-content;
+          width: -moz-max-content;
+          width: max-content;
+          max-width: 100%;
+          gap: var(--space-sm);
+          margin: 0 auto 0 0; }
   #SF main .container > table:first-of-type,
   #ST main .container > table:first-of-type {
     position: -webkit-sticky;
     position: sticky;
-    top: calc(var(--size-container-margin) - 1px);
+    top: calc(var(--size-container-margin) - 2px);
     z-index: 4; }
   #SF main .container > table:last-of-type ~ div[align="right"],
   #ST main .container > table:last-of-type ~ div[align="right"] {
@@ -4966,6 +4986,676 @@ header {
 /*******************************
     Post Row
 ********************************/
+#ST .tableborder:has(.post) {
+  display: block;
+  padding: 0 var(--space-md);
+  max-width: var(--size-max-screen);
+  margin: 0 auto; }
+  @media (min-width: 481px) {
+    #ST .tableborder:has(.post) {
+      padding: 0 var(--space-lg); } }
+  #ST .tableborder:has(.post) .maintitle {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    padding: var(--space-lg) var(--space-lg) var(--space-md); }
+    #ST .tableborder:has(.post) .maintitle .topic-title-space {
+      display: none; }
+    #ST .tableborder:has(.post) .maintitle .topic-title {
+      line-height: 120%;
+      font-family: var(--font-script);
+      text-transform: lowercase;
+      font-size: 30px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      padding-bottom: var(--space-xs); }
+      @media only screen and (min-width: 480px) {
+        #ST .tableborder:has(.post) .maintitle .topic-title {
+          font-size: calc(30px + 12 * (100vw - 480px) / (1280 - 480)); } }
+      @media only screen and (min-width: 1280px) {
+        #ST .tableborder:has(.post) .maintitle .topic-title {
+          font-size: 42px; } }
+      #ST .tableborder:has(.post) .maintitle .topic-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        border-radius: 2px;
+        background: var(--bg-gradient); }
+    #ST .tableborder:has(.post) .maintitle .topic-desc {
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      line-height: 160%;
+      font-size: var(--text-size-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      margin: var(--space-md) 0; }
+      #ST .tableborder:has(.post) .maintitle .topic-desc:empty {
+        display: none; }
+      #ST .tableborder:has(.post) .maintitle .topic-desc:has(tag-highlight) {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+        gap: var(--space-xs); }
+  #ST .tableborder:has(.post) .postlinksbar {
+    margin: 0 auto var(--space-lg);
+    padding: 0 var(--space-lg);
+    text-align: center;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    max-width: 100%; }
+    #ST .tableborder:has(.post) .postlinksbar::before, #ST .tableborder:has(.post) .postlinksbar::after {
+      display: block !important;
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--bg-gradient); }
+    #ST .tableborder:has(.post) .postlinksbar::before {
+      top: 0; }
+    #ST .tableborder:has(.post) .postlinksbar::after {
+      bottom: 0; }
+    #ST .tableborder:has(.post) .postlinksbar strong {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      gap: var(--space-sm) var(--space-lg);
+      font-size: 0; }
+      #ST .tableborder:has(.post) .postlinksbar strong a {
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+        font-weight: 600;
+        line-height: 160%;
+        font-size: var(--text-size-xs);
+        text-transform: uppercase;
+        letter-spacing: 0.2em; }
+  #ST .tableborder:has(.post) .activeuserstrip {
+    background: var(--bg-secondary);
+    text-align: center;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 160%;
+    font-size: var(--text-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.2em; }
+    #ST .tableborder:has(.post) .activeuserstrip a {
+      color: var(--text-secondary); }
+    #ST .tableborder:has(.post) .activeuserstrip:not(:last-child) {
+      border-radius: var(--radius-large) var(--radius-large) 0 0;
+      border: var(--border-secondary);
+      border-bottom: 0;
+      padding: var(--space-md) var(--space-md) 0;
+      margin-top: var(--space-lg); }
+    #ST .tableborder:has(.post) .activeuserstrip:last-child {
+      border-radius: 0 0 var(--radius-large) var(--radius-large);
+      border: var(--border-secondary);
+      border-top: 0;
+      padding: 0 var(--space-md) var(--space-md);
+      margin-bottom: var(--space-lg); }
+    #ST .tableborder:has(.post) .activeuserstrip + .row2 {
+      background: var(--bg-secondary);
+      border-left: var(--border-secondary);
+      border-right: var(--border-secondary);
+      text-align: center;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      line-height: 160%;
+      font-size: var(--text-size-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.2em; }
+      #ST .tableborder:has(.post) .activeuserstrip + .row2 a {
+        color: var(--text-secondary); }
+
+.post {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+  grid-template-columns: 100%;
+  border-radius: var(--radius-large);
+  background: var(--bg-primary);
+  height: 100%; }
+  @media (min-width: 769px) {
+    .post {
+      -ms-grid-columns: 71px clamp(var(--size-min-post-avatar), 35vw, var(--size-max-post-avatar)) 1fr;
+      grid-template-columns: 71px clamp(var(--size-min-post-avatar), 35vw, var(--size-max-post-avatar)) 1fr; } }
+  .post--buttons {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content; }
+    .post--buttons .sticky {
+      position: -webkit-sticky;
+      position: sticky;
+      top: calc(var(--size-container-margin) + 70px);
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      gap: var(--space-md);
+      -webkit-box-pack: end;
+      -webkit-justify-content: end;
+          -ms-flex-pack: end;
+              justify-content: end;
+      background: var(--bg-secondary);
+      border-top-left-radius: var(--radius-large);
+      border-bottom: var(--border-primary);
+      border-right: var(--border-primary);
+      border-bottom-right-radius: var(--radius-xl); }
+      @media (max-width: 768px) {
+        .post--buttons .sticky {
+          padding: var(--space-md) var(--space-xl) var(--space-md) var(--space-lg); } }
+      @media (min-width: 769px) {
+        .post--buttons .sticky {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: column;
+              -ms-flex-direction: column;
+                  flex-direction: column;
+          padding: var(--space-lg) var(--space-md) var(--space-xl); } }
+    .post--buttons a {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      background: var(--bg-gradient-75);
+      padding: var(--space-xs);
+      border-radius: 50%;
+      border: none; }
+      .post--buttons a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--bg-gradient-25);
+        border-radius: 50%;
+        scale: 1;
+        -webkit-transition: var(--transition-standard);
+        transition: var(--transition-standard); }
+      .post--buttons a:hover::before {
+        scale: 1.3; }
+      .post--buttons a i {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        background: var(--bg-secondary);
+        color: var(--text-secondary);
+        width: 30px;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        font-size: 10px;
+        font-style: normal; }
+      .post--buttons a.is-active::before {
+        scale: 1.3; }
+    .post--buttons label {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      background: var(--bg-gradient-75);
+      padding: var(--space-xs);
+      border-radius: 50%;
+      border: none;
+      width: 40px;
+      height: 40px; }
+      body.g-4 .post--buttons label {
+        display: -webkit-box !important;
+        display: -webkit-flex !important;
+        display: -ms-flexbox !important;
+        display: flex !important; }
+  .post--side {
+    padding: var(--space-md) var(--space-md) 0; }
+    @media (min-width: 1025px) {
+      .post--side {
+        padding: var(--space-lg) var(--space-lg) var(--space-md); } }
+    .post--side .sticky {
+      position: -webkit-sticky;
+      position: sticky;
+      top: calc(var(--size-container-margin) + 70px); }
+  .post--avatar {
+    width: 100%;
+    border-radius: var(--space-lg);
+    overflow: hidden;
+    margin: 0 auto; }
+    @media (max-width: 768px) {
+      .post--avatar {
+        height: 250px; } }
+    @media (min-width: 769px) {
+      .post--avatar {
+        aspect-ratio: var(--size-post-avatar-ratio);
+        min-height: 400px;
+        margin: 0; } }
+    .post--avatar::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(black));
+      background: linear-gradient(to bottom, transparent, black);
+      z-index: 1; }
+    .post--avatar > img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%; }
+      @media (max-width: 768px) {
+        .post--avatar > img.tabletUp {
+          display: none; } }
+      @media (min-width: 769px) {
+        .post--avatar > img.tabletDown {
+          display: none; } }
+    .post--avatar:hover .post--hover {
+      top: 0; }
+  .post--hover {
+    border-radius: var(--space-lg);
+    padding: var(--space-md);
+    background: var(--bg-gradient-v);
+    height: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    -webkit-transition: var(--transition-xlong);
+    transition: var(--transition-xlong);
+    z-index: 1; }
+    .post--hover .items {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      overflow: auto;
+      height: 100%;
+      background: var(--bg-secondary);
+      border-radius: calc(var(--radius-large) - var(--space-md));
+      padding: var(--space-md) var(--space-lg) var(--space-md) var(--space-md);
+      -webkit-box-align: start;
+      -webkit-align-items: start;
+          -ms-flex-align: start;
+              align-items: start; }
+      @media (max-width: 1024px) {
+        .post--hover .items .items--item {
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: column;
+              -ms-flex-direction: column;
+                  flex-direction: column;
+          margin-bottom: var(--space-md); }
+          .post--hover .items .items--item span {
+            padding-top: var(--space-xs); }
+            .post--hover .items .items--item span::after {
+              position: absolute;
+              top: 0;
+              margin: 0; } }
+      @media (max-width: 768px) {
+        .post--hover .items {
+          gap: 0 var(--space-lg);
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: row;
+              -ms-flex-direction: row;
+                  flex-direction: row; }
+          .post--hover .items .items--item {
+            -webkit-box-flex: 0;
+            -webkit-flex: 0 0 calc(50% - (var(--space-lg) / 2));
+                -ms-flex: 0 0 calc(50% - (var(--space-lg) / 2));
+                    flex: 0 0 calc(50% - (var(--space-lg) / 2));
+            width: calc(50% - (var(--space-lg) / 2)); } }
+      @media (max-width: 600px) {
+        .post--hover .items {
+          gap: 0;
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: column;
+              -ms-flex-direction: column;
+                  flex-direction: column; }
+          .post--hover .items .items--item {
+            -webkit-box-flex: 0;
+            -webkit-flex: 0 0 auto;
+                -ms-flex: 0 0 auto;
+                    flex: 0 0 auto;
+            width: 100%; } }
+  .post--main {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: var(--space-md);
+    padding: var(--space-lg) var(--space-md) 0; }
+    @media (min-width: 769px) {
+      .post--main {
+        padding: var(--space-md) var(--space-md) 0 0; } }
+    @media (min-width: 1025px) {
+      .post--main {
+        padding: var(--space-lg) var(--space-lg) var(--space-md) 0;
+        gap: var(--space-lg); } }
+  .post--header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column; }
+    .post--header > a {
+      text-transform: uppercase;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      font-size: 36px;
+      line-height: 120%;
+      margin: 0;
+      font-weight: bold; }
+      .post--header > a b {
+        color: var(--text-secondary); }
+      .post--header > a span {
+        font-size: 0.6em;
+        letter-spacing: 0.1em;
+        line-height: 100%;
+        color: var(--text-primary); }
+  .post--links {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin: var(--space-sm) 0; }
+    .post--links a {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      gap: var(--space-xs);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      line-height: 160%;
+      font-size: var(--text-size-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-weight: 900;
+      -webkit-transition: var(--transition-standard);
+      transition: var(--transition-standard); }
+      .post--links a:hover {
+        color: var(--text-secondary); }
+      .post--links a:not(:first-child)::before {
+        content: '';
+        width: var(--space-lg);
+        height: 1px;
+        background: var(--bg-accent); }
+  .post--content {
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    background: var(--bg-secondary);
+    border: var(--border-secondary);
+    border-radius: calc(var(--radius-large) - var(--space-md));
+    padding: var(--space-md); }
+    @media (min-width: 1025px) {
+      .post--content {
+        padding: var(--space-lg); } }
+  .post--footer {
+    grid-column: 1 / -1;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    gap: var(--space-sm) var(--space-lg);
+    margin: var(--space-md);
+    background: var(--bg-secondary);
+    border: var(--border-secondary);
+    padding: var(--space-md);
+    border-radius: calc(var(--radius-large) - var(--space-md));
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    @media (max-width: 768px) {
+      .post--footer {
+        display: -ms-grid;
+        display: grid;
+        -ms-grid-columns: -webkit-max-content 1fr;
+        -ms-grid-columns: max-content 1fr;
+        grid-template-columns: -webkit-max-content 1fr;
+        grid-template-columns: max-content 1fr;
+        -ms-grid-rows: -webkit-max-content -webkit-max-content;
+        -ms-grid-rows: max-content max-content;
+        grid-template-rows: -webkit-max-content -webkit-max-content;
+        grid-template-rows: max-content max-content;
+        padding: var(--space-md); }
+        .post--footer .post--footer-flex {
+          grid-column: 1 / -1; } }
+    .post--footer > a {
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: var(--text-size-xl); }
+    .post--footer-flex {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-flex-wrap: wrap;
+          -ms-flex-wrap: wrap;
+              flex-wrap: wrap;
+      gap: var(--space-sm) var(--space-lg);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      line-height: 160%;
+      font-size: var(--text-size-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      line-height: 100%;
+      padding-left: calc(24px + var(--space-md)); }
+      @media (min-width: 769px) {
+        .post--footer-flex {
+          padding: 0; }
+          .post--footer-flex:nth-child(2) {
+            -webkit-box-pack: space-evenly;
+            -webkit-justify-content: space-evenly;
+                -ms-flex-pack: space-evenly;
+                    justify-content: space-evenly; }
+          .post--footer-flex:nth-child(3) {
+            -webkit-box-pack: end;
+            -webkit-justify-content: end;
+                -ms-flex-pack: end;
+                    justify-content: end; } }
+  .post--triggers {
+    background: var(--bg-gradient-75);
+    border-radius: 50%; }
+    .post--triggers.warnings {
+      padding: var(--space-xs);
+      position: absolute;
+      bottom: calc(-1 * var(--space-xs));
+      right: calc(-1 * var(--space-lg)); }
+      .post--triggers.warnings .post--triggers-hover {
+        right: 0; }
+      .post--triggers.warnings > i {
+        width: 30px;
+        font-size: 10px; }
+    .post--triggers:not(.warnings) {
+      padding: 4px;
+      margin: calc(-1 * var(--space-md)) calc(-1 * var(--space-md)) calc(-1 * var(--space-md)) calc((-1 * var(--space-md)) + var(--space-sm));
+      height: -webkit-max-content;
+      height: -moz-max-content;
+      height: max-content;
+      -webkit-align-self: center;
+          -ms-flex-item-align: center;
+                  -ms-grid-row-align: center;
+              align-self: center; }
+      .post--triggers:not(.warnings) .post--triggers-hover {
+        left: 0; }
+      .post--triggers:not(.warnings) > i {
+        width: 20px;
+        font-size: 8px; }
+    .post--triggers::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg-gradient-25);
+      border-radius: 50%;
+      scale: 1;
+      -webkit-transition: var(--transition-standard);
+      transition: var(--transition-standard); }
+    .post--triggers:hover::before {
+      scale: 1.3; }
+    .post--triggers:hover .post--triggers-hover {
+      -webkit-transform: scaleY(1);
+          -ms-transform: scaleY(1);
+              transform: scaleY(1); }
+    .post--triggers > i {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      font-size: 10px; }
+    .post--triggers-hover {
+      -webkit-transform: scaleY(0);
+          -ms-transform: scaleY(0);
+              transform: scaleY(0);
+      -webkit-transform-origin: bottom;
+          -ms-transform-origin: bottom;
+              transform-origin: bottom;
+      -webkit-transition: var(--transition-standard);
+      transition: var(--transition-standard);
+      position: absolute;
+      bottom: calc(100% + var(--space-md));
+      width: 300px;
+      font-size: var(--text-size-md);
+      line-height: 160%;
+      background: var(--bg-secondary);
+      padding: var(--space-md);
+      z-index: 1;
+      border-radius: var(--radius-medium);
+      -webkit-box-shadow: 0 0 5px var(--bg-primary);
+              box-shadow: 0 0 5px var(--bg-primary);
+      overflow-x: hidden;
+      overflow-y: auto;
+      max-height: 100%;
+      padding-right: var(--space-md);
+      margin-right: calc(-1 * $spacing);
+      scrollbar-width: thin;
+      scrollbar-color: var(--bg-accent) transparent;
+      max-height: 100px;
+      text-align: justify; }
+      .post--triggers-hover::-webkit-scrollbar {
+        width: 6px; }
+      .post--triggers-hover::-webkit-scrollbar-track {
+        background: transparent; }
+      .post--triggers-hover::-webkit-scrollbar-thumb {
+        background: var(--bg-accent);
+        border: none; }
+
 /*******************************
     Profile
 ********************************/
@@ -6617,17 +7307,53 @@ a[href="<i>No Information</i>"] {
 /***** Quick Reply/Options *****/
 #ST #qr_open,
 #ST #topic_open {
-  margin: 0 auto var(--space-lg);
-  text-align: justify;
-  padding: var(--space-lg); }
-
-#ST #qr_open .maintitle {
-  line-height: 160%;
-  max-width: -webkit-max-content;
-  max-width: -moz-max-content;
-  max-width: max-content;
-  padding: var(--space-sm) 0 var(--space-sm) var(--space-lg);
-  margin-top: 0; }
+  padding: 0 var(--space-md);
+  max-width: var(--size-max-screen);
+  margin: var(--space-lg) auto; }
+  @media (min-width: 481px) {
+    #ST #qr_open,
+    #ST #topic_open {
+      padding: 0 var(--space-lg); } }
+  #ST #qr_open > *,
+  #ST #topic_open > * {
+    border-radius: var(--radius-large);
+    background: var(--bg-secondary);
+    border: var(--border-secondary);
+    padding: var(--space-md); }
+    @media (min-width: 481px) {
+      #ST #qr_open > *,
+      #ST #topic_open > * {
+        padding: var(--space-lg); } }
+  #ST #qr_open .maintitle,
+  #ST #topic_open .maintitle {
+    line-height: 120%;
+    font-family: var(--font-script);
+    text-transform: lowercase;
+    font-size: 30px;
+    color: var(--text-secondary);
+    font-weight: 400;
+    padding-bottom: var(--space-xs); }
+    @media only screen and (min-width: 480px) {
+      #ST #qr_open .maintitle,
+      #ST #topic_open .maintitle {
+        font-size: calc(30px + 12 * (100vw - 480px) / (1280 - 480)); } }
+    @media only screen and (min-width: 1280px) {
+      #ST #qr_open .maintitle,
+      #ST #topic_open .maintitle {
+        font-size: 42px; } }
+    #ST #qr_open .maintitle::after,
+    #ST #topic_open .maintitle::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--bg-gradient); }
+    #ST #qr_open .maintitle a,
+    #ST #topic_open .maintitle a {
+      color: var(--text-secondary); }
 
 #ST #qr_open .tablepad {
   display: -webkit-box;
@@ -6642,6 +7368,8 @@ a[href="<i>No Information</i>"] {
   -webkit-justify-content: center;
       -ms-flex-pack: center;
           justify-content: center; }
+  #ST #qr_open .tablepad textarea {
+    height: 250px; }
 
 #ST #qr_open .input-wrap:first-of-type {
   margin-right: calc(var(--space-md) / 2); }
@@ -6693,20 +7421,32 @@ a[href="<i>No Information</i>"] {
   #ST #qr_open #post_as_selector br {
     display: none; }
 
-#ST #topic_open .maintitle {
-  font-size: 0; }
-  #ST #topic_open .maintitle a {
-    font-size: var(--text-size-md); }
-
 #ST #topic_open .tablepad b {
   display: block;
-  max-width: -webkit-max-content;
-  max-width: -moz-max-content;
-  max-width: max-content;
-  padding: var(--space-xs) var(--space-sm);
-  line-height: 160%;
-  max-width: max-content;
-  margin: var(--space-lg) 0 var(--space-xs); }
+  font-family: var(--font-sans);
+  font-style: normal;
+  line-height: 120%;
+  text-transform: uppercase;
+  font-size: var(--text-size-lg);
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  font-weight: 900;
+  padding-bottom: var(--space-xs);
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  max-width: 100%;
+  margin-top: var(--space-md); }
+  #ST #topic_open .tablepad b::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--bg-gradient); }
+  #ST #topic_open .tablepad b a {
+    color: var(--text-secondary); }
   #ST #topic_open .tablepad b ~ br {
     display: none; }
 

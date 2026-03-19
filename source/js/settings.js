@@ -28,7 +28,7 @@ const fileTypes = ['gif', 'jpg', 'jpeg', 'png'];
 const defaultSquare = 'https://picsum.photos/100';
 const checkboxChecked = `<i class="fa-solid fa-check"></i>`;
 const carouselCategories = [3];
-const condensedCategories = [2];
+const condensedCategories = [4,5];
 
 //this is for character sorting, highlighting the edge of the sorting related messages
 //the group name should by lowercase and should match what would appear in the Group column of the google sheet

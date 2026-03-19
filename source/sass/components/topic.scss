@@ -28,11 +28,23 @@
                     display: flex;
                     justify-content: end;
                     align-items: center;
+                    flex-wrap: wrap;
+                    gap: var(--space-sm) var(--space-lg);
 
                     & > td {
+                        display: flex;
+
                         &:first-child {
-                            display: flex;
                             flex-grow: 1;
+                            width: auto;
+                            max-width: 100%;
+                        }
+
+                        &:last-child {
+                            width: max-content;
+                            max-width: 100%;
+                            gap: var(--space-sm);
+                            margin: 0 auto 0 0;
                         }
                     }
                 }
@@ -40,7 +52,7 @@
 
             &:first-of-type {
                 position: sticky;
-                top: calc(var(--size-container-margin) - 1px);
+                top: calc(var(--size-container-margin) - 2px);
                 z-index: 4;
             }
             &:last-of-type {

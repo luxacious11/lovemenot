@@ -170,23 +170,43 @@ a[href="<i>No Information</i>"] {
 #ST {
     #qr_open,
     #topic_open {
-        margin: 0 auto var(--space-lg);
-        text-align: justify;
-        padding: var(--space-lg);
+        padding: 0 var(--space-md);
+        max-width: var(--size-max-screen);
+        margin: var(--space-lg) auto;
+
+        @include mq-up(xxs) {
+            padding: 0 var(--space-lg);
+        }
+
+        & > * {
+            border-radius: var(--radius-large);
+            background: var(--bg-secondary);
+            border: var(--border-secondary);
+            padding: var(--space-md);
+
+            @include mq-up(xxs) {
+                padding: var(--space-lg);
+            }
+        }
+
+        .maintitle {
+            @include heading(h2, true);
+
+            a {
+                color: var(--text-secondary);
+            }
+        }
     }
     #qr_open {
-        .maintitle {
-            line-height: 160%;
-            max-width: max-content;
-            padding: var(--space-sm) 0 var(--space-sm) var(--space-lg);
-            margin-top: 0;
-        }
-        
         .tablepad {
             display: flex;
             flex-wrap: wrap;
             font-size: 0;
             justify-content: center;
+
+            textarea {
+                height: 250px;
+            }
         }
 
         .input-wrap:first-of-type {
@@ -238,21 +258,16 @@ a[href="<i>No Information</i>"] {
         }
     }
     #topic_open {
-        .maintitle {
-            font-size: 0;
-
-            a {
-                font-size: var(--text-size-md);
-            }
-        }
-
         .tablepad b {
             display: block;
-            max-width: max-content;
-            padding: var(--space-xs) var(--space-sm);
-            line-height: 160%;
-            max-width: max-content;
-            margin: var(--space-lg) 0 var(--space-xs);
+            @include heading(h6, thin);
+            width: max-content;
+            max-width: 100%;
+            margin-top: var(--space-md);
+
+            a {
+                color: var(--text-secondary);
+            }
 
             & ~ br {
                 display: none;

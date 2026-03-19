@@ -18,6 +18,7 @@
   --transition-quick: all 0.1s ease-in-out;
   --transition-standard: all 0.3s ease-in-out;
   --transition-long: all 0.5s ease-in-out;
+  --transition-xlong: all 0.75s ease-in-out;
   --filter-backdrop: brightness(0.8) blur(10px);
   --radius-container: 20px;
   --radius-xl: 160px;
@@ -53,6 +54,9 @@
   --size-ml-avatar-ratio: 4 / 5;
   --size-group-aesthetics: 80px;
   --size-max-web-content: 900px;
+  --size-min-post-avatar: 225px;
+  --size-max-post-avatar: 500px;
+  --size-post-avatar-ratio: 4 / 5;
   --bg-container: rgba(24, 24, 24, 0.3);
   --bg-primary: rgba(24, 24, 24, 1);
   --bg-secondary: rgba(37, 37, 37, 1);

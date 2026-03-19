@@ -24,6 +24,7 @@
     --transition-quick: all 0.1s ease-in-out;
     --transition-standard: all 0.3s ease-in-out;
     --transition-long: all 0.5s ease-in-out;
+    --transition-xlong: all 0.75s ease-in-out;
 
     --filter-backdrop: brightness(0.8) blur(10px);
 
@@ -76,6 +77,11 @@
     //Webpages
     --size-group-aesthetics: 80px;
     --size-max-web-content: 900px;
+
+    //Posts
+    --size-min-post-avatar: 225px;
+    --size-max-post-avatar: 500px;
+    --size-post-avatar-ratio: 4 / 5;
 
     @include mq-up(xxs) {
         --size-container-margin: 25px;

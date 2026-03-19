@@ -1175,34 +1175,9 @@ function initPlayerInfo(parent = null) {
     }
 }
 function initPosts() {
-    initMiniSplide();
 	let posts = document.querySelectorAll('.post');
 	posts.forEach(post => {
-		let account = post.dataset.account,
-            birthday = {
-                year: post.dataset.year,
-                month: post.dataset.month,
-                day: post.dataset.day
-            };
-        post.querySelector('age-clip').innerHTML = calculateAge(dates);
-    
-        fetch(claims)
-        .then((response) => response.json())
-        .then((characterData) => {
-            fetch(members)
-            .then((response) => response.json())
-            .then((memberData) => {
-                let existing = characterData.filter(item => item.AccountID === account)[0];
-                console.log(existing);
-                if(existing) {
-                    let parent = memberData.filter(item => item.AccountID === existing.ParentID)[0];
-                    post.querySelectorAll('.clip-player').forEach(clone => clone.innerHTML = initPlayerInfo(parent));
-                } else {
-                    let parent = memberData.filter(item => item.AccountID === account)[0];
-                    post.querySelectorAll('.clip-player').forEach(clone => clone.innerHTML = initPlayerInfo(parent));
-                }
-            });
-        });
+        post.querySelector('.post--header a').innerHTML = formatName(post.dataset.fullName, 'b');
     });
 }
 
