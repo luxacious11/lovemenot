@@ -1,0 +1,218 @@
+@import '../global/mixins.scss';
+@import '../global/extensions.scss';
+
+/*******************************
+    Typography
+********************************/
+.webpage,
+.profile,
+.post {
+    h2,
+    .h2,
+    h3,
+    .h3,
+    h4,
+    .h4,
+    h5,
+    .h5,
+    h6,
+    .h6,
+    h7,
+    .h7,
+    h8,
+    .h8 {
+        width: max-content;
+        max-width: 100%;
+        margin: 2em 0 1em;
+    
+        &:first-child {
+            margin-top: 0;
+        }
+    
+        &:last-child {
+            margin-bottom: 0;
+        }
+
+        & + h2,
+        & + .h2,
+        & + h3,
+        & +.h3,
+        & +h4,
+        & +.h4,
+        & +h5,
+        & +.h5,
+        & +h6,
+        & +.h6,
+        & +h7,
+        & +.h7,
+        & +h8,
+        & +.h8 {
+            margin-top: 1em;
+        }
+
+        a {
+            color: var(--text-accent);
+        }
+    }
+    h2,
+    .h2 {
+        &:not(.underline) {
+            @include heading(h2);
+        }
+    
+        &.underline {
+            @include heading(h2, true);
+            padding-left: var(--space-xs);
+            padding-right: var(--space-xs);
+        }
+    }
+    
+    h3,
+    .h3 {
+        &:not(.underline) {
+            @include heading(h3);
+        }
+    
+        &.underline {
+            @include heading(h3, true);
+            padding-left: var(--space-xs);
+            padding-right: var(--space-xs);
+        }
+    }
+    
+    h4,
+    .h4 {
+        &:not(.underline) {
+            @include heading(h4);
+        }
+    
+        &.underline {
+            @include heading(h4, true);
+            padding-left: var(--space-xs);
+            padding-right: var(--space-xs);
+        }
+    }
+    
+    h5,
+    .h5 {
+        &:not(.underline) {
+            @include heading(h5);
+        }
+    
+        &.underline {
+            @include heading(h5, true);
+            padding-left: var(--space-xs);
+            padding-right: var(--space-xs);
+        }
+    }
+    
+    h6,
+    .h6 {
+        &:not(.underline) {
+            @include heading(h6);
+        }
+    
+        &.underline {
+            @include heading(h6, thin);
+            padding-left: var(--space-xs);
+            padding-right: var(--space-xs);
+        }
+    }
+    
+    h7,
+    .h7 {
+        &:not(.underline) {
+            @include heading(h7);
+        }
+    
+        &.underline {
+            @include heading(h7, thin);
+            padding-left: var(--space-xs);
+            padding-right: var(--space-xs);
+        }
+    }
+    
+    h8,
+    .h8 {
+        @include heading(h8);
+        line-height: 200%;
+    }
+    
+    b,
+    i,
+    u,
+    s {
+        color: var(--text-secondary);
+        font-size: 1.05em;
+    }
+    
+    b {
+        padding: var(--space-xs) var(--space-sm);
+        background: var(--bg-gradient-25);
+        border-radius: var(--radius-small);
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+    }
+    
+    u {
+        text-decoration-color: var(--text-accent);
+        text-underline-offset: var(--space-xs);
+    }
+    
+    s {
+        text-decoration-color: var(--text-accent);
+        text-decoration-thickness: 2px;
+    }
+    
+    tag-spoiler {
+        background: var(--bg-secondary);
+        color: transparent;
+        padding: var(--space-xs) var(--space-sm);
+        border-radius: var(--radius-small);
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+
+        &:not(.is-visible) {
+            pointer: cursor;
+        }
+    
+        &.is-visible {
+            color: var(--text-primary);
+        }
+    }
+    
+    ul {
+        padding-left: 12px;
+        margin: var(--space-lg) 0;
+    
+        li {
+            padding-left: var(--space-sm);
+            line-height: 160%;
+    
+            &:not(:last-child) {
+                margin-bottom: var(--space-sm);
+            }
+    
+            &::marker {
+                font-family: 'Font Awesome 7 Pro';
+                color: var(--text-accent);
+                background-image: var(--bg-gradient);
+                -webkit-background-clip: text;
+                background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-fill-color: transparent;
+                font-weight: 900;
+            }
+        }
+    }
+    
+    blockquote {
+        background: var(--bg-gradient-25);
+        border: var(--border-accent-alt);
+        padding: var(--space-lg) calc(var(--space-lg) + 5px);
+        border-radius: var(--radius-large);
+        color: var(--text-on-accent);
+        margin: var(--space-lg) auto;
+        max-width: 500px;
+    }
+}

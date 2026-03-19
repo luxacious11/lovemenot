@@ -21,8 +21,8 @@ function formatTabLabel(title, hash) {
 }
 function formatTab(title, hash, content) {
     return `<tag-tab data-key="#${hash}">
-        <h2 class="tab-heading">${title}</h2>
         <div class="webpage--content-inner">
+            <h2 class="underline" data-box-align="center" data-text-align="center">${title}</h2>
             ${content}
         </div>
     </tag-tab>`;
@@ -30,9 +30,9 @@ function formatTab(title, hash, content) {
 function formatClaim(title, lines, group = null, link = null, classes = ``, filterAttributes = ``) {
     let html = ``;
     if(group) {
-        html += `<div class="claim g-${group} ${classes}">`;
+        html += `<div class="claim g-${group} ${classes}"><div class="claim--inner">`;
     } else {
-        html += `<div class="claim ${classes}">`;
+        html += `<div class="claim ${classes}"><div class="claim--inner">`;
     }
     if(link) {
         html += `<a href="${link}" ${filterAttributes}>${title}</a>`;
@@ -42,7 +42,7 @@ function formatClaim(title, lines, group = null, link = null, classes = ``, filt
     lines.forEach(line => {
         html += `<span>${line}</span>`;
     })
-    html += `</div>`;
+    html += `</div></div>`;
 
     return html;
 }
@@ -54,162 +54,6 @@ function startAccordion(attributes) {
 }
 function stopAccordion() {
     return `</div></div>`;
-}
-
-/***** Subplots *****/
-function formatSubplots(plots, characters, reserves) {
-    reserves = reserves.filter(item => checkActiveReserve(item.Timestamp) <= (defaultReserve + item.Extension));
-
-    reserves = reserves.map(reserve => ({
-        type: 'reserve',
-        member: reserve.Member,
-        role: reserve.Role,
-        section: reserve.Section,
-        plot: reserve.Plot,
-        timestamp: reserve.Timestamp,
-        extension: reserve.Extension,
-    }));
-
-    //parse character roles
-    characters = characters
-                    .filter(character => character.Roles && character.Roles !== '')
-                    .map(character => ({
-                        ...character,
-                        Roles: JSON.parse(character.Roles),
-                    }));
-    let characterRoles = [...reserves];
-    characters.forEach(character => {
-        character.Roles.forEach(role => {
-            characterRoles.push({
-                type: 'claim',
-                id: character.AccountID,
-                character: character.Character,
-                group: character.Group,
-                groupID: character.GroupID,
-                member: character.Member,
-                parentID: character.ParentID,
-                ...role
-            });
-        });
-    });
-    
-    //sort plots
-    plots.sort((a, b) => {
-        if(parseInt(a.Priority) < parseInt(b.Priority)) {
-            return -1;
-        } else if(parseInt(a.Priority) > parseInt(b.Priority)) {
-            return 1;
-        } else if(a.Plot < b.Plot) {
-            return -1;
-        } else if(a.Plot > b.Plot) {
-            return 1;
-        } else {
-            return 0;
-        }
-    });
-
-    //set html
-    let labels = ``, tabs = ``;
-
-    plots.forEach((plot, i) => {
-        labels += formatTabLabel(capitalize(plot.Plot), cleanText(plot.PlotID));
-        tabs += formatTab(capitalize(plot.Plot), cleanText(plot.PlotID), formatPlotInfo(plot, characterRoles));
-    });
-
-    document.querySelector('.accordion--content[data-category="plots"]').innerHTML = labels;
-    document.querySelector('tag-tab[data-category="plots"] tag-tabset').innerHTML = tabs;
-}
-function formatPlotInfo(plot, characters) {
-    let sections = JSON.parse(plot.Sections);
-    let sectionsHTML = ``;
-
-    sections.sort((a, b) => {
-        if(parseInt(a.priority) < parseInt(b.priority)) {
-            return -1;
-        } else if(parseInt(a.priority) > parseInt(b.priority)) {
-            return 1;
-        } else if(a.title < b.title) {
-            return -1;
-        } else if(a.title > b.title) {
-            return 1;
-        } else {
-            return 0;
-        }
-    });
-
-    sections.forEach(section => {
-        sectionsHTML += formatPlotSection(section, characters, plot);
-    });
-
-    return `<div class="plot--overview">
-        ${plot.Overview}
-    </div>
-    ${sectionsHTML}`;
-}
-function formatPlotSection(section, characters, plot) {
-    let rolesHTML = ``;
-
-    section.roles.sort((a, b) => {
-        if(parseInt(a.priority) < parseInt(b.priority)) {
-            return -1;
-        } else if(parseInt(a.priority) > parseInt(b.priority)) {
-            return 1;
-        } else if(a.role < b.role) {
-            return -1;
-        } else if(a.role > b.role) {
-            return 1;
-        } else {
-            return 0;
-        }
-    });
-
-    section.roles.forEach(role => {
-        rolesHTML += formatPlotRole(role, characters, plot, section);
-    });
-
-    return `<h3>${capitalize(section.title)}</h3>
-    <blockquote class="plot--section-overview">${section.overview}</blockquote>
-    <div class="plot--roles" data-type="grid">${rolesHTML}</div>`;
-}
-function formatPlotRole(role, characters, plot, section) {
-    let assignedCharacters = characters.filter(item => item.plot === plot.Plot && item.section === section.title && item.role === role.role);
-    let claimsHTML = ``;
-
-    assignedCharacters.sort((a, b) => {
-        if(a.type < b.type) {
-            return -1;
-        } else if(a.type > b.type) {
-            return 1;
-        } else if(a.character < b.character) {
-            return -1;
-        } else if(a.character > b.character) {
-            return 1;
-        } else if(a.member < b.member) {
-            return -1;
-        } else if(a.member > b.member) {
-            return 1;
-        } else {
-            return 0;
-        }
-    });
-
-    assignedCharacters.forEach(character => {
-        if(character.type === 'claim') {
-            let lines = [character.role, `played by <a href="?showuser=${character.parentID}">${character.member}</a>`];
-            claimsHTML += formatClaim(character.character, lines, character.groupID, `?showuser=${character.id}`);
-        } else {
-            let lines = [`Expires in <span class="highlight" data-expiry data-timestamp="${character.timestamp}" data-extension="${character.extension}">${setExpiry(character.timestamp, character.extension)}</span>`];
-            claimsHTML += formatClaim(`Reserved by ${character.member}`, lines);
-        }
-    });
-
-    if(assignedCharacters.length === 0) {
-        claimsHTML = `<div class="claim fullWidth"><span>No active claims or reserves.</span></div>`;
-    }
-
-    return `<div class="h5 fullWidth">${capitalize(role.role)}</div>
-    ${role.description && role.description !== '' && `<div class="plot--role-description fullWidth">${role.description}</div>`}
-    ${claimsHTML}`;
 }
 
 /***** Face Reserves *****/
@@ -319,97 +163,6 @@ function formatFaceClaims(data) {
     document.querySelector('tag-tab[data-key="#faces"] .webpage--content-inner').insertAdjacentHTML('beforeend', html);
 }
 
-/***** Member Directory *****/
-function formatDirectory(data, claims) {
-    let labels = ``, tabs = ``;
-
-    data.sort((a, b) => {
-        if(a.Member < b.Member) {
-            return -1;
-        } else if(a.Member > b.Member) {
-            return 1;
-        } else {
-            return 0;
-        }
-    });
-
-    data.forEach((item, i) => {
-        //first
-        if(i === 0) {
-            labels += formatTabLabelWrap(item.Member[0], item.Member[0]);
-            labels += formatTabLabel(item.Member, cleanText(item.Member));
-
-            tabs += formatTabCategory(item.Member[0]);
-            tabs += formatTab(capitalize(item.Member, [' ', '-']), cleanText(item.Member), formatMemberInfo(item, claims));
-        }
-
-        //different starting letter
-        else if(data[i - 1].Member[0] !== item.Member[0]) {
-            labels += closeTabLabelWrap();
-            labels += formatTabLabelWrap(item.Member[0], item.Member[0]);
-            labels += formatTabLabel(item.Member, cleanText(item.Member));
-
-            tabs += closeTabCategory();
-            tabs += formatTabCategory(item.Member[0]);
-            tabs += formatTab(capitalize(item.Member, [' ', '-']), cleanText(item.Member), formatMemberInfo(item, claims));
-        }
-
-        //same starting letter
-        else {
-            labels += formatTabLabel(item.Member, cleanText(item.Member));
-            tabs += formatTab(capitalize(item.Member, [' ', '-']), cleanText(item.Member), formatMemberInfo(item, claims));
-        }
-
-        //last
-        if(i === data.length - 1) {
-            labels += closeTabLabelWrap();
-            tabs += closeTabCategory();
-        }
-    });
-
-    document.querySelector('tag-labels.accordion').innerHTML = labels;
-    document.querySelector('tag-tabset.webpage--content').innerHTML = tabs;
-}
-function formatMemberInfo(member, claims) {
-    let characters = claims.filter(item => item.Member === member.Member);
-
-    characters.sort((a, b) => {
-        if(a.Character < b.Character) {
-            return -1;
-        } else if(a.Character > b.Character) {
-            return 1;
-        } else {
-            return 0;
-        }
-    });
-
-    let characterHTML = ``;
-    characters.forEach(character => {
-        let lines = [`Looks like ${character.Face}`, `Belongs in ${character.Group}`];
-        characterHTML += formatClaim(character.Character, lines, character.GroupID, `?showuser=${character.AccountID}`);
-    });
-
-    return `<div class="h8">
-        ${member.Group}<br>
-        ${member.Pronouns} - ${member.Age} - ${member.Timezone}<br>
-        Writes ${member.Language} - ${member.Sex} - ${member.Violence}
-    </div>
-    <div class="directory--overview" data-type="grid">
-        <div class="directory--section">
-            <div class="h5">About</div>
-            <p>${member.About}</p>
-        </div>
-        <div class="directory--section">
-            <div class="h5">Triggers</div>
-            <p>${member.Triggers}</p>
-        </div>
-    </div>
-    <div class="directory--list" data-type="grid">
-        <div class="h5 fullWidth">Active Characters</div>
-        ${characterHTML}
-    </div>`;
-}
-
 /***** Businesses *****/
 function formatBusinesses(data, claims) {
     claims = claims
@@ -497,29 +250,33 @@ function formatEmployees(claims, employer) {
     let characters = claims.filter(item => item.employer === employer);
     let html = ``;
 
-    characters = sortEmployees(characters);
-
-    characters.forEach((character, i) => {
-        let lines = [character.position, `Played by <a href="?showuser=${character.parentID}">${character.member}</a>`];
-
-        //first
-        if(i === 0) {
-            html += character.section !== '' ? formatHeader(character.section, 7) : '';
-            html += formatClaim(character.character, lines, character.groupID, `?showuser=${character.id}`, '', `data-employer="${character.employer}"`);
-        }
-
-        //new section
-        else if(characters[i - 1].section !== character.section) {
-            html += formatHeader(character.section, 7);
-            html += formatClaim(character.character, lines, character.groupID, `?showuser=${character.id}`, '', `data-employer="${character.employer}"`);
-        }
-
-        //same section
-        else {
-            html += formatClaim(character.character, lines, character.groupID, `?showuser=${character.id}`, '', `data-employer="${character.employer}"`);
-        }
-
-    });
+    if(characters.length > 0) {
+        characters = sortEmployees(characters);
+    
+        characters.forEach((character, i) => {
+            let lines = [character.position, `Played by <a href="?showuser=${character.parentID}">${character.member}</a>`];
+    
+            //first
+            if(i === 0) {
+                html += character.section !== '' ? formatHeader(character.section, 7, 'underline') : '';
+                html += formatClaim(character.character, lines, character.groupID, `?showuser=${character.id}`, '', `data-employer="${character.employer}"`);
+            }
+    
+            //new section
+            else if(characters[i - 1].section !== character.section) {
+                html += formatHeader(character.section, 7, 'underline');
+                html += formatClaim(character.character, lines, character.groupID, `?showuser=${character.id}`, '', `data-employer="${character.employer}"`);
+            }
+    
+            //same section
+            else {
+                html += formatClaim(character.character, lines, character.groupID, `?showuser=${character.id}`, '', `data-employer="${character.employer}"`);
+            }
+    
+        });
+    } else {
+        html += `<blockquote class="fullWidth" data-box-align="left">No employees registered.</blockquote>`;
+    }
 
     return html;
 }
@@ -547,23 +304,23 @@ function formatEmployer(employer, claims) {
     </div>
     <div class="directory--overview" data-type="grid">
         <div class="directory--section">
-            <div class="h5">About</div>
+            <div class="h5 underline">About</div>
             <p>${employer.Summary}</p>
         </div>
         <div class="directory--section hours">
-            <div class="h5">Hours</div>
+            <div class="h5 underline">Hours</div>
             <p>${hoursHTML}</p>
         </div>
     </div>
-    <div class="directory--list" data-type="grid">
-        <div class="h5 fullWidth">Employees</div>
+    <div class="claims--grid" data-type="grid">
+        <div class="h5 fullWidth underline">Employees</div>
         ${characterHTML}
     </div>`;
 }
 function formatSelfEmployed(employed) {
     let characterHTML = formatEmployees(employed, 'self-employed');
 
-    return `<div class="directory--list" data-type="grid">
+    return `<div class="claims--grid" data-type="grid">
         ${characterHTML}
     </div>`;
 }
@@ -669,7 +426,15 @@ function filterEmployees(e) {
 }
 
 /***** Format Addresses *****/
-function formatAddresses(characters, businesses) {
+function formatAddress(address, showNeighbourhood = false) {
+    let string = `${address.apartment !== '' ? `${address.apartment}-` : ``}${address.house} ${capitalize(address.street).trim()}`
+    if(showNeighbourhood) {
+        string += `, ${capitalize(address.neighbourhood).trim()}`;
+    }
+    return string;
+}
+
+function formatAddresses(neighbourhoods, characters, businesses) {
     characters = characters.filter(item => item.Address && item.Address !== '').map(item => ({
         type: 'character',
         address: JSON.parse(item.Address),
@@ -687,11 +452,7 @@ function formatAddresses(characters, businesses) {
     let addresses = [...characters, ...businesses];
 
     addresses.sort((a, b) => {
-        if(a.address.region < b.address.region) {
-            return -1;
-        } else if(a.address.region > b.address.region) {
-            return 1;
-        } else if(a.address.neighbourhood < b.address.neighbourhood) {
+        if(a.address.neighbourhood < b.address.neighbourhood) {
             return -1;
         } else if(a.address.neighbourhood > b.address.neighbourhood) {
             return 1;
@@ -720,242 +481,109 @@ function formatAddresses(characters, businesses) {
         }
     });
 
-    let sectionedAddresses = {
-        location1: addresses.filter(item => item.address.region === 'location 1'),
-        location2: addresses.filter(item => item.address.region === 'location 2'),
-    }
-    let addressHTML = {
-        location1: '',
-        location2: '',
-    }
-
-    document.querySelectorAll('tag-tab[data-category="addresses"] [data-key]').forEach(tab => {
-        if(tab.dataset.key !== '#lookup') {
-            let region = tab.dataset.key.split('#')[1];
-            sectionedAddresses[region].forEach((address, i) => {
-                let lines = [`${address.address.apartment !== '' ? `${address.address.apartment}-` : ``}${address.address.house} ${capitalize(address.address.street).trim()}`];
-                let neighbourhood = address.address.neighbourhood !== '' ? address.address.neighbourhood : 'elsewhere';
-                //first
-                if(i === 0) {
-                    addressHTML[region] += `<div class="accordion neighbourhood-accordion">`; //open neighbourhood
-                    addressHTML[region] += formatHeader(`<span>${capitalize(neighbourhood, [' ', '-'])}</span>`, 3, 'accordion--trigger neighbourhood-trigger');
-                    addressHTML[region] += `<div class="accordion--content"><div class="accordion">`;
-                    addressHTML[region] += formatHeader(capitalize(address.address.street, [' ', '-']), 5, 'accordion--trigger');
-                    addressHTML[region] += `<div class="accordion--content"><div class="claims--grid" data-type="grid">`; //open claims
-                    addressHTML[region] += formatClaim(address.title, lines, address.type === 'character' ? address.groupID : null, address.type === 'character' ? `?showuser=${address.id}` : `?act=Pages&kid=businesses#${cleanText(address.title)}`);
-                }
-
-                //new neighbourhood
-                else if(sectionedAddresses[region][i - 1].address.neighbourhood !== address.address.neighbourhood) {
-                    addressHTML[region] += `</div></div>`; //close claims
-                    addressHTML[region] += `</div></div>`; //close street
-                    addressHTML[region] += `</div>`; //close neighbourhood
-
-                    addressHTML[region] += `<div class="accordion neighbourhood-accordion">`; //open neighbourhood
-                    addressHTML[region] += formatHeader(`<span>${capitalize(neighbourhood, [' ', '-'])}</span>`, 3, 'accordion--trigger neighbourhood-trigger');
-                    addressHTML[region] += `<div class="accordion--content"><div class="accordion">`;
-                    addressHTML[region] += formatHeader(capitalize(address.address.street, [' ', '-']), 5, 'accordion--trigger');
-                    addressHTML[region] += `<div class="accordion--content"><div class="claims--grid" data-type="grid">`; //open claims
-                    addressHTML[region] += formatClaim(address.title, lines, address.type === 'character' ? address.groupID : null, address.type === 'character' ? `?showuser=${address.id}` : `?act=Pages&kid=businesses#${cleanText(address.title)}`);
-                }
-
-                //new street
-                else if(sectionedAddresses[region][i - 1].address.street !== address.address.street) {
-                    addressHTML[region] += `</div></div>`; //close claims
-                    addressHTML[region] += `</div>`; //close street
-
-                    addressHTML[region] += `<div class="accordion">`;
-                    addressHTML[region] += formatHeader(capitalize(address.address.street, [' ', '-']), 5, 'accordion--trigger');
-                    addressHTML[region] += `<div class="accordion--content"><div class="claims--grid" data-type="grid">`; //open claims
-                    addressHTML[region] += formatClaim(address.title, lines, address.type === 'character' ? address.groupID : null, address.type === 'character' ? `?showuser=${address.id}` : `?act=Pages&kid=businesses#${cleanText(address.title)}`);
-                }
-
-                //otherwise
-                else {
-                    addressHTML[region] += formatClaim(address.title, lines, address.type === 'character' ? address.groupID : null, address.type === 'character' ? `?showuser=${address.id}` : `?act=Pages&kid=businesses#${cleanText(address.title)}`);
-                }
-
-                //last
-                if(i === sectionedAddresses[region].length - 1) {
-                    addressHTML[region] += `</div></div>`; //close claims
-                    addressHTML[region] += `</div></div>`; //close street
-                    addressHTML[region] += `</div>`; //close neighbourhood
-                }
-            });
-
-            tab.querySelector('.webpage--content-inner').innerHTML = addressHTML[region];
-        }
+    let labels = ``, tabs = ``;
+    neighbourhoods.forEach(neighbourhood => {
+        let content = formatNeighbourhoodList(neighbourhood, addresses);
+        labels += formatTabLabel(`${neighbourhood.Neighbourhood}`, cleanText(neighbourhood.Neighbourhood));
+        tabs += formatTab(`${neighbourhood.Neighbourhood}`, cleanText(neighbourhood.Neighbourhood), content);
     });
-}
 
-/***** Format Connections *****/
-function formatConnections(data) {
-    data = data.filter(item => item.Connections && item.Connections !== '' && item.Status && item.Status === 'approved');
-    
-    let connections = [];
-    data.forEach(item => {
-        item.Connections = JSON.parse(item.Connections);
-        item.Connections.forEach(connection => {
-            connections.push({
-                title: item.Character,
-                link: `?showuser=${item.AccountID}`,
-                group: item.GroupID,
-                playedBy: `Played by <a href="?showuser=${item.ParentID}">${item.Member}</a>`,
-                connection: connection,
-            });
+    document.querySelector(`.webpage--menu .accordion--content[data-category="addresses"]`).insertAdjacentHTML('beforeend', labels);
+    document.querySelector(`.webpage--content [data-category="addresses"] tag-tabset`).insertAdjacentHTML('beforeend', tabs);
+}
+function formatStarRating(rating) {
+    let html = ``;
+
+    for(let i = 1; i <= 5; i++) {
+        if(rating >= i) {
+            html += `<i class="fa-solid fa-star"></i>`;
+        } else {
+            html += `<i class="fa-regular fa-star"></i>`;
+        }
+    }
+
+    return html;
+}
+function formatNeighbourhoodList(neighbourhood, addresses) {
+    let html = ``;
+    let filteredAddresses = addresses.filter(address => address.address.neighbourhood === neighbourhood.Neighbourhood);
+
+    html += `
+    <div class="directory--overview" data-type="grid">
+        <div class="directory--section">
+            <div class="h5 underline">About</div>
+            <p>${neighbourhood.Description}</p>
+        </div>
+        <div class="directory--section location-stats">
+            <div class="location-stats-grid">
+                <div class="location-stats-item">
+                    <b>Cost</b>
+                    <span>${formatStarRating(neighbourhood.Cost)}</span>
+                </div>
+                <div class="location-stats-item">
+                    <b>Safety</b>
+                    <span>${formatStarRating(neighbourhood.Safety)}</span>
+                </div>
+                <div class="location-stats-item">
+                    <b>Commercial</b>
+                    <span>${formatStarRating(neighbourhood.Commercial)}</span>
+                </div>
+                <div class="location-stats-item">
+                    <b>Residential</b>
+                    <span>${formatStarRating(neighbourhood.Residential)}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="h5 fullWidth underline">Occupants</div>`;
+
+    if(filteredAddresses.length > 0) {
+        html += `<div class="accordion">`;
+        filteredAddresses.forEach((address, i) => {
+            let lines = [`${address.address.apartment !== '' ? `${address.address.apartment}-` : ``}${address.address.house} ${capitalize(address.address.street).trim()}`];
+
+            //first
+            if(i === 0) {
+                html += formatHeader(address.address.street, 7, 'accordion--trigger');
+                html += startAccordion();
+                html += `<div data-type="grid" class="claims--grid">`;
+                if(address.group) {
+                    html += formatClaim(address.title, lines, address.groupID, `?showuser=${address.id}`);
+                } else {
+                    html += formatClaim(address.title, lines, null, `?act=Pages&kid=businesses${cleanText(address.title)}`)
+                }
+            }
+            //different street
+            else if(filteredAddresses[i - 1].address.street !== address.address.street) {
+                html += `</div>`;
+                html += stopAccordion();
+                html += formatHeader(address.address.street, 7, 'accordion--trigger');
+                html += startAccordion();
+                html += `<div data-type="grid" class="claims--grid">`;
+                if(address.group) {
+                    html += formatClaim(address.title, lines, address.groupID, `?showuser=${address.id}`);
+                } else {
+                    html += formatClaim(address.title, lines, null, `?act=Pages&kid=businesses${cleanText(address.title)}`)
+                }
+            }
+            //same street
+            else {
+                if(address.group) {
+                    html += formatClaim(address.title, lines, address.groupID, `?showuser=${address.id}`);
+                } else {
+                    html += formatClaim(address.title, lines, null, `?act=Pages&kid=businesses${cleanText(address.title)}`)
+                }
+            }
+            //last
+            if(filteredAddresses.length - 1 === i) {
+                html += `</div>`;
+                html += stopAccordion();
+            }
         });
-    });
+        html += `</div>`;
+    } else {
+        html += `<blockquote>No recorded addresses.</blockquote>`;
+    }
 
-    let local = connections.filter(item => item.connection.type === 'local');
-    let historical = connections.filter(item => item.connection.type === 'historical');
-
-    formatLocalConnections(local);
-    formatHistoryConnections(historical);
-}
-function formatLocalConnections(data) {
-    let html = ``;
-
-    data.sort((a, b) => {
-        if(parseInt(a.connection.priority) < parseInt(b.connection.priority)) {
-            return -1;
-        } else if(parseInt(a.connection.priority) > parseInt(b.connection.priority)) {
-            return 1;
-        } else if(a.connection.subcategory < b.connection.subcategory) {
-            return -1;
-        } else if(a.connection.subcategory > b.connection.subcategory) {
-            return 1;
-        } else if(a.connection.category === 'local history' && b.connection.category === 'local history' && (a.connection.role < b.connection.role)) {
-            return -1;
-        } else if(a.connection.category === 'local history' && b.connection.category === 'local history' && (a.connection.role > b.connection.role)) {
-            return 1;
-        } else if(a.title < b.title) {
-            return -1;
-        } else if(a.title > b.title) {
-            return 1;
-        } else {
-            return 0;
-        }
-    });
-
-    data.forEach((item, i) => {
-        let lines = [`${item.connection.role}`, item.playedBy];
-
-        if(i === 0) {
-            html += `<div class="accordion neighbourhood-accordion">`;
-            html += formatHeader(`<span>${capitalize(item.connection.category, [' ', '-'])}</span>`, '3', 'accordion--trigger neighbourhood-trigger');
-            html += startAccordion(`class="accordion"`);
-            html += formatHeader(capitalize(item.connection.subcategory, [' ', '-']), '5', 'accordion--trigger');
-            html += startAccordion(`data-type="grid" class="claims--grid"`);
-            html += formatClaim(item.title, lines, item.group, item.link);
-        }
-        //different category
-        else if(data[i - 1].connection.category !== item.connection.category) {
-            html += stopAccordion();
-            html += stopAccordion();
-            html += `</div>`;
-            html += `<div class="accordion neighbourhood-accordion">`;
-            html += formatHeader(`<span>${capitalize(item.connection.category, [' ', '-'])}</span>`, '3', 'accordion--trigger neighbourhood-trigger');
-            html += startAccordion(`class="accordion"`);
-            html += formatHeader(capitalize(item.connection.subcategory, [' ', '-']), '5', 'accordion--trigger');
-            html += startAccordion(`data-type="grid" class="claims--grid"`);
-            html += formatClaim(item.title, lines, item.group, item.link);
-        }
-        //different subcategory
-        else if(data[i - 1].connection.subcategory !== item.connection.subcategory) {
-            html += stopAccordion();
-            html += formatHeader(capitalize(item.connection.subcategory, [' ', '-']), '5', 'accordion--trigger');
-            html += startAccordion(`data-type="grid" class="claims--grid"`);
-            html += formatClaim(item.title, lines, item.group, item.link);
-        }
-        //same sections
-        else {
-            html += formatClaim(item.title, lines, item.group, item.link);
-        }
-
-        if(data.length - 1 === i) {
-            html += stopAccordion();
-            html += stopAccordion();
-            html += `</div>`;
-        }
-    });
-
-    document.querySelector('tag-tab[data-key="#local"] .webpage--content-inner').innerHTML = html;
-}
-function formatHistoryConnections(data) {
-    let html = ``;
-
-    data.sort((a, b) => {
-        if(parseInt(a.connection.priority) < parseInt(b.connection.priority)) {
-            return -1;
-        } else if(parseInt(a.connection.priority) > parseInt(b.connection.priority)) {
-            return 1;
-        } else if(a.connection.subcategory < b.connection.subcategory) {
-            return -1;
-        } else if(a.connection.subcategory > b.connection.subcategory) {
-            return 1;
-        } else if(a.connection.location < b.connection.location) {
-            return -1;
-        } else if(a.connection.location > b.connection.location) {
-            return 1;
-        } else if(a.title < b.title) {
-            return -1;
-        } else if(a.title > b.title) {
-            return 1;
-        } else {
-            return 0;
-        }
-    });
-
-    data.forEach((item, i) => {
-        let lines = [`${item.connection.role}`, item.playedBy];
-
-        //first
-        if(i === 0) {
-            html += `<div class="accordion neighbourhood-accordion">`;
-            html += formatHeader(`<span>${capitalize(item.connection.category, [' ', '-'])}</span>`, '3', 'accordion--trigger neighbourhood-trigger');
-            html += startAccordion(`class="accordion"`);
-            html += formatHeader(capitalize(item.connection.subcategory, [' ', '-']), '5', 'accordion--trigger');
-            html += startAccordion(`data-type="grid" class="claims--grid"`);
-            html += item.connection.location !== '' ? formatHeader(item.connection.location, '7') : ``;
-            html += formatClaim(item.title, lines, item.group, item.link);
-        }
-        //different category
-        else if(data[i - 1].connection.category !== item.connection.category) {
-            html += stopAccordion();
-            html += stopAccordion();
-            html += `</div>`;
-            html += `<div class="accordion neighbourhood-accordion">`;
-            html += formatHeader(`<span>${capitalize(item.connection.category, [' ', '-'])}</span>`, '3', 'accordion--trigger neighbourhood-trigger');
-            html += startAccordion(`class="accordion"`);
-            html += formatHeader(capitalize(item.connection.subcategory, [' ', '-']), '5', 'accordion--trigger');
-            html += startAccordion(`data-type="grid" class="claims--grid"`);
-            html += item.connection.location !== '' ? formatHeader(item.connection.location, '7') : ``;
-            html += formatClaim(item.title, lines, item.group, item.link);
-        }
-        //different subcategory
-        else if(data[i - 1].connection.subcategory !== item.connection.subcategory) {
-            html += stopAccordion();
-            html += formatHeader(capitalize(item.connection.subcategory, [' ', '-']), '5', 'accordion--trigger');
-            html += startAccordion(`data-type="grid" class="claims--grid"`);
-            html += item.connection.location !== '' ? formatHeader(item.connection.location, '7') : ``;
-            html += formatClaim(item.title, lines, item.group, item.link);
-        }
-        //different location
-        else if(data[i - 1].connection.location !== item.connection.location) {
-            html += item.connection.location !== '' ? formatHeader(item.connection.location, '7') : ``;
-            html += formatClaim(item.title, lines, item.group, item.link);
-        }
-        //same sections
-        else {
-            html += formatClaim(item.title, lines, item.group, item.link);
-        }
-
-        if(data.length - 1 === i) {
-            html += stopAccordion();
-            html += stopAccordion();
-            html += `</div>`;
-        }
-    });
-
-    document.querySelector('tag-tab[data-key="#historical"] .webpage--content-inner').innerHTML = html;
+    return html;
 }

@@ -19,6 +19,21 @@
         })
 		
 
+        <!--Category-->
+        <section class="category subforums f-1">
+            <h2>Subforums</h2>
+            <div><div class="category--main">
+                @@include('../source/templates/blocks/forum.html', {
+                    "id": "2",
+                    "name": "Out of Town",
+                    "subforums": "no",
+                    "links": "no",
+                    "image": "no"
+                })
+            </div></div>
+        </section>
+		
+
             <!--IBF.MODLINK-->
             <table width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tbody>
@@ -59,11 +74,37 @@
             <form action="?act=modcp&amp;f=1&amp;CODE=topicchoice" name="mod_topics" method="POST">
                 <input type="hidden" id="tact" name="tact" value="close">	
                 
-                <!--Topic List-->
-                <section class="topic"></section>
+                <section class="category topics">
+                    <div class="category--list">
+                        <div class="macro--header">All Topics</div>
+                        <div class="macro--header">Announcements</div>
+                        @@include('../source/templates/blocks/topic.html', {
+                            "description": "",
+                            "newpost": ""
+                        })
+
+                        <div class="macro--header">General</div>
+                        @@include('../source/templates/blocks/topic.html', {
+                            "description": "plain description",
+                            "newpost": "topic-new-post"
+                        })
+                        @@include('../source/templates/blocks/topic.html', {
+                            "description": "[highlights]",
+                            "newpost": ""
+                        })
+                        @@include('../source/templates/blocks/topic.html', {
+                            "description": "[highlights] and plain",
+                            "newpost": ""
+                        })
+                        @@include('../source/templates/blocks/topic.html', {
+                            "description": "[multiple][highlights]",
+                            "newpost": ""
+                        })
+                    </div>
+                </section>
             </form>
 
-            <div class="topiclist--info">
+            <div class="topics--info"><div class="topics--info-inner">
                 <form action="https://victis.jcink.net/index.php?act=SF&amp;f=5&amp;st=" method="post">      
                     <div class="darkrow2" style="padding:4px" align="center">Showing 2 of 2 topics sorted by <select name="sort_key" class="forminput">
             <option value="last_post" selected="selected">last post date</option>
@@ -93,7 +134,7 @@
                 <div class="darkrow2" style="padding:6px">1 User(s) are browsing this forum (0 Guests and 0 Anonymous Users)</div>
                 <div class="row2" style="padding:6px">1 Members: <a href="https://victis.jcink.net/index.php?showuser=1">lux</a></div>
                 <span id="forumName" class="hide">Lux</span>
-            </div>
+            </div></div>
             <br>
             <table width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tbody><tr>

@@ -1,76 +1,122 @@
 /*******************************
     Store
 ********************************/
-#store main > table:first-of-type {
-  display: block; }
-  #store main > table:first-of-type ~ * {
+#store main .container > table:first-of-type {
+  display: block;
+  padding: calc(var(--space-md) + var(--size-container-margin)) var(--space-md);
+  max-width: var(--size-max-screen);
+  margin: 0 auto; }
+  @media (min-width: 481px) {
+    #store main .container > table:first-of-type {
+      padding: calc(var(--space-lg) + var(--size-container-margin)) var(--space-lg); } }
+  #store main .container > table:first-of-type ~ * {
     display: none; }
-  #store main > table:first-of-type > tbody {
-    display: block; }
-    #store main > table:first-of-type > tbody > tr {
+  #store main .container > table:first-of-type > tbody {
+    display: block;
+    border-radius: var(--radius-large);
+    background: var(--bg-primary); }
+    #store main .container > table:first-of-type > tbody > tr {
       display: flex;
       gap: var(--space-lg); }
-      #store main > table:first-of-type > tbody > tr > td#ucpmenu {
-        flex: 0 0 150px; }
-        #store main > table:first-of-type > tbody > tr > td#ucpmenu .sticky {
+      #store main .container > table:first-of-type > tbody > tr > td#ucpmenu {
+        flex: 0 0 71px;
+        transition: var(--transition-standard); }
+        #store main .container > table:first-of-type > tbody > tr > td#ucpmenu.is-open {
+          flex: 0 0 var(--size-ucp-menu); }
+        #store main .container > table:first-of-type > tbody > tr > td#ucpmenu .sticky {
           display: flex;
           flex-direction: column;
           gap: var(--space-sm);
           position: sticky;
-          top: var(--size-menu-height); }
-        #store main > table:first-of-type > tbody > tr > td#ucpmenu .menu-section {
+          top: calc(var(--size-container-margin) - 1px);
+          background: var(--bg-secondary);
           display: flex;
           flex-direction: column;
-          gap: var(--space-sm); }
-      #store main > table:first-of-type > tbody > tr > td:nth-child(2) {
+          padding: var(--space-md);
+          gap: var(--space-md);
+          justify-content: end;
+          border-bottom: var(--border-primary);
+          border-right: var(--border-primary);
+          border-bottom-right-radius: var(--radius-xl);
+          border-top-left-radius: var(--radius-large); }
+          @media (min-width: 481px) {
+            #store main .container > table:first-of-type > tbody > tr > td#ucpmenu .sticky {
+              padding: var(--space-lg) var(--space-md) var(--space-xl); } }
+        #store main .container > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content {
+          flex-direction: column;
+          gap: var(--space-xs);
+          padding-top: var(--space-sm); }
+          #store main .container > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content.is-active {
+            display: flex; }
+          #store main .container > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a {
+            display: flex;
+            line-height: 160%;
+            font-size: var(--text-size-sm);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-primary);
+            gap: var(--space-sm);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: 5px;
+            overflow: hidden;
+            font-weight: 900;
+            border: var(--border-primary-solid);
+            transition: var(--transition-standard);
+            flex-grow: 1;
+            background: var(--bg-secondary); }
+            #store main .container > table:first-of-type > tbody > tr > td#ucpmenu .accordion--content a:hover {
+              border: var(--border-accent-alt);
+              color: var(--text-secondary);
+              background: var(--bg-tertiary); }
+      #store main .container > table:first-of-type > tbody > tr > td:nth-child(2) {
         display: none; }
-      #store main > table:first-of-type > tbody > tr > td#ucpcontent {
+      #store main .container > table:first-of-type > tbody > tr > td#ucpcontent {
         flex-grow: 1;
         padding: var(--space-md); }
         @media (min-width: 601px) {
-          #store main > table:first-of-type > tbody > tr > td#ucpcontent {
+          #store main .container > table:first-of-type > tbody > tr > td#ucpcontent {
             padding: var(--space-lg); } }
-        #store main > table:first-of-type > tbody > tr > td#ucpcontent input[type="text"],
-        #store main > table:first-of-type > tbody > tr > td#ucpcontent input[type="file"],
-        #store main > table:first-of-type > tbody > tr > td#ucpcontent input[type="password"],
-        #store main > table:first-of-type > tbody > tr > td#ucpcontent textarea,
-        #store main > table:first-of-type > tbody > tr > td#ucpcontent select {
+        #store main .container > table:first-of-type > tbody > tr > td#ucpcontent input[type="text"],
+        #store main .container > table:first-of-type > tbody > tr > td#ucpcontent input[type="file"],
+        #store main .container > table:first-of-type > tbody > tr > td#ucpcontent input[type="password"],
+        #store main .container > table:first-of-type > tbody > tr > td#ucpcontent textarea,
+        #store main .container > table:first-of-type > tbody > tr > td#ucpcontent select {
           width: 100%; }
-        #store main > table:first-of-type > tbody > tr > td#ucpcontent .maintitle {
+        #store main .container > table:first-of-type > tbody > tr > td#ucpcontent .maintitle {
           display: none; }
-        #store main > table:first-of-type > tbody > tr > td#ucpcontent form > table {
+        #store main .container > table:first-of-type > tbody > tr > td#ucpcontent form > table {
           display: block; }
-          #store main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody {
+          #store main .container > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody {
             display: block; }
-            #store main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr {
+            #store main .container > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr {
               display: flex;
               flex-direction: column;
               gap: var(--space-sm);
               margin-bottom: var(--space-md); }
               @media (min-width: 481px) {
-                #store main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr {
+                #store main .container > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr {
                   margin-bottom: var(--space-lg); } }
               @media (min-width: 769px) {
-                #store main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr {
+                #store main .container > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr {
                   gap: var(--space-md); } }
-              #store main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft b,
-              #store main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft strong,
-              #store main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft label {
+              #store main .container > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft b,
+              #store main .container > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft strong,
+              #store main .container > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft label {
                 line-height: 160%;
                 display: block;
                 max-width: max-content;
                 padding: var(--space-xs) var(--space-sm); }
-                #store main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft b ~ br,
-                #store main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft strong ~ br,
-                #store main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft label ~ br {
+                #store main .container > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft b ~ br,
+                #store main .container > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft strong ~ br,
+                #store main .container > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformleft label ~ br {
                   display: none; }
-              #store main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformright {
+              #store main .container > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr .pformright {
                 display: flex;
                 gap: var(--space-xs);
                 height: max-content; }
-              #store main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr > :only-child {
+              #store main .container > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr > :only-child {
                 grid-column: 1 / -1; }
-              #store main > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr:last-child .pformstrip:only-child {
+              #store main .container > table:first-of-type > tbody > tr > td#ucpcontent form > table > tbody > tr:last-child .pformstrip:only-child {
                 margin-bottom: 0;
                 padding: 0;
                 text-align: center; }
@@ -88,7 +134,25 @@
       display: block;
       line-height: 160%;
       max-width: max-content;
-      margin-bottom: var(--space-sm); }
+      margin-bottom: var(--space-sm);
+      font-family: var(--font-sans);
+      font-style: normal;
+      line-height: 120%;
+      text-transform: uppercase;
+      font-size: var(--text-size-lg);
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+      font-weight: 900;
+      padding-bottom: var(--space-xs); }
+      #store.store-home #ucpcontent > table > tbody > tr td a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        border-radius: 2px;
+        background: var(--bg-gradient); }
       #store.store-home #ucpcontent > table > tbody > tr td a + br {
         display: none; }
   #store.store-home #ucpcontent > table > tbody > tr:nth-child(1), #store.store-home #ucpcontent > table > tbody > tr:nth-child(2), #store.store-home #ucpcontent > table > tbody > tr:nth-child(3) {
@@ -126,13 +190,34 @@
         grid-column: 1 / -1;
         display: flex;
         justify-content: space-between;
-        align-items: center; }
+        align-items: center;
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+        font-weight: 600;
+        line-height: 160%;
+        font-size: var(--text-size-xs);
+        text-transform: uppercase;
+        letter-spacing: 0.2em; }
         #store.store-shop #ucpcontent > table > tbody > tr:last-child a {
-          display: block;
-          max-width: max-content;
-          margin: 0 0 0 auto;
-          padding: var(--space-sm);
-          z-index: 1; }
+          display: flex;
+          line-height: 160%;
+          font-size: var(--text-size-sm);
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
+          color: var(--text-primary);
+          gap: var(--space-sm);
+          padding: var(--space-sm) var(--space-md);
+          border-radius: 5px;
+          overflow: hidden;
+          font-weight: 900;
+          border: var(--border-primary-solid);
+          transition: var(--transition-standard);
+          flex-grow: 1;
+          background: var(--bg-secondary); }
+          #store.store-shop #ucpcontent > table > tbody > tr:last-child a:hover {
+            border: var(--border-accent-alt);
+            color: var(--text-secondary);
+            background: var(--bg-tertiary); }
         #store.store-shop #ucpcontent > table > tbody > tr:last-child > td {
           display: block;
           text-align: left; }
@@ -145,7 +230,10 @@
         display: grid;
         grid-template-columns: var(--size-store-image) 1fr 1fr var(--size-store-image);
         grid-template-rows: repeat(auto-fit, minmax(0, max-content));
-        gap: var(--space-md); }
+        gap: var(--space-md);
+        background: var(--bg-secondary);
+        border: var(--border-primary);
+        border-radius: var(--radius-medium); }
         #store.store-shop #ucpcontent > table > tbody > tr:not(:first-child):not(:last-child) > td {
           padding: 0;
           text-align: left; }
@@ -156,12 +244,28 @@
             grid-column: span 3;
             line-height: 160%;
             max-width: max-content;
-            padding: var(--space-xs) 0 var(--space-xs) var(--space-md); }
+            padding: var(--space-xs) 0;
+            font-family: var(--font-sans);
+            font-style: normal;
+            line-height: 120%;
+            text-transform: uppercase;
+            font-size: var(--text-size-lg);
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            font-weight: 900; }
+            #store.store-shop #ucpcontent > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(2)::after {
+              display: none; }
           #store.store-shop #ucpcontent > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(3) {
-            grid-column: 1 / -1;
-            padding: var(--space-sm) 0 var(--space-md); }
+            grid-column: 1 / -1; }
           #store.store-shop #ucpcontent > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(4), #store.store-shop #ucpcontent > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(5) {
-            grid-column: span 2; }
+            grid-column: span 2;
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            line-height: 160%;
+            font-size: var(--text-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.2em; }
           #store.store-shop #ucpcontent > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(4)::before {
             content: '$'; }
           #store.store-shop #ucpcontent > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(5) {
@@ -172,23 +276,57 @@
             grid-column: 1 / -1;
             padding: var(--space-md) 0 0; }
             #store.store-shop #ucpcontent > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(6):last-child a {
-              display: block;
-              max-width: max-content;
-              margin: 0 0 0 auto;
-              padding: var(--space-sm);
-              z-index: 1; }
+              display: flex;
+              line-height: 160%;
+              font-size: var(--text-size-sm);
+              text-transform: uppercase;
+              letter-spacing: 0.1em;
+              color: var(--text-primary);
+              gap: var(--space-sm);
+              padding: var(--space-sm) var(--space-md);
+              border-radius: 5px;
+              overflow: hidden;
+              font-weight: 900;
+              border: var(--border-primary-solid);
+              transition: var(--transition-standard);
+              flex-grow: 1;
+              background: var(--bg-secondary);
+              text-align: center;
+              justify-content: center; }
+              #store.store-shop #ucpcontent > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(6):last-child a:hover {
+                border: var(--border-accent-alt);
+                color: var(--text-secondary);
+                background: var(--bg-tertiary); }
           #store.store-shop #ucpcontent > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(6):not(:last-child), #store.store-shop #ucpcontent > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(7):last-child {
             grid-column: span 2;
             padding: var(--space-md) 0 0;
             font-size: 0; }
             #store.store-shop #ucpcontent > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(6):not(:last-child) a, #store.store-shop #ucpcontent > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(7):last-child a {
-              max-width: max-content;
-              margin: 0 0 0 auto;
-              padding: var(--space-sm);
-              z-index: 1;
-              font-size: var(--text-size-md); }
-          #store.store-shop #ucpcontent > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(7):last-child a::before {
-            content: 'Buy '; }
+              display: flex;
+              line-height: 160%;
+              font-size: var(--text-size-sm);
+              text-transform: uppercase;
+              letter-spacing: 0.1em;
+              color: var(--text-primary);
+              gap: var(--space-sm);
+              padding: var(--space-sm) var(--space-md);
+              border-radius: 5px;
+              overflow: hidden;
+              font-weight: 900;
+              border: var(--border-primary-solid);
+              transition: var(--transition-standard);
+              flex-grow: 1;
+              background: var(--bg-secondary);
+              text-align: center;
+              justify-content: center; }
+              #store.store-shop #ucpcontent > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(6):not(:last-child) a:hover, #store.store-shop #ucpcontent > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(7):last-child a:hover {
+                border: var(--border-accent-alt);
+                color: var(--text-secondary);
+                background: var(--bg-tertiary); }
+          #store.store-shop #ucpcontent > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(7):last-child {
+            display: flex; }
+            #store.store-shop #ucpcontent > table > tbody > tr:not(:first-child):not(:last-child) > td:nth-child(7):last-child a::before {
+              content: 'Buy '; }
 
 #store.store-inventory #ucpcontent > table {
   display: block; }
@@ -218,7 +356,14 @@
         object-position: center; }
       #store.store-inventory #ucpcontent > table > tbody > tr:first-child {
         grid-column: 1 / -1;
-        display: grid; }
+        display: flex;
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+        font-weight: 600;
+        line-height: 160%;
+        font-size: var(--text-size-xs);
+        text-transform: uppercase;
+        letter-spacing: 0.2em; }
         #store.store-inventory #ucpcontent > table > tbody > tr:first-child > td {
           width: 100%;
           padding: 0; }
@@ -234,8 +379,12 @@
         padding: var(--space-md);
         display: grid;
         grid-template-columns: var(--size-store-image) calc(100% - var(--size-store-image) - var(--space-md));
-        grid-template-rows: max-content max-content max-content max-content auto;
-        gap: var(--space-md); }
+        grid-template-rows: max-content max-content max-content 1fr;
+        gap: var(--space-md);
+        background: var(--bg-secondary);
+        border: var(--border-primary); }
+        #store.store-inventory #ucpcontent > table > tbody > tr:not(:first-child):not(:nth-child(2)):not(:nth-child(3)):has(td:nth-child(3):empty) {
+          grid-template-rows: max-content max-content 1fr; }
         #store.store-inventory #ucpcontent > table > tbody > tr:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) td {
           padding: 0;
           width: 100%; }
@@ -245,7 +394,16 @@
             order: 2;
             line-height: 160%;
             max-width: max-content;
-            padding: var(--space-xs) 0 var(--space-xs) var(--space-md); }
+            font-family: var(--font-sans);
+            font-style: normal;
+            line-height: 120%;
+            text-transform: uppercase;
+            font-size: var(--text-size-lg);
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            font-weight: 900; }
+            #store.store-inventory #ucpcontent > table > tbody > tr:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) td:nth-child(2)::after {
+              display: none; }
           #store.store-inventory #ucpcontent > table > tbody > tr:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) td:not(:first-child):not(:nth-child(2)) {
             grid-column: 1 / -1; }
           #store.store-inventory #ucpcontent > table > tbody > tr:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) td:nth-child(3) {
@@ -258,7 +416,14 @@
             flex: 0 0 100%;
             order: 3;
             text-align: left;
-            margin-bottom: calc(-1 * var(--space-xs)); }
+            margin-bottom: calc(-1 * var(--space-xs));
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            line-height: 160%;
+            font-size: var(--text-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.2em; }
             #store.store-inventory #ucpcontent > table > tbody > tr:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) td:nth-child(4)::after {
               content: ' Owned'; }
           #store.store-inventory #ucpcontent > table > tbody > tr:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) td:last-child {
@@ -266,13 +431,31 @@
             align-items: end;
             flex: 0 0 100%;
             order: 5;
-            padding: var(--space-md) 0 0; }
+            padding: var(--space-md) 0 0;
+            align-self: end;
+            justify-self: end; }
             #store.store-inventory #ucpcontent > table > tbody > tr:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) td:last-child a {
-              display: block;
-              max-width: max-content;
-              margin: 0 0 0 auto;
-              padding: var(--space-sm);
-              z-index: 1; }
+              display: flex;
+              line-height: 160%;
+              font-size: var(--text-size-sm);
+              text-transform: uppercase;
+              letter-spacing: 0.1em;
+              color: var(--text-primary);
+              gap: var(--space-sm);
+              padding: var(--space-sm) var(--space-md);
+              border-radius: 5px;
+              overflow: hidden;
+              font-weight: 900;
+              border: var(--border-primary-solid);
+              transition: var(--transition-standard);
+              flex-grow: 1;
+              background: var(--bg-secondary);
+              text-align: center;
+              justify-content: center; }
+              #store.store-inventory #ucpcontent > table > tbody > tr:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) td:last-child a:hover {
+                border: var(--border-accent-alt);
+                color: var(--text-secondary);
+                background: var(--bg-tertiary); }
             #store.store-inventory #ucpcontent > table > tbody > tr:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) td:last-child br {
               display: none; }
 
@@ -378,13 +561,20 @@
         height: max-content;
         text-align: left; }
         #store.store-do_staff_inventory #ucpcontent > table > tbody > tr > td:first-child {
-          flex: 0 0 calc(var(--space-lg) + var(--size-store-image));
-          padding: var(--space-sm) 0 0 var(--space-sm); }
-          @media (min-width: 481px) {
-            #store.store-do_staff_inventory #ucpcontent > table > tbody > tr > td:first-child {
-              padding: var(--space-md) 0 0 var(--space-md); } }
+          flex: 0 0 var(--size-store-image); }
         #store.store-do_staff_inventory #ucpcontent > table > tbody > tr > td:nth-child(2) {
-          flex: 0 0 calc(100% - (var(--space-lg) + var(--size-store-image) + 10px)); }
+          flex: 0 0 calc(100% -  var(--size-store-image));
+          padding-left: var(--space-sm);
+          font-family: var(--font-sans);
+          font-style: normal;
+          line-height: 120%;
+          text-transform: uppercase;
+          font-size: var(--text-size-lg);
+          letter-spacing: 0.1em;
+          color: var(--text-secondary);
+          font-weight: 900; }
+          #store.store-do_staff_inventory #ucpcontent > table > tbody > tr > td:nth-child(2)::after {
+            display: none; }
         #store.store-do_staff_inventory #ucpcontent > table > tbody > tr > td:nth-child(3) {
           flex: 0 0 calc(100% - var(--space-sm));
           text-align: justify; }
@@ -406,3 +596,36 @@
         border: none; }
         #store.store-do_staff_inventory #ucpcontent > table > tbody > tr:last-child td {
           flex: 0 0 100%; }
+
+#store.store-useitem main .container > table:first-of-type > tbody > tr > td#ucpcontent > table {
+  display: block; }
+  #store.store-useitem main .container > table:first-of-type > tbody > tr > td#ucpcontent > table > tbody {
+    display: block; }
+    #store.store-useitem main .container > table:first-of-type > tbody > tr > td#ucpcontent > table > tbody > tr {
+      display: block; }
+      #store.store-useitem main .container > table:first-of-type > tbody > tr > td#ucpcontent > table > tbody > tr:not(:first-child):not(:last-child) {
+        display: grid;
+        grid-template-columns: 250px calc(100% - 250px); }
+      #store.store-useitem main .container > table:first-of-type > tbody > tr > td#ucpcontent > table > tbody > tr td {
+        display: block;
+        width: 100%; }
+      #store.store-useitem main .container > table:first-of-type > tbody > tr > td#ucpcontent > table > tbody > tr .pformstrip {
+        display: block;
+        font-family: var(--font-sans);
+        font-style: normal;
+        line-height: 120%;
+        text-transform: uppercase;
+        font-size: 20px;
+        color: var(--text-secondary);
+        font-weight: 900;
+        padding-bottom: var(--space-xs);
+        margin-bottom: var(--space-md); }
+        #store.store-useitem main .container > table:first-of-type > tbody > tr > td#ucpcontent > table > tbody > tr .pformstrip::after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 4px;
+          border-radius: 2px;
+          background: var(--bg-gradient); }

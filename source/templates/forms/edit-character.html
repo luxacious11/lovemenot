@@ -1,7 +1,7 @@
 <form id="form-edit-character" data-type="grid">
     <label>
         <b>Profile</b>
-        <span><input type="text" id="accountid" placeholder="URL or ID" required=""></span>
+        <span><input type="text" id="accountid" placeholder="URL or ID" required></span>
     </label>
     <div class="form-multiselect" data-type="flex">
         <label class="input-wrap">
@@ -30,19 +30,9 @@
             <strong>Remove Job(s)</strong>
         </label>
         <label class="input-wrap">
-            <input type="checkbox" name="edit-character" value="roles-add">
+            <input type="checkbox" name="edit-character" value="address">
             <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
-            <strong>Add Subplot Role(s)</strong>
-        </label>
-        <label class="input-wrap">
-            <input type="checkbox" name="edit-character" value="roles-change">
-            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
-            <strong>Change Subplot Role(s)</strong>
-        </label>
-        <label class="input-wrap">
-            <input type="checkbox" name="edit-character" value="roles-remove">
-            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
-            <strong>Remove Subplot Role(s)</strong>
+            <strong>Change Address</strong>
         </label>
     </div>
     <label class="hidden ifName">
@@ -77,23 +67,32 @@
         <div id="clip-job-remove"></div>
         <blockquote>There are no submitted characters matching the profile entered. Please confirm you have entered a profile correctly in the field above.</blockquote>
     </div>
-    <div class="hidden ifRoleAdd adjustable field-wrap">
-        <b>Add Role(s)</b>
-        <div class="rows roles-wrap" data-type="grid"></div>
-        <div class="multi-buttons" data-row-type="roles">
-            <button type="button" onclick="addRow(this)">+ New Row</button>
-            <button type="button" onclick="removeRow(this)">- Remove Row</button>
-        </div>
-    </div>
-    <div class="hidden ifRoleChange field-wrap">
-        <b>Change Role(s)</b>
-        <div id="clip-role-change"></div>
-        <blockquote>There are no submitted characters matching the profile entered. Please confirm you have entered a profile correctly in the field above.</blockquote>
-    </div>
-    <div class="hidden ifRoleRemove field-wrap">
-        <b>Remove Role(s)</b>
-        <div id="clip-role-remove"></div>
-        <blockquote>There are no submitted characters matching the profile entered. Please confirm you have entered a profile correctly in the field above.</blockquote>
-    </div>
+    <label class="hidden ifAddress">
+        <b>Neighborhood</b>
+        <span><select id="neighbourhood">
+            <option value="">(select)</option>
+            <option value="1">Back Bay</option>
+            <option value="2">Beacon Hill</option>
+            <option value="3">Cambridge</option>
+            <option value="4">Charlestown</option>
+            <option value="5">Downtown</option>
+            <option value="6">Fenway-Kenmore</option>
+            <option value="7">North End</option>
+            <option value="8">Southie</option>
+            <option value="9">West End</option>
+        </select></span>
+    </label>
+    <label class="hidden ifAddress">
+        <b>Street Name</b>
+        <span><input type="text" id="street" placeholder="Street Name" /></span>
+    </label>
+    <label class="hidden ifAddress">
+        <b>House / Building Number</b>
+        <span><input type="number" id="houseNumber" min="1" placeholder="1" /></span>
+    </label>
+    <label class="hidden ifAddress">
+        <b>Unit Number (optional)</b>
+        <span><input type="number" id="apartmentNumber" min="1" placeholder="1" /></span>
+    </label>
     <button type="submit" id="submit" class="fullWidth">Submit</button>
 </form>

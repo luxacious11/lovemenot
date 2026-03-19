@@ -19,6 +19,11 @@
             <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
             <strong>Update Hours</strong>
         </label>
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-business" value="address">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Change Address</strong>
+        </label>
     </div>
     <label class="hidden ifWanted fullWidth">
         <b>Related Wanted Ad</b>
@@ -52,5 +57,32 @@
             </div>
         </label>
     </div>
+    <label class="hidden ifAddress">
+        <b>Neighborhood</b>
+        <span><select id="neighbourhood" required>
+            <option value="">(select)</option>
+            <option value="1">Back Bay</option>
+            <option value="2">Beacon Hill</option>
+            <option value="3">Cambridge</option>
+            <option value="4">Charlestown</option>
+            <option value="5">Downtown</option>
+            <option value="6">Fenway-Kenmore</option>
+            <option value="7">North End</option>
+            <option value="8">Southie</option>
+            <option value="9">West End</option>
+        </select></span>
+    </label>
+    <label class="hidden ifAddress">
+        <b>Street Name</b>
+        <span><input type="text" id="street" placeholder="Street Name" required /></span>
+    </label>
+    <label class="hidden ifAddress">
+        <b>House / Building Number</b>
+        <span><input type="number" id="houseNumber" min="1" placeholder="1" required /></span>
+    </label>
+    <label class="hidden ifAddress">
+        <b>Unit Number (optional)</b>
+        <span><input type="number" id="apartmentNumber" min="1" placeholder="1" /></span>
+    </label>
     <button type="submit" id="submit" class="fullWidth">Submit</button>
 </form>

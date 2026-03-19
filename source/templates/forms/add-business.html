@@ -67,5 +67,32 @@
             <button type="button" onclick="removeRow(this)">- Remove Row</button>
         </div>
     </label>
+    <label>
+        <b>Neighborhood</b>
+        <span><select id="neighbourhood" required>
+            <option value="">(select)</option>
+            <option value="1">Back Bay</option>
+            <option value="2">Beacon Hill</option>
+            <option value="3">Cambridge</option>
+            <option value="4">Charlestown</option>
+            <option value="5">Downtown</option>
+            <option value="6">Fenway-Kenmore</option>
+            <option value="7">North End</option>
+            <option value="8">Southie</option>
+            <option value="9">West End</option>
+        </select></span>
+    </label>
+    <label>
+        <b>Street Name</b>
+        <span><input type="text" id="street" placeholder="Street Name" required /></span>
+    </label>
+    <label>
+        <b>House / Building Number</b>
+        <span><input type="number" id="houseNumber" min="1" placeholder="1" required /></span>
+    </label>
+    <label>
+        <b>Unit Number (optional)</b>
+        <span><input type="number" id="apartmentNumber" min="1" placeholder="1" /></span>
+    </label>
     <button type="submit" id="submit" class="fullWidth">Submit</button>
 </form>

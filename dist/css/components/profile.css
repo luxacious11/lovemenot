@@ -159,7 +159,8 @@
         width: 30px;
         aspect-ratio: 1 / 1;
         border-radius: 50%;
-        font-size: 10px; }
+        font-size: 10px;
+        font-style: normal; }
       .profile--labels a.is-active::before {
         scale: 1.3; }
   .profile--tabs {
@@ -273,7 +274,8 @@
       width: 30px;
       aspect-ratio: 1 / 1;
       border-radius: 50%;
-      font-size: 10px; }
+      font-size: 10px;
+      font-style: normal; }
     .profile--partner img {
       width: 100%;
       height: 100%;

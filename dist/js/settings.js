@@ -397,28 +397,26 @@ const charHeaders = [
 //the blank sheet can be duplicated from: https://docs.google.com/spreadsheets/d/1Tun8ddMReuDNAKPE0tASvB-f__13lkPK_dczmYbaGaM/edit?usp=sharing
 //sheet must be set to viewable with link, then put the id below
 //apps script must run through setup function, then deploy as a webapp, then put the deploy id below
-const sheetID = '1Tun8ddMReuDNAKPE0tASvB-f__13lkPK_dczmYbaGaM';
-const deployID = 'AKfycbxw_tC4jLP8gn66FtZdbU9SAli1RbMMhzstiN_QBvYAxSj5iTg7kvMzZL9p72d594uWjg';
+const sheetID = '1Ujmqezpke8cgUSp6FqSXvUrxr7gsevkOjcYHlzwobZM';
+const deployID = 'AKfycby5BJ7gZVZJVPp4h1d8cDVnoIeFIHT5sBgAmxp1fKXjFbXvjUqWlwpF0-x62kuVAdfL';
 
 //these are the discord webhooks. do not include the full url, just the numeric and alphanumeric strings at the end (e.g., `numeric/alphanumeric`)
-const reserveLogs = `1315405331261816935/a3ogFqyMusfOw1zc3fPqvlbqq5ipemVH4xNCFmbFTmEctXMpAs5TH7weuubM5-BU88UX`;
-const businessLogs = `1315405331261816935/a3ogFqyMusfOw1zc3fPqvlbqq5ipemVH4xNCFmbFTmEctXMpAs5TH7weuubM5-BU88UX`;
-const claimLogs = `1315405331261816935/a3ogFqyMusfOw1zc3fPqvlbqq5ipemVH4xNCFmbFTmEctXMpAs5TH7weuubM5-BU88UX`;
-const modLogs = `1315405331261816935/a3ogFqyMusfOw1zc3fPqvlbqq5ipemVH4xNCFmbFTmEctXMpAs5TH7weuubM5-BU88UX`;
-const staffLogs = `1315405331261816935/a3ogFqyMusfOw1zc3fPqvlbqq5ipemVH4xNCFmbFTmEctXMpAs5TH7weuubM5-BU88UX`;
-const sortLogs = `1315405331261816935/a3ogFqyMusfOw1zc3fPqvlbqq5ipemVH4xNCFmbFTmEctXMpAs5TH7weuubM5-BU88UX`;
-const announceLogs = `1315405331261816935/a3ogFqyMusfOw1zc3fPqvlbqq5ipemVH4xNCFmbFTmEctXMpAs5TH7weuubM5-BU88UX`;
+const reserveLogs = `1378388518476451921/x-9GaKmB51pkkqvIhsKRA-yMpDzVvi0Yc73vkr9lKx28OnOcyYB6FGix9H2SY0EfqZ-m`;
+const businessLogs = `1378388518476451921/x-9GaKmB51pkkqvIhsKRA-yMpDzVvi0Yc73vkr9lKx28OnOcyYB6FGix9H2SY0EfqZ-m`;
+const claimLogs = `1378388518476451921/x-9GaKmB51pkkqvIhsKRA-yMpDzVvi0Yc73vkr9lKx28OnOcyYB6FGix9H2SY0EfqZ-m`;
+const modLogs = `1378388518476451921/x-9GaKmB51pkkqvIhsKRA-yMpDzVvi0Yc73vkr9lKx28OnOcyYB6FGix9H2SY0EfqZ-m`;
+const staffLogs = `1378388518476451921/x-9GaKmB51pkkqvIhsKRA-yMpDzVvi0Yc73vkr9lKx28OnOcyYB6FGix9H2SY0EfqZ-m`;
+const sortLogs = `1378388518476451921/x-9GaKmB51pkkqvIhsKRA-yMpDzVvi0Yc73vkr9lKx28OnOcyYB6FGix9H2SY0EfqZ-m`;
+const announceLogs = `1378388518476451921/x-9GaKmB51pkkqvIhsKRA-yMpDzVvi0Yc73vkr9lKx28OnOcyYB6FGix9H2SY0EfqZ-m`;
 
 //if using the base set up, these won't need to change
 const claims = `https://opensheet.elk.sh/${sheetID}/Claims`;
-const faceReserves = `https://opensheet.elk.sh/${sheetID}/FaceReserves`;
-const plotReserves = `https://opensheet.elk.sh/${sheetID}/PlotReserves`;
-const members = `https://opensheet.elk.sh/${sheetID}/Members`;
-const plots = `https://opensheet.elk.sh/${sheetID}/Plots`;
 const businesses = `https://opensheet.elk.sh/${sheetID}/Businesses`;
+const reserves = `https://opensheet.elk.sh/${sheetID}/Reserves`;
 
 //default reserve days count
 const defaultReserve = 14;
+const approvedText = 'approved';
 
 //default form error and success messages
 const successMessage = `<blockquote class="fullWidth">Submission successful!</blockquote>
@@ -428,6 +426,81 @@ const prevResExists = `<blockquote class="fullWidth warning">Uh-oh! You've reser
 const claimExists = `<blockquote class="fullWidth warning">Uh-oh! This is already in play! Maybe we can help you find another option - reach out in the Discord for help!</blockquote>`;
 const limitReached = `<blockquote class="fullWidth warning">Uh-oh! This role has limited spots and it looks like they're all taken and/or reserved at this moment!</blockquote>`;
 const completedButton = `<button onClick="submitMemberData(this)" type="button" class="hidden sheet-button">Submit Member Data</button>`;
+
+const neighbourhoodsData = [
+    {
+        Neighbourhood: 'back bay',
+        Cost: 5,
+        Safety: 3,
+        Commercial: 2,
+        Residential: 4,
+        Description: 'Lorem ipsum',
+    },
+    {
+        Neighbourhood: 'beacon hill',
+        Cost: 5,
+        Safety: 3,
+        Commercial: 2,
+        Residential: 4,
+        Description: 'Lorem ipsum',
+    },
+    {
+        Neighbourhood: 'cambridge',
+        Cost: 5,
+        Safety: 3,
+        Commercial: 2,
+        Residential: 4,
+        Description: 'Lorem ipsum',
+    },
+    {
+        Neighbourhood: 'charlestown',
+        Cost: 5,
+        Safety: 3,
+        Commercial: 2,
+        Residential: 4,
+        Description: 'Lorem ipsum',
+    },
+    {
+        Neighbourhood: 'downtown',
+        Cost: 5,
+        Safety: 3,
+        Commercial: 2,
+        Residential: 4,
+        Description: 'Lorem ipsum',
+    },
+    {
+        Neighbourhood: 'fenway-kenmore',
+        Cost: 5,
+        Safety: 3,
+        Commercial: 2,
+        Residential: 4,
+        Description: 'Lorem ipsum',
+    },
+    {
+        Neighbourhood: 'north end',
+        Cost: 5,
+        Safety: 3,
+        Commercial: 2,
+        Residential: 4,
+        Description: 'Lorem ipsum',
+    },
+    {
+        Neighbourhood: 'southie',
+        Cost: 5,
+        Safety: 3,
+        Commercial: 2,
+        Residential: 4,
+        Description: 'Lorem ipsum',
+    },
+    {
+        Neighbourhood: 'west end',
+        Cost: 5,
+        Safety: 3,
+        Commercial: 2,
+        Residential: 4,
+        Description: 'Lorem ipsum',
+    }
+];
 
 //default menus for ucp, store, modcp. these are the jcink versions
 //find the local versions in source/js/defaultsMenus.js
@@ -468,7 +541,15 @@ const jcinkStoreLinks = `<div class="accordion--trigger" data-category="personal
         <div class="accordion--trigger" data-category="shop"><b>Shop</b></div>
         <div class="accordion--content" data-category="shop">
             <a href="?act=store">Home</a>
-            <a href="?act=store&code=shop&category=000">Category</a>
+            <a href="?act=store&code=shop&category=1">Career</a>
+            <a href="?act=store&code=shop&category=2">Connections</a>
+            <a href="?act=store&code=shop&category=3">Disability</a>
+            <a href="?act=store&code=shop&category=4">Favored Emoji</a>
+            <a href="?act=store&code=shop&category=5">Hobbies</a>
+            <a href="?act=store&code=shop&category=6">Identity and Sexuality</a>
+            <a href="?act=store&code=shop&category=7">Lifestyle</a>
+            <a href="?act=store&code=shop&category=8">Traits</a>
+            <a href="?act=store&code=shop&category=9">Zodiac</a>
         </div>
         <div class="accordion--trigger staffOnly" data-category="staff"><b>Staff</b></div>
         <div class="accordion--content staffOnly" data-category="staff">

@@ -19,6 +19,10 @@
       padding: 0 var(--space-xl);
    }
 
+   &.topics {
+      margin-bottom: 0;
+   }
+
    &:not(.splide):not(.condensed) {
       .forum:not(.redirect) {
          @include mq-up(sm) {
@@ -76,6 +80,14 @@
       grid-template-columns: 100%;
       gap: var(--space-lg) 0;
 
+      @include mq-down(sm) {
+         &:has(li:hover) {
+            h2 {
+               opacity: 0.5;
+            }
+         }
+      }
+
       @include mq-up(sm) {
          grid-template-columns: 1fr max-content;
       }
@@ -102,7 +114,6 @@
          li {
             height: var(--size-progress-bar);
             width: 100%;
-            overflow: hidden;
             line-height: 0;
             font-size: 0;
             flex-grow: 1;
@@ -115,11 +126,75 @@
                width: var(--space-xl);
             }
 
+            &:not(:last-child) button {
+               border-right: var(--border-primary);
+            }
+
             &:first-child {
                border-radius: calc(var(--size-progress-bar) / 2) 0 0 calc(var(--size-progress-bar) / 2);
+
+               button,
+               button::before {
+                  border-radius: calc(var(--size-progress-bar) / 2) 0 0 calc(var(--size-progress-bar) / 2);
+               }
             }
             &:last-child {
                border-radius: 0 calc(var(--size-progress-bar) / 2) calc(var(--size-progress-bar) / 2) 0;
+
+               button,
+               button::before {
+                  border-radius: 0 calc(var(--size-progress-bar) / 2) calc(var(--size-progress-bar) / 2) 0;
+               }
+            }
+
+            &:hover {
+               .hover {
+                  transform: translateX(-50%) scale(1);
+                  opacity: 1;
+               }
+            }
+
+            .hover {
+               position: absolute;
+               padding-bottom: var(--space-sm);
+               bottom: 100%;
+               left: 50%;
+               width: 100%;
+               transform: translateX(-50%) scale(0);
+               max-width: 40px;
+               opacity: 0;
+               transition: var(--transition-standard);
+               transform-origin: bottom center;
+               z-index: 2;
+
+               .map-pin {
+                  clip-path: url("#mapMarker");
+                  width: 100%;
+                  aspect-ratio: 199 / 298;
+                  background: var(--bg-gradient);
+               }
+
+               .location-title {
+                  position: absolute;
+                  left: 50%;
+                  bottom: calc(100% + var(--space-sm));
+                  @include info(xxs);
+                  background: var(--bg-accent);
+                  border-radius: var(--radius-small);
+                  padding: var(--space-xs) var(--space-sm);
+                  color: var(--text-on-accent);
+                  line-height: 160%;
+                  transform: translateX(-50%);
+               }
+
+               img {
+                  position: absolute;
+                  top: var(--space-xs);
+                  left: var(--space-xs);
+                  border-radius: 50%;
+                  width: calc(100% - (2 * var(--space-xs)));
+                  aspect-ratio: 1 / 1;
+               }
             }
 
             &:has(~ li > .is-active) {
@@ -321,6 +396,8 @@
    }
 
    &:has(.forum--clipped-image) {
+      margin-left: 0 !important;
+
       body.maximalist & {
          .forum--avatar {
             @include mq-up(xxs) {

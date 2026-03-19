@@ -6,6 +6,7 @@
 ********************************/
 
 /***** Hide Unused Elements *****/
+.goto-firstunread,
 .hidden,
 .hide,
 .newstext,
@@ -26,7 +27,7 @@ a[href="<i>No Information</i>"] {
     input {
         display: none;
         
-        &:checked ~ .fancy-input {
+        &:checked ~ .fancy-input i {
             color: var(--text-secondary);
         }
     }
@@ -45,23 +46,46 @@ a[href="<i>No Information</i>"] {
         &.radio {
             border-radius: 50%;
         }
+
+        i {
+            color: transparent;
+        }
     }
 }
 
 /***** Online List ******/
 #Online {
-    main {
-        & > .tableborder:nth-of-type(2) {
+    main .container {
+        & > .tableborder {
+            margin: 0 auto var(--space-xl);
+            padding: 0 var(--space-md);
+            max-width: var(--size-max-screen);
+         
+            @include mq-up(xs) {
+               padding: 0 var(--space-lg);
+            }
+         
+            @include mq-up(sm) {
+               padding: 0 var(--space-xl);
+            }
+
             .maintitle {
                 text-align: left;
-                margin: var(--space-lg) 0;
+                margin: 0 0 var(--space-lg);
                 line-height: 160%;
                 max-width: max-content;
-                padding: var(--space-sm) 0 var(--space-sm) var(--space-lg);
+                @include heading(h2, true);
                 
                 & + table {
                     display: block;
                     width: 100%;
+                    background: var(--bg-primary);
+                    border-radius: var(--radius-large);
+                    padding: var(--space-md);
+
+                    @include mq-up(xxs) {
+                        padding: var(--space-lg);
+                    }
 
                     & > tbody {
                         display: grid;
@@ -85,6 +109,8 @@ a[href="<i>No Information</i>"] {
                             display: flex;
                             flex-direction: column;
                             align-items: center;
+                            @include info(xxs);
+                            line-height: 200%;
 
                             &:first-child {
                                 display: none;
@@ -92,6 +118,20 @@ a[href="<i>No Information</i>"] {
 
                             &:last-child {
                                 grid-column: 1 / -1;
+
+                                select {
+                                    font-size: var(--text-size-md);
+                                }
+                            }
+
+                            a {
+                                color: var(--text-secondary);
+                            }
+
+                            &:not(:first-child):not(:last-child) {
+                                background: var(--bg-secondary);
+                                border: var(--border-primary);
+                                border-radius: var(--radius-medium);
                             }
 
                             & > td {
@@ -105,6 +145,9 @@ a[href="<i>No Information</i>"] {
 
                                     span.g-2,
                                     a {
+                                        @include heading(h6);
+                                        line-height: 160%;
+
                                         &:first-child {
                                             display: block;
                                             line-height: 120%;
@@ -490,14 +533,47 @@ a[href="<i>No Information</i>"] {
 
 /***** Registration ******/
 #Reg {
-    main {
+    main .container {
         //page 1 only
-        & > .tableborder:first-of-type {
+        & > .header + .tableborder {
+            margin: 0 auto var(--space-xl);
+            padding: 0 var(--space-md);
+            max-width: var(--size-max-screen);
+            font-size: calc(var(--text-size-md) + 1px);
+            line-height: 200%;
+         
+            @include mq-up(xs) {
+               padding: 0 var(--space-lg);
+            }
+         
+            @include mq-up(sm) {
+               padding: 0 var(--space-xl);
+            }
+
+            .maintitle {
+                & ~ div {
+                    background: var(--bg-primary);
+                    padding: 0 var(--space-md);
+
+                    @include mq-up(xxs) {
+                        padding: 0 var(--space-lg);
+                    }
+                }
+                & + div {
+                    border-radius: var(--radius-large) var(--radius-large) 0 0;
+                    padding-top: var(--space-md);
+
+                    @include mq-up(xxs) {
+                        padding-top: var(--space-lg);
+                    }
+                }
+            }
+
             .tablepad b {
-                margin: var(--space-md) 0;
                 display: block;
                 max-width: max-content;
-                padding: var(--space-xs) var(--space-sm);
+                @include heading(h6);
+                padding: var(--space-lg) 0 var(--space-sm);
 
                 & + br { 
                     display: none;
@@ -505,20 +581,36 @@ a[href="<i>No Information</i>"] {
             }
 
             .row2:last-child {
-                margin-top: var(--space-lg);
+                border-radius: 0 0 var(--radius-large) var(--radius-large);
+                padding-bottom: var(--space-md);
+                padding-top: var(--space-md);
+
+                @include mq-up(xxs) {
+                    padding-bottom: var(--space-lg);
+                }
             }
         }
 
-        & > .tableborder:first-of-type,
+        & > .header + .tableborder,
         & > form > .tableborder {
-            padding: var(--space-lg);
+            margin: 0 auto var(--space-xl);
+            padding: 0 var(--space-md);
+            max-width: var(--size-max-screen);
+        
+            @include mq-up(xs) {
+            padding: 0 var(--space-lg);
+            }
+        
+            @include mq-up(sm) {
+            padding: 0 var(--space-xl);
+            }
 
             .maintitle {
                 text-align: left;
                 margin: var(--space-lg) 0;
                 line-height: 160%;
                 max-width: max-content;
-                padding: var(--space-sm) 0 var(--space-sm) var(--space-lg) !important;
+                @include heading(h2, true);
             }
 
             .tablepad b + br {
@@ -672,10 +764,15 @@ a[href="<i>No Information</i>"] {
                                             .input-wrap {
                                                 display: block;
                                                 text-align: left;
+                                                margin: var(--space-lg) 0;
 
                                                 &.tos {
                                                     cursor: pointer;
-                                                    font-size: var(--size-md);
+                                                    display: flex;
+
+                                                    p {
+                                                        @include info(sm, var(--text-secondary));
+                                                    }
                                                 }
 
                                                 .fancy-input {
@@ -697,10 +794,34 @@ a[href="<i>No Information</i>"] {
 /***** Login ******/
 #Login {
     .textNodes {
-        padding: var(--space-lg);
+        margin: 0 auto var(--space-xl);
+        padding: 0 var(--space-md);
+        max-width: var(--size-max-screen);
+     
+        @include mq-up(xs) {
+           padding: 0 var(--space-lg);
+        }
+     
+        @include mq-up(sm) {
+           padding: 0 var(--space-xl);
+        }
+
+        &-inner {
+            background: var(--bg-primary);
+            border-radius: var(--radius-large);
+            padding: var(--space-md);
+
+            @include mq-up(xxs) {
+                padding: var(--space-lg);
+            }
+        }
         
         br {
             display: none;
+        }
+
+        a {
+            color: var(--text-secondary);
         }
 
         .tableborder > .maintitle {
@@ -708,7 +829,7 @@ a[href="<i>No Information</i>"] {
             margin: var(--space-lg) 0;
             line-height: 160%;
             max-width: max-content;
-            padding: var(--space-sm) 0 var(--space-sm) var(--space-lg);
+            @include heading(h6, thin);
         }
         form {
             .tablebasic {
@@ -751,13 +872,61 @@ a[href="<i>No Information</i>"] {
 
 /***** Search Pages (Posts by User, Topics by User, Active Topics) *****/
 #Search {
-    main {
+    main .container {
         & > br:nth-child(2) {
             display: none;
         }
     }
+
+    div:has(> .pagination) {
+        margin: 0 auto var(--space-xl);
+        padding: 0 var(--space-md);
+        max-width: var(--size-max-screen);
+     
+        @include mq-up(xs) {
+           padding: 0 var(--space-lg);
+        }
+     
+        @include mq-up(sm) {
+           padding: 0 var(--space-xl);
+        }
+    }
 }
-#Search.code-show main > #search-topics,
+#search-topics,
+#active-topics {
+    margin: 0 auto var(--space-xl);
+    padding: 0 var(--space-md);
+    max-width: var(--size-max-screen);
+ 
+    @include mq-up(xs) {
+       padding: 0 var(--space-lg);
+    }
+ 
+    @include mq-up(sm) {
+       padding: 0 var(--space-xl);
+    }
+
+    & > .tableborder {
+        background: var(--bg-primary);
+        border-radius: var(--radius-large);
+        padding: var(--space-md);
+
+        @include mq-up(xxs) {
+            padding: var(--space-lg);
+        }
+
+        .maintitle {
+            @include heading(h2, true);
+            margin-bottom: var(--space-md);
+        }
+    }
+
+    & ~ br,
+    & ~ div:empty {
+        display: none;
+    }
+}
+#Search.code-show main .container > #search-topics,
 #Search.code-getactive {
     .tablebasic {
         display: block;
@@ -788,9 +957,17 @@ a[href="<i>No Information</i>"] {
                 flex-wrap: wrap;
                 padding: var(--space-md);
                 gap: 0 var(--space-md);
+                background: var(--bg-secondary);
+                border: var(--border-primary);
+                border-radius: var(--radius-medium);
+                @include info(xxs);
 
                 &:first-child {
                     display: none;
+                }
+
+                a {
+                    color: var(--text-secondary);
                 }
 
                 & > td {
@@ -806,9 +983,9 @@ a[href="<i>No Information</i>"] {
                     }
                     &:nth-child(3) {
                         order: 1;
-
-                        table {
-                            padding-bottom: var(--space-md);
+                        
+                        td:last-child {
+                            @include heading(h6);
                         }
                     }
                     &:nth-child(4) {
@@ -850,14 +1027,29 @@ a[href="<i>No Information</i>"] {
                 }
             }
         }
+
+        & + .titlemedium {
+            @include info(xxs);
+            margin-top: var(--space-lg);
+        }
     }
 }
 #Search.code-getactive {
-    main {
+    main .container {
         & > form {
             & > div {
                 &:not(.pagelinks) {
-                    width: 100% !important;
+                    width: calc(100% - (2 * var(--space-md))) !important;
+                    max-width: 400px;
+                    margin: 0 auto !important;
+ 
+                    @include mq-up(xs) {
+                        width: calc(100% - (2 * var(--space-lg))) !important;
+                    }
+                 
+                    @include mq-up(sm) {
+                        width: calc(100% - (2 * var(--space-xl))) !important;
+                    }
 
                     fieldset {
                         margin: 0;
@@ -868,12 +1060,21 @@ a[href="<i>No Information</i>"] {
     }
 }
 #Search.code-show {
-    main {
+    main .container {
         & > div:not(.wrapmini):not(.tableborder):not(#search-topics) {
             position: sticky;
             top: var(--size-menu-height);
-            padding: var(--space-md);
             z-index: 1;
+
+            .pagination {
+                background: var(--bg-primary);
+                border-radius: var(--radius-large);
+                padding: var(--space-md);
+
+                @include mq-up(xxs) {
+                    padding: var(--space-lg);
+                }
+            }
         }
 
         #search-topics {
@@ -885,6 +1086,8 @@ a[href="<i>No Information</i>"] {
                     a {
                         display: block;
                         margin-left: 0;
+                        @include heading(h6);
+                        margin-top: var(--space-sm);
                     }
                 }
             }
@@ -892,38 +1095,96 @@ a[href="<i>No Information</i>"] {
 
         //search topics
         & > .tableborder {
+            margin: 0 auto var(--space-xl);
+            padding: 0 var(--space-md);
+            max-width: var(--size-max-screen);
+         
+            @include mq-up(xs) {
+               padding: 0 var(--space-lg);
+            }
+         
+            @include mq-up(sm) {
+               padding: 0 var(--space-xl);
+            }
+
+            & > .maintitle {
+                margin-bottom: var(--space-md);
+
+                a {
+                    @include heading(h2, true);
+                }
+            }
+
             .tablebasic {
                 display: block;
+                background: var(--bg-primary);
+                border-radius: var(--radius-large);
+                padding: var(--space-md);
 
+                @include mq-up(xxs) {
+                    padding: var(--space-lg);
+                }
+    
                 tbody {
                     display: flex;
                     flex-direction: column;
-
+    
                     tr {
                         td {
                             padding: 0;
                         }
-
+    
                         &:first-child {
                             display: flex;
                             flex-direction: column;
-                            padding: var(--space-xs) 0 var(--space-xs) var(--space-md);
                             line-height: 160%;
                             max-width: max-content;
-                        }
 
+                            td {
+                                &:first-child {
+                                    @include heading(h5);
+                                    line-height: 160%;
+
+                                    a {
+                                        color: var(--text-secondary);
+                                    }
+                                }
+                                &:last-child {
+                                    @include info(xxs);
+                                }
+                            }
+                        }
+    
                         &:nth-child(2) {
                             margin: var(--space-md) 0;
+                            background: var(--bg-secondary);
+                            border: var(--border-primary);
+                            border-radius: var(--radius-medium);
+                            padding: var(--space-md);
 
+                            @include mq-up(xxs) {
+                                padding: var(--space-lg);
+                            }
+    
                             td {
                                 &:first-child {
                                     display: none;
                                 }
                             }
                         }
-
+    
                         &:last-child {
-                            padding: var(--space-sm);
+                            @include info(details);
+
+                            td {
+                                &:first-child {
+                                    display: none;
+                                }
+                            }
+
+                            a {
+                                color: var(--text-secondary);
+                            }
                         }
                     }
                 }
@@ -945,13 +1206,90 @@ a[href="<i>No Information</i>"] {
     padding: 0;
     
     .tablefill {
-        max-width: 325px;
+        max-width: 400px;
         line-height: 200%;
         z-index: 3;
+        background: var(--bg-primary);
+        padding: var(--space-lg);
+        border-radius: var(--radius-large);
+        font-size: var(--text-size-md);
+        line-height: 200%;
+
+        a {
+            color: var(--text-secondary);
+        }
     }
 }
 
 /***** No Results ******/
 #board-message {
-    padding: var(--space-lg);
+    margin: 0 auto var(--space-xl);
+    padding: 0 var(--space-md);
+    max-width: var(--size-max-screen);
+ 
+    @include mq-up(xs) {
+       padding: 0 var(--space-lg);
+    }
+ 
+    @include mq-up(sm) {
+       padding: 0 var(--space-xl);
+    }
+
+    & > .tableborder,
+    & > .tablefill {
+        background: var(--bg-primary);
+        padding: 0 var(--space-md);
+
+        @include mq-up(xxs) {
+            padding: 0 var(--space-lg);
+        }
+
+        &:first-child {
+            border-radius: var(--radius-large) var(--radius-large) 0 0;
+            padding: var(--space-md) var(--space-md) 0;
+    
+            @include mq-up(xxs) {
+                padding: var(--space-lg) var(--space-lg) 0;
+            }
+        }
+
+        &:last-child {
+            border-radius: 0 0 var(--radius-large) var(--radius-large);
+            padding: 0 var(--space-md) var(--space-md);
+    
+            @include mq-up(xxs) {
+                padding: 0 var(--space-lg) var(--space-lg);
+            }
+        }
+    }
+
+    .maintitle {
+        @include heading(h6, thin);
+
+        img {
+            display: none;
+        }
+    }
+
+    a {
+        color: var(--text-secondary);
+    }
+}
+
+/***** Misc *****/
+.credit,
+#delcookiesrow,
+#mark-as-read-subto,
+.copyright {
+    text-align: center;
+    @include info(xxs);
+    margin-bottom: var(--space-md);
+
+    a {
+        color: var(--text-secondary);
+    }
+
+    & ~ br {
+        display: none;
+    }
 }

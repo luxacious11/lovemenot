@@ -1,0 +1,1326 @@
+/*******************************
+    Typography
+********************************/
+.webpage h2,
+.webpage .h2,
+.webpage h3,
+.webpage .h3,
+.webpage h4,
+.webpage .h4,
+.webpage h5,
+.webpage .h5,
+.webpage h6,
+.webpage .h6,
+.webpage h7,
+.webpage .h7,
+.webpage h8,
+.webpage .h8,
+.profile h2,
+.profile .h2,
+.profile h3,
+.profile .h3,
+.profile h4,
+.profile .h4,
+.profile h5,
+.profile .h5,
+.profile h6,
+.profile .h6,
+.profile h7,
+.profile .h7,
+.profile h8,
+.profile .h8,
+.post h2,
+.post .h2,
+.post h3,
+.post .h3,
+.post h4,
+.post .h4,
+.post h5,
+.post .h5,
+.post h6,
+.post .h6,
+.post h7,
+.post .h7,
+.post h8,
+.post .h8 {
+  width: max-content;
+  max-width: 100%;
+  margin: 2em 0 1em; }
+  .webpage h2:first-child,
+  .webpage .h2:first-child,
+  .webpage h3:first-child,
+  .webpage .h3:first-child,
+  .webpage h4:first-child,
+  .webpage .h4:first-child,
+  .webpage h5:first-child,
+  .webpage .h5:first-child,
+  .webpage h6:first-child,
+  .webpage .h6:first-child,
+  .webpage h7:first-child,
+  .webpage .h7:first-child,
+  .webpage h8:first-child,
+  .webpage .h8:first-child,
+  .profile h2:first-child,
+  .profile .h2:first-child,
+  .profile h3:first-child,
+  .profile .h3:first-child,
+  .profile h4:first-child,
+  .profile .h4:first-child,
+  .profile h5:first-child,
+  .profile .h5:first-child,
+  .profile h6:first-child,
+  .profile .h6:first-child,
+  .profile h7:first-child,
+  .profile .h7:first-child,
+  .profile h8:first-child,
+  .profile .h8:first-child,
+  .post h2:first-child,
+  .post .h2:first-child,
+  .post h3:first-child,
+  .post .h3:first-child,
+  .post h4:first-child,
+  .post .h4:first-child,
+  .post h5:first-child,
+  .post .h5:first-child,
+  .post h6:first-child,
+  .post .h6:first-child,
+  .post h7:first-child,
+  .post .h7:first-child,
+  .post h8:first-child,
+  .post .h8:first-child {
+    margin-top: 0; }
+  .webpage h2:last-child,
+  .webpage .h2:last-child,
+  .webpage h3:last-child,
+  .webpage .h3:last-child,
+  .webpage h4:last-child,
+  .webpage .h4:last-child,
+  .webpage h5:last-child,
+  .webpage .h5:last-child,
+  .webpage h6:last-child,
+  .webpage .h6:last-child,
+  .webpage h7:last-child,
+  .webpage .h7:last-child,
+  .webpage h8:last-child,
+  .webpage .h8:last-child,
+  .profile h2:last-child,
+  .profile .h2:last-child,
+  .profile h3:last-child,
+  .profile .h3:last-child,
+  .profile h4:last-child,
+  .profile .h4:last-child,
+  .profile h5:last-child,
+  .profile .h5:last-child,
+  .profile h6:last-child,
+  .profile .h6:last-child,
+  .profile h7:last-child,
+  .profile .h7:last-child,
+  .profile h8:last-child,
+  .profile .h8:last-child,
+  .post h2:last-child,
+  .post .h2:last-child,
+  .post h3:last-child,
+  .post .h3:last-child,
+  .post h4:last-child,
+  .post .h4:last-child,
+  .post h5:last-child,
+  .post .h5:last-child,
+  .post h6:last-child,
+  .post .h6:last-child,
+  .post h7:last-child,
+  .post .h7:last-child,
+  .post h8:last-child,
+  .post .h8:last-child {
+    margin-bottom: 0; }
+  .webpage h2 + h2,
+  .webpage h2 + .h2,
+  .webpage h2 + h3,
+  .webpage h2 + .h3,
+  .webpage h2 + h4,
+  .webpage h2 + .h4,
+  .webpage h2 + h5,
+  .webpage h2 + .h5,
+  .webpage h2 + h6,
+  .webpage h2 + .h6,
+  .webpage h2 + h7,
+  .webpage h2 + .h7,
+  .webpage h2 + h8,
+  .webpage h2 + .h8,
+  .webpage .h2 + h2,
+  .webpage .h2 + .h2,
+  .webpage .h2 + h3,
+  .webpage .h2 + .h3,
+  .webpage .h2 + h4,
+  .webpage .h2 + .h4,
+  .webpage .h2 + h5,
+  .webpage .h2 + .h5,
+  .webpage .h2 + h6,
+  .webpage .h2 + .h6,
+  .webpage .h2 + h7,
+  .webpage .h2 + .h7,
+  .webpage .h2 + h8,
+  .webpage .h2 + .h8,
+  .webpage h3 + h2,
+  .webpage h3 + .h2,
+  .webpage h3 + h3,
+  .webpage h3 + .h3,
+  .webpage h3 + h4,
+  .webpage h3 + .h4,
+  .webpage h3 + h5,
+  .webpage h3 + .h5,
+  .webpage h3 + h6,
+  .webpage h3 + .h6,
+  .webpage h3 + h7,
+  .webpage h3 + .h7,
+  .webpage h3 + h8,
+  .webpage h3 + .h8,
+  .webpage .h3 + h2,
+  .webpage .h3 + .h2,
+  .webpage .h3 + h3,
+  .webpage .h3 + .h3,
+  .webpage .h3 + h4,
+  .webpage .h3 + .h4,
+  .webpage .h3 + h5,
+  .webpage .h3 + .h5,
+  .webpage .h3 + h6,
+  .webpage .h3 + .h6,
+  .webpage .h3 + h7,
+  .webpage .h3 + .h7,
+  .webpage .h3 + h8,
+  .webpage .h3 + .h8,
+  .webpage h4 + h2,
+  .webpage h4 + .h2,
+  .webpage h4 + h3,
+  .webpage h4 + .h3,
+  .webpage h4 + h4,
+  .webpage h4 + .h4,
+  .webpage h4 + h5,
+  .webpage h4 + .h5,
+  .webpage h4 + h6,
+  .webpage h4 + .h6,
+  .webpage h4 + h7,
+  .webpage h4 + .h7,
+  .webpage h4 + h8,
+  .webpage h4 + .h8,
+  .webpage .h4 + h2,
+  .webpage .h4 + .h2,
+  .webpage .h4 + h3,
+  .webpage .h4 + .h3,
+  .webpage .h4 + h4,
+  .webpage .h4 + .h4,
+  .webpage .h4 + h5,
+  .webpage .h4 + .h5,
+  .webpage .h4 + h6,
+  .webpage .h4 + .h6,
+  .webpage .h4 + h7,
+  .webpage .h4 + .h7,
+  .webpage .h4 + h8,
+  .webpage .h4 + .h8,
+  .webpage h5 + h2,
+  .webpage h5 + .h2,
+  .webpage h5 + h3,
+  .webpage h5 + .h3,
+  .webpage h5 + h4,
+  .webpage h5 + .h4,
+  .webpage h5 + h5,
+  .webpage h5 + .h5,
+  .webpage h5 + h6,
+  .webpage h5 + .h6,
+  .webpage h5 + h7,
+  .webpage h5 + .h7,
+  .webpage h5 + h8,
+  .webpage h5 + .h8,
+  .webpage .h5 + h2,
+  .webpage .h5 + .h2,
+  .webpage .h5 + h3,
+  .webpage .h5 + .h3,
+  .webpage .h5 + h4,
+  .webpage .h5 + .h4,
+  .webpage .h5 + h5,
+  .webpage .h5 + .h5,
+  .webpage .h5 + h6,
+  .webpage .h5 + .h6,
+  .webpage .h5 + h7,
+  .webpage .h5 + .h7,
+  .webpage .h5 + h8,
+  .webpage .h5 + .h8,
+  .webpage h6 + h2,
+  .webpage h6 + .h2,
+  .webpage h6 + h3,
+  .webpage h6 + .h3,
+  .webpage h6 + h4,
+  .webpage h6 + .h4,
+  .webpage h6 + h5,
+  .webpage h6 + .h5,
+  .webpage h6 + h6,
+  .webpage h6 + .h6,
+  .webpage h6 + h7,
+  .webpage h6 + .h7,
+  .webpage h6 + h8,
+  .webpage h6 + .h8,
+  .webpage .h6 + h2,
+  .webpage .h6 + .h2,
+  .webpage .h6 + h3,
+  .webpage .h6 + .h3,
+  .webpage .h6 + h4,
+  .webpage .h6 + .h4,
+  .webpage .h6 + h5,
+  .webpage .h6 + .h5,
+  .webpage .h6 + h6,
+  .webpage .h6 + .h6,
+  .webpage .h6 + h7,
+  .webpage .h6 + .h7,
+  .webpage .h6 + h8,
+  .webpage .h6 + .h8,
+  .webpage h7 + h2,
+  .webpage h7 + .h2,
+  .webpage h7 + h3,
+  .webpage h7 + .h3,
+  .webpage h7 + h4,
+  .webpage h7 + .h4,
+  .webpage h7 + h5,
+  .webpage h7 + .h5,
+  .webpage h7 + h6,
+  .webpage h7 + .h6,
+  .webpage h7 + h7,
+  .webpage h7 + .h7,
+  .webpage h7 + h8,
+  .webpage h7 + .h8,
+  .webpage .h7 + h2,
+  .webpage .h7 + .h2,
+  .webpage .h7 + h3,
+  .webpage .h7 + .h3,
+  .webpage .h7 + h4,
+  .webpage .h7 + .h4,
+  .webpage .h7 + h5,
+  .webpage .h7 + .h5,
+  .webpage .h7 + h6,
+  .webpage .h7 + .h6,
+  .webpage .h7 + h7,
+  .webpage .h7 + .h7,
+  .webpage .h7 + h8,
+  .webpage .h7 + .h8,
+  .webpage h8 + h2,
+  .webpage h8 + .h2,
+  .webpage h8 + h3,
+  .webpage h8 + .h3,
+  .webpage h8 + h4,
+  .webpage h8 + .h4,
+  .webpage h8 + h5,
+  .webpage h8 + .h5,
+  .webpage h8 + h6,
+  .webpage h8 + .h6,
+  .webpage h8 + h7,
+  .webpage h8 + .h7,
+  .webpage h8 + h8,
+  .webpage h8 + .h8,
+  .webpage .h8 + h2,
+  .webpage .h8 + .h2,
+  .webpage .h8 + h3,
+  .webpage .h8 + .h3,
+  .webpage .h8 + h4,
+  .webpage .h8 + .h4,
+  .webpage .h8 + h5,
+  .webpage .h8 + .h5,
+  .webpage .h8 + h6,
+  .webpage .h8 + .h6,
+  .webpage .h8 + h7,
+  .webpage .h8 + .h7,
+  .webpage .h8 + h8,
+  .webpage .h8 + .h8,
+  .profile h2 + h2,
+  .profile h2 + .h2,
+  .profile h2 + h3,
+  .profile h2 + .h3,
+  .profile h2 + h4,
+  .profile h2 + .h4,
+  .profile h2 + h5,
+  .profile h2 + .h5,
+  .profile h2 + h6,
+  .profile h2 + .h6,
+  .profile h2 + h7,
+  .profile h2 + .h7,
+  .profile h2 + h8,
+  .profile h2 + .h8,
+  .profile .h2 + h2,
+  .profile .h2 + .h2,
+  .profile .h2 + h3,
+  .profile .h2 + .h3,
+  .profile .h2 + h4,
+  .profile .h2 + .h4,
+  .profile .h2 + h5,
+  .profile .h2 + .h5,
+  .profile .h2 + h6,
+  .profile .h2 + .h6,
+  .profile .h2 + h7,
+  .profile .h2 + .h7,
+  .profile .h2 + h8,
+  .profile .h2 + .h8,
+  .profile h3 + h2,
+  .profile h3 + .h2,
+  .profile h3 + h3,
+  .profile h3 + .h3,
+  .profile h3 + h4,
+  .profile h3 + .h4,
+  .profile h3 + h5,
+  .profile h3 + .h5,
+  .profile h3 + h6,
+  .profile h3 + .h6,
+  .profile h3 + h7,
+  .profile h3 + .h7,
+  .profile h3 + h8,
+  .profile h3 + .h8,
+  .profile .h3 + h2,
+  .profile .h3 + .h2,
+  .profile .h3 + h3,
+  .profile .h3 + .h3,
+  .profile .h3 + h4,
+  .profile .h3 + .h4,
+  .profile .h3 + h5,
+  .profile .h3 + .h5,
+  .profile .h3 + h6,
+  .profile .h3 + .h6,
+  .profile .h3 + h7,
+  .profile .h3 + .h7,
+  .profile .h3 + h8,
+  .profile .h3 + .h8,
+  .profile h4 + h2,
+  .profile h4 + .h2,
+  .profile h4 + h3,
+  .profile h4 + .h3,
+  .profile h4 + h4,
+  .profile h4 + .h4,
+  .profile h4 + h5,
+  .profile h4 + .h5,
+  .profile h4 + h6,
+  .profile h4 + .h6,
+  .profile h4 + h7,
+  .profile h4 + .h7,
+  .profile h4 + h8,
+  .profile h4 + .h8,
+  .profile .h4 + h2,
+  .profile .h4 + .h2,
+  .profile .h4 + h3,
+  .profile .h4 + .h3,
+  .profile .h4 + h4,
+  .profile .h4 + .h4,
+  .profile .h4 + h5,
+  .profile .h4 + .h5,
+  .profile .h4 + h6,
+  .profile .h4 + .h6,
+  .profile .h4 + h7,
+  .profile .h4 + .h7,
+  .profile .h4 + h8,
+  .profile .h4 + .h8,
+  .profile h5 + h2,
+  .profile h5 + .h2,
+  .profile h5 + h3,
+  .profile h5 + .h3,
+  .profile h5 + h4,
+  .profile h5 + .h4,
+  .profile h5 + h5,
+  .profile h5 + .h5,
+  .profile h5 + h6,
+  .profile h5 + .h6,
+  .profile h5 + h7,
+  .profile h5 + .h7,
+  .profile h5 + h8,
+  .profile h5 + .h8,
+  .profile .h5 + h2,
+  .profile .h5 + .h2,
+  .profile .h5 + h3,
+  .profile .h5 + .h3,
+  .profile .h5 + h4,
+  .profile .h5 + .h4,
+  .profile .h5 + h5,
+  .profile .h5 + .h5,
+  .profile .h5 + h6,
+  .profile .h5 + .h6,
+  .profile .h5 + h7,
+  .profile .h5 + .h7,
+  .profile .h5 + h8,
+  .profile .h5 + .h8,
+  .profile h6 + h2,
+  .profile h6 + .h2,
+  .profile h6 + h3,
+  .profile h6 + .h3,
+  .profile h6 + h4,
+  .profile h6 + .h4,
+  .profile h6 + h5,
+  .profile h6 + .h5,
+  .profile h6 + h6,
+  .profile h6 + .h6,
+  .profile h6 + h7,
+  .profile h6 + .h7,
+  .profile h6 + h8,
+  .profile h6 + .h8,
+  .profile .h6 + h2,
+  .profile .h6 + .h2,
+  .profile .h6 + h3,
+  .profile .h6 + .h3,
+  .profile .h6 + h4,
+  .profile .h6 + .h4,
+  .profile .h6 + h5,
+  .profile .h6 + .h5,
+  .profile .h6 + h6,
+  .profile .h6 + .h6,
+  .profile .h6 + h7,
+  .profile .h6 + .h7,
+  .profile .h6 + h8,
+  .profile .h6 + .h8,
+  .profile h7 + h2,
+  .profile h7 + .h2,
+  .profile h7 + h3,
+  .profile h7 + .h3,
+  .profile h7 + h4,
+  .profile h7 + .h4,
+  .profile h7 + h5,
+  .profile h7 + .h5,
+  .profile h7 + h6,
+  .profile h7 + .h6,
+  .profile h7 + h7,
+  .profile h7 + .h7,
+  .profile h7 + h8,
+  .profile h7 + .h8,
+  .profile .h7 + h2,
+  .profile .h7 + .h2,
+  .profile .h7 + h3,
+  .profile .h7 + .h3,
+  .profile .h7 + h4,
+  .profile .h7 + .h4,
+  .profile .h7 + h5,
+  .profile .h7 + .h5,
+  .profile .h7 + h6,
+  .profile .h7 + .h6,
+  .profile .h7 + h7,
+  .profile .h7 + .h7,
+  .profile .h7 + h8,
+  .profile .h7 + .h8,
+  .profile h8 + h2,
+  .profile h8 + .h2,
+  .profile h8 + h3,
+  .profile h8 + .h3,
+  .profile h8 + h4,
+  .profile h8 + .h4,
+  .profile h8 + h5,
+  .profile h8 + .h5,
+  .profile h8 + h6,
+  .profile h8 + .h6,
+  .profile h8 + h7,
+  .profile h8 + .h7,
+  .profile h8 + h8,
+  .profile h8 + .h8,
+  .profile .h8 + h2,
+  .profile .h8 + .h2,
+  .profile .h8 + h3,
+  .profile .h8 + .h3,
+  .profile .h8 + h4,
+  .profile .h8 + .h4,
+  .profile .h8 + h5,
+  .profile .h8 + .h5,
+  .profile .h8 + h6,
+  .profile .h8 + .h6,
+  .profile .h8 + h7,
+  .profile .h8 + .h7,
+  .profile .h8 + h8,
+  .profile .h8 + .h8,
+  .post h2 + h2,
+  .post h2 + .h2,
+  .post h2 + h3,
+  .post h2 + .h3,
+  .post h2 + h4,
+  .post h2 + .h4,
+  .post h2 + h5,
+  .post h2 + .h5,
+  .post h2 + h6,
+  .post h2 + .h6,
+  .post h2 + h7,
+  .post h2 + .h7,
+  .post h2 + h8,
+  .post h2 + .h8,
+  .post .h2 + h2,
+  .post .h2 + .h2,
+  .post .h2 + h3,
+  .post .h2 + .h3,
+  .post .h2 + h4,
+  .post .h2 + .h4,
+  .post .h2 + h5,
+  .post .h2 + .h5,
+  .post .h2 + h6,
+  .post .h2 + .h6,
+  .post .h2 + h7,
+  .post .h2 + .h7,
+  .post .h2 + h8,
+  .post .h2 + .h8,
+  .post h3 + h2,
+  .post h3 + .h2,
+  .post h3 + h3,
+  .post h3 + .h3,
+  .post h3 + h4,
+  .post h3 + .h4,
+  .post h3 + h5,
+  .post h3 + .h5,
+  .post h3 + h6,
+  .post h3 + .h6,
+  .post h3 + h7,
+  .post h3 + .h7,
+  .post h3 + h8,
+  .post h3 + .h8,
+  .post .h3 + h2,
+  .post .h3 + .h2,
+  .post .h3 + h3,
+  .post .h3 + .h3,
+  .post .h3 + h4,
+  .post .h3 + .h4,
+  .post .h3 + h5,
+  .post .h3 + .h5,
+  .post .h3 + h6,
+  .post .h3 + .h6,
+  .post .h3 + h7,
+  .post .h3 + .h7,
+  .post .h3 + h8,
+  .post .h3 + .h8,
+  .post h4 + h2,
+  .post h4 + .h2,
+  .post h4 + h3,
+  .post h4 + .h3,
+  .post h4 + h4,
+  .post h4 + .h4,
+  .post h4 + h5,
+  .post h4 + .h5,
+  .post h4 + h6,
+  .post h4 + .h6,
+  .post h4 + h7,
+  .post h4 + .h7,
+  .post h4 + h8,
+  .post h4 + .h8,
+  .post .h4 + h2,
+  .post .h4 + .h2,
+  .post .h4 + h3,
+  .post .h4 + .h3,
+  .post .h4 + h4,
+  .post .h4 + .h4,
+  .post .h4 + h5,
+  .post .h4 + .h5,
+  .post .h4 + h6,
+  .post .h4 + .h6,
+  .post .h4 + h7,
+  .post .h4 + .h7,
+  .post .h4 + h8,
+  .post .h4 + .h8,
+  .post h5 + h2,
+  .post h5 + .h2,
+  .post h5 + h3,
+  .post h5 + .h3,
+  .post h5 + h4,
+  .post h5 + .h4,
+  .post h5 + h5,
+  .post h5 + .h5,
+  .post h5 + h6,
+  .post h5 + .h6,
+  .post h5 + h7,
+  .post h5 + .h7,
+  .post h5 + h8,
+  .post h5 + .h8,
+  .post .h5 + h2,
+  .post .h5 + .h2,
+  .post .h5 + h3,
+  .post .h5 + .h3,
+  .post .h5 + h4,
+  .post .h5 + .h4,
+  .post .h5 + h5,
+  .post .h5 + .h5,
+  .post .h5 + h6,
+  .post .h5 + .h6,
+  .post .h5 + h7,
+  .post .h5 + .h7,
+  .post .h5 + h8,
+  .post .h5 + .h8,
+  .post h6 + h2,
+  .post h6 + .h2,
+  .post h6 + h3,
+  .post h6 + .h3,
+  .post h6 + h4,
+  .post h6 + .h4,
+  .post h6 + h5,
+  .post h6 + .h5,
+  .post h6 + h6,
+  .post h6 + .h6,
+  .post h6 + h7,
+  .post h6 + .h7,
+  .post h6 + h8,
+  .post h6 + .h8,
+  .post .h6 + h2,
+  .post .h6 + .h2,
+  .post .h6 + h3,
+  .post .h6 + .h3,
+  .post .h6 + h4,
+  .post .h6 + .h4,
+  .post .h6 + h5,
+  .post .h6 + .h5,
+  .post .h6 + h6,
+  .post .h6 + .h6,
+  .post .h6 + h7,
+  .post .h6 + .h7,
+  .post .h6 + h8,
+  .post .h6 + .h8,
+  .post h7 + h2,
+  .post h7 + .h2,
+  .post h7 + h3,
+  .post h7 + .h3,
+  .post h7 + h4,
+  .post h7 + .h4,
+  .post h7 + h5,
+  .post h7 + .h5,
+  .post h7 + h6,
+  .post h7 + .h6,
+  .post h7 + h7,
+  .post h7 + .h7,
+  .post h7 + h8,
+  .post h7 + .h8,
+  .post .h7 + h2,
+  .post .h7 + .h2,
+  .post .h7 + h3,
+  .post .h7 + .h3,
+  .post .h7 + h4,
+  .post .h7 + .h4,
+  .post .h7 + h5,
+  .post .h7 + .h5,
+  .post .h7 + h6,
+  .post .h7 + .h6,
+  .post .h7 + h7,
+  .post .h7 + .h7,
+  .post .h7 + h8,
+  .post .h7 + .h8,
+  .post h8 + h2,
+  .post h8 + .h2,
+  .post h8 + h3,
+  .post h8 + .h3,
+  .post h8 + h4,
+  .post h8 + .h4,
+  .post h8 + h5,
+  .post h8 + .h5,
+  .post h8 + h6,
+  .post h8 + .h6,
+  .post h8 + h7,
+  .post h8 + .h7,
+  .post h8 + h8,
+  .post h8 + .h8,
+  .post .h8 + h2,
+  .post .h8 + .h2,
+  .post .h8 + h3,
+  .post .h8 + .h3,
+  .post .h8 + h4,
+  .post .h8 + .h4,
+  .post .h8 + h5,
+  .post .h8 + .h5,
+  .post .h8 + h6,
+  .post .h8 + .h6,
+  .post .h8 + h7,
+  .post .h8 + .h7,
+  .post .h8 + h8,
+  .post .h8 + .h8 {
+    margin-top: 1em; }
+  .webpage h2 a,
+  .webpage .h2 a,
+  .webpage h3 a,
+  .webpage .h3 a,
+  .webpage h4 a,
+  .webpage .h4 a,
+  .webpage h5 a,
+  .webpage .h5 a,
+  .webpage h6 a,
+  .webpage .h6 a,
+  .webpage h7 a,
+  .webpage .h7 a,
+  .webpage h8 a,
+  .webpage .h8 a,
+  .profile h2 a,
+  .profile .h2 a,
+  .profile h3 a,
+  .profile .h3 a,
+  .profile h4 a,
+  .profile .h4 a,
+  .profile h5 a,
+  .profile .h5 a,
+  .profile h6 a,
+  .profile .h6 a,
+  .profile h7 a,
+  .profile .h7 a,
+  .profile h8 a,
+  .profile .h8 a,
+  .post h2 a,
+  .post .h2 a,
+  .post h3 a,
+  .post .h3 a,
+  .post h4 a,
+  .post .h4 a,
+  .post h5 a,
+  .post .h5 a,
+  .post h6 a,
+  .post .h6 a,
+  .post h7 a,
+  .post .h7 a,
+  .post h8 a,
+  .post .h8 a {
+    color: var(--text-accent); }
+
+.webpage h2:not(.underline),
+.webpage .h2:not(.underline),
+.profile h2:not(.underline),
+.profile .h2:not(.underline),
+.post h2:not(.underline),
+.post .h2:not(.underline) {
+  line-height: 120%;
+  font-family: var(--font-script);
+  text-transform: lowercase;
+  font-size: 30px;
+  color: var(--text-secondary);
+  font-weight: 400; }
+  @media only screen and (min-width: 480px) {
+    .webpage h2:not(.underline),
+    .webpage .h2:not(.underline),
+    .profile h2:not(.underline),
+    .profile .h2:not(.underline),
+    .post h2:not(.underline),
+    .post .h2:not(.underline) {
+      font-size: calc(30px + 12 * (100vw - 480px) / (1280 - 480)); } }
+  @media only screen and (min-width: 1280px) {
+    .webpage h2:not(.underline),
+    .webpage .h2:not(.underline),
+    .profile h2:not(.underline),
+    .profile .h2:not(.underline),
+    .post h2:not(.underline),
+    .post .h2:not(.underline) {
+      font-size: 42px; } }
+  .webpage h2:not(.underline)::after,
+  .webpage .h2:not(.underline)::after,
+  .profile h2:not(.underline)::after,
+  .profile .h2:not(.underline)::after,
+  .post h2:not(.underline)::after,
+  .post .h2:not(.underline)::after {
+    display: none; }
+
+.webpage h2.underline,
+.webpage .h2.underline,
+.profile h2.underline,
+.profile .h2.underline,
+.post h2.underline,
+.post .h2.underline {
+  line-height: 120%;
+  font-family: var(--font-script);
+  text-transform: lowercase;
+  font-size: 30px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  padding-bottom: var(--space-xs);
+  padding-left: var(--space-xs);
+  padding-right: var(--space-xs); }
+  @media only screen and (min-width: 480px) {
+    .webpage h2.underline,
+    .webpage .h2.underline,
+    .profile h2.underline,
+    .profile .h2.underline,
+    .post h2.underline,
+    .post .h2.underline {
+      font-size: calc(30px + 12 * (100vw - 480px) / (1280 - 480)); } }
+  @media only screen and (min-width: 1280px) {
+    .webpage h2.underline,
+    .webpage .h2.underline,
+    .profile h2.underline,
+    .profile .h2.underline,
+    .post h2.underline,
+    .post .h2.underline {
+      font-size: 42px; } }
+  .webpage h2.underline::after,
+  .webpage .h2.underline::after,
+  .profile h2.underline::after,
+  .profile .h2.underline::after,
+  .post h2.underline::after,
+  .post .h2.underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--bg-gradient); }
+
+.webpage h3:not(.underline),
+.webpage .h3:not(.underline),
+.profile h3:not(.underline),
+.profile .h3:not(.underline),
+.post h3:not(.underline),
+.post .h3:not(.underline) {
+  line-height: 120%;
+  font-family: var(--font-script);
+  text-transform: lowercase;
+  font-size: 20px;
+  color: var(--text-secondary);
+  font-weight: 400; }
+  @media only screen and (min-width: 480px) {
+    .webpage h3:not(.underline),
+    .webpage .h3:not(.underline),
+    .profile h3:not(.underline),
+    .profile .h3:not(.underline),
+    .post h3:not(.underline),
+    .post .h3:not(.underline) {
+      font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
+  @media only screen and (min-width: 1280px) {
+    .webpage h3:not(.underline),
+    .webpage .h3:not(.underline),
+    .profile h3:not(.underline),
+    .profile .h3:not(.underline),
+    .post h3:not(.underline),
+    .post .h3:not(.underline) {
+      font-size: 28px; } }
+  .webpage h3:not(.underline)::after,
+  .webpage .h3:not(.underline)::after,
+  .profile h3:not(.underline)::after,
+  .profile .h3:not(.underline)::after,
+  .post h3:not(.underline)::after,
+  .post .h3:not(.underline)::after {
+    display: none; }
+
+.webpage h3.underline,
+.webpage .h3.underline,
+.profile h3.underline,
+.profile .h3.underline,
+.post h3.underline,
+.post .h3.underline {
+  line-height: 120%;
+  font-family: var(--font-script);
+  text-transform: lowercase;
+  font-size: 20px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  padding-bottom: var(--space-xs);
+  padding-left: var(--space-xs);
+  padding-right: var(--space-xs); }
+  @media only screen and (min-width: 480px) {
+    .webpage h3.underline,
+    .webpage .h3.underline,
+    .profile h3.underline,
+    .profile .h3.underline,
+    .post h3.underline,
+    .post .h3.underline {
+      font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
+  @media only screen and (min-width: 1280px) {
+    .webpage h3.underline,
+    .webpage .h3.underline,
+    .profile h3.underline,
+    .profile .h3.underline,
+    .post h3.underline,
+    .post .h3.underline {
+      font-size: 28px; } }
+  .webpage h3.underline::after,
+  .webpage .h3.underline::after,
+  .profile h3.underline::after,
+  .profile .h3.underline::after,
+  .post h3.underline::after,
+  .post .h3.underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--bg-gradient); }
+
+.webpage h4:not(.underline),
+.webpage .h4:not(.underline),
+.profile h4:not(.underline),
+.profile .h4:not(.underline),
+.post h4:not(.underline),
+.post .h4:not(.underline) {
+  font-family: var(--font-sans);
+  font-style: normal;
+  line-height: 120%;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: var(--text-secondary);
+  font-weight: 900; }
+  @media only screen and (min-width: 480px) {
+    .webpage h4:not(.underline),
+    .webpage .h4:not(.underline),
+    .profile h4:not(.underline),
+    .profile .h4:not(.underline),
+    .post h4:not(.underline),
+    .post .h4:not(.underline) {
+      font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
+  @media only screen and (min-width: 1280px) {
+    .webpage h4:not(.underline),
+    .webpage .h4:not(.underline),
+    .profile h4:not(.underline),
+    .profile .h4:not(.underline),
+    .post h4:not(.underline),
+    .post .h4:not(.underline) {
+      font-size: 28px; } }
+  .webpage h4:not(.underline)::after,
+  .webpage .h4:not(.underline)::after,
+  .profile h4:not(.underline)::after,
+  .profile .h4:not(.underline)::after,
+  .post h4:not(.underline)::after,
+  .post .h4:not(.underline)::after {
+    display: none; }
+
+.webpage h4.underline,
+.webpage .h4.underline,
+.profile h4.underline,
+.profile .h4.underline,
+.post h4.underline,
+.post .h4.underline {
+  font-family: var(--font-sans);
+  font-style: normal;
+  line-height: 120%;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: var(--text-secondary);
+  font-weight: 900;
+  padding-bottom: var(--space-xs);
+  padding-left: var(--space-xs);
+  padding-right: var(--space-xs); }
+  @media only screen and (min-width: 480px) {
+    .webpage h4.underline,
+    .webpage .h4.underline,
+    .profile h4.underline,
+    .profile .h4.underline,
+    .post h4.underline,
+    .post .h4.underline {
+      font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
+  @media only screen and (min-width: 1280px) {
+    .webpage h4.underline,
+    .webpage .h4.underline,
+    .profile h4.underline,
+    .profile .h4.underline,
+    .post h4.underline,
+    .post .h4.underline {
+      font-size: 28px; } }
+  .webpage h4.underline::after,
+  .webpage .h4.underline::after,
+  .profile h4.underline::after,
+  .profile .h4.underline::after,
+  .post h4.underline::after,
+  .post .h4.underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--bg-gradient); }
+
+.webpage h5:not(.underline),
+.webpage .h5:not(.underline),
+.profile h5:not(.underline),
+.profile .h5:not(.underline),
+.post h5:not(.underline),
+.post .h5:not(.underline) {
+  font-family: var(--font-sans);
+  font-style: normal;
+  line-height: 120%;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: var(--text-secondary);
+  font-weight: 900; }
+  .webpage h5:not(.underline)::after,
+  .webpage .h5:not(.underline)::after,
+  .profile h5:not(.underline)::after,
+  .profile .h5:not(.underline)::after,
+  .post h5:not(.underline)::after,
+  .post .h5:not(.underline)::after {
+    display: none; }
+
+.webpage h5.underline,
+.webpage .h5.underline,
+.profile h5.underline,
+.profile .h5.underline,
+.post h5.underline,
+.post .h5.underline {
+  font-family: var(--font-sans);
+  font-style: normal;
+  line-height: 120%;
+  text-transform: uppercase;
+  font-size: 20px;
+  color: var(--text-secondary);
+  font-weight: 900;
+  padding-bottom: var(--space-xs);
+  padding-left: var(--space-xs);
+  padding-right: var(--space-xs); }
+  .webpage h5.underline::after,
+  .webpage .h5.underline::after,
+  .profile h5.underline::after,
+  .profile .h5.underline::after,
+  .post h5.underline::after,
+  .post .h5.underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--bg-gradient); }
+
+.webpage h6:not(.underline),
+.webpage .h6:not(.underline),
+.profile h6:not(.underline),
+.profile .h6:not(.underline),
+.post h6:not(.underline),
+.post .h6:not(.underline) {
+  font-family: var(--font-sans);
+  font-style: normal;
+  line-height: 120%;
+  text-transform: uppercase;
+  font-size: var(--text-size-lg);
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  font-weight: 900; }
+  .webpage h6:not(.underline)::after,
+  .webpage .h6:not(.underline)::after,
+  .profile h6:not(.underline)::after,
+  .profile .h6:not(.underline)::after,
+  .post h6:not(.underline)::after,
+  .post .h6:not(.underline)::after {
+    display: none; }
+
+.webpage h6.underline,
+.webpage .h6.underline,
+.profile h6.underline,
+.profile .h6.underline,
+.post h6.underline,
+.post .h6.underline {
+  font-family: var(--font-sans);
+  font-style: normal;
+  line-height: 120%;
+  text-transform: uppercase;
+  font-size: var(--text-size-lg);
+  letter-spacing: 0.1em;
+  color: var(--text-secondary);
+  font-weight: 900;
+  padding-bottom: var(--space-xs);
+  padding-left: var(--space-xs);
+  padding-right: var(--space-xs); }
+  .webpage h6.underline::after,
+  .webpage .h6.underline::after,
+  .profile h6.underline::after,
+  .profile .h6.underline::after,
+  .post h6.underline::after,
+  .post .h6.underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--bg-gradient); }
+
+.webpage h7:not(.underline),
+.webpage .h7:not(.underline),
+.profile h7:not(.underline),
+.profile .h7:not(.underline),
+.post h7:not(.underline),
+.post .h7:not(.underline) {
+  display: block;
+  font-family: var(--font-sans);
+  font-style: normal;
+  line-height: 180%;
+  text-transform: uppercase;
+  font-size: var(--text-size-sm);
+  letter-spacing: 0.3em;
+  color: var(--text-secondary);
+  font-weight: 900; }
+  .webpage h7:not(.underline)::after,
+  .webpage .h7:not(.underline)::after,
+  .profile h7:not(.underline)::after,
+  .profile .h7:not(.underline)::after,
+  .post h7:not(.underline)::after,
+  .post .h7:not(.underline)::after {
+    display: none; }
+
+.webpage h7.underline,
+.webpage .h7.underline,
+.profile h7.underline,
+.profile .h7.underline,
+.post h7.underline,
+.post .h7.underline {
+  display: block;
+  font-family: var(--font-sans);
+  font-style: normal;
+  line-height: 180%;
+  text-transform: uppercase;
+  font-size: var(--text-size-sm);
+  letter-spacing: 0.3em;
+  color: var(--text-secondary);
+  font-weight: 900;
+  padding-bottom: var(--space-xs);
+  padding-left: var(--space-xs);
+  padding-right: var(--space-xs); }
+  .webpage h7.underline::after,
+  .webpage .h7.underline::after,
+  .profile h7.underline::after,
+  .profile .h7.underline::after,
+  .post h7.underline::after,
+  .post .h7.underline::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--bg-gradient); }
+
+.webpage h8,
+.webpage .h8,
+.profile h8,
+.profile .h8,
+.post h8,
+.post .h8 {
+  display: block;
+  font-family: var(--font-sans);
+  font-style: normal;
+  line-height: 200%;
+  text-transform: uppercase;
+  font-size: var(--text-size-xs);
+  letter-spacing: 0.3em;
+  color: var(--text-secondary);
+  font-weight: 700;
+  text-align: center;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--space-md) var(--space-lg);
+  line-height: 200%; }
+  .webpage h8::after,
+  .webpage .h8::after,
+  .profile h8::after,
+  .profile .h8::after,
+  .post h8::after,
+  .post .h8::after {
+    display: none; }
+  .webpage h8::before, .webpage h8::after,
+  .webpage .h8::before,
+  .webpage .h8::after,
+  .profile h8::before,
+  .profile h8::after,
+  .profile .h8::before,
+  .profile .h8::after,
+  .post h8::before,
+  .post h8::after,
+  .post .h8::before,
+  .post .h8::after {
+    display: block !important;
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--bg-gradient); }
+  .webpage h8::before,
+  .webpage .h8::before,
+  .profile h8::before,
+  .profile .h8::before,
+  .post h8::before,
+  .post .h8::before {
+    top: 0; }
+  .webpage h8::after,
+  .webpage .h8::after,
+  .profile h8::after,
+  .profile .h8::after,
+  .post h8::after,
+  .post .h8::after {
+    bottom: 0; }
+
+.webpage b,
+.webpage i,
+.webpage u,
+.webpage s,
+.profile b,
+.profile i,
+.profile u,
+.profile s,
+.post b,
+.post i,
+.post u,
+.post s {
+  color: var(--text-secondary);
+  font-size: 1.05em; }
+
+.webpage b,
+.profile b,
+.post b {
+  padding: var(--space-xs) var(--space-sm);
+  background: var(--bg-gradient-25);
+  border-radius: var(--radius-small);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone; }
+
+.webpage u,
+.profile u,
+.post u {
+  text-decoration-color: var(--text-accent);
+  text-underline-offset: var(--space-xs); }
+
+.webpage s,
+.profile s,
+.post s {
+  text-decoration-color: var(--text-accent);
+  text-decoration-thickness: 2px; }
+
+.webpage tag-spoiler,
+.profile tag-spoiler,
+.post tag-spoiler {
+  background: var(--bg-secondary);
+  color: transparent;
+  padding: var(--space-xs) var(--space-sm);
+  border-radius: var(--radius-small);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone; }
+  .webpage tag-spoiler:not(.is-visible),
+  .profile tag-spoiler:not(.is-visible),
+  .post tag-spoiler:not(.is-visible) {
+    pointer: cursor; }
+  .webpage tag-spoiler.is-visible,
+  .profile tag-spoiler.is-visible,
+  .post tag-spoiler.is-visible {
+    color: var(--text-primary); }
+
+.webpage ul,
+.profile ul,
+.post ul {
+  padding-left: 12px;
+  margin: var(--space-lg) 0; }
+  .webpage ul li,
+  .profile ul li,
+  .post ul li {
+    padding-left: var(--space-sm);
+    line-height: 160%; }
+    .webpage ul li:not(:last-child),
+    .profile ul li:not(:last-child),
+    .post ul li:not(:last-child) {
+      margin-bottom: var(--space-sm); }
+    .webpage ul li::marker,
+    .profile ul li::marker,
+    .post ul li::marker {
+      font-family: 'Font Awesome 7 Pro';
+      color: var(--text-accent);
+      background-image: var(--bg-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-fill-color: transparent;
+      font-weight: 900; }
+
+.webpage blockquote,
+.profile blockquote,
+.post blockquote {
+  background: var(--bg-gradient-25);
+  border: var(--border-accent-alt);
+  padding: var(--space-lg) calc(var(--space-lg) + 5px);
+  border-radius: var(--radius-large);
+  color: var(--text-on-accent);
+  margin: var(--space-lg) auto;
+  max-width: 500px; }

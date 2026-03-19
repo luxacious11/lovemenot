@@ -244,151 +244,123 @@
             </div>
 
             <!--Webpage-->
-            <section class="webpage">
-                <div class="webpage--menu">
-                    <button class="macro--button" onclick="toggleListMenu(this)">
-                        <i class="fa-solid fa-bars open-button"></i>
-                        <i class="fa-solid fa-xmark close-button"></i>
-                    </button>
-                    <tag-labels class="accordion scroll">
-                        <tag-label class="tab-category accordion--trigger" data-category="info">
-                            <span>Required Reading</span>
-                        </tag-label>
-                        <div class="tab-category accordion--content" data-category="info">
-                            <a href="#formatting">Formatting Test</a><!--remove on launch-->
-                            <a href="#etiquette">Etiquette</a>
-                            <a href="#site-plot">Plot</a>
-                            <a href="#setting">Setting</a>
-                            <a href="#groups">Standard Groups</a>
-                            <a href="#credits">Credits</a>
-                        </div>
-                        <tag-label class="tab-category accordion--trigger" data-category="plots">
-                            <span>Subplots</span>
-                        </tag-label>
-                        <div class="tab-category accordion--content" data-category="plots"></div>
-                        <tag-label class="tab-category accordion--trigger" data-category="guides">
-                            <span>Guides</span>
-                        </tag-label>
-                        <div class="tab-category accordion--content" data-category="guides">
-                            <a href="#guide-one">Getting Started</a>
-                            <a href="./businesses.html">Businesses</a>
-                            <a href="#guide-two">Restricted Faces</a>
-                        </div>
-                        <tag-label class="tab-category accordion--trigger" data-category="registration">
-                            <span>Registration</span>
-                        </tag-label>
-                        <div class="tab-category accordion--content" data-category="registration">
-                            <a href="#reserve-face">Reserve a Face</a>
-                            <a href="#reserve-role">Reserve a Subplot Role</a>
-                            <a href="#add-business">Add a Business</a>
-                            <a href="#sort">Get Sorted</a>
-                            <a href="./connections.html#address">Register an Address</a>
-                            <a href="./connections.html#connection">Add Connections</a>
-                        </div>
-                        <tag-label class="tab-category accordion--trigger" data-category="claims">
-                            <span>Claims</span>
-                        </tag-label>
-                        <div class="tab-category accordion--content" data-category="claims">
-                            <a href="./claims.html#reserves">Reserves</a>
-                            <a href="./members.html">Members</a>
-                            <a href="./claims.html#faces">Faces</a>
-                            <a href="./businesses.html">Jobs</a>
-                            <a href="./connections.html">Connections</a>
-                        </div>
-                        <tag-label class="tab-category accordion--trigger" data-category="moderation">
-                            <span>Moderation</span>
-                        </tag-label>
-                        <div class="tab-category accordion--content" data-category="moderation">
-                            <a href="#edit-member">Edit Member Information</a>
-                            <a href="#edit-claims">Edit a Character</a>
-                            <a href="#edit-business">Edit a Business</a>
-                            <a href="#staff-help">Request Staff Help</a>
-                        </div>
-                        <tag-label class="tab-category accordion--trigger staffOnly" data-category="staff">
-                            <span>Staff Only</span>
-                        </tag-label>
-                        <div class="tab-category accordion--content staffOnly" data-category="staff">
-                            <a href="#announce">Send Announcement</a>
-                            <a href="#add-plot">Add Subplot</a>
-                        </div>
-                    </tag-labels>
+<section class="webpage"><div class="webpage--inner">
+    <div class="webpage--menu">
+        <div class="sticky">
+            <button class="macro--button" onclick="toggleListMenu(this)">
+                <i class="fa-solid fa-bars open-button"></i>
+                <i class="fa-solid fa-xmark close-button"></i>
+            </button>
+            <tag-labels class="accordion scroll">
+                <tag-label class="tab-category accordion--trigger" data-category="info">
+                    <span>Required Reading</span>
+                </tag-label>
+                <div class="tab-category accordion--content" data-category="info">
+                    <a href="#formatting">Formatting Test</a><!--remove on launch-->
+                    <a href="#groups">Groups</a>
                 </div>
-                <tag-tabset class="webpage--content">
-                    <tag-tab class="tab-category" data-category="info">
-                        <tag-tabset>
-                            <!--remove formatting tab on launch-->
-                            <tag-tab data-key="#formatting">
-                                <div class="webpage--content-inner">
-                                    <h2>H2 Header</h2>
-                                    <h3>H3 Header</h3>
-                                    <h4>H4 Header</h4>
-                                    <h5>H5 Header</h5>
-                                    <h6>H6 Header</h6>
-                                    <h7>H7 Header</h7>
-                                    <h8>H8 Header</h8>
-                                    <p><b>Lorem ipsum dolor sit amet</b>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                    <p><i>Lorem ipsum dolor sit amet</i>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                    <p><u>Lorem ipsum dolor sit amet</u>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                    <p><s>Lorem ipsum dolor sit amet</s>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                    <p><tag-spoiler>Lorem ipsum dolor sit amet</tag-spoiler>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                    <ul>
-                                        <li>List Item</li>
-                                        <li>List Item</li>
-                                        <li>List Item</li>
-                                    </ul>
-                                    <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</blockquote>
+                <tag-label class="tab-category accordion--trigger" data-category="registration">
+                    <span>Registration</span>
+                </tag-label>
+                <div class="tab-category accordion--content" data-category="registration">
+                    <a href="#reserve-face">Reserve a Face</a>
+                    <a href="#add-business">Add Business</a>
+                    <a href="#sort">Get Sorted</a>
+                </div>
+                <tag-label class="tab-category accordion--trigger" data-category="claims">
+                    <span>Claims</span>
+                </tag-label>
+                <div class="tab-category accordion--content" data-category="claims">
+                    <a href="#reserves">Reserves</a>
+                    <a href="#faces">Faces</a>
+                    <a href="./businesses.html">Jobs</a>
+                    <a href="./addresses.html">Address Book</a>
+                    <a href="#members">Members</a>
+                </div>
+                <tag-label class="tab-category accordion--trigger" data-category="moderation">
+                    <span>Moderation</span>
+                </tag-label>
+                <div class="tab-category accordion--content" data-category="moderation">
+                    <a href="#edit-claims">Edit a Character</a>
+                    <a href="#edit-business">Edit a Business</a>
+                    <a href="#staff-help">Request Staff Help</a>
+                </div>
+                <tag-label class="tab-category accordion--trigger staffOnly" data-category="staff">
+                    <span>Staff Only</span>
+                </tag-label>
+                <div class="tab-category accordion--content staffOnly" data-category="staff">
+                    <a href="#announce">Accept Character</a>
+                </div>
+            </tag-labels>
+        </div>
+    </div>
+    <tag-tabset class="webpage--content">
+        <tag-tab class="tab-category" data-category="info">
+            <tag-tabset>
+                <!--remove formatting tab on launch-->
+                <tag-tab data-key="#formatting">
+                    <div class="webpage--content-inner">
+                        <h2>H2 Header</h2>
+                        <h2 class="underline">H2 Header Underlined</h2>
+                        <h3>H3 Header</h3>
+                        <h3 class="underline">H3 Header Underlined</h3>
+                        <h4>H4 Header</h4>
+                        <h4 class="underline">H4 Header Underlined</h4>
+                        <h5>H5 Header</h5>
+                        <h5 class="underline">H5 Header Underlined</h5>
+                        <h6>H6 Header</h6>
+                        <h6 class="underline">H6 Header Underlined</h6>
+                        <h7>H7 Header</h7>
+                        <h7 class="underline">H7 Header Underlined</h7>
+                        <h8>H8 Header</h8>
+                        <h8 class="underline">H8 Header Underlined</h8>
+                        <p><b>Lorem ipsum dolor sit amet</b>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p><i>Lorem ipsum dolor sit amet</i>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p><u>Lorem ipsum dolor sit amet</u>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p><s>Lorem ipsum dolor sit amet</s>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <p><tag-spoiler>Lorem ipsum dolor sit amet</tag-spoiler>, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                        <ul>
+                            <li>List Item</li>
+                            <li>List Item</li>
+                            <li>List Item</li>
+                        </ul>
+                        <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</blockquote>
+                    </div>
+                </tag-tab>
+                <tag-tab data-key="#groups">
+                    <div class="webpage--content-inner">
+                        <div data-type="grid" data-columns="2">
+                            <div class="webpage--group g-7">
+                                <div class="webpage--group-images">
+                                    <img src="https://picsum.photos/100" loading="lazy" />
+                                    <img src="https://picsum.photos/100" loading="lazy" />
                                 </div>
-                            </tag-tab>
-                            <tag-tab data-key="#etiquette">
-                                <div class="webpage--content-inner">
-                                    Rules
+                                <div class="webpage--group-content">
+                                    <h3>Group Name</h3>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                 </div>
-                            </tag-tab>
-                            <tag-tab data-key="#site-plot">
-                                <div class="webpage--content-inner">
-                                    Plot
+                            </div>
+                            <div class="webpage--group g-8">
+                                <div class="webpage--group-images">
+                                    <img src="https://picsum.photos/100" loading="lazy" />
+                                    <img src="https://picsum.photos/100" loading="lazy" />
                                 </div>
-                            </tag-tab>
-                            <tag-tab data-key="#setting">
-                                <div class="webpage--content-inner">
-                                    Setting
+                                <div class="webpage--group-content">
+                                    <h3>Group Name</h3>
+                                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                                 </div>
-                            </tag-tab>
-                            <tag-tab data-key="#groups">
-                                <div class="webpage--content-inner">
-                                    Groups
-                                </div>
-                            </tag-tab>
-                            <tag-tab data-key="#credits">
-                                <div class="webpage--content-inner">
-                                    Credits
-                                </div>
-                            </tag-tab>
-                        </tag-tabset>
-                    </tag-tab>
-                    <tag-tab class="tab-category" data-category="plots">
-                        <tag-tabset></tag-tabset>
-                    </tag-tab>
-                    <tag-tab class="tab-category" data-category="guides">
-                        <tag-tabset>
-                            <tag-tab data-key="#guide-one">
-                                <div class="webpage--content-inner">
-                                    Guide One
-                                </div>
-                            </tag-tab>
-                            <tag-tab data-key="#guide-two">
-                                <div class="webpage--content-inner">
-                                    Guide Two
-                                </div>
-                            </tag-tab>
-                        </tag-tabset>
-                    </tag-tab>
-                    <tag-tab class="tab-category" data-category="registration">
-                        <tag-tabset>
-                            <tag-tab data-key="#reserve-face">
-                                <h2 class="tab-heading">Reserve a Face</h2>
-                                <div class="webpage--content-inner">
-                                    <form id="form-reserve" data-type="grid" data-columns="2">
+                            </div>
+                        </div>
+                    </div>
+                </tag-tab>
+            </tag-tabset>
+        </tag-tab>
+        <tag-tab class="tab-category" data-category="registration">
+            <tag-tabset>
+                <tag-tab data-key="#reserve-face">
+                    <div class="webpage--content-inner">
+                        <h2 class="underline">Reserve a Face</h2>
+                        <form id="form-reserve" data-type="grid" data-columns="2">
     <blockquote class="fullWidth">Reserves last for 2 weeks and <i>cannot</i> be renewed.</blockquote>
     <label>
         <b>Alias</b>
@@ -400,37 +372,12 @@
     </label>
     <button type="submit" id="submit" class="fullWidth">Submit</button>
 </form>
-                                </div>
-                            </tag-tab>
-                            <tag-tab data-key="#reserve-role">
-                                <h2 class="tab-heading">Reserve a Subplot Role</h2>
-                                <div class="webpage--content-inner">
-                                    <form id="form-reserve-plot" data-type="grid" data-columns="2">
-    <blockquote class="fullWidth">Reserves last for 2 weeks and <i>cannot</i> be renewed.</blockquote>
-    <label class="fullWidth">
-        <b>Alias</b>
-        <span><input type="text" id="alias" placeholder="Alias" required /></span>
-    </label>
-    <label>
-        <b>Plot</b>
-        <span><select required id="plot" class="clip-plots"><option value="">(select)</option></select></span>
-    </label>
-    <label>
-        <b>Section</b>
-        <span><select required id="section"><option value="">(select)</option></select></span>
-    </label>
-    <label class="fullWidth">
-        <b>Role</b>
-        <span><select required id="role"><option value="">(select)</option></select></span>
-    </label>
-    <button type="submit" id="submit" class="fullWidth">Submit</button>
-</form>
-                                </div>
-                            </tag-tab>
-                            <tag-tab data-key="#add-business">
-                                <h2 class="tab-heading">Add a Business</h2>
-                                <div class="webpage--content-inner">
-                                    <form id="form-add-business" data-type="grid" data-columns="2">
+                    </div>
+                </tag-tab>
+                <tag-tab data-key="#add-business">
+                    <div class="webpage--content-inner">
+                        <h2 class="underline">Add Business</h2>
+                        <form id="form-add-business" data-type="grid" data-columns="2">
     <label>
         <b>Alias</b>
         <span><input type="text" id="alias" placeholder="Alias" required=""></span>
@@ -499,15 +446,42 @@
             <button type="button" onclick="removeRow(this)">- Remove Row</button>
         </div>
     </label>
+    <label>
+        <b>Neighborhood</b>
+        <span><select id="neighbourhood" required>
+            <option value="">(select)</option>
+            <option value="1">Back Bay</option>
+            <option value="2">Beacon Hill</option>
+            <option value="3">Cambridge</option>
+            <option value="4">Charlestown</option>
+            <option value="5">Downtown</option>
+            <option value="6">Fenway-Kenmore</option>
+            <option value="7">North End</option>
+            <option value="8">Southie</option>
+            <option value="9">West End</option>
+        </select></span>
+    </label>
+    <label>
+        <b>Street Name</b>
+        <span><input type="text" id="street" placeholder="Street Name" required /></span>
+    </label>
+    <label>
+        <b>House / Building Number</b>
+        <span><input type="number" id="houseNumber" min="1" placeholder="1" required /></span>
+    </label>
+    <label>
+        <b>Unit Number (optional)</b>
+        <span><input type="number" id="apartmentNumber" min="1" placeholder="1" /></span>
+    </label>
     <button type="submit" id="submit" class="fullWidth">Submit</button>
 </form>
-                                </div>
-                            </tag-tab>
-                            <tag-tab data-key="#sort">
-                                <h2 class="tab-heading">Get Sorted</h2>
-                                <div class="webpage--content-inner">
-                                    <form id="form-sort" data-type="grid" data-columns="2">
-    <h3 class="fullWidth">Basic Information</h3>
+                    </div>
+                </tag-tab>
+                <tag-tab data-key="#sort">
+                    <div class="webpage--content-inner">
+                        <h2 class="underline">Get Sorted</h2>
+                        <form id="form-sort" data-type="grid" data-columns="2">
+    <h3 class="fullWidth underline">Basic Information</h3>
     <label>
         <b>Character</b>
         <span><input type="text" id="character" placeholder="Character name" required=""></span>
@@ -542,16 +516,36 @@
         <b>Request Details</b>
         <span><textarea id="request" placeholder="Name of requester and/or URL to wanted ad"></textarea></span>
     </label>
-    <h3 class="fullWidth">Employment</h3>
-    <label class="fullWidth">
-        <b>Employed?</b>
-        <span><select id="employed" required>
+    <h3 class="fullWidth underline">Address</h3>
+    <label>
+        <b>Neighborhood</b>
+        <span><select id="neighbourhood" required>
             <option value="">(select)</option>
-            <option value="y">Yes</option>
-            <option value="n">No</option>
+            <option value="1">Back Bay</option>
+            <option value="2">Beacon Hill</option>
+            <option value="3">Cambridge</option>
+            <option value="4">Charlestown</option>
+            <option value="5">Downtown</option>
+            <option value="6">Fenway-Kenmore</option>
+            <option value="7">North End</option>
+            <option value="8">Southie</option>
+            <option value="9">West End</option>
         </select></span>
     </label>
-    <label class="fullWidth adjustable ifEmployed hidden">
+    <label>
+        <b>Street Name</b>
+        <span><input type="text" id="street" placeholder="Street Name" required /></span>
+    </label>
+    <label>
+        <b>House / Building Number</b>
+        <span><input type="number" id="houseNumber" min="1" placeholder="1" required /></span>
+    </label>
+    <label>
+        <b>Unit Number (optional)</b>
+        <span><input type="number" id="apartmentNumber" min="1" placeholder="1" /></span>
+    </label>
+    <h3 class="fullWidth underline">Employment</h3>
+    <label class="fullWidth adjustable">
         <b>Jobs</b>
         <div class="rows jobs-wrap"></div>
         <div class="multi-buttons" data-row-type="jobs">
@@ -559,24 +553,7 @@
             <button type="button" onclick="removeRow(this)">- Remove Row</button>
         </div>
     </label>
-    <h3 class="fullWidth">Subplots</h3>
-    <label class="fullWidth">
-        <b>Part of a Subplot?</b>
-        <span><select id="subplot" required>
-            <option value="">(select)</option>
-            <option value="y">Yes</option>
-            <option value="n">No</option>
-        </select></span>
-    </label>
-    <label class="fullWidth adjustable ifPlot hidden">
-        <b>Roles</b>
-        <div class="rows roles-wrap"></div>
-        <div class="multi-buttons" data-row-type="roles">
-            <button type="button" onclick="addRow(this)">+ New Row</button>
-            <button type="button" onclick="removeRow(this)">- Remove Row</button>
-        </div>
-    </label>
-    <h3 class="fullWidth">Member Info</h3>
+    <h3 class="fullWidth underline">Member Info</h3>
     <label>
         <b>Alias</b>
         <span><input type="text" id="alias" placeholder="Alias" required=""></span>
@@ -593,190 +570,42 @@
             <option value="n">No</option>
         </select></span>
     </label>
-    <label class="hidden ifFirst">
-        <b>Pronouns</b>
-        <span><input type="text" id="pronouns" placeholder="Pronouns"></span>
-    </label>
-    <label class="hidden ifFirst">
-        <b>Age</b>
-        <span><input type="number" id="age" min="21"></span>
-    </label>
-    <label class="hidden ifFirst fullWidth">
-        <b>Timezone</b>
-        <span><input type="text" id="timezone" placeholder="GMT-based please!"></span>
-    </label>
-    <label class="hidden ifFirst fullWidth">
-        <b>About</b>
-        <span><textarea id="about" placeholder="Tell us about yourself!"></textarea></span>
-    </label>
-    <label class="hidden ifFirst fullWidth">
-        <b>Triggers</b>
-        <span><textarea id="triggers" placeholder="If you have any triggers, please list them."></textarea></span>
-    </label>
-    <div class="hidden ifFirst fullWidth" data-type="grid" data-columns="3">
-        <label>
-            <b>Mature Language</b>
-            <span>
-                <select id="language">
-                    <option value="">(select)</option>
-                    <option value="0">None</option>
-                    <option value="1">Mild</option>
-                    <option value="2">With Limits</option>
-                    <option value="3">Any</option>
-                </select>
-            </span>
-        </label>
-        <label>
-            <b>Sexual Content</b>
-            <span>
-                <select id="sex">
-                    <option value="">(select)</option>
-                    <option value="0">None</option>
-                    <option value="1">Mild</option>
-                    <option value="2">With Limits</option>
-                    <option value="3">Any</option>
-                </select>
-            </span>
-        </label>
-        <label>
-            <b>Violence</b>
-            <span>
-                <select id="violence">
-                    <option value="">(select)</option>
-                    <option value="0">None</option>
-                    <option value="1">Mild</option>
-                    <option value="2">With Limits</option>
-                    <option value="3">Any</option>
-                </select>
-            </span>
-        </label>
-    </div>
     <button type="submit" id="submit" class="fullWidth">Submit</button>
 </form>
-                                </div>
-                            </tag-tab>
-                        </tag-tabset>
-                    </tag-tab>
-                    <tag-tab class="tab-category" data-category="moderation">
-                        <tag-tabset>
-                            <tag-tab data-key="#edit-member">
-                                <h2 class="tab-heading">Edit Member Info</h2>
-                                <div class="webpage--content-inner">
-                                    <form id="form-edit-member" data-type="grid">
-    <label>
-        <b>OOC Profile</b>
-        <span><input type="text" id="parentid" placeholder="URL or ID" required=""></span>
-    </label>
-    <div class="form-multiselect" data-type="flex">
-        <label class="input-wrap">
-            <input type="checkbox" name="edit-member" value="alias">
-            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
-            <strong>Update Alias</strong>
-        </label>
-        <label class="input-wrap">
-            <input type="checkbox" name="edit-member" value="pronouns">
-            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
-            <strong>Update Pronouns</strong>
-        </label>
-        <label class="input-wrap">
-            <input type="checkbox" name="edit-member" value="age">
-            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
-            <strong>Update Age</strong>
-        </label>
-        <label class="input-wrap">
-            <input type="checkbox" name="edit-member" value="timezone">
-            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
-            <strong>Update Timezone</strong>
-        </label>
-        <label class="input-wrap">
-            <input type="checkbox" name="edit-member" value="about">
-            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
-            <strong>Update About Text</strong>
-        </label>
-        <label class="input-wrap">
-            <input type="checkbox" name="edit-member" value="triggers">
-            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
-            <strong>Update Triggers</strong>
-        </label>
-        <label class="input-wrap">
-            <input type="checkbox" name="edit-member" value="ratings">
-            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
-            <strong>Update Ratings</strong>
-        </label>
-    </div>
-    <label class="hidden ifAlias">
-        <b>Alias</b>
-        <span><input type="text" id="alias" placeholder="Alias"></span>
-    </label>
-    <label class="hidden ifPronouns">
-        <b>Pronouns</b>
-        <span><input type="text" id="pronouns" placeholder="Pronouns"></span>
-    </label>
-    <label class="hidden ifAge">
-        <b>Age</b>
-        <span><input type="number" id="age" min="21"></span>
-    </label>
-    <label class="hidden ifTimezone">
-        <b>Timezone</b>
-        <span><input type="text" id="timezone" placeholder="GMT-based please!"></span>
-    </label>
-    <label class="hidden ifAbout">
-        <b>About</b>
-        <span><textarea id="about" placeholder="Tell us about yourself!"></textarea></span>
-    </label>
-    <label class="hidden ifTriggers">
-        <b>Triggers</b>
-        <span><textarea id="triggers" placeholder="If you have any triggers, please list them."></textarea></span>
-    </label>
-    <div class="hidden ifRatings" data-type="grid" data-columns="3">
-        <label>
-            <b>Mature Language</b>
-            <span>
-                <select id="language">
-                    <option value="">(select)</option>
-                    <option value="0">None</option>
-                    <option value="1">Mild</option>
-                    <option value="2">With Limits</option>
-                    <option value="3">Any</option>
-                </select>
-            </span>
-        </label>
-        <label>
-            <b>Sexual Content</b>
-            <span>
-                <select id="sex">
-                    <option value="">(select)</option>
-                    <option value="0">None</option>
-                    <option value="1">Mild</option>
-                    <option value="2">With Limits</option>
-                    <option value="3">Any</option>
-                </select>
-            </span>
-        </label>
-        <label>
-            <b>Violence</b>
-            <span>
-                <select id="violence">
-                    <option value="">(select)</option>
-                    <option value="0">None</option>
-                    <option value="1">Mild</option>
-                    <option value="2">With Limits</option>
-                    <option value="3">Any</option>
-                </select>
-            </span>
-        </label>
-    </div>
-    <button type="submit" id="submit" class="fullWidth">Submit</button>
-</form>
-                                </div>
-                            </tag-tab>
-                            <tag-tab data-key="#edit-claims">
-                                <h2 class="tab-heading">Edit a Character</h2>
-                                <div class="webpage--content-inner">
-                                    <form id="form-edit-character" data-type="grid">
+                    </div>
+                </tag-tab>
+            </tag-tabset>
+        </tag-tab>
+        <tag-tab class="tab-category" data-category="claims">
+            <tag-tabset>
+                <tag-tab data-key="#reserves">
+                    <div class="webpage--content-inner">
+                        <h2 class="underline">Reserves</h2>
+                        <div data-type="grid" class="clip-reserves"></div>
+                    </div>
+                </tag-tab>
+                <tag-tab data-key="#faces">
+                    <div class="webpage--content-inner">
+                        <h2 class="underline">Faces</h2>
+                        <div data-type="grid" class="clip-faces"></div>
+                    </div>
+                </tag-tab>
+                <tag-tab data-key="#members">
+                    <div class="webpage--content-inner">
+                        <div data-type="grid" class="clip-members"></div>
+                    </div>
+                </tag-tab>
+            </tag-tabset>
+        </tag-tab>
+        <tag-tab class="tab-category" data-category="moderation">
+            <tag-tabset>
+                <tag-tab data-key="#edit-claims">
+                    <div class="webpage--content-inner">
+                        <h2 class="underline">Edit a Character</h2>
+                        <form id="form-edit-character" data-type="grid">
     <label>
         <b>Profile</b>
-        <span><input type="text" id="accountid" placeholder="URL or ID" required=""></span>
+        <span><input type="text" id="accountid" placeholder="URL or ID" required></span>
     </label>
     <div class="form-multiselect" data-type="flex">
         <label class="input-wrap">
@@ -805,19 +634,9 @@
             <strong>Remove Job(s)</strong>
         </label>
         <label class="input-wrap">
-            <input type="checkbox" name="edit-character" value="roles-add">
+            <input type="checkbox" name="edit-character" value="address">
             <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
-            <strong>Add Subplot Role(s)</strong>
-        </label>
-        <label class="input-wrap">
-            <input type="checkbox" name="edit-character" value="roles-change">
-            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
-            <strong>Change Subplot Role(s)</strong>
-        </label>
-        <label class="input-wrap">
-            <input type="checkbox" name="edit-character" value="roles-remove">
-            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
-            <strong>Remove Subplot Role(s)</strong>
+            <strong>Change Address</strong>
         </label>
     </div>
     <label class="hidden ifName">
@@ -852,32 +671,41 @@
         <div id="clip-job-remove"></div>
         <blockquote>There are no submitted characters matching the profile entered. Please confirm you have entered a profile correctly in the field above.</blockquote>
     </div>
-    <div class="hidden ifRoleAdd adjustable field-wrap">
-        <b>Add Role(s)</b>
-        <div class="rows roles-wrap" data-type="grid"></div>
-        <div class="multi-buttons" data-row-type="roles">
-            <button type="button" onclick="addRow(this)">+ New Row</button>
-            <button type="button" onclick="removeRow(this)">- Remove Row</button>
-        </div>
-    </div>
-    <div class="hidden ifRoleChange field-wrap">
-        <b>Change Role(s)</b>
-        <div id="clip-role-change"></div>
-        <blockquote>There are no submitted characters matching the profile entered. Please confirm you have entered a profile correctly in the field above.</blockquote>
-    </div>
-    <div class="hidden ifRoleRemove field-wrap">
-        <b>Remove Role(s)</b>
-        <div id="clip-role-remove"></div>
-        <blockquote>There are no submitted characters matching the profile entered. Please confirm you have entered a profile correctly in the field above.</blockquote>
-    </div>
+    <label class="hidden ifAddress">
+        <b>Neighborhood</b>
+        <span><select id="neighbourhood">
+            <option value="">(select)</option>
+            <option value="1">Back Bay</option>
+            <option value="2">Beacon Hill</option>
+            <option value="3">Cambridge</option>
+            <option value="4">Charlestown</option>
+            <option value="5">Downtown</option>
+            <option value="6">Fenway-Kenmore</option>
+            <option value="7">North End</option>
+            <option value="8">Southie</option>
+            <option value="9">West End</option>
+        </select></span>
+    </label>
+    <label class="hidden ifAddress">
+        <b>Street Name</b>
+        <span><input type="text" id="street" placeholder="Street Name" /></span>
+    </label>
+    <label class="hidden ifAddress">
+        <b>House / Building Number</b>
+        <span><input type="number" id="houseNumber" min="1" placeholder="1" /></span>
+    </label>
+    <label class="hidden ifAddress">
+        <b>Unit Number (optional)</b>
+        <span><input type="number" id="apartmentNumber" min="1" placeholder="1" /></span>
+    </label>
     <button type="submit" id="submit" class="fullWidth">Submit</button>
 </form>
-                                </div>
-                            </tag-tab>
-                            <tag-tab data-key="#edit-business">
-                                <h2 class="tab-heading">Edit a Business</h2>
-                                <div class="webpage--content-inner">
-                                    <form id="form-edit-business" data-type="grid">
+                    </div>
+                </tag-tab>
+                <tag-tab data-key="#edit-business">
+                    <div class="webpage--content-inner">
+                        <h2 class="underline">Edit a Business</h2>
+                        <form id="form-edit-business" data-type="grid">
     <label>
         <b>Business Name</b>
         <span><select id="employer" class="clip-businesses" required></select></span>
@@ -897,6 +725,11 @@
             <input type="checkbox" name="edit-business" value="hours">
             <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
             <strong>Update Hours</strong>
+        </label>
+        <label class="input-wrap">
+            <input type="checkbox" name="edit-business" value="address">
+            <div class="fancy-input checkbox"><i class="fa-solid fa-check"></i></div>
+            <strong>Change Address</strong>
         </label>
     </div>
     <label class="hidden ifWanted fullWidth">
@@ -931,14 +764,41 @@
             </div>
         </label>
     </div>
+    <label class="hidden ifAddress">
+        <b>Neighborhood</b>
+        <span><select id="neighbourhood" required>
+            <option value="">(select)</option>
+            <option value="1">Back Bay</option>
+            <option value="2">Beacon Hill</option>
+            <option value="3">Cambridge</option>
+            <option value="4">Charlestown</option>
+            <option value="5">Downtown</option>
+            <option value="6">Fenway-Kenmore</option>
+            <option value="7">North End</option>
+            <option value="8">Southie</option>
+            <option value="9">West End</option>
+        </select></span>
+    </label>
+    <label class="hidden ifAddress">
+        <b>Street Name</b>
+        <span><input type="text" id="street" placeholder="Street Name" required /></span>
+    </label>
+    <label class="hidden ifAddress">
+        <b>House / Building Number</b>
+        <span><input type="number" id="houseNumber" min="1" placeholder="1" required /></span>
+    </label>
+    <label class="hidden ifAddress">
+        <b>Unit Number (optional)</b>
+        <span><input type="number" id="apartmentNumber" min="1" placeholder="1" /></span>
+    </label>
     <button type="submit" id="submit" class="fullWidth">Submit</button>
 </form>
-                                </div>
-                            </tag-tab>
-                            <tag-tab data-key="#staff-help">
-                                <h2 class="tab-heading">Request Staff Help</h2>
-                                <div class="webpage--content-inner">
-                                    <form id="form-moderation" data-type="grid" data-columns="2">
+                    </div>
+                </tag-tab>
+                <tag-tab data-key="#staff-help">
+                    <div class="webpage--content-inner">
+                        <h2 class="underline">Request Staff Help</h2>
+                        <form id="form-moderation" data-type="grid" data-columns="2">
     <input type="hidden" id="requester" value="Name (#ID, IP Address)" />
     <label class="fullWidth">
         <b>Request Type</b>
@@ -985,102 +845,60 @@
     </label>
     <button type="submit" id="submit" class="fullWidth">Submit</button>
 </form>
-                                </div>
-                            </tag-tab>
-                        </tag-tabset>
-                    </tag-tab>
-                    <tag-tab class="tab-category" data-category="staff">
-                        <tag-tabset>
-                            <tag-tab data-key="#announce">
-                                <h2 class="tab-heading">Announce a Character</h2>
-                                <div class="webpage--content-inner">
-                                    <form id="form-approve" data-type="grid">
+                    </div>
+                </tag-tab>
+            </tag-tabset>
+        </tag-tab>
+        <tag-tab class="tab-category" data-category="staff">
+            <tag-tabset>
+                <tag-tab data-key="#announce">
+                    <div class="webpage--content-inner">
+                        <h2 class="underline">Announce a Character</h2>
+                        <form id="form-approve" data-type="grid">
     <label>
-        <b>Profile</b>
-        <span><input type="text" id="accountid" placeholder="Account ID" required /></span>
-    </label>
-    <label>
-        <b>About</b>
-        <span><textarea id="about" placeholder="Short, sweet, and to-the-point" required></textarea></span>
+        <b>Character</b>
+        <span><select id="id" class="clip-pending" required></select></span>
     </label>
     <button type="submit" id="submit">Submit</button>
 </form>
-                                </div>
-                            </tag-tab>
-                            <tag-tab data-key="#add-plot">
-                                <h2 class="tab-heading">Add a Subplot</h2>
-                                <div class="webpage--content-inner">
-                                    <form id="form-add-plot" data-type="grid" data-columns="2">
-    <label class="fullWidth">
-        <b>Plot Name</b>
-        <span><input type="text" id="plot" placeholder="Plot" required=""></span>
-    </label>
-    <label>
-        <b>Plot Hashtag</b>
-        <span><input type="text" id="id" placeholder="ID" required=""></span>
-    </label>
-    <label>
-        <b>Plot Number</b>
-        <span><input type="number" id="priority" min="1" required=""></span>
-    </label>
-    <label class="fullWidth">
-        <b>Overview</b>
-        <span><textarea id="overview" placeholder="Overview" required=""></textarea></span>
-    </label>
-    <label class="fullWidth adjustable">
-        <b>Sections</b>
-        <div class="rows"></div>
-        <div class="multi-buttons" data-row-type="plotsections">
-            <button type="button" onclick="addRow(this)">+ Add Section</button>
-            <button type="button" onclick="removeRow(this)">- Remove Section</button>
-        </div>
-    </label>
-    <button type="submit" id="submit" class="fullWidth">Submit</button>
-</form>
-                                </div>
-                            </tag-tab>
-                        </tag-tabset>
-                    </tag-tab>
-                </tag-tabset>
-            </section>
+                    </div>
+                </tag-tab>
+            </tag-tabset>
+        </tag-tab>
+    </tag-tabset>
+</div></section>
 
             <script src="../dist/js/formHelpers.js"></script>
             <script src="../dist/js/forms.js"></script>
             <script src="../dist/js/formatting.js"></script>
             <script>
-                let staticClaims, staticBusinesses, staticSubplots, staticPlotReserves;
+                let staticClaims, staticReserves, staticBusinesses;
 
                 fetch(claims)
                 .then((response) => response.json())
                 .then((claimsData) => {
                     staticClaims = [...claimsData];
+                    let pending = claimsData.filter(item => item.Status !== approvedText);
+                    setList('.clip-pending', pending, 'pending');
+                    formatFaceClaims(claimsData);
 
-                    fetch(businesses)
+                    fetch(reserves)
                     .then((response) => response.json())
-                    .then((businessData) => {
-                        staticBusinesses = [...businessData];
-                        setBusinessList(`.clip-businesses`, businessData);
+                    .then((reservesData) => {
+                        staticReserves = [...reservesData];
+                        formatFaceReserves(staticReserves);
 
-                        fetch(plotReserves)
+                        fetch(businesses)
                         .then((response) => response.json())
-                        .then((plotReserveData) => {
-                            staticPlotReserves = [...plotReserveData];
+                        .then((businessData) => {
+                            staticBusinesses = [...businessData];
+                            setBusinessList(`.clip-businesses`, staticBusinesses);
 
-                            fetch(plots)
-                            .then((response) => response.json())
-                            .then((subplotData) => {
-                                //format plot claims
-                                staticSubplots = [...subplotData];
-                                setPlotOptions(subplotData, `#form-reserve-plot`, `.clip-plots`);
-                                formatSubplots(subplotData, staticClaims, staticPlotReserves);
-
-                            }).then(() => {
-                                initWebpages();
-                            });
-
+                        }).then(() => {
+                            initWebpages();
                         });
 
-                    });
+                    })
 
                 });
             </script>

@@ -104,11 +104,19 @@ if(pageType === 'idx' || pageType === 'SC') {
                 },
             }
         }).mount();
+        let forumImages = catWrapper.querySelectorAll('.forum--clipped-image');
         let forumTitles = catWrapper.querySelectorAll('.forum--title a');
         let paginationButtons = catWrapper.querySelectorAll('.splide__pagination__page');
         paginationButtons.forEach((button, i) => {
+            console.log(forumImages);
+            let hoverHTML = `<div class="hover">
+                <div class="map-pin"></div>
+                ${forumImages[i].innerHTML}
+                <div class="location-title">${forumTitles[i].innerText}</div>
+            </div>`
             button.setAttribute('aria-label', forumTitles[i].innerText);
             button.setAttribute('title', forumTitles[i].innerText);
+            button.insertAdjacentHTML('beforeend', hoverHTML);
         })
     });
 }
@@ -134,13 +142,13 @@ if(pageType === 'ST') {
 
 /********** Login **********/
 if(pageType === 'Login') {
-    let textNodes = getAllTextNodes(document.querySelector('main'));
+    let textNodes = getAllTextNodes(document.querySelector('.container'));
     textNodes.forEach(node => {
         const paragraph = document.createElement('p');
         node.after(paragraph);
         paragraph.appendChild(node);
     });
-    $("main > p").nextUntil("div.tableborder").andSelf().wrapAll(`<div class="textNodes"></div>`);
+    $(".container > p").nextUntil("div.tableborder").andSelf().wrapAll(`<div class="textNodes"><div class="textNodes-inner"></div></div>`);
     $(`input[name="UserName"]`).attr('placeholder','Username');
     $(`input[name="PassWord"]`).attr('placeholder','Password');
 }

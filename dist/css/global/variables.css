@@ -35,6 +35,7 @@
   --size-large-avatar-mobile-height: 350px;
   --size-input: 24px;
   --size-store-image: 24px;
+  --size-ucp-menu: 250px;
   --size-switcher-image: 60px;
   --size-options-menu: 50px;
   --size-alerts-menu: 40px;
@@ -49,7 +50,9 @@
   --size-profile-gif: 175px;
   --size-profile-gif-ratio: 2 / 1.3;
   --size-profile-mobile-tab-height: 350px;
-  --size-ucp-menu: 250px;
+  --size-ml-avatar-ratio: 4 / 5;
+  --size-group-aesthetics: 80px;
+  --size-max-web-content: 900px;
   --bg-container: rgba(24, 24, 24, 0.3);
   --bg-primary: rgba(24, 24, 24, 1);
   --bg-secondary: rgba(37, 37, 37, 1);
@@ -139,7 +142,8 @@ body.light .g-4, body.light.mgroup-4,
 body.light .mgroup-4 {
   --text-accent: var(--accent-3); }
 
-body.g-1,
+body.g-0,
+body .g-0, body.g-1,
 body .g-1, body.mgroup-1,
 body .mgroup-1, body.g-5,
 body .g-5, body.mgroup-5,

@@ -26,45 +26,6 @@ if(document.querySelector('#form-reserve')) {
     });
 }
 
-/***** Reserve a Role *****/
-if(document.querySelector('#form-reserve-plot')) {
-    document.querySelector('#form-reserve-plot').addEventListener('submit', e => {
-        e.preventDefault();
-
-        let form = e.currentTarget,
-            alias = form.querySelector('#alias'),
-            plot = form.querySelector('#plot'),
-            section = form.querySelector('#section'),
-            role = form.querySelector('#role'),
-            roleLimit = role.options[role.selectedIndex].dataset.limit;
-
-        let data = {
-            SubmissionType: 'reserve-role',
-            Member: getStandardValue(alias),
-            Plot: getSelectText(plot),
-            Section: getSelectText(section),
-            Role: getSelectText(role),
-            Limit: roleLimit,
-            Instances: 0,
-            Extension: 0,
-        };
-
-        let staffDiscord = {
-            title: `New Role Reservation`,
-            text: `${capitalize(data.Member)} has reserved ${capitalize(data.Role)} (${capitalize(data.Section)}) from the ${capitalize(data.Plot)} subplot.`,
-            hook: reserveLogs,
-        };
-
-        setFormStatus(form);
-        
-        if(data.Limit === 'unlimited') {
-            sendAjax(form, data, successMessage, staffDiscord);
-        } else {
-            checkRoleLimit(form, data, successMessage, staffDiscord);
-        }
-    });
-}
-
 /***** Add a Business *****/
 let addBusiness = document.querySelector('#form-add-business');
 if(addBusiness) {
@@ -83,8 +44,19 @@ if(addBusiness) {
             hiring = form.querySelector('#hiring'),
             wanted = form.querySelector('#wanted'),
             summary = form.querySelector('#summary'),
+            neighbourhood = form.querySelector('#neighbourhood'),
+            street = form.querySelector('#street'),
+            house = form.querySelector('#houseNumber'),
+            apartment = form.querySelector('#apartmentNumber'),
             hoursField = form.querySelector('#hours'),
             hours = [];
+        
+        let address = {
+            neighbourhood: getSelectText(neighbourhood),
+            street: getStandardValue(street),
+            house: getValue(house),
+            apartment: getValue(apartment),
+        }
 
         if(getSelectValue(hoursField) === 'set hours') {
             let hourSets = form.querySelectorAll('.hours-wrap .row');
@@ -119,6 +91,7 @@ if(addBusiness) {
             Hours: JSON.stringify(hours),
             Hiring: getSelectValue(hiring),
             Wanted: getValue(wanted),
+            Address: JSON.stringify(address),
         }
 
         let staffDiscord = {
@@ -130,8 +103,6 @@ if(addBusiness) {
         
         setFormStatus(form);
 
-        console.log(data);
-
         sendAjax(form, data, staffDiscord);
     });
 }
@@ -140,13 +111,7 @@ if(addBusiness) {
 let sortForm = document.querySelector('#form-sort');
 if(sortForm) {
     let requestToggle = sortForm.querySelector('#requested');
-    let employedToggle = sortForm.querySelector('#employed');
-    let plotToggle = sortForm.querySelector('#subplot');
-    let firstToggle = sortForm.querySelector('#first');
     if(requestToggle) {simpleFieldToggle(requestToggle, '.ifRequest', 'y')};
-    if(employedToggle) {simpleFieldToggle(employedToggle, '.ifEmployed', 'y')};
-    if(plotToggle) {simpleFieldToggle(plotToggle, '.ifPlot', 'y')};
-    if(firstToggle) {simpleFieldToggle(firstToggle, '.ifFirst', 'y')};
     document.querySelector('#form-sort').addEventListener('submit', e => {
         e.preventDefault();
 
@@ -158,41 +123,28 @@ if(sortForm) {
             requestDetails = form.querySelector('#request').value.trim(),
             alias = form.querySelector('#alias'),
             parentId = form.querySelector('#parentid'),
-            pronouns = form.querySelector('#pronouns'),
-            age = form.querySelector('#age'),
-            timezone = form.querySelector('#timezone'),
-            about = form.querySelector('#about'),
-            triggers = form.querySelector('#triggers'),
-            language = form.querySelector('#language'),
-            sexualContent = form.querySelector('#sex'),
-            violence = form.querySelector('#violence'),
-            employed = getSelectValue(form.querySelector('#employed')) === 'y' ? true : false,
-            subplot = getSelectValue(form.querySelector('#subplot')) === 'y' ? true : false,
             first = getSelectValue(form.querySelector('#first')) === 'y' ? true : false,
-            jobs = [], roles = [], memberData = {};
+            neighbourhood = form.querySelector('#neighbourhood'),
+            street = form.querySelector('#street'),
+            house = form.querySelector('#houseNumber'),
+            apartment = form.querySelector('#apartmentNumber'),
+            jobs = [];
 
         //jobs array
-        if(employed) {
-            let jobSets = document.querySelectorAll('.job-wrap');
-            jobSets.forEach(job => {
-                jobs.push({
-                    employer: getSelectText(job.querySelector('.employer select')),
-                    section: job.querySelector('.job-section input').value.toLowerCase().trim(),
-                    position: job.querySelector('.position input').value.toLowerCase().trim(),
-                });
+        let jobSets = document.querySelectorAll('.job-wrap');
+        jobSets.forEach(job => {
+            jobs.push({
+                employer: getSelectText(job.querySelector('.employer select')),
+                section: job.querySelector('.job-section input').value.toLowerCase().trim(),
+                position: job.querySelector('.position input').value.toLowerCase().trim(),
             });
-        }
-
-        //roles array
-        if(subplot) {
-            let roleSets = document.querySelectorAll('.role-wrap');
-            roleSets.forEach(role => {
-                roles.push({
-                    plot: getSelectText(role.querySelector('.plot select')),
-                    section: getSelectText(role.querySelector('.plot-section select')),
-                    role: getSelectText(role.querySelector('.role select')),
-                });
-            });
+        });
+        
+        let address = {
+            neighbourhood: getSelectText(neighbourhood),
+            street: getStandardValue(street),
+            house: getValue(house),
+            apartment: getValue(apartment),
         }
 
         //set character data
@@ -205,28 +157,9 @@ if(sortForm) {
             Group: getSelectText(group),
             GroupID: getSelectValue(group),
             Face: getStandardValue(face),
-            Jobs: jobs.length > 0 ? JSON.stringify(jobs) : '',
-            Roles: roles.length > 0 ? JSON.stringify(roles) : '',
+            Jobs: JSON.stringify(jobs),
             Status: 'pending',
-        }
-
-        //set member data if first
-        if(first) {
-            memberData = {
-                SubmissionType: 'add-member',
-                Member: getStandardValue(alias),
-                AccountID: getAccountID(parentId),
-                Group: 'writer',
-                GroupID: '6',
-                Pronouns: getStandardValue(pronouns),
-                Age: age.value.trim(),
-                Timezone: getStandardValue(timezone),
-                About: about.value.trim(),
-                Triggers: triggers.value.trim(),
-                Language: getSelectValue(language),
-                Sex: getSelectValue(sexualContent),
-                Violence: getSelectValue(violence),
-            }
+            Address: JSON.stringify(address),
         }
 
         let requestMessage = ``;
@@ -269,65 +202,7 @@ if(sortForm) {
 
         setFormStatus(form);
 
-        if(first) {
-            sendAjax(form, memberData);
-        }
-
         sendAjax(form, characterData, staffDiscord, publicDiscord);
-    });
-}
-
-/***** Edit Member Claims *****/
-let editMemberForm = document.querySelector('#form-edit-member');
-if(editMemberForm){
-    let aliasBox = editMemberForm.querySelector('[value="alias"]');
-    let pronounsBox = editMemberForm.querySelector('[value="pronouns"]');
-    let ageBox = editMemberForm.querySelector('[value="age"]');
-    let timezoneBox = editMemberForm.querySelector('[value="timezone"]');
-    let aboutBox = editMemberForm.querySelector('[value="about"]');
-    let triggersBox = editMemberForm.querySelector('[value="triggers"]');
-    let ratingsBox = editMemberForm.querySelector('[value="ratings"]');
-    if(aliasBox) {checkToggle(aliasBox, '.ifAlias')};
-    if(pronounsBox) {checkToggle(pronounsBox, '.ifPronouns')};
-    if(ageBox) {checkToggle(ageBox, '.ifAge')};
-    if(timezoneBox) {checkToggle(timezoneBox, '.ifTimezone')};
-    if(aboutBox) {checkToggle(aboutBox, '.ifAbout')};
-    if(triggersBox) {checkToggle(triggersBox, '.ifTriggers')};
-    if(ratingsBox) {checkToggle(ratingsBox, '.ifRatings')};
-    editMemberForm.addEventListener('submit', e => {
-        e.preventDefault();
-
-        let form = e.currentTarget,
-            selectedChanges = Array.prototype.slice.call(form.querySelectorAll('[name="edit-member"]')).filter(item => item.checked).map(item => item.value),
-            accountId = form.querySelector('#parentid'),
-            alias = form.querySelector('#alias'),
-            pronouns = form.querySelector('#pronouns'),
-            age = form.querySelector('#age'),
-            timezone = form.querySelector('#timezone'),
-            about = form.querySelector('#about'),
-            triggers = form.querySelector('#triggers'),
-            language = form.querySelector('#language'),
-            sex = form.querySelector('#sex'),
-            violence = form.querySelector('#violence');
-
-        let data = {
-            SubmissionType: `edit-member`,
-            AccountID: getAccountID(accountId),
-            selectedChanges,
-            Alias: getStandardValue(alias),
-            Pronouns: getStandardValue(pronouns),
-            Age: getValue(age),
-            Timezone: getStandardValue(timezone),
-            About: getValue(about),
-            Triggers: getValue(triggers),
-            Language: getSelectValue(language),
-            Sex: getSelectValue(sex),
-            Violence: getSelectValue(violence),
-        }
-
-        setFormStatus(form);
-
-        editMember(form, data);
     });
 }
 
@@ -340,17 +215,13 @@ if(editCharacterForm) {
     let jobAddBox = editCharacterForm.querySelector('[value="jobs-add"]');
     let jobChangeBox = editCharacterForm.querySelector('[value="jobs-change"]');
     let jobRemoveBox = editCharacterForm.querySelector('[value="jobs-remove"]');
-    let roleAddBox = editCharacterForm.querySelector('[value="roles-add"]');
-    let roleChangeBox = editCharacterForm.querySelector('[value="roles-change"]');
-    let roleRemoveBox = editCharacterForm.querySelector('[value="roles-remove"]');
+    let addressBox = editCharacterForm.querySelector('[value="address"]');
     if(nameBox) {checkToggle(nameBox, '.ifName')};
     if(groupBox) {checkToggle(groupBox, '.ifGroup')};
     if(jobAddBox) {checkToggle(jobAddBox, '.ifJobAdd')};
     if(jobChangeBox) {checkToggle(jobChangeBox, '.ifJobChange')};
     if(jobRemoveBox) {checkToggle(jobRemoveBox, '.ifJobRemove')};
-    if(roleAddBox) {checkToggle(roleAddBox, '.ifRoleAdd')};
-    if(roleChangeBox) {checkToggle(roleChangeBox, '.ifRoleChange')};
-    if(roleRemoveBox) {checkToggle(roleRemoveBox, '.ifRoleRemove')};
+    if(addressBox) {checkToggle(addressBox, '.ifAddress')};
     profile.addEventListener('input', e => {
         pullCharacterClaims(e.currentTarget);
     });
@@ -361,7 +232,18 @@ if(editCharacterForm) {
             selectedChanges = Array.prototype.slice.call(form.querySelectorAll('[name="edit-character"]')).filter(item => item.checked).map(item => item.value),
             accountId = form.querySelector('#accountid'),
             character = form.querySelector('#character'),
+            neighbourhood = form.querySelector('#neighbourhood'),
+            street = form.querySelector('#street'),
+            house = form.querySelector('#houseNumber'),
+            apartment = form.querySelector('#apartmentNumber'),
             group = form.querySelector('#group');
+        
+        let address = {
+            neighbourhood: getSelectText(neighbourhood),
+            street: getStandardValue(street),
+            house: getValue(house),
+            apartment: getValue(apartment),
+        }
 
         let data = {
             SubmissionType: `edit-claims`,
@@ -370,10 +252,11 @@ if(editCharacterForm) {
             Character: getStandardValue(character),
             Group: getSelectText(group),
             GroupID: getSelectValue(group),
+            Address: JSON.stringify(address),
         }
 
         setFormStatus(form);
-
+console.log(data);
         editCharacter(form, data);
     });
 }
@@ -384,10 +267,12 @@ if(editBusinessForm) {
     let wantedBox = editBusinessForm.querySelector('[value="wanted"]');
     let hiringBox = editBusinessForm.querySelector('[value="hiring"]');
     let hoursBox = editBusinessForm.querySelector('[value="hours"]');
+    let addressBox = editBusinessForm.querySelector('[value="address"]');
     let editHours = editBusinessForm.querySelector('#hours');
     if(wantedBox) {checkToggle(wantedBox, '.ifWanted')};
     if(hiringBox) {checkToggle(hiringBox, '.ifHiring')};
     if(hoursBox) {checkToggle(hoursBox, '.ifHours')};
+    if(addressBox) {checkToggle(addressBox, '.ifAddress')};
     if(editHours) {simpleFieldToggle(editHours, '.ifSetHours', 'set hours')};
     editBusinessForm.addEventListener('submit', e => {
         e.preventDefault();
@@ -397,6 +282,10 @@ if(editBusinessForm) {
             employer = form.querySelector('#employer'),
             hiring = form.querySelector('#hiring'),
             wanted = form.querySelector('#wanted'),
+            neighbourhood = form.querySelector('#neighbourhood'),
+            street = form.querySelector('#street'),
+            house = form.querySelector('#houseNumber'),
+            apartment = form.querySelector('#apartmentNumber'),
             hours = [];
 
         if(form.querySelector('#hours').options[form.querySelector('#hours').selectedIndex].value === 'set hours') {
@@ -417,6 +306,13 @@ if(editBusinessForm) {
                 text: getSelectValue(form.querySelector('#hours')),
             });
         }
+        
+        let address = {
+            neighbourhood: getSelectText(neighbourhood),
+            street: getStandardValue(street),
+            house: getValue(house),
+            apartment: getValue(apartment),
+        }
 
         let data = {
             SubmissionType: 'edit-business',
@@ -425,6 +321,7 @@ if(editBusinessForm) {
             Hours: JSON.stringify(hours),
             Hiring: getSelectValue(hiring),
             Wanted: getValue(wanted),
+            Address: JSON.stringify(address),
         }
 
         setFormStatus(form);
@@ -500,24 +397,24 @@ if(document.querySelector('#form-approve')) {
         e.preventDefault();
 
         let form = e.currentTarget,
-            id = form.querySelector('#accountid'),
-            existing = staticClaims.filter(item => item.AccountID === getAccountID(id))[0],
-            bodyText = form.querySelector('#about');
+            id = form.querySelector('#id');
         
         let data = {
+            DeployID: deployID.claims,
             SubmissionType: 'approve-character',
-            AccountID: getAccountID(id),
-            Status: 'approved',
+            AccountID: getSelectValue(id),
+            Status: approvedText,
         }
 
+        let existing = staticClaims.filter(item => item.AccountID === data.AccountID)[0];
+
         let publicDiscord = {
-            title: `Welcome ${capitalize(existing.Character)}!`,
-            text: `**Played by ${capitalize(existing.Member, [' ', '-'])}**
-            _looks like ${existing.Face}, belongs in ${existing.Group}_
+            title: `Welcome to Love Me Not!`,
+            text: `## ${capitalize(existing.Character)}
+**Played by ${capitalize(existing.Member, [' ', '-'])}**
+_looks like ${existing.Face}, belongs in ${existing.Group}_
 
-            > ${getValue(bodyText)}
-
-            [**Read More**](https://${siteName}.jcink.net/?showuser=${existing.AccountID})`,
+[**Read More**](https://${siteName}.jcink.net/?showuser=${existing.AccountID})`,
             hook: announceLogs,
             color: rgbToHex(colors[existing.Group][0], colors[existing.Group][1], colors[existing.Group][2]),
         }
@@ -528,64 +425,154 @@ if(document.querySelector('#form-approve')) {
     });
 }
 
-/***** Add Plot *****/
-if(document.querySelector('#form-add-plot')) {
-    document.querySelector('#form-add-plot').addEventListener('submit', e => {
-        e.preventDefault();
-
-        let form = e.currentTarget,
-            plot = form.querySelector('#plot'),
-            id = form.querySelector('#id'),
-            priority = form.querySelector('#priority'),
-            overview = form.querySelector('#overview'),
-            sectionWraps = form.querySelectorAll('.section-wrap'),
-            sections = [];
-
-        sectionWraps.forEach((sectionWrap, i) => {
-            let title = getStandardValue(sectionWrap.querySelector('.section-title input'));
-            let priority = i + 1;
-            let overview = getValue(sectionWrap.querySelector('.section-overview textarea'));
-            let roleWraps = sectionWrap.querySelectorAll('.section-role');
-            let roles = [];
-
-            roleWraps.forEach((roleWrap, i) => {
-                let title = getStandardValue(roleWrap.querySelector('.role-title input'));
-                let priority = i + 1;
-                let limit = getStandardValue(roleWrap.querySelector('.role-limit input'));
-                let description = getValue(roleWrap.querySelector('.role-description input'));
-                roles.push({
-                    role: title,
-                    priority: priority,
-                    limit: limit,
-                    description: description,
-                });
-            });
-
-            sections.push({
-                title: title,
-                priority: priority,
-                overview: overview,
-                roles: roles,
-            });
-        });
-
-        let data = {
-            SubmissionType: 'add-plot',
-            Plot: getStandardValue(plot),
-            PlotID: getStandardValue(id),
-            Priority: getValue(priority),
-            Overview: getValue(overview),
-            Sections: JSON.stringify(sections),
-        }
-
-        let staffDiscord = {
-            title: `Plot Added`,
-            text: `No extra actions required.`,
-            hook: staffLogs,
-        }
-
-        setFormStatus(form);
-
-        sendAjax(form, data, staffDiscord);
+/***** Add/Change Address *****/
+if(document.querySelectorAll('.form-address').length > 0) {
+    let addressType = document.querySelectorAll('.form-address #type');
+    addressType.forEach(field => {
+        setAddressType(field);
     });
+    document.querySelectorAll('.form-address').forEach(form => {
+        let locationField = form.querySelector('#region');
+        simpleFieldToggle(locationField, '.loc1Only', 'location1', form);
+        simpleFieldToggle(locationField, '.loc2Only', 'location2', form);
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+        
+            let form = e.currentTarget,
+                type = getSelectValue(form.querySelector('#type')),
+                identifier = type === 'residential' ? getAccountID(form.querySelector('#id')) : getSelectText(form.querySelector('#employer')),
+                region = form.querySelector('#region'),
+                neighbourhood = form.querySelector('#neighbourhood'),
+                street = form.querySelector('#street'),
+                house = form.querySelector('#houseNumber'),
+                apartment = form.querySelector('#apartmentNumber');
+        
+            let address = {
+                region: getSelectText(region),
+                neighbourhood: getSelectText(neighbourhood),
+                street: getStandardValue(street),
+                house: getValue(house),
+                apartment: getValue(apartment),
+            }
+        
+            let data = {
+                SubmissionType: `${type}-address`,
+                AccountID: type === 'residential' ? identifier : null,
+                Employer: type === 'business' ? identifier : null,
+                Address: JSON.stringify(address),
+            }
+
+            let existing, discordTitle, discordText;
+
+            if(type === 'residential') {
+                existing = staticClaims.filter(item => item.AccountID && item.AccountID === identifier);
+            } else if(type === 'business') {
+                existing = staticBusinesses.filter(item => item.Employer && item.Employer === identifier);
+            }
+
+            if(existing.length > 0) {
+                if(existing[0].Address && existing[0].Address !== '') {
+                    let original = JSON.parse(existing[0].Address);
+                    discordTitle = `Address Changed for ${type === 'residential' ? capitalize(existing[0].Character) : capitalize(identifier, [' ', '-'])}`;
+                    discordText = `**Previous Address:** ${formatAddressString(original)}`;
+                    discordText = `**New Address:** ${formatAddressString(address)}`;
+                } else {
+                    discordTitle = `Address Added for ${type === 'residential' ? capitalize(existing[0].Character) : capitalize(identifier, [' ', '-'])}`;
+                    discordText = `**Address:** ${formatAddressString(address)}`;
+                }
+
+                let discord = {
+                    title: discordTitle,
+                    text: discordText,
+                    hook: claimLogs
+                }
+                
+                setFormStatus(form);
+
+                console.log(data);
+            
+                sendAjax(form, data, discord);
+            } else {
+                handleWarning(form, `<blockquote class="fullWidth">No ${type === 'residential' ? 'character' : 'business'} found to assign the address to. Please double check the entered ${type === 'residential' ? 'profile URL / ID' : 'business name'} and if the information is correct and the error persists, contact Lux.</blockquote>`);
+            }
+        });
+    });
+}
+function setAddressType(field) {
+    let value = field.options[field.selectedIndex].value;
+    let form = field.closest('form');
+    switch(value) {
+        case 'residential':
+            form.querySelectorAll('.residentOnly').forEach(item => item.classList.remove('hidden'));
+            form.querySelectorAll('.typeOnly').forEach(item => item.classList.remove('hidden'));
+            form.querySelectorAll('.businessOnly').forEach(item => item.classList.add('hidden'));
+            break;
+        case 'business':
+            form.querySelectorAll('.residentOnly').forEach(item => item.classList.add('hidden'));
+            form.querySelectorAll('.typeOnly').forEach(item => item.classList.remove('hidden'));
+            form.querySelectorAll('.businessOnly').forEach(item => item.classList.remove('hidden'));
+            break;
+        default:
+            form.querySelectorAll('.residentOnly').forEach(item => item.classList.add('hidden'));
+            form.querySelectorAll('.typeOnly').forEach(item => item.classList.add('hidden'));
+            form.querySelectorAll('.businessOnly').forEach(item => item.classList.add('hidden'));
+            break;
+    }
+    field.addEventListener('change', e => {
+        setAddressType(e.currentTarget);
+    });
+}
+
+/***** Address Lookup *****/
+if(document.querySelector('#form-search-address')) {
+    document.querySelector('#form-search-address').addEventListener('submit', e => {
+        e.preventDefault();
+        let form = e.currentTarget;
+        let data = [...staticClaims, ...staticBusinesses].filter(item => item.Address && item.Address !== '');
+        searchAddress(form, data);
+    });
+}
+function searchAddress(form, data) {
+    let value = form.querySelector('#name').value.toLowerCase().trim();
+    let html = `<h2 class="underline">Results</h2><ul>`;
+
+    let lookupList = data.map(item => ({
+        name: item.Character && item.Character !== '' ? item.Character : item.Employer,
+        address: JSON.parse(item.Address),
+    }));
+    lookupList.sort((a, b) => {
+        if(a.name < b.name) {
+            return -1;
+        } else if(a.name > b.name) {
+            return 1;
+        } else {
+            return 0;
+        }
+    })
+    lookupList.forEach(item => {
+        if(item.name.includes(value) && item.address) {
+            let address = item.address;
+            html += `<li>
+                <b>${capitalize(item.name)}</b> — ${formatAddressString(address)}
+            </li>`;
+        }
+    });
+    if(lookupList.length === 0) {
+        html += `<li>No residents or businesses match this string.</li>`
+    }
+    html += `</ul>`;
+
+    if(html === `<ul></ul>`) {
+        html = `<div class="h8" style="margin-top: 30px;">No matches found.</div>`;
+    }
+
+    document.querySelector('#lookup-results').innerHTML = html;
+}
+function formatRegion(region) {
+    console.log(region);
+    return `${capitalize(region.split(', ')[0]).trim()}, ${region.split(', ')[1].toUpperCase().trim()}`;
+}
+function formatAddressString(address) {
+    return `${address.apartment !== '' ? `${address.apartment}-` : ``}${address.house} ${capitalize(address.street).trim()}, ${capitalize(address.neighbourhood).trim()}`;
 }

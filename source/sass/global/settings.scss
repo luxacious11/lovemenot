@@ -37,5 +37,15 @@ body.g-4 .accordion--trigger.staffOnly {
     content: '\f00c';
 }
 .accordion--trigger::before {
+    content: '\f101' !important;
+}
+.members--sort-buttons .members--sort::before,
+.members--filter-group label::before {
+    content: '\f00c';
+}
+.pagination_last::after {
+    content: '\f101';
+}
+ul li::marker {
     content: '\f101';
 }

@@ -244,23 +244,26 @@
             </div>
 
             <!--Webpage-->
-            <section class="webpage">
-                <div class="webpage--menu">
+            <section class="webpage"><div class="webpage--inner">
+                <div class="webpage--menu"><div class="sticky">
                     <button class="macro--button" onclick="toggleListMenu(this)">
                         <i class="fa-solid fa-bars open-button"></i>
                         <i class="fa-solid fa-xmark close-button"></i>
                     </button>
                     <tag-labels class="accordion scroll">
-                        <div class="menu-filters">
-                            <strong>Filter by Business Name</strong>
+                        <tag-label class="tab-category accordion--trigger" data-category="filters">
+                            <span>Filters</span>
+                        </tag-label>
+                        <div class="tab-category accordion--content menu-filters" data-category="filters">
+                            <strong class="h7 underline">Filter by Business Name</strong>
                             <input type="text" oninput="filterBusinesses(this)" placeholder="Business Name" style="margin-bottom: 10px;">
-                            <strong>Filter by Employee Name</strong>
+                            <strong class="h7 underline">Filter by Employee Name</strong>
                             <input type="text" oninput="filterEmployees(this)" placeholder="Employee Name">
                         </div>
                     </tag-labels>
-                </div>
+                </div></div>
                 <tag-tabset class="webpage--content"></tag-tabset>
-            </section>
+            </div></section>
 
             <script src="../dist/js/formatting.js"></script>
             <script>
@@ -269,7 +272,7 @@
                 fetch(claims)
                 .then((response) => response.json())
                 .then((claimsData) => {
-                    staticClaims = [...claimsData];
+                    staticClaims = [...claimsData.filter(item => item.Status === approvedText)];
 
                     fetch(businesses)
                     .then((response) => response.json())

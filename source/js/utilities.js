@@ -408,7 +408,7 @@ function calculateAge(birthday) {
     let currentMonth = current.getMonth() + 1;
     let currentDay = current.getDate();
     let birthYear = birthday.year;
-    if(birthday.year.includes('calc')) {
+    if(birthday.year && birthday.year.includes('calc')) {
         birthYear = parseInt(birthday.year.split(`<calc>`)[1].split(`</calc>`)[0]);
     }
     let birthMonth = setMonth(birthday.month);;
@@ -1928,12 +1928,12 @@ function sendAjax(form, data, staffDiscord, publicDiscord, async = true) {
             if(form) {
                 setFormStatus(form, false);
             
-                if(staffDiscord.success || publicDiscord.success || successMessage) {
-                    form.innerHTML = staffDiscord.success ? staffDiscord.success : publicDiscord.success ? publicDiscord.success : successMessage;
+                if((staffDiscord && staffDiscord.success) || (publicDiscord && publicDiscord.success) || successMessage) {
+                    form.innerHTML = (staffDiscord && staffDiscord.success) ? staffDiscord.success : (publicDiscord && publicDiscord.success) ? publicDiscord.success : successMessage;
                 }
             }
 
-            window.scrollTo(0, 0);
+            document.querySelector('main > .container').scrollTo(0, 0);
             
             console.log('complete');
             if(publicDiscord) {
@@ -2005,16 +2005,9 @@ function complexFieldToggle(field, ifclass, showIf, equals) {
 function addRow(e) {
     if(e.closest('.multi-buttons').dataset.rowType === 'hours') {
         e.closest('.adjustable').querySelector('.rows').insertAdjacentHTML('beforeend', formatHourRow());
-    } else if(e.closest('.multi-buttons').dataset.rowType === 'plotsections') {
-        e.closest('.adjustable').querySelector('.rows').insertAdjacentHTML('beforeend', formatSectionFields());
-    } else if(e.closest('.multi-buttons').dataset.rowType === 'plotroles') {
-        e.closest('.adjustable').querySelector('.rows').insertAdjacentHTML('beforeend', formatRoleFields());
     } else if(e.closest('.multi-buttons').dataset.rowType === 'jobs') {
         e.closest('.adjustable').querySelector('.rows').insertAdjacentHTML('beforeend', formatJobFields());
         setEmployers(staticBusinesses, `#${e.closest('form').getAttribute('id')}`, `.job-wrap`);
-    } else if(e.closest('.multi-buttons').dataset.rowType === 'roles') {
-        e.closest('.adjustable').querySelector('.rows').insertAdjacentHTML('beforeend', formatRoleClaimFields());
-        setMultiplePlotOptions(staticSubplots, `#${e.closest('form').getAttribute('id')}`, `.role-wrap`);
     } else if(e.closest('.multi-buttons').dataset.rowType === 'credits') {
         e.closest('.adjustable').querySelector('.rows').insertAdjacentHTML('beforeend', formatCreditFields());
     }
@@ -2280,11 +2273,14 @@ function formatRoleRemoval(data) {
     return html;
 }
 function setEmployers(data, formID, wrapClass) {
-    data = data.filter(employer => employer.Hiring && (employer.Hiring === 'yes' || employer.Hiring === 'ask first'));
     data.sort((a, b) => {
         if (a.Hiring.toLowerCase() === 'yes' && b.Hiring.toLowerCase() !== 'yes') {
             return -1;
         } else if (a.Hiring.toLowerCase() !== 'yes' && b.Hiring.toLowerCase() === 'yes') {
+            return 1;
+        } if (a.Hiring.toLowerCase() === 'ask first' && b.Hiring.toLowerCase() !== 'ask first') {
+            return -1;
+        } else if (a.Hiring.toLowerCase() !== 'ask first' && b.Hiring.toLowerCase() === 'ask first') {
             return 1;
         } else if (a.Employer.toLowerCase().replace('the ', '') < b.Employer.toLowerCase().replace('the ', '')) {
             return -1;
@@ -2302,6 +2298,9 @@ function setEmployers(data, formID, wrapClass) {
             if(employer.Hiring.toLowerCase() === 'yes') {
                 optgroup = `Actively Hiring`;
             }
+            if(employer.Hiring.toLowerCase() === 'no') {
+                optgroup = `Not Hiring`;
+            }
             employerOptions += `<optgroup label="${optgroup}">`;
             employerOptions += `<option value="${employer.Employer}">${capitalize(employer.Employer, [' ', '-'])}</option>`;
         }
@@ -2310,6 +2309,9 @@ function setEmployers(data, formID, wrapClass) {
             let optgroup = `Ask First`;
             if(employer.Hiring.toLowerCase() === 'yes') {
                 optgroup = `Actively Hiring`;
+            }
+            if(employer.Hiring.toLowerCase() === 'no') {
+                optgroup = `Not Hiring`;
             }
             employerOptions += `</optgroup>`;
             employerOptions += `<optgroup label="${optgroup}">`;
@@ -2323,55 +2325,17 @@ function setEmployers(data, formID, wrapClass) {
     });
     document.querySelector(`${formID} ${wrapClass}:last-child .employer select`).innerHTML = employerOptions;
 }
-function setMultiplePlotOptions(data, formID, wrapClass) {
-    let plotOptions = `<option value="">(select)</option>`;
-    data.forEach(plot => {
-        plotOptions += `<option value="${plot.PlotID}">${capitalize(plot.Plot, [' ', '-'])}</option>`;
-    });
-    document.querySelector(`${formID} ${wrapClass}:last-child .plot select`).innerHTML = plotOptions;
-
-    setMultiplePlotSwitchers(formID, data, wrapClass);
-}
-function setMultiplePlotSwitchers(formID, data, wrapClass) {
-    let form = document.querySelector(formID);
-    let plotFields = form.querySelectorAll('.plot select');
-    let sectionFields = form.querySelectorAll('.plot-section select');
-
-    plotFields.forEach(plot => {
-        plot.addEventListener('change', e => {
-            let row = e.currentTarget.closest(wrapClass);
-            let sectionField = row.querySelector('.plot-section select');
-            let selectedPlot = e.currentTarget.options[e.currentTarget.selectedIndex].innerText.toLowerCase();
-            let activePlot = data.filter(plot => selectedPlot === plot.Plot)[0];
-            let sections = JSON.parse(activePlot.Sections);
-            let sectionOptions = `<option value="">(select)</option>`;
-            sections.forEach(section => {
-                sectionOptions += `<option value="${cleanText(section.title)}">${capitalize(section.title, [' ', '-'])}</option>`;
-            });
-            sectionField.innerHTML = sectionOptions;
-        });
-    });
-
-    sectionFields.forEach(section => {
-        section.addEventListener('change', e => {
-            let row = e.currentTarget.closest(wrapClass);
-            let plotField = row.querySelector('.plot select');
-            let roleField = row.querySelector('.role select');
-            let selectedPlot = plotField.options[plotField.selectedIndex].innerText.toLowerCase();
-            let activePlot = data.filter(plot => selectedPlot === plot.Plot)[0];
-            let sections = JSON.parse(activePlot.Sections);
-            let selectedSection = e.currentTarget.options[e.currentTarget.selectedIndex].innerText.toLowerCase().trim();
-            let activeSection = sections.filter(section => selectedSection === section.title)[0];
-            let roles = activeSection.roles;
-            let roleOptions = `<option value="">(select)</option>`;
-            roles.forEach(role => {
-                roleOptions += `<option value="${cleanText(role.role)}" data-limit="${role.limit}">${capitalize(role.role, [' ', '-'])}</option>`;
-            });
-            roleField.innerHTML = roleOptions;
-        });
-    });
-}
 function setBusinessList(fieldClass, data, segmented = false) {
+    data.sort((a, b) => {
+        if (a.Employer.toLowerCase().replace('the ', '') < b.Employer.toLowerCase().replace('the ', '')) {
+            return -1;
+        } else if (a.Employer.toLowerCase().replace('the ', '') > b.Employer.toLowerCase().replace('the ', '')) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+
     document.querySelectorAll(fieldClass).forEach(el => {
         let html = `<option value="">(select)</option>`;
         if(segmented) {
@@ -2379,6 +2343,35 @@ function setBusinessList(fieldClass, data, segmented = false) {
         }
         data.forEach(business => {
             html += `<option value="${cleanText(business.Employer)}">${capitalize(business.Employer, [' ', '-'])}</option>`;
+        });
+
+        el.innerHTML = html;
+    });
+}
+function setList(fieldClass, data, type) {
+    document.querySelectorAll(fieldClass).forEach(el => {
+        let html = `<option value="">(select)</option>`;
+
+        switch(type) {
+            case 'pending':
+                data.sort((a, b) => {
+                    if(a.Character < b.Character) { return -1; }
+                    if(a.Character > b.Character) { return 1; }
+                    else { return 0; }
+                });
+                break;
+            default:
+                break;
+        }
+
+        data.forEach(item => {
+            switch(type) {
+                case 'pending':
+                    html += `<option value="${item.AccountID}">${capitalize(item.Character, [' ', '-'])}</option>`;
+                    break;
+                default:
+                    break;
+            }
         });
 
         el.innerHTML = html;

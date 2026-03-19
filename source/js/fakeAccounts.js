@@ -55,8 +55,6 @@ accounts.push({
 
 */
 
-
-const lipsum = `Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
 const imageTall = `https://picsum.photos/500/800`;
 const imageWide = `https://picsum.photos/800/500`;
 
@@ -79,23 +77,21 @@ accounts = [
             }
         },
         character: {
+            face: standardizeLower(``),
             pronouns: standardizeLower(``),
-            relationship: standardizeLower(``),
-            relationshipClass: standardizeLower(cleanText(``)),
             age: parseInt(``),
             ageClass: ``,
             location: ``,
             locationClass: standardizeLower(cleanText(``)),
-            overview: ``,
         },
         writer: {
             aliasClass: standardizeLower(cleanText(`Lux`)),
             alias: standardizeLower(`Lux`),
             age: parseInt(`32`),
             pronouns: standardizeLower(`she/her`),
-            timezone: standardizeLower(`GMT-04:00`),
+            activity: standardizeLower(`moderate`),
+            preferences: standardizeLower(`comms + threads`),
             contact: standardizeLower(`Discord`),
-            triggers: lipsum,
         }
     },
     {
@@ -116,23 +112,21 @@ accounts = [
             }
         },
         character: {
+            face: standardizeLower(``),
             pronouns: standardizeLower(``),
-            relationship: standardizeLower(``),
-            relationshipClass: standardizeLower(cleanText(``)),
             age: parseInt(``),
             ageClass: ``,
             location: ``,
             locationClass: standardizeLower(cleanText(``)),
-            overview: ``,
         },
         writer: {
             aliasClass: standardizeLower(cleanText(`Spyder`)),
             alias: standardizeLower(`Spyder`),
             age: parseInt(`26`),
-            pronouns: standardizeLower(`They/Them`),
-            timezone: standardizeLower(`GMT-05:00`),
+            pronouns: standardizeLower(`they/them`),
+            activity: standardizeLower(`high`),
+            preferences: standardizeLower(`any`),
             contact: standardizeLower(`Discord`),
-            triggers: lipsum,
         }
     },
     {
@@ -153,23 +147,21 @@ accounts = [
             }
         },
         character: {
-            pronouns: standardizeLower(`He/Him`),
-            relationship: standardizeLower(`It's Complicated`),
-            relationshipClass: standardizeLower(cleanText(`It's Complicated`)),
-            age: parseInt(`170`),
-            ageClass: `101500 immortal`,
-            location: `Location`,
-            locationClass: standardizeLower(cleanText(`Location`)),
-            overview: lipsum,
+            face: standardizeLower(`whatever his name is`),
+            pronouns: standardizeLower(`he/him`),
+            age: parseInt(`25`),
+            ageClass: `1825`,
+            location: `neighbourhood one`,
+            locationClass: standardizeLower(cleanText(`neighbourhood one`)),
         },
         writer: {
             aliasClass: standardizeLower(cleanText(`Lux`)),
             alias: standardizeLower(`Lux`),
             age: parseInt(`32`),
             pronouns: standardizeLower(`she/her`),
-            timezone: standardizeLower(`GMT-04:00`),
+            activity: standardizeLower(`moderate`),
+            preferences: standardizeLower(`comms + threads`),
             contact: standardizeLower(`Discord`),
-            triggers: lipsum,
         }
     },
     {
@@ -190,23 +182,21 @@ accounts = [
             }
         },
         character: {
-            pronouns: standardizeLower(`She/her`),
-            relationship: standardizeLower(`Single`),
-            relationshipClass: standardizeLower(cleanText(`Single`)),
+            face: standardizeLower(`willa holland`),
+            pronouns: standardizeLower(`she/her`),
             age: parseInt(`31`),
-            ageClass: `2634 mortal`,
-            location: `Location 2`,
-            locationClass: standardizeLower(cleanText(`Location 2`)),
-            overview: lipsum,
+            ageClass: `2635`,
+            location: `neighbourhood two`,
+            locationClass: standardizeLower(cleanText(`neighbourhood two`)),
         },
         writer: {
             aliasClass: standardizeLower(cleanText(`Spyder`)),
             alias: standardizeLower(`Spyder`),
             age: parseInt(`26`),
-            pronouns: standardizeLower(`They/Them`),
-            timezone: standardizeLower(`GMT-05:00`),
+            pronouns: standardizeLower(`they/them`),
+            activity: standardizeLower(`high`),
+            preferences: standardizeLower(`any`),
             contact: standardizeLower(`Discord`),
-            triggers: lipsum,
         }
     },
 ];

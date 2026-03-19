@@ -26,7 +26,15 @@
       flex-wrap: wrap;
       max-width: 100%;
       margin: 0 0 0 auto;
-      padding: 0; }
+      padding: 0;
+      color: var(--text-secondary);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      line-height: 160%;
+      font-size: var(--text-size-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.4em;
+      align-items: center; }
       .nav--breadcrumb #navstrip a {
         color: var(--text-secondary);
         font-family: var(--font-sans);
@@ -35,6 +43,9 @@
         font-size: var(--text-size-xs);
         text-transform: uppercase;
         letter-spacing: 0.4em; }
+      .nav--breadcrumb #navstrip i {
+        padding: 0 var(--space-xs);
+        flex: 0 0 max-content; }
   .nav--main {
     top: 0;
     left: 0;
@@ -50,6 +61,8 @@
     transition: var(--transition-long); }
     .nav--main:has(.options .is-open) {
       top: var(--size-options-menu); }
+    .nav--main:has(.login .is-open) {
+      top: 72px; }
     .nav--main:has(.is-open) {
       top: calc(100% - (2.5 * var(--size-container-margin))); }
     .nav--main a,
@@ -92,6 +105,27 @@
     z-index: 9; }
     .nav--popout:not(.fullHeight) {
       border-left-width: 0; }
+    .nav--popout.login {
+      transition: var(--transition-long);
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 72px;
+      max-width: 376px;
+      width: calc(100% - (2 * var(--size-container-margin)));
+      background: var(--bg-primary);
+      border-right: 2px solid var(--accent-2);
+      border-right: 1px solid var(--accent-1);
+      border-bottom: 1px solid var(--accent-1);
+      display: flex; }
+      .nav--popout.login form > div {
+        display: flex;
+        gap: var(--space-xs); }
+        .nav--popout.login form > div strong {
+          display: none; }
+        .nav--popout.login form > div input[type="text"],
+        .nav--popout.login form > div input[type="password"] {
+          flex-grow: 1; }
     .nav--popout.options {
       transition: var(--transition-long);
       position: fixed;
@@ -166,6 +200,50 @@
         background: var(--bg-gradient);
         border-radius: 2.5px; }
       body.lgFont .nav--popout.options button.toggle--size div span {
+        margin: -3px auto; }
+    .nav--popout.login button {
+      display: flex;
+      align-items: center;
+      gap: var(--space-sm);
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      flex-grow: 1;
+      transition: var(--transition-standard); }
+      .nav--popout.login button div {
+        width: 100%;
+        height: var(--space-xs);
+        border-radius: calc(var(--space-xs) / 2);
+        background: var(--bg-secondary);
+        border: var(--border-secondary);
+        transition: var(--transition-standard);
+        cursor: pointer; }
+        .nav--popout.login button div span {
+          display: block;
+          width: 9px;
+          height: 9px;
+          margin: -3px auto -3px 0;
+          border-radius: 50%;
+          background: var(--text-primary);
+          transition: var(--transition-standard); }
+      body.light .nav--popout.login button.toggle--theme div,
+      body.xlFont .nav--popout.login button.toggle--size div,
+      body.maximalist .nav--popout.login button.toggle--images div {
+        background: var(--bg-gradient); }
+        body.light .nav--popout.login button.toggle--theme div span,
+        body.xlFont .nav--popout.login button.toggle--size div span,
+        body.maximalist .nav--popout.login button.toggle--images div span {
+          margin: -3px 0 -3px auto; }
+      body.lgFont .nav--popout.login button.toggle--size div::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        background: var(--bg-gradient);
+        border-radius: 2.5px; }
+      body.lgFont .nav--popout.login button.toggle--size div span {
         margin: -3px auto; }
   .nav #quick-login {
     width: calc(100vw - var(--size-menu-width) - var(--space-lg));
@@ -304,7 +382,7 @@
       @media only screen and (min-width: 1280px) {
         .switch--name b {
           font-size: 28px; } }
-      .switch--name b::before {
+      .switch--name b::after {
         display: none; }
     .switch--name span {
       color: var(--text-primary);
@@ -364,7 +442,7 @@
       @media only screen and (min-width: 1280px) {
         .alert--main .recent-alerts-msg > div:only-of-type {
           font-size: 28px; } }
-      .alert--main .recent-alerts-msg > div:only-of-type::before {
+      .alert--main .recent-alerts-msg > div:only-of-type::after {
         display: none; }
     .alert--main .recent-alerts-msg br {
       display: none; }
@@ -396,7 +474,7 @@
       @media only screen and (min-width: 1280px) {
         .alert--main .recent-alerts-msg:not(.reg-alert) > a:first-of-type {
           font-size: 28px; } }
-      .alert--main .recent-alerts-msg:not(.reg-alert) > a:first-of-type::before {
+      .alert--main .recent-alerts-msg:not(.reg-alert) > a:first-of-type::after {
         display: none; }
       body.maximalist .alert--main .recent-alerts-msg:not(.reg-alert) > a:first-of-type {
         grid-column: 2 / 3;
@@ -431,7 +509,7 @@
       @media only screen and (min-width: 1280px) {
         .alert--main .recent-alerts-msg.reg-alert > a {
           font-size: 28px; } }
-      .alert--main .recent-alerts-msg.reg-alert > a::before {
+      .alert--main .recent-alerts-msg.reg-alert > a::after {
         display: none; }
       body.maximalist .alert--main .recent-alerts-msg.reg-alert > a {
         grid-column: 2 / 3;

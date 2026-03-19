@@ -33,37 +33,47 @@
                         <i class="fa-solid fa-xmark close-button"></i>
                     </button>
                     <tag-labels class="accordion scroll">
-                        <tag-label class="tab-category accordion--trigger" data-category="filters">
-                            <span>Filters</span>
+                        <tag-label class="tab-category accordion--trigger hidden" data-category="addresses">
+                            <span>Address Book</span>
                         </tag-label>
-                        <div class="tab-category accordion--content menu-filters" data-category="filters">
-                            <strong class="h7 underline">Filter by Business Name</strong>
-                            <input type="text" oninput="filterBusinesses(this)" placeholder="Business Name" style="margin-bottom: 10px;">
-                            <strong class="h7 underline">Filter by Employee Name</strong>
-                            <input type="text" oninput="filterEmployees(this)" placeholder="Employee Name">
+                        <div class="tab-category accordion--content is-open" data-category="addresses">
+                            <a href="#lookup">Address Lookup</a>
                         </div>
                     </tag-labels>
                 </div></div>
-                <tag-tabset class="webpage--content"></tag-tabset>
+                <tag-tabset class="webpage--content">
+                    <tag-tab class="tab-category" data-category="addresses">
+                        <tag-tabset>
+                            <tag-tab data-key="#lookup">
+                                <div class="webpage--content-inner">
+                                    @@include('../source/templates/forms/address-lookup.html')
+                                </div>
+                            </tag-tab>
+                        </tag-tabset>
+                    </tag-tab>
+                </tag-tabset>
             </div></section>
 
+            <script src="../dist/js/formHelpers.js"></script>
+            <script src="../dist/js/forms.js"></script>
             <script src="../dist/js/formatting.js"></script>
             <script>
-                let staticClaims = [];
+                let staticClaims = [], staticBusinesses = [];
 
                 fetch(claims)
                 .then((response) => response.json())
                 .then((claimsData) => {
-                    staticClaims = [...claimsData.filter(item => item.Status === approvedText)];
+                    staticClaims = [...claimsData];
 
                     fetch(businesses)
                     .then((response) => response.json())
                     .then((businessData) => {
-                        formatBusinesses(businessData, staticClaims);
+                        staticBusinesses = [...businessData];
+                        formatAddresses(neighbourhoodsData, staticClaims, businessData);
 
                     }).then(() => {
                         initWebpages();
-                    });;
+                    });
 
                 });
             </script>

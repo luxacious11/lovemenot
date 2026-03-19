@@ -24,7 +24,7 @@
 @mixin link($style: button) {
     @if($style == button) {
         display: flex;
-        line-height: 100%;
+        line-height: 160%;
         font-size: var(--text-size-sm);
         text-transform: uppercase;
         letter-spacing: 0.1em;
@@ -80,6 +80,7 @@
             aspect-ratio: 1 / 1;
             border-radius: 50%;
             font-size: 10px;
+            font-style: normal;
         }
     }
 }
@@ -155,7 +156,7 @@
         font-style: normal;
         line-height: 120%;
         text-transform: uppercase;
-        @include fluid-type(16, 20, 480, 1280);
+        font-size: 20px;
         color: var(--text-secondary);
         font-weight: 900;
     }
@@ -164,15 +165,26 @@
         font-style: normal;
         line-height: 120%;
         text-transform: uppercase;
-        font-size: 14px;
+        font-size: var(--text-size-lg);
         letter-spacing: 0.1em;
+        color: var(--text-secondary);
+        font-weight: 900;
+    }
+    @if($size == h7) {
+        display: block;
+        font-family: var(--font-sans);
+        font-style: normal;
+        line-height: 180%;
+        text-transform: uppercase;
+        font-size: var(--text-size-sm);
+        letter-spacing: 0.3em;
         color: var(--text-secondary);
         font-weight: 900;
     }
     @if($underline == true) {
         padding-bottom: var(--space-xs);
 
-        &::before {
+        &::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -186,7 +198,7 @@
     @if($underline == thin) {
         padding-bottom: var(--space-xs);
 
-        &::before {
+        &::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -197,8 +209,43 @@
         }
     }
     @if($underline == false) {
-        &::before {
+        &::after {
             display: none;
+        }
+    }
+    @if($size == h8) {
+        display: block;
+        font-family: var(--font-sans);
+        font-style: normal;
+        line-height: 200%;
+        text-transform: uppercase;
+        font-size: var(--text-size-xs);
+        letter-spacing: 0.3em;
+        color: var(--text-secondary);
+        font-weight: 700;
+        text-align: center;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: var(--space-md) var(--space-lg);
+
+        &::before,
+        &::after {
+            display: block !important;
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: var(--bg-gradient);
+        }
+
+        &::before {
+            top: 0;
+        }
+
+        &::after {
+            bottom: 0;
         }
     }
 }

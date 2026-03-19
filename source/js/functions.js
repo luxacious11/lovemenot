@@ -389,39 +389,35 @@ function createFieldArray(arr, input = false) {
 
 /****** Members Initialization ******/
 function formatMemberRow(type, data, extraFilters = '') {
-    let tagList = ``, info = ``, details = ``;
+    let tagList = ``, info = ``;
     if(type === 'character') {
-        tagList += `${data.character.ageClass} ${data.character.relationshipClass} ${data.character.locationClass}`;
+        tagList += `${data.character.ageClass} ${data.character.locationClass}`;
         info += `<div class="member--stats">
             <span>${data.character.age} years old</span>
-            <span>${data.character.pronouns}</span>
-            <span>${data.character.location}</span>
-            <span>${data.writer.alias}</span>
+            <span>${data.character.pronouns.trim()}</span>
+            <span>${data.character.location.trim()}</span>
+            <span>${data.character.face.trim()}</span>
+            <span>played by ${data.writer.alias.trim()}</span>
         </div>`;
-        details = data.character.overview;
     } else {
         info += `<div class="member--stats">
             <span>${data.writer.age} years old</span>
-            <span>${data.writer.pronouns}</span>
-            <span>${data.writer.timezone}</span>
-            <span>${data.writer.contact}</span>
+            <span>${data.writer.pronouns.trim()}</span>
+            <span>${data.writer.activity.trim()} activity</span>
+            <span>prefers ${data.writer.preferences.trim()}</span>
+            <span>${data.writer.contact.trim()}</span>
         </div>`;
-        details = data.writer.triggers;
     }
     return `<div class="members--member grid-item g-${data.universal.groupID} ${data.writer.aliasClass} ${type} ${extraFilters} ${tagList}">
         <div class="member">
             <div class="member--top">
                 <img src="${data.universal.imageWide}" loading="lazy" />
             </div>
-            <div class="member--main">
-                <a href="?showuser=${data.universal.id}">${formatName(data.universal.name, 'b')}</a>
-                <div class="member--species">Joined ${data.universal.dates.joined}</div>
-                <div class="member--species">Last seen ${data.universal.dates.lastActive}</div>
+            <div class="member--bottom">
+                <span>${data.universal.groupName}</span>
+                <a href="?showuser=${data.universal.id}">${data.universal.name}</a>
+                ${info}
             </div>
-            ${info}
-            <div class="member--overview"><div class="scroll">
-                ${details}
-            </div></div>
         </div>
         <div class="hidden member--sortable">
             <span class="member--name">${data.universal.name}</span>
@@ -432,9 +428,7 @@ function formatMemberRow(type, data, extraFilters = '') {
     </div>`;
 }
 function toggleListMenu(e) {
-    if(e.closest('.members--menu')) {
-        e.closest('.members--menu').classList.toggle('is-open');
-    } else if(e.closest('.webpage--menu')) {
-        e.closest('.webpage--menu').classList.toggle('is-open');
+    if(e.closest('.sticky')) {
+        e.closest('.sticky').classList.toggle('is-open');
     }
 }

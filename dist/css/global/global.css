@@ -71,6 +71,9 @@ input,
 select {
   height: 40px; }
 
+select option {
+  font-size: var(--text-size-md); }
+
 input[type="file"] {
   height: auto;
   padding: var(--space-sm) var(--space-md); }
@@ -81,7 +84,7 @@ input[type="button"] {
   font-style: normal;
   line-height: 120%;
   text-transform: uppercase;
-  font-size: 14px;
+  font-size: var(--text-size-lg);
   letter-spacing: 0.1em;
   color: var(--text-secondary);
   font-weight: 900;
@@ -89,8 +92,8 @@ input[type="button"] {
   color: var(--text-primary);
   transition: var(--transition-standard);
   margin: 0 var(--space-xs); }
-  input[type="submit"]::before,
-  input[type="button"]::before {
+  input[type="submit"]::after,
+  input[type="button"]::after {
     display: none; }
   input[type="submit"]:hover,
   input[type="button"]:hover {
@@ -121,15 +124,79 @@ textarea {
     background: var(--bg-accent);
     border: none; }
 
-.macro--button[onclick] {
-  cursor: pointer; }
-  .is-open > .macro--button[onclick] .open-button {
-    display: none !important; }
-  *:not(.is-open) > .macro--button[onclick] .close-button {
-    display: none !important; }
-  *:not(.is-open) > .macro--button[onclick] + tag-labels,
-  *:not(.is-open) > .macro--button[onclick] ~ .accordion {
-    display: none !important; }
+.macro--button {
+  display: block;
+  background: var(--bg-gradient-75);
+  padding: var(--space-xs);
+  border-radius: 50%;
+  border: none;
+  width: 40px;
+  height: 40px; }
+  .macro--button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-gradient-25);
+    border-radius: 50%;
+    scale: 1;
+    transition: var(--transition-standard); }
+  .macro--button:hover::before {
+    scale: 1.3; }
+  .macro--button i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    width: 30px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    font-size: 10px;
+    font-style: normal; }
+  .is-open > .macro--button::before {
+    scale: 1.3; }
+  .macro--button[onclick] {
+    cursor: pointer; }
+    .is-open.sticky > .macro--button[onclick] .open-button {
+      display: none !important; }
+    *:not(.sticky.is-open) > .macro--button[onclick] .close-button {
+      display: none !important; }
+    *:not(.sticky.is-open) > .macro--button[onclick] + tag-labels,
+    *:not(.sticky.is-open) > .macro--button[onclick] ~ .accordion {
+      display: none !important; }
+
+.macro--header {
+  line-height: 120%;
+  font-family: var(--font-script);
+  text-transform: lowercase;
+  font-size: 30px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  padding-bottom: var(--space-xs);
+  margin: var(--space-lg) auto;
+  width: max-content;
+  max-width: 100%;
+  padding: 0 var(--space-lg) var(--space-xs); }
+  @media only screen and (min-width: 480px) {
+    .macro--header {
+      font-size: calc(30px + 12 * (100vw - 480px) / (1280 - 480)); } }
+  @media only screen and (min-width: 1280px) {
+    .macro--header {
+      font-size: 42px; } }
+  .macro--header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background: var(--bg-gradient); }
+  .macro--header:has(+ .macro--header) {
+    display: none; }
 
 tag-tabset {
   display: flex;
@@ -156,7 +223,7 @@ tag-labels {
   cursor: pointer; }
 
 .accordion--content:not(.is-active) {
-  display: none; }
+  display: none !important; }
 
 .invisibleElTagging.menu-open + .alert-options .fa-tags,
 .invisibleElTagging:not(.menu-open) + .alert-options .fa-xmark {
@@ -252,7 +319,7 @@ button {
       @media only screen and (min-width: 1280px) {
         .items--item b {
           font-size: 28px; } }
-      .items--item b::before {
+      .items--item b::after {
         display: none; }
     .items--item span {
       color: var(--text-primary);
@@ -281,16 +348,10 @@ button {
   font-style: normal;
   line-height: 120%;
   text-transform: uppercase;
-  font-size: 16px;
+  font-size: 20px;
   color: var(--text-secondary);
   font-weight: 900; }
-  @media only screen and (min-width: 480px) {
-    .accordion--trigger {
-      font-size: calc(16px + 4 * (100vw - 480px) / (1280 - 480)); } }
-  @media only screen and (min-width: 1280px) {
-    .accordion--trigger {
-      font-size: 20px; } }
-  .accordion--trigger::before {
+  .accordion--trigger::after {
     display: none; }
   .accordion--trigger::before {
     display: inline-block;
@@ -332,7 +393,8 @@ tag-highlight {
 
 .pagination {
   display: flex;
-  gap: var(--space-xs); }
+  gap: var(--space-xs);
+  font-size: 0; }
   .pagination_pagetxt {
     display: none; }
   .pagination_current, .pagination_page {
@@ -367,7 +429,8 @@ tag-highlight {
       width: 30px;
       aspect-ratio: 1 / 1;
       border-radius: 50%;
-      font-size: 10px; }
+      font-size: 10px;
+      font-style: normal; }
     .pagination_current b, .pagination_page b {
       display: flex;
       align-items: center;
@@ -380,3 +443,127 @@ tag-highlight {
       font-size: 10px; }
   .pagination_current::before {
     scale: 1.3; }
+  .pagination_last {
+    background: var(--bg-gradient-75);
+    padding: var(--space-xs);
+    border-radius: 50%;
+    border: none;
+    font-size: 0;
+    aspect-ratio: 1 / 1; }
+    .pagination_last::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg-gradient-25);
+      border-radius: 50%;
+      scale: 1;
+      transition: var(--transition-standard); }
+    .pagination_last:hover::before {
+      scale: 1.3; }
+    .pagination_last i {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      width: 30px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      font-size: 10px;
+      font-style: normal; }
+    .pagination_last::after {
+      position: absolute;
+      top: var(--space-xs);
+      left: var(--space-xs);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      width: calc(100% - (2 * var(--space-xs)));
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      font-size: 10px;
+      font-family: 'Font Awesome 7 Pro'; }
+
+fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  align-items: left;
+  text-align: left;
+  background: var(--bg-secondary);
+  border: var(--border-primary);
+  border-radius: var(--radius-medium);
+  padding: var(--space-md);
+  margin: 0 auto;
+  font-size: 0;
+  line-height: 0; }
+  fieldset legend {
+    color: var(--text-secondary);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 160%;
+    font-size: var(--text-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: var(--space-sm) var(--space-md);
+    background: var(--bg-secondary);
+    border: var(--border-accent);
+    border-radius: var(--radius-medium); }
+  fieldset label {
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 160%;
+    font-size: var(--text-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    line-height: 200%; }
+  fieldset select {
+    font-size: var(--text-size-md);
+    line-height: 200%; }
+  fieldset input {
+    margin: 0 !important; }
+
+#loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100vh;
+  background: var(--bg-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  #loading .loading-bubble {
+    font-family: var(--font-sans);
+    font-style: normal;
+    line-height: 120%;
+    text-transform: uppercase;
+    font-size: 20px;
+    color: var(--text-secondary);
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: var(--space-md);
+    background: var(--bg-primary);
+    padding: var(--space-lg) var(--space-xl);
+    border-radius: var(--radius-large);
+    border: var(--border-secondary); }
+    @media only screen and (min-width: 480px) {
+      #loading .loading-bubble {
+        font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
+    @media only screen and (min-width: 1280px) {
+      #loading .loading-bubble {
+        font-size: 28px; } }
+    #loading .loading-bubble::after {
+      display: none; }
+    #loading .loading-bubble p {
+      margin: 0; }

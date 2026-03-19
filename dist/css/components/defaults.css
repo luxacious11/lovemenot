@@ -2,6 +2,7 @@
     Jcink Defaults
 ********************************/
 /***** Hide Unused Elements *****/
+.goto-firstunread,
 .hidden,
 .hide,
 .newstext,
@@ -19,7 +20,7 @@ a[href="<i>No Information</i>"] {
   align-items: center; }
   .input-wrap input {
     display: none; }
-    .input-wrap input:checked ~ .fancy-input {
+    .input-wrap input:checked ~ .fancy-input i {
       color: var(--text-secondary); }
   .input-wrap .fancy-input {
     border: var(--border-primary);
@@ -34,52 +35,121 @@ a[href="<i>No Information</i>"] {
     cursor: pointer; }
     .input-wrap .fancy-input.radio {
       border-radius: 50%; }
+    .input-wrap .fancy-input i {
+      color: transparent; }
 
 /***** Online List ******/
-#Online main > .tableborder:nth-of-type(2) .maintitle {
-  text-align: left;
-  margin: var(--space-lg) 0;
-  line-height: 160%;
-  max-width: max-content;
-  padding: var(--space-sm) 0 var(--space-sm) var(--space-lg); }
-  #Online main > .tableborder:nth-of-type(2) .maintitle + table {
-    display: block;
-    width: 100%; }
-    #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: var(--space-md); }
-      @media (min-width: 769px) {
-        #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody {
-          grid-template-columns: repeat(2, 1fr); } }
-      @media (min-width: 1025px) {
-        #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody {
-          grid-template-columns: repeat(3, 1fr); } }
-      @media (min-width: 1281px) {
-        #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody {
-          grid-template-columns: repeat(4, 1fr); } }
-      #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr {
-        padding: var(--space-md);
-        display: flex;
-        flex-direction: column;
-        align-items: center; }
-        #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:first-child {
-          display: none; }
-        #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr:last-child {
-          grid-column: 1 / -1; }
-        #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td {
-          display: block;
-          width: 100%;
-          padding: 0;
-          text-align: center; }
-          #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td:first-child {
-            text-align: center; }
-            #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td:first-child span.g-2:first-child,
-            #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td:first-child a:first-child {
-              display: block;
-              line-height: 120%; }
-          #Online main > .tableborder:nth-of-type(2) .maintitle + table > tbody > tr > td:last-child:not(:only-child) {
+#Online main .container > .tableborder {
+  margin: 0 auto var(--space-xl);
+  padding: 0 var(--space-md);
+  max-width: var(--size-max-screen); }
+  @media (min-width: 601px) {
+    #Online main .container > .tableborder {
+      padding: 0 var(--space-lg); } }
+  @media (min-width: 769px) {
+    #Online main .container > .tableborder {
+      padding: 0 var(--space-xl); } }
+  #Online main .container > .tableborder .maintitle {
+    text-align: left;
+    margin: 0 0 var(--space-lg);
+    line-height: 160%;
+    max-width: max-content;
+    line-height: 120%;
+    font-family: var(--font-script);
+    text-transform: lowercase;
+    font-size: 30px;
+    color: var(--text-secondary);
+    font-weight: 400;
+    padding-bottom: var(--space-xs); }
+    @media only screen and (min-width: 480px) {
+      #Online main .container > .tableborder .maintitle {
+        font-size: calc(30px + 12 * (100vw - 480px) / (1280 - 480)); } }
+    @media only screen and (min-width: 1280px) {
+      #Online main .container > .tableborder .maintitle {
+        font-size: 42px; } }
+    #Online main .container > .tableborder .maintitle::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--bg-gradient); }
+    #Online main .container > .tableborder .maintitle + table {
+      display: block;
+      width: 100%;
+      background: var(--bg-primary);
+      border-radius: var(--radius-large);
+      padding: var(--space-md); }
+      @media (min-width: 481px) {
+        #Online main .container > .tableborder .maintitle + table {
+          padding: var(--space-lg); } }
+      #Online main .container > .tableborder .maintitle + table > tbody {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: var(--space-md); }
+        @media (min-width: 769px) {
+          #Online main .container > .tableborder .maintitle + table > tbody {
+            grid-template-columns: repeat(2, 1fr); } }
+        @media (min-width: 1025px) {
+          #Online main .container > .tableborder .maintitle + table > tbody {
+            grid-template-columns: repeat(3, 1fr); } }
+        @media (min-width: 1281px) {
+          #Online main .container > .tableborder .maintitle + table > tbody {
+            grid-template-columns: repeat(4, 1fr); } }
+        #Online main .container > .tableborder .maintitle + table > tbody > tr {
+          padding: var(--space-md);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          color: var(--text-primary);
+          font-family: var(--font-sans);
+          font-weight: 600;
+          line-height: 160%;
+          font-size: var(--text-size-xs);
+          text-transform: uppercase;
+          letter-spacing: 0.2em;
+          line-height: 200%; }
+          #Online main .container > .tableborder .maintitle + table > tbody > tr:first-child {
             display: none; }
+          #Online main .container > .tableborder .maintitle + table > tbody > tr:last-child {
+            grid-column: 1 / -1; }
+            #Online main .container > .tableborder .maintitle + table > tbody > tr:last-child select {
+              font-size: var(--text-size-md); }
+          #Online main .container > .tableborder .maintitle + table > tbody > tr a {
+            color: var(--text-secondary); }
+          #Online main .container > .tableborder .maintitle + table > tbody > tr:not(:first-child):not(:last-child) {
+            background: var(--bg-secondary);
+            border: var(--border-primary);
+            border-radius: var(--radius-medium); }
+          #Online main .container > .tableborder .maintitle + table > tbody > tr > td {
+            display: block;
+            width: 100%;
+            padding: 0;
+            text-align: center; }
+            #Online main .container > .tableborder .maintitle + table > tbody > tr > td:first-child {
+              text-align: center; }
+              #Online main .container > .tableborder .maintitle + table > tbody > tr > td:first-child span.g-2,
+              #Online main .container > .tableborder .maintitle + table > tbody > tr > td:first-child a {
+                font-family: var(--font-sans);
+                font-style: normal;
+                line-height: 120%;
+                text-transform: uppercase;
+                font-size: var(--text-size-lg);
+                letter-spacing: 0.1em;
+                color: var(--text-secondary);
+                font-weight: 900;
+                line-height: 160%; }
+                #Online main .container > .tableborder .maintitle + table > tbody > tr > td:first-child span.g-2::after,
+                #Online main .container > .tableborder .maintitle + table > tbody > tr > td:first-child a::after {
+                  display: none; }
+                #Online main .container > .tableborder .maintitle + table > tbody > tr > td:first-child span.g-2:first-child,
+                #Online main .container > .tableborder .maintitle + table > tbody > tr > td:first-child a:first-child {
+                  display: block;
+                  line-height: 120%; }
+            #Online main .container > .tableborder .maintitle + table > tbody > tr > td:last-child:not(:only-child) {
+              display: none; }
 
 /***** Quick Reply/Options *****/
 #ST #qr_open,
@@ -311,139 +381,252 @@ a[href="<i>No Information</i>"] {
   margin-top: var(--space-md); }
 
 /***** Registration ******/
-#Reg main > .tableborder:first-of-type .tablepad b {
-  margin: var(--space-md) 0;
-  display: block;
-  max-width: max-content;
-  padding: var(--space-xs) var(--space-sm); }
-  #Reg main > .tableborder:first-of-type .tablepad b + br {
-    display: none; }
+#Reg main .container > .header + .tableborder {
+  margin: 0 auto var(--space-xl);
+  padding: 0 var(--space-md);
+  max-width: var(--size-max-screen);
+  font-size: calc(var(--text-size-md) + 1px);
+  line-height: 200%; }
+  @media (min-width: 601px) {
+    #Reg main .container > .header + .tableborder {
+      padding: 0 var(--space-lg); } }
+  @media (min-width: 769px) {
+    #Reg main .container > .header + .tableborder {
+      padding: 0 var(--space-xl); } }
+  #Reg main .container > .header + .tableborder .maintitle ~ div {
+    background: var(--bg-primary);
+    padding: 0 var(--space-md); }
+    @media (min-width: 481px) {
+      #Reg main .container > .header + .tableborder .maintitle ~ div {
+        padding: 0 var(--space-lg); } }
+  #Reg main .container > .header + .tableborder .maintitle + div {
+    border-radius: var(--radius-large) var(--radius-large) 0 0;
+    padding-top: var(--space-md); }
+    @media (min-width: 481px) {
+      #Reg main .container > .header + .tableborder .maintitle + div {
+        padding-top: var(--space-lg); } }
+  #Reg main .container > .header + .tableborder .tablepad b {
+    display: block;
+    max-width: max-content;
+    font-family: var(--font-sans);
+    font-style: normal;
+    line-height: 120%;
+    text-transform: uppercase;
+    font-size: var(--text-size-lg);
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    font-weight: 900;
+    padding: var(--space-lg) 0 var(--space-sm); }
+    #Reg main .container > .header + .tableborder .tablepad b::after {
+      display: none; }
+    #Reg main .container > .header + .tableborder .tablepad b + br {
+      display: none; }
+  #Reg main .container > .header + .tableborder .row2:last-child {
+    border-radius: 0 0 var(--radius-large) var(--radius-large);
+    padding-bottom: var(--space-md);
+    padding-top: var(--space-md); }
+    @media (min-width: 481px) {
+      #Reg main .container > .header + .tableborder .row2:last-child {
+        padding-bottom: var(--space-lg); } }
 
-#Reg main > .tableborder:first-of-type .row2:last-child {
-  margin-top: var(--space-lg); }
-
-#Reg main > .tableborder:first-of-type,
-#Reg main > form > .tableborder {
-  padding: var(--space-lg); }
-  #Reg main > .tableborder:first-of-type .maintitle,
-  #Reg main > form > .tableborder .maintitle {
+#Reg main .container > .header + .tableborder,
+#Reg main .container > form > .tableborder {
+  margin: 0 auto var(--space-xl);
+  padding: 0 var(--space-md);
+  max-width: var(--size-max-screen); }
+  @media (min-width: 601px) {
+    #Reg main .container > .header + .tableborder,
+    #Reg main .container > form > .tableborder {
+      padding: 0 var(--space-lg); } }
+  @media (min-width: 769px) {
+    #Reg main .container > .header + .tableborder,
+    #Reg main .container > form > .tableborder {
+      padding: 0 var(--space-xl); } }
+  #Reg main .container > .header + .tableborder .maintitle,
+  #Reg main .container > form > .tableborder .maintitle {
     text-align: left;
     margin: var(--space-lg) 0;
     line-height: 160%;
     max-width: max-content;
-    padding: var(--space-sm) 0 var(--space-sm) var(--space-lg) !important; }
-  #Reg main > .tableborder:first-of-type .tablepad b + br + br,
-  #Reg main > .tableborder:first-of-type .tablepad b + br + br + br,
-  #Reg main > form > .tableborder .tablepad b + br + br,
-  #Reg main > form > .tableborder .tablepad b + br + br + br {
+    line-height: 120%;
+    font-family: var(--font-script);
+    text-transform: lowercase;
+    font-size: 30px;
+    color: var(--text-secondary);
+    font-weight: 400;
+    padding-bottom: var(--space-xs); }
+    @media only screen and (min-width: 480px) {
+      #Reg main .container > .header + .tableborder .maintitle,
+      #Reg main .container > form > .tableborder .maintitle {
+        font-size: calc(30px + 12 * (100vw - 480px) / (1280 - 480)); } }
+    @media only screen and (min-width: 1280px) {
+      #Reg main .container > .header + .tableborder .maintitle,
+      #Reg main .container > form > .tableborder .maintitle {
+        font-size: 42px; } }
+    #Reg main .container > .header + .tableborder .maintitle::after,
+    #Reg main .container > form > .tableborder .maintitle::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--bg-gradient); }
+  #Reg main .container > .header + .tableborder .tablepad b + br + br,
+  #Reg main .container > .header + .tableborder .tablepad b + br + br + br,
+  #Reg main .container > form > .tableborder .tablepad b + br + br,
+  #Reg main .container > form > .tableborder .tablepad b + br + br + br {
     display: none; }
 
-#Reg main > form {
+#Reg main .container > form {
   display: flex;
   flex-direction: column;
   font-size: 0;
   line-height: 0; }
-  #Reg main > form > br,
-  #Reg main > form .maintitle + .pformstrip {
+  #Reg main .container > form > br,
+  #Reg main .container > form .maintitle + .pformstrip {
     display: none; }
-  #Reg main > form .tablepad > table {
+  #Reg main .container > form .tablepad > table {
     display: block; }
-    #Reg main > form .tablepad > table > tbody {
+    #Reg main .container > form .tablepad > table > tbody {
       display: block; }
-      #Reg main > form .tablepad > table > tbody > tr:first-child {
+      #Reg main .container > form .tablepad > table > tbody > tr:first-child {
         display: flex;
         flex-direction: column; }
-        #Reg main > form .tablepad > table > tbody > tr:first-child > td {
+        #Reg main .container > form .tablepad > table > tbody > tr:first-child > td {
           width: 100%; }
-          #Reg main > form .tablepad > table > tbody > tr:first-child > td fieldset {
+          #Reg main .container > form .tablepad > table > tbody > tr:first-child > td fieldset {
             max-width: none;
             width: 100%;
             box-sizing: border-box; }
-            #Reg main > form .tablepad > table > tbody > tr:first-child > td fieldset input,
-            #Reg main > form .tablepad > table > tbody > tr:first-child > td fieldset select,
-            #Reg main > form .tablepad > table > tbody > tr:first-child > td fieldset textarea {
+            #Reg main .container > form .tablepad > table > tbody > tr:first-child > td fieldset input,
+            #Reg main .container > form .tablepad > table > tbody > tr:first-child > td fieldset select,
+            #Reg main .container > form .tablepad > table > tbody > tr:first-child > td fieldset textarea {
               width: 100%; }
-          #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child,
-          #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td {
+          #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:first-child,
+          #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td {
             display: grid;
             gap: var(--space-lg); }
             @media (min-width: 769px) {
-              #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child,
-              #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td {
+              #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:first-child,
+              #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td {
                 grid-template-columns: repeat(2, calc(50% - (var(--space-lg) / 2))); } }
-            #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child > br,
-            #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td > br {
+            #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:first-child > br,
+            #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td > br {
               display: none; }
-            #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child > div > b,
-            #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td > div > b {
+            #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:first-child > div > b,
+            #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td > div > b {
               display: none; }
-            #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child table,
-            #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child tbody,
-            #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child tr,
-            #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child td,
-            #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td table,
-            #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td tbody,
-            #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td tr,
-            #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td td {
+            #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:first-child table,
+            #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:first-child tbody,
+            #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:first-child tr,
+            #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:first-child td,
+            #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td table,
+            #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td tbody,
+            #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td tr,
+            #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td td {
               display: block; }
-          #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset {
+          #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset {
             grid-column: 1 / -1; }
-            #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset:nth-of-type(2) table > tbody > tr, #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset:nth-of-type(3) table > tbody > tr {
+            #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset:nth-of-type(2) table > tbody > tr, #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset:nth-of-type(3) table > tbody > tr {
               display: grid;
               gap: var(--space-xs); }
               @media (max-width: 768px) {
-                #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset:nth-of-type(2) table > tbody > tr:first-child > td:last-child, #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset:nth-of-type(3) table > tbody > tr:first-child > td:last-child {
+                #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset:nth-of-type(2) table > tbody > tr:first-child > td:last-child, #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset:nth-of-type(3) table > tbody > tr:first-child > td:last-child {
                   display: none; } }
               @media (min-width: 769px) {
-                #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset:nth-of-type(2) table > tbody > tr, #Reg main > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset:nth-of-type(3) table > tbody > tr {
+                #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset:nth-of-type(2) table > tbody > tr, #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:first-child fieldset:nth-of-type(3) table > tbody > tr {
                   grid-template-columns: 1fr 1fr; } }
-          #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child {
+          #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:last-child {
             padding-top: var(--space-lg); }
-            #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > b,
-            #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > br {
+            #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:last-child > div > b,
+            #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:last-child > div > br {
               display: none; }
-            #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table {
+            #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table {
               display: block; }
-              #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody {
+              #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody {
                 display: block; }
-                #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr {
+                #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr {
                   display: block; }
-                  #Reg main > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset:last-of-type:nth-of-type(odd) {
+                  #Reg main .container > form .tablepad > table > tbody > tr:first-child > td:last-child > div > table > tbody > tr > td fieldset:last-of-type:nth-of-type(odd) {
                     grid-column: 1 / -1; }
-      #Reg main > form .tablepad > table > tbody > tr:last-child {
+      #Reg main .container > form .tablepad > table > tbody > tr:last-child {
         display: block; }
-        #Reg main > form .tablepad > table > tbody > tr:last-child > td:first-child {
+        #Reg main .container > form .tablepad > table > tbody > tr:last-child > td:first-child {
           display: none; }
-        #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child {
+        #Reg main .container > form .tablepad > table > tbody > tr:last-child > td:last-child {
           display: block; }
-          #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child fieldset {
+          #Reg main .container > form .tablepad > table > tbody > tr:last-child > td:last-child fieldset {
             display: none; }
-          #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child .desc {
+          #Reg main .container > form .tablepad > table > tbody > tr:last-child > td:last-child .desc {
             font-size: 0;
             max-width: max-content;
             margin: var(--space-md) auto 0; }
-            #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child .desc + br {
+            #Reg main .container > form .tablepad > table > tbody > tr:last-child > td:last-child .desc + br {
               display: none; }
-            #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child .desc .input-wrap {
+            #Reg main .container > form .tablepad > table > tbody > tr:last-child > td:last-child .desc .input-wrap {
               display: block;
-              text-align: left; }
-              #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child .desc .input-wrap.tos {
+              text-align: left;
+              margin: var(--space-lg) 0; }
+              #Reg main .container > form .tablepad > table > tbody > tr:last-child > td:last-child .desc .input-wrap.tos {
                 cursor: pointer;
-                font-size: var(--size-md); }
-              #Reg main > form .tablepad > table > tbody > tr:last-child > td:last-child .desc .input-wrap .fancy-input {
+                display: flex; }
+                #Reg main .container > form .tablepad > table > tbody > tr:last-child > td:last-child .desc .input-wrap.tos p {
+                  color: var(--text-secondary);
+                  font-family: var(--font-sans);
+                  font-weight: 600;
+                  line-height: 160%;
+                  font-size: var(--text-size-sm);
+                  text-transform: uppercase;
+                  letter-spacing: 0.1em; }
+              #Reg main .container > form .tablepad > table > tbody > tr:last-child > td:last-child .desc .input-wrap .fancy-input {
                 margin-right: var(--space-sm); }
 
 /***** Login ******/
 #Login .textNodes {
-  padding: var(--space-lg); }
+  margin: 0 auto var(--space-xl);
+  padding: 0 var(--space-md);
+  max-width: var(--size-max-screen); }
+  @media (min-width: 601px) {
+    #Login .textNodes {
+      padding: 0 var(--space-lg); } }
+  @media (min-width: 769px) {
+    #Login .textNodes {
+      padding: 0 var(--space-xl); } }
+  #Login .textNodes-inner {
+    background: var(--bg-primary);
+    border-radius: var(--radius-large);
+    padding: var(--space-md); }
+    @media (min-width: 481px) {
+      #Login .textNodes-inner {
+        padding: var(--space-lg); } }
   #Login .textNodes br {
     display: none; }
+  #Login .textNodes a {
+    color: var(--text-secondary); }
   #Login .textNodes .tableborder > .maintitle {
     text-align: left;
     margin: var(--space-lg) 0;
     line-height: 160%;
     max-width: max-content;
-    padding: var(--space-sm) 0 var(--space-sm) var(--space-lg); }
+    font-family: var(--font-sans);
+    font-style: normal;
+    line-height: 120%;
+    text-transform: uppercase;
+    font-size: var(--text-size-lg);
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    font-weight: 900;
+    padding-bottom: var(--space-xs); }
+    #Login .textNodes .tableborder > .maintitle::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--bg-gradient); }
   #Login .textNodes form .tablebasic {
     margin-bottom: var(--space-lg); }
     #Login .textNodes form .tablebasic:first-of-type {
@@ -467,127 +650,331 @@ a[href="<i>No Information</i>"] {
       display: none; }
 
 /***** Search Pages (Posts by User, Topics by User, Active Topics) *****/
-#Search main > br:nth-child(2) {
+#Search main .container > br:nth-child(2) {
   display: none; }
 
-#Search.code-show main > #search-topics .tablebasic,
+#Search div:has(> .pagination) {
+  margin: 0 auto var(--space-xl);
+  padding: 0 var(--space-md);
+  max-width: var(--size-max-screen); }
+  @media (min-width: 601px) {
+    #Search div:has(> .pagination) {
+      padding: 0 var(--space-lg); } }
+  @media (min-width: 769px) {
+    #Search div:has(> .pagination) {
+      padding: 0 var(--space-xl); } }
+
+#search-topics,
+#active-topics {
+  margin: 0 auto var(--space-xl);
+  padding: 0 var(--space-md);
+  max-width: var(--size-max-screen); }
+  @media (min-width: 601px) {
+    #search-topics,
+    #active-topics {
+      padding: 0 var(--space-lg); } }
+  @media (min-width: 769px) {
+    #search-topics,
+    #active-topics {
+      padding: 0 var(--space-xl); } }
+  #search-topics > .tableborder,
+  #active-topics > .tableborder {
+    background: var(--bg-primary);
+    border-radius: var(--radius-large);
+    padding: var(--space-md); }
+    @media (min-width: 481px) {
+      #search-topics > .tableborder,
+      #active-topics > .tableborder {
+        padding: var(--space-lg); } }
+    #search-topics > .tableborder .maintitle,
+    #active-topics > .tableborder .maintitle {
+      line-height: 120%;
+      font-family: var(--font-script);
+      text-transform: lowercase;
+      font-size: 30px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      padding-bottom: var(--space-xs);
+      margin-bottom: var(--space-md); }
+      @media only screen and (min-width: 480px) {
+        #search-topics > .tableborder .maintitle,
+        #active-topics > .tableborder .maintitle {
+          font-size: calc(30px + 12 * (100vw - 480px) / (1280 - 480)); } }
+      @media only screen and (min-width: 1280px) {
+        #search-topics > .tableborder .maintitle,
+        #active-topics > .tableborder .maintitle {
+          font-size: 42px; } }
+      #search-topics > .tableborder .maintitle::after,
+      #active-topics > .tableborder .maintitle::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        border-radius: 2px;
+        background: var(--bg-gradient); }
+  #search-topics ~ br,
+  #search-topics ~ div:empty,
+  #active-topics ~ br,
+  #active-topics ~ div:empty {
+    display: none; }
+
+#Search.code-show main .container > #search-topics .tablebasic,
 #Search.code-getactive .tablebasic {
   display: block; }
-  #Search.code-show main > #search-topics .tablebasic > tbody,
+  #Search.code-show main .container > #search-topics .tablebasic > tbody,
   #Search.code-getactive .tablebasic > tbody {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-md); }
     @media (min-width: 601px) {
-      #Search.code-show main > #search-topics .tablebasic > tbody,
+      #Search.code-show main .container > #search-topics .tablebasic > tbody,
       #Search.code-getactive .tablebasic > tbody {
         gap: var(--space-lg); } }
     @media (min-width: 769px) {
-      #Search.code-show main > #search-topics .tablebasic > tbody,
+      #Search.code-show main .container > #search-topics .tablebasic > tbody,
       #Search.code-getactive .tablebasic > tbody {
         grid-template-columns: repeat(2, 1fr); } }
     @media (min-width: 1025px) {
-      #Search.code-show main > #search-topics .tablebasic > tbody,
+      #Search.code-show main .container > #search-topics .tablebasic > tbody,
       #Search.code-getactive .tablebasic > tbody {
         grid-template-columns: repeat(3, 1fr); } }
     @media (min-width: 1281px) {
-      #Search.code-show main > #search-topics .tablebasic > tbody,
+      #Search.code-show main .container > #search-topics .tablebasic > tbody,
       #Search.code-getactive .tablebasic > tbody {
         grid-template-columns: repeat(4, 1fr); } }
-    #Search.code-show main > #search-topics .tablebasic > tbody > tr,
+    #Search.code-show main .container > #search-topics .tablebasic > tbody > tr,
     #Search.code-getactive .tablebasic > tbody > tr {
       display: flex;
       flex-wrap: wrap;
       padding: var(--space-md);
-      gap: 0 var(--space-md); }
-      #Search.code-show main > #search-topics .tablebasic > tbody > tr:first-child,
+      gap: 0 var(--space-md);
+      background: var(--bg-secondary);
+      border: var(--border-primary);
+      border-radius: var(--radius-medium);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      line-height: 160%;
+      font-size: var(--text-size-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.2em; }
+      #Search.code-show main .container > #search-topics .tablebasic > tbody > tr:first-child,
       #Search.code-getactive .tablebasic > tbody > tr:first-child {
         display: none; }
-      #Search.code-show main > #search-topics .tablebasic > tbody > tr > td,
+      #Search.code-show main .container > #search-topics .tablebasic > tbody > tr a,
+      #Search.code-getactive .tablebasic > tbody > tr a {
+        color: var(--text-secondary); }
+      #Search.code-show main .container > #search-topics .tablebasic > tbody > tr > td,
       #Search.code-getactive .tablebasic > tbody > tr > td {
         flex: 0 0 100%;
         width: 100%;
         text-align: left;
         padding: 0; }
-        #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(1), #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(2), #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(7),
+        #Search.code-show main .container > #search-topics .tablebasic > tbody > tr > td:nth-child(1), #Search.code-show main .container > #search-topics .tablebasic > tbody > tr > td:nth-child(2), #Search.code-show main .container > #search-topics .tablebasic > tbody > tr > td:nth-child(7),
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(1),
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(2),
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(7) {
           display: none; }
-        #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(3),
+        #Search.code-show main .container > #search-topics .tablebasic > tbody > tr > td:nth-child(3),
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(3) {
           order: 1; }
-          #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(3) table,
-          #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(3) table {
-            padding-bottom: var(--space-md); }
-        #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(4),
+          #Search.code-show main .container > #search-topics .tablebasic > tbody > tr > td:nth-child(3) td:last-child,
+          #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(3) td:last-child {
+            font-family: var(--font-sans);
+            font-style: normal;
+            line-height: 120%;
+            text-transform: uppercase;
+            font-size: var(--text-size-lg);
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            font-weight: 900; }
+            #Search.code-show main .container > #search-topics .tablebasic > tbody > tr > td:nth-child(3) td:last-child::after,
+            #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(3) td:last-child::after {
+              display: none; }
+        #Search.code-show main .container > #search-topics .tablebasic > tbody > tr > td:nth-child(4),
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(4) {
           order: 3;
           padding-top: var(--space-sm); }
-          #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(4)::before,
+          #Search.code-show main .container > #search-topics .tablebasic > tbody > tr > td:nth-child(4)::before,
           #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(4)::before {
             content: 'Posted in '; }
-        #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(5),
+        #Search.code-show main .container > #search-topics .tablebasic > tbody > tr > td:nth-child(5),
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(5) {
           order: 4;
           padding-bottom: var(--space-sm); }
-          #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(5)::before,
+          #Search.code-show main .container > #search-topics .tablebasic > tbody > tr > td:nth-child(5)::before,
           #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(5)::before {
             content: 'Started by '; }
-        #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(6),
+        #Search.code-show main .container > #search-topics .tablebasic > tbody > tr > td:nth-child(6),
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(6) {
           order: 2; }
-          #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(6)::after,
+          #Search.code-show main .container > #search-topics .tablebasic > tbody > tr > td:nth-child(6)::after,
           #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(6)::after {
             content: ' Replies'; }
-        #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(8),
+        #Search.code-show main .container > #search-topics .tablebasic > tbody > tr > td:nth-child(8),
         #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(8) {
           display: flex;
           flex-direction: column;
           order: 5; }
-          #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(8) > a,
+          #Search.code-show main .container > #search-topics .tablebasic > tbody > tr > td:nth-child(8) > a,
           #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(8) > a {
             order: -1; }
-          #Search.code-show main > #search-topics .tablebasic > tbody > tr > td:nth-child(8) > b,
+          #Search.code-show main .container > #search-topics .tablebasic > tbody > tr > td:nth-child(8) > b,
           #Search.code-getactive .tablebasic > tbody > tr > td:nth-child(8) > b {
             order: -1; }
+  #Search.code-show main .container > #search-topics .tablebasic + .titlemedium,
+  #Search.code-getactive .tablebasic + .titlemedium {
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 160%;
+    font-size: var(--text-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-top: var(--space-lg); }
 
-#Search.code-getactive main > form > div:not(.pagelinks) {
-  width: 100% !important; }
-  #Search.code-getactive main > form > div:not(.pagelinks) fieldset {
+#Search.code-getactive main .container > form > div:not(.pagelinks) {
+  width: calc(100% - (2 * var(--space-md))) !important;
+  max-width: 400px;
+  margin: 0 auto !important; }
+  @media (min-width: 601px) {
+    #Search.code-getactive main .container > form > div:not(.pagelinks) {
+      width: calc(100% - (2 * var(--space-lg))) !important; } }
+  @media (min-width: 769px) {
+    #Search.code-getactive main .container > form > div:not(.pagelinks) {
+      width: calc(100% - (2 * var(--space-xl))) !important; } }
+  #Search.code-getactive main .container > form > div:not(.pagelinks) fieldset {
     margin: 0; }
 
-#Search.code-show main > div:not(.wrapmini):not(.tableborder):not(#search-topics) {
+#Search.code-show main .container > div:not(.wrapmini):not(.tableborder):not(#search-topics) {
   position: sticky;
   top: var(--size-menu-height);
-  padding: var(--space-md);
   z-index: 1; }
+  #Search.code-show main .container > div:not(.wrapmini):not(.tableborder):not(#search-topics) .pagination {
+    background: var(--bg-primary);
+    border-radius: var(--radius-large);
+    padding: var(--space-md); }
+    @media (min-width: 481px) {
+      #Search.code-show main .container > div:not(.wrapmini):not(.tableborder):not(#search-topics) .pagination {
+        padding: var(--space-lg); } }
 
-#Search.code-show main #search-topics > .tableborder > .maintitle {
+#Search.code-show main .container #search-topics > .tableborder > .maintitle {
   padding: var(--space-sm) 0 var(--space-md) var(--space-md) !important; }
-  #Search.code-show main #search-topics > .tableborder > .maintitle a {
+  #Search.code-show main .container #search-topics > .tableborder > .maintitle a {
     display: block;
-    margin-left: 0; }
+    margin-left: 0;
+    font-family: var(--font-sans);
+    font-style: normal;
+    line-height: 120%;
+    text-transform: uppercase;
+    font-size: var(--text-size-lg);
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    font-weight: 900;
+    margin-top: var(--space-sm); }
+    #Search.code-show main .container #search-topics > .tableborder > .maintitle a::after {
+      display: none; }
 
-#Search.code-show main > .tableborder .tablebasic {
-  display: block; }
-  #Search.code-show main > .tableborder .tablebasic tbody {
-    display: flex;
-    flex-direction: column; }
-    #Search.code-show main > .tableborder .tablebasic tbody tr td {
-      padding: 0; }
-    #Search.code-show main > .tableborder .tablebasic tbody tr:first-child {
+#Search.code-show main .container > .tableborder {
+  margin: 0 auto var(--space-xl);
+  padding: 0 var(--space-md);
+  max-width: var(--size-max-screen); }
+  @media (min-width: 601px) {
+    #Search.code-show main .container > .tableborder {
+      padding: 0 var(--space-lg); } }
+  @media (min-width: 769px) {
+    #Search.code-show main .container > .tableborder {
+      padding: 0 var(--space-xl); } }
+  #Search.code-show main .container > .tableborder > .maintitle {
+    margin-bottom: var(--space-md); }
+    #Search.code-show main .container > .tableborder > .maintitle a {
+      line-height: 120%;
+      font-family: var(--font-script);
+      text-transform: lowercase;
+      font-size: 30px;
+      color: var(--text-secondary);
+      font-weight: 400;
+      padding-bottom: var(--space-xs); }
+      @media only screen and (min-width: 480px) {
+        #Search.code-show main .container > .tableborder > .maintitle a {
+          font-size: calc(30px + 12 * (100vw - 480px) / (1280 - 480)); } }
+      @media only screen and (min-width: 1280px) {
+        #Search.code-show main .container > .tableborder > .maintitle a {
+          font-size: 42px; } }
+      #Search.code-show main .container > .tableborder > .maintitle a::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        border-radius: 2px;
+        background: var(--bg-gradient); }
+  #Search.code-show main .container > .tableborder .tablebasic {
+    display: block;
+    background: var(--bg-primary);
+    border-radius: var(--radius-large);
+    padding: var(--space-md); }
+    @media (min-width: 481px) {
+      #Search.code-show main .container > .tableborder .tablebasic {
+        padding: var(--space-lg); } }
+    #Search.code-show main .container > .tableborder .tablebasic tbody {
       display: flex;
-      flex-direction: column;
-      padding: var(--space-xs) 0 var(--space-xs) var(--space-md);
-      line-height: 160%;
-      max-width: max-content; }
-    #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(2) {
-      margin: var(--space-md) 0; }
-      #Search.code-show main > .tableborder .tablebasic tbody tr:nth-child(2) td:first-child {
-        display: none; }
-    #Search.code-show main > .tableborder .tablebasic tbody tr:last-child {
-      padding: var(--space-sm); }
+      flex-direction: column; }
+      #Search.code-show main .container > .tableborder .tablebasic tbody tr td {
+        padding: 0; }
+      #Search.code-show main .container > .tableborder .tablebasic tbody tr:first-child {
+        display: flex;
+        flex-direction: column;
+        line-height: 160%;
+        max-width: max-content; }
+        #Search.code-show main .container > .tableborder .tablebasic tbody tr:first-child td:first-child {
+          font-family: var(--font-sans);
+          font-style: normal;
+          line-height: 120%;
+          text-transform: uppercase;
+          font-size: 20px;
+          color: var(--text-secondary);
+          font-weight: 900;
+          line-height: 160%; }
+          #Search.code-show main .container > .tableborder .tablebasic tbody tr:first-child td:first-child::after {
+            display: none; }
+          #Search.code-show main .container > .tableborder .tablebasic tbody tr:first-child td:first-child a {
+            color: var(--text-secondary); }
+        #Search.code-show main .container > .tableborder .tablebasic tbody tr:first-child td:last-child {
+          color: var(--text-primary);
+          font-family: var(--font-sans);
+          font-weight: 600;
+          line-height: 160%;
+          font-size: var(--text-size-xs);
+          text-transform: uppercase;
+          letter-spacing: 0.2em; }
+      #Search.code-show main .container > .tableborder .tablebasic tbody tr:nth-child(2) {
+        margin: var(--space-md) 0;
+        background: var(--bg-secondary);
+        border: var(--border-primary);
+        border-radius: var(--radius-medium);
+        padding: var(--space-md); }
+        @media (min-width: 481px) {
+          #Search.code-show main .container > .tableborder .tablebasic tbody tr:nth-child(2) {
+            padding: var(--space-lg); } }
+        #Search.code-show main .container > .tableborder .tablebasic tbody tr:nth-child(2) td:first-child {
+          display: none; }
+      #Search.code-show main .container > .tableborder .tablebasic tbody tr:last-child {
+        color: var(--text-primary);
+        font-family: var(--font-sans);
+        font-weight: 600;
+        line-height: 160%;
+        font-size: var(--text-size-xs);
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-style: italic; }
+        #Search.code-show main .container > .tableborder .tablebasic tbody tr:last-child td:first-child {
+          display: none; }
+        #Search.code-show main .container > .tableborder .tablebasic tbody tr:last-child a {
+          color: var(--text-secondary); }
 
 #Search.code-show div:empty {
   display: none; }
@@ -600,10 +987,96 @@ a[href="<i>No Information</i>"] {
   height: 100vh;
   padding: 0; }
   #redirect-screen .tablefill {
-    max-width: 325px;
+    max-width: 400px;
     line-height: 200%;
-    z-index: 3; }
+    z-index: 3;
+    background: var(--bg-primary);
+    padding: var(--space-lg);
+    border-radius: var(--radius-large);
+    font-size: var(--text-size-md);
+    line-height: 200%; }
+    #redirect-screen .tablefill a {
+      color: var(--text-secondary); }
 
 /***** No Results ******/
 #board-message {
-  padding: var(--space-lg); }
+  margin: 0 auto var(--space-xl);
+  padding: 0 var(--space-md);
+  max-width: var(--size-max-screen); }
+  @media (min-width: 601px) {
+    #board-message {
+      padding: 0 var(--space-lg); } }
+  @media (min-width: 769px) {
+    #board-message {
+      padding: 0 var(--space-xl); } }
+  #board-message > .tableborder,
+  #board-message > .tablefill {
+    background: var(--bg-primary);
+    padding: 0 var(--space-md); }
+    @media (min-width: 481px) {
+      #board-message > .tableborder,
+      #board-message > .tablefill {
+        padding: 0 var(--space-lg); } }
+    #board-message > .tableborder:first-child,
+    #board-message > .tablefill:first-child {
+      border-radius: var(--radius-large) var(--radius-large) 0 0;
+      padding: var(--space-md) var(--space-md) 0; }
+      @media (min-width: 481px) {
+        #board-message > .tableborder:first-child,
+        #board-message > .tablefill:first-child {
+          padding: var(--space-lg) var(--space-lg) 0; } }
+    #board-message > .tableborder:last-child,
+    #board-message > .tablefill:last-child {
+      border-radius: 0 0 var(--radius-large) var(--radius-large);
+      padding: 0 var(--space-md) var(--space-md); }
+      @media (min-width: 481px) {
+        #board-message > .tableborder:last-child,
+        #board-message > .tablefill:last-child {
+          padding: 0 var(--space-lg) var(--space-lg); } }
+  #board-message .maintitle {
+    font-family: var(--font-sans);
+    font-style: normal;
+    line-height: 120%;
+    text-transform: uppercase;
+    font-size: var(--text-size-lg);
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    font-weight: 900;
+    padding-bottom: var(--space-xs); }
+    #board-message .maintitle::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--bg-gradient); }
+    #board-message .maintitle img {
+      display: none; }
+  #board-message a {
+    color: var(--text-secondary); }
+
+/***** Misc *****/
+.credit,
+#delcookiesrow,
+#mark-as-read-subto,
+.copyright {
+  text-align: center;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 160%;
+  font-size: var(--text-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-bottom: var(--space-md); }
+  .credit a,
+  #delcookiesrow a,
+  #mark-as-read-subto a,
+  .copyright a {
+    color: var(--text-secondary); }
+  .credit ~ br,
+  #delcookiesrow ~ br,
+  #mark-as-read-subto ~ br,
+  .copyright ~ br {
+    display: none; }
