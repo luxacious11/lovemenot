@@ -42,7 +42,21 @@
 .post--content h7,
 .post--content .h7,
 .post--content h8,
-.post--content .h8 {
+.post--content .h8,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 {
   width: max-content;
   max-width: 100%;
   margin: 2em 0 1em; }
@@ -87,7 +101,21 @@
   .post--content h7:first-child,
   .post--content .h7:first-child,
   .post--content h8:first-child,
-  .post--content .h8:first-child {
+  .post--content .h8:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8:first-child {
     margin-top: 0; }
   .webpage h2:last-child,
   .webpage .h2:last-child,
@@ -130,7 +158,21 @@
   .post--content h7:last-child,
   .post--content .h7:last-child,
   .post--content h8:last-child,
-  .post--content .h8:last-child {
+  .post--content .h8:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8:last-child {
     margin-bottom: 0; }
   .webpage h2 + h2,
   .webpage h2 + .h2,
@@ -719,8 +761,261 @@
   .post--content .h8 + h7,
   .post--content .h8 + .h7,
   .post--content .h8 + h8,
-  .post--content .h8 + .h8 {
+  .post--content .h8 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + .h8 {
     margin-top: 1em; }
+  .webpage h2 + br,
+  .webpage .h2 + br,
+  .webpage h3 + br,
+  .webpage .h3 + br,
+  .webpage h4 + br,
+  .webpage .h4 + br,
+  .webpage h5 + br,
+  .webpage .h5 + br,
+  .webpage h6 + br,
+  .webpage .h6 + br,
+  .webpage h7 + br,
+  .webpage .h7 + br,
+  .webpage h8 + br,
+  .webpage .h8 + br,
+  .profile .canStyle h2 + br,
+  .profile .canStyle .h2 + br,
+  .profile .canStyle h3 + br,
+  .profile .canStyle .h3 + br,
+  .profile .canStyle h4 + br,
+  .profile .canStyle .h4 + br,
+  .profile .canStyle h5 + br,
+  .profile .canStyle .h5 + br,
+  .profile .canStyle h6 + br,
+  .profile .canStyle .h6 + br,
+  .profile .canStyle h7 + br,
+  .profile .canStyle .h7 + br,
+  .profile .canStyle h8 + br,
+  .profile .canStyle .h8 + br,
+  .post--content h2 + br,
+  .post--content .h2 + br,
+  .post--content h3 + br,
+  .post--content .h3 + br,
+  .post--content h4 + br,
+  .post--content .h4 + br,
+  .post--content h5 + br,
+  .post--content .h5 + br,
+  .post--content h6 + br,
+  .post--content .h6 + br,
+  .post--content h7 + br,
+  .post--content .h7 + br,
+  .post--content h8 + br,
+  .post--content .h8 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + br {
+    display: none; }
   .webpage h2 a,
   .webpage .h2 a,
   .webpage h3 a,
@@ -762,15 +1057,93 @@
   .post--content h7 a,
   .post--content .h7 a,
   .post--content h8 a,
-  .post--content .h8 a {
+  .post--content .h8 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 a {
     color: var(--text-accent); }
+  .webpage h2.color,
+  .webpage .h2.color,
+  .webpage h3.color,
+  .webpage .h3.color,
+  .webpage h4.color,
+  .webpage .h4.color,
+  .webpage h5.color,
+  .webpage .h5.color,
+  .webpage h6.color,
+  .webpage .h6.color,
+  .webpage h7.color,
+  .webpage .h7.color,
+  .webpage h8.color,
+  .webpage .h8.color,
+  .profile .canStyle h2.color,
+  .profile .canStyle .h2.color,
+  .profile .canStyle h3.color,
+  .profile .canStyle .h3.color,
+  .profile .canStyle h4.color,
+  .profile .canStyle .h4.color,
+  .profile .canStyle h5.color,
+  .profile .canStyle .h5.color,
+  .profile .canStyle h6.color,
+  .profile .canStyle .h6.color,
+  .profile .canStyle h7.color,
+  .profile .canStyle .h7.color,
+  .profile .canStyle h8.color,
+  .profile .canStyle .h8.color,
+  .post--content h2.color,
+  .post--content .h2.color,
+  .post--content h3.color,
+  .post--content .h3.color,
+  .post--content h4.color,
+  .post--content .h4.color,
+  .post--content h5.color,
+  .post--content .h5.color,
+  .post--content h6.color,
+  .post--content .h6.color,
+  .post--content h7.color,
+  .post--content .h7.color,
+  .post--content h8.color,
+  .post--content .h8.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8.color {
+    color: var(--text-accent);
+    background-image: var(--bg-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent; }
 
 .webpage h2:not(.underline),
 .webpage .h2:not(.underline),
 .profile .canStyle h2:not(.underline),
 .profile .canStyle .h2:not(.underline),
 .post--content h2:not(.underline),
-.post--content .h2:not(.underline) {
+.post--content .h2:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2:not(.underline) {
   line-height: 120%;
   font-family: var(--font-script);
   text-transform: lowercase;
@@ -783,7 +1156,9 @@
     .profile .canStyle h2:not(.underline),
     .profile .canStyle .h2:not(.underline),
     .post--content h2:not(.underline),
-    .post--content .h2:not(.underline) {
+    .post--content .h2:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2:not(.underline) {
       font-size: calc(30px + 12 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .webpage h2:not(.underline),
@@ -791,14 +1166,18 @@
     .profile .canStyle h2:not(.underline),
     .profile .canStyle .h2:not(.underline),
     .post--content h2:not(.underline),
-    .post--content .h2:not(.underline) {
+    .post--content .h2:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2:not(.underline) {
       font-size: 42px; } }
   .webpage h2:not(.underline)::after,
   .webpage .h2:not(.underline)::after,
   .profile .canStyle h2:not(.underline)::after,
   .profile .canStyle .h2:not(.underline)::after,
   .post--content h2:not(.underline)::after,
-  .post--content .h2:not(.underline)::after {
+  .post--content .h2:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2:not(.underline)::after {
     display: none; }
 
 .webpage h2.underline,
@@ -806,7 +1185,9 @@
 .profile .canStyle h2.underline,
 .profile .canStyle .h2.underline,
 .post--content h2.underline,
-.post--content .h2.underline {
+.post--content .h2.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2.underline {
   line-height: 120%;
   font-family: var(--font-script);
   text-transform: lowercase;
@@ -822,7 +1203,9 @@
     .profile .canStyle h2.underline,
     .profile .canStyle .h2.underline,
     .post--content h2.underline,
-    .post--content .h2.underline {
+    .post--content .h2.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2.underline {
       font-size: calc(30px + 12 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .webpage h2.underline,
@@ -830,14 +1213,18 @@
     .profile .canStyle h2.underline,
     .profile .canStyle .h2.underline,
     .post--content h2.underline,
-    .post--content .h2.underline {
+    .post--content .h2.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2.underline {
       font-size: 42px; } }
   .webpage h2.underline::after,
   .webpage .h2.underline::after,
   .profile .canStyle h2.underline::after,
   .profile .canStyle .h2.underline::after,
   .post--content h2.underline::after,
-  .post--content .h2.underline::after {
+  .post--content .h2.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2.underline::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -852,7 +1239,9 @@
 .profile .canStyle h3:not(.underline),
 .profile .canStyle .h3:not(.underline),
 .post--content h3:not(.underline),
-.post--content .h3:not(.underline) {
+.post--content .h3:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3:not(.underline) {
   line-height: 120%;
   font-family: var(--font-script);
   text-transform: lowercase;
@@ -865,7 +1254,9 @@
     .profile .canStyle h3:not(.underline),
     .profile .canStyle .h3:not(.underline),
     .post--content h3:not(.underline),
-    .post--content .h3:not(.underline) {
+    .post--content .h3:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3:not(.underline) {
       font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .webpage h3:not(.underline),
@@ -873,14 +1264,18 @@
     .profile .canStyle h3:not(.underline),
     .profile .canStyle .h3:not(.underline),
     .post--content h3:not(.underline),
-    .post--content .h3:not(.underline) {
+    .post--content .h3:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3:not(.underline) {
       font-size: 28px; } }
   .webpage h3:not(.underline)::after,
   .webpage .h3:not(.underline)::after,
   .profile .canStyle h3:not(.underline)::after,
   .profile .canStyle .h3:not(.underline)::after,
   .post--content h3:not(.underline)::after,
-  .post--content .h3:not(.underline)::after {
+  .post--content .h3:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3:not(.underline)::after {
     display: none; }
 
 .webpage h3.underline,
@@ -888,7 +1283,9 @@
 .profile .canStyle h3.underline,
 .profile .canStyle .h3.underline,
 .post--content h3.underline,
-.post--content .h3.underline {
+.post--content .h3.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3.underline {
   line-height: 120%;
   font-family: var(--font-script);
   text-transform: lowercase;
@@ -904,7 +1301,9 @@
     .profile .canStyle h3.underline,
     .profile .canStyle .h3.underline,
     .post--content h3.underline,
-    .post--content .h3.underline {
+    .post--content .h3.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3.underline {
       font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .webpage h3.underline,
@@ -912,14 +1311,18 @@
     .profile .canStyle h3.underline,
     .profile .canStyle .h3.underline,
     .post--content h3.underline,
-    .post--content .h3.underline {
+    .post--content .h3.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3.underline {
       font-size: 28px; } }
   .webpage h3.underline::after,
   .webpage .h3.underline::after,
   .profile .canStyle h3.underline::after,
   .profile .canStyle .h3.underline::after,
   .post--content h3.underline::after,
-  .post--content .h3.underline::after {
+  .post--content .h3.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3.underline::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -934,7 +1337,9 @@
 .profile .canStyle h4:not(.underline),
 .profile .canStyle .h4:not(.underline),
 .post--content h4:not(.underline),
-.post--content .h4:not(.underline) {
+.post--content .h4:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4:not(.underline) {
   font-family: var(--font-sans);
   font-style: normal;
   line-height: 120%;
@@ -948,7 +1353,9 @@
     .profile .canStyle h4:not(.underline),
     .profile .canStyle .h4:not(.underline),
     .post--content h4:not(.underline),
-    .post--content .h4:not(.underline) {
+    .post--content .h4:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4:not(.underline) {
       font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .webpage h4:not(.underline),
@@ -956,14 +1363,18 @@
     .profile .canStyle h4:not(.underline),
     .profile .canStyle .h4:not(.underline),
     .post--content h4:not(.underline),
-    .post--content .h4:not(.underline) {
+    .post--content .h4:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4:not(.underline) {
       font-size: 28px; } }
   .webpage h4:not(.underline)::after,
   .webpage .h4:not(.underline)::after,
   .profile .canStyle h4:not(.underline)::after,
   .profile .canStyle .h4:not(.underline)::after,
   .post--content h4:not(.underline)::after,
-  .post--content .h4:not(.underline)::after {
+  .post--content .h4:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4:not(.underline)::after {
     display: none; }
 
 .webpage h4.underline,
@@ -971,7 +1382,9 @@
 .profile .canStyle h4.underline,
 .profile .canStyle .h4.underline,
 .post--content h4.underline,
-.post--content .h4.underline {
+.post--content .h4.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4.underline {
   font-family: var(--font-sans);
   font-style: normal;
   line-height: 120%;
@@ -988,7 +1401,9 @@
     .profile .canStyle h4.underline,
     .profile .canStyle .h4.underline,
     .post--content h4.underline,
-    .post--content .h4.underline {
+    .post--content .h4.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4.underline {
       font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .webpage h4.underline,
@@ -996,14 +1411,18 @@
     .profile .canStyle h4.underline,
     .profile .canStyle .h4.underline,
     .post--content h4.underline,
-    .post--content .h4.underline {
+    .post--content .h4.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4.underline {
       font-size: 28px; } }
   .webpage h4.underline::after,
   .webpage .h4.underline::after,
   .profile .canStyle h4.underline::after,
   .profile .canStyle .h4.underline::after,
   .post--content h4.underline::after,
-  .post--content .h4.underline::after {
+  .post--content .h4.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4.underline::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -1018,7 +1437,9 @@
 .profile .canStyle h5:not(.underline),
 .profile .canStyle .h5:not(.underline),
 .post--content h5:not(.underline),
-.post--content .h5:not(.underline) {
+.post--content .h5:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5:not(.underline) {
   font-family: var(--font-sans);
   font-style: normal;
   line-height: 120%;
@@ -1031,7 +1452,9 @@
   .profile .canStyle h5:not(.underline)::after,
   .profile .canStyle .h5:not(.underline)::after,
   .post--content h5:not(.underline)::after,
-  .post--content .h5:not(.underline)::after {
+  .post--content .h5:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5:not(.underline)::after {
     display: none; }
 
 .webpage h5.underline,
@@ -1039,7 +1462,9 @@
 .profile .canStyle h5.underline,
 .profile .canStyle .h5.underline,
 .post--content h5.underline,
-.post--content .h5.underline {
+.post--content .h5.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5.underline {
   font-family: var(--font-sans);
   font-style: normal;
   line-height: 120%;
@@ -1055,7 +1480,9 @@
   .profile .canStyle h5.underline::after,
   .profile .canStyle .h5.underline::after,
   .post--content h5.underline::after,
-  .post--content .h5.underline::after {
+  .post--content .h5.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5.underline::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -1070,7 +1497,9 @@
 .profile .canStyle h6:not(.underline),
 .profile .canStyle .h6:not(.underline),
 .post--content h6:not(.underline),
-.post--content .h6:not(.underline) {
+.post--content .h6:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6:not(.underline) {
   font-family: var(--font-sans);
   font-style: normal;
   line-height: 120%;
@@ -1084,7 +1513,9 @@
   .profile .canStyle h6:not(.underline)::after,
   .profile .canStyle .h6:not(.underline)::after,
   .post--content h6:not(.underline)::after,
-  .post--content .h6:not(.underline)::after {
+  .post--content .h6:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6:not(.underline)::after {
     display: none; }
 
 .webpage h6.underline,
@@ -1092,7 +1523,9 @@
 .profile .canStyle h6.underline,
 .profile .canStyle .h6.underline,
 .post--content h6.underline,
-.post--content .h6.underline {
+.post--content .h6.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6.underline {
   font-family: var(--font-sans);
   font-style: normal;
   line-height: 120%;
@@ -1109,7 +1542,9 @@
   .profile .canStyle h6.underline::after,
   .profile .canStyle .h6.underline::after,
   .post--content h6.underline::after,
-  .post--content .h6.underline::after {
+  .post--content .h6.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6.underline::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -1123,7 +1558,9 @@
 .profile .canStyle h7:not(.underline),
 .profile .canStyle .h7:not(.underline),
 .post--content h7:not(.underline),
-.post--content .h7:not(.underline) {
+.post--content .h7:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7:not(.underline) {
   display: block;
   font-family: var(--font-sans);
   font-style: normal;
@@ -1138,7 +1575,9 @@
   .profile .canStyle h7:not(.underline)::after,
   .profile .canStyle .h7:not(.underline)::after,
   .post--content h7:not(.underline)::after,
-  .post--content .h7:not(.underline)::after {
+  .post--content .h7:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7:not(.underline)::after {
     display: none; }
 
 .webpage h7.underline,
@@ -1146,7 +1585,9 @@
 .profile .canStyle h7.underline,
 .profile .canStyle .h7.underline,
 .post--content h7.underline,
-.post--content .h7.underline {
+.post--content .h7.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7.underline {
   display: block;
   font-family: var(--font-sans);
   font-style: normal;
@@ -1164,7 +1605,9 @@
   .profile .canStyle h7.underline::after,
   .profile .canStyle .h7.underline::after,
   .post--content h7.underline::after,
-  .post--content .h7.underline::after {
+  .post--content .h7.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7.underline::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -1178,7 +1621,9 @@
 .profile .canStyle h8,
 .profile .canStyle .h8,
 .post--content h8,
-.post--content .h8 {
+.post--content .h8,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 {
   display: block;
   font-family: var(--font-sans);
   font-style: normal;
@@ -1199,7 +1644,9 @@
   .profile .canStyle h8::after,
   .profile .canStyle .h8::after,
   .post--content h8::after,
-  .post--content .h8::after {
+  .post--content .h8::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8::after {
     display: none; }
   .webpage h8::before, .webpage h8::after,
   .webpage .h8::before,
@@ -1211,7 +1658,11 @@
   .post--content h8::before,
   .post--content h8::after,
   .post--content .h8::before,
-  .post--content .h8::after {
+  .post--content .h8::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8::before,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8::before,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8::after {
     display: block !important;
     content: '';
     position: absolute;
@@ -1224,14 +1675,18 @@
   .profile .canStyle h8::before,
   .profile .canStyle .h8::before,
   .post--content h8::before,
-  .post--content .h8::before {
+  .post--content .h8::before,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8::before,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8::before {
     top: 0; }
   .webpage h8::after,
   .webpage .h8::after,
   .profile .canStyle h8::after,
   .profile .canStyle .h8::after,
   .post--content h8::after,
-  .post--content .h8::after {
+  .post--content .h8::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8::after {
     bottom: 0; }
 
 .webpage b,
@@ -1245,13 +1700,18 @@
 .post--content b,
 .post--content i,
 .post--content u,
-.post--content s {
+.post--content s,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor b,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor i,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor u,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor s {
   color: var(--text-secondary);
   font-size: 1.05em; }
 
 .webpage b,
 .profile .canStyle b,
-.post--content b {
+.post--content b,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor b {
   padding: var(--space-xs) var(--space-sm);
   background: var(--bg-gradient-25);
   border-radius: var(--radius-small);
@@ -1260,20 +1720,38 @@
 
 .webpage u,
 .profile .canStyle u,
-.post--content u {
+.post--content u,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor u {
   text-decoration-color: var(--text-accent);
   text-underline-offset: var(--space-xs); }
 
 .webpage s,
 .profile .canStyle s,
-.post--content s {
+.post--content s,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor s {
   text-decoration-color: var(--text-accent);
   text-decoration-thickness: 2px; }
 
+.webpage a,
+.profile .canStyle a,
+.post--content a,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor a {
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 160%;
+  font-size: var(--text-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: underline;
+  text-decoration-color: var(--text-accent);
+  text-underline-offset: var(--space-xs); }
+
 .webpage tag-spoiler,
 .profile .canStyle tag-spoiler,
-.post--content tag-spoiler {
-  background: var(--bg-secondary);
+.post--content tag-spoiler,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor tag-spoiler {
+  background: var(--bg-primary);
   color: transparent;
   padding: var(--space-xs) var(--space-sm);
   border-radius: var(--radius-small);
@@ -1281,30 +1759,49 @@
   -webkit-box-decoration-break: clone; }
   .webpage tag-spoiler:not(.is-visible),
   .profile .canStyle tag-spoiler:not(.is-visible),
-  .post--content tag-spoiler:not(.is-visible) {
-    pointer: cursor; }
+  .post--content tag-spoiler:not(.is-visible),
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor tag-spoiler:not(.is-visible) {
+    cursor: pointer; }
   .webpage tag-spoiler.is-visible,
   .profile .canStyle tag-spoiler.is-visible,
-  .post--content tag-spoiler.is-visible {
+  .post--content tag-spoiler.is-visible,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor tag-spoiler.is-visible {
     color: var(--text-primary); }
+
+.webpage tag-translation,
+.profile .canStyle tag-translation,
+.post--content tag-translation,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor tag-translation {
+  text-decoration: underline;
+  text-decoration-color: var(--text-accent);
+  text-underline-offset: var(--space-xs);
+  text-decoration-style: dashed;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer; }
 
 .webpage ul,
 .profile .canStyle ul,
-.post--content ul {
+.post--content ul,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor ul {
   padding-left: 12px;
   margin: var(--space-lg) 0; }
   .webpage ul li,
   .profile .canStyle ul li,
-  .post--content ul li {
+  .post--content ul li,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor ul li {
     padding-left: var(--space-sm);
-    line-height: 160%; }
+    line-height: 200%; }
     .webpage ul li:not(:last-child),
     .profile .canStyle ul li:not(:last-child),
-    .post--content ul li:not(:last-child) {
+    .post--content ul li:not(:last-child),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor ul li:not(:last-child) {
       margin-bottom: var(--space-sm); }
     .webpage ul li::marker,
     .profile .canStyle ul li::marker,
-    .post--content ul li::marker {
+    .post--content ul li::marker,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor ul li::marker {
       font-family: 'Font Awesome 7 Pro';
       color: var(--text-accent);
       background-image: var(--bg-gradient);
@@ -1316,7 +1813,8 @@
 
 .webpage blockquote,
 .profile .canStyle blockquote,
-.post--content blockquote {
+.post--content blockquote,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor blockquote {
   background: var(--bg-gradient-25);
   border: var(--border-accent-alt);
   padding: var(--space-lg) calc(var(--space-lg) + 5px);

@@ -18,7 +18,7 @@ header {
     }
 
     @include mq-up(md) {
-        height: calc(100vh - (2 * var(--size-menu-height)));
+        height: calc(90vh - (2 * var(--size-menu-height)));
     }
 
     body:not(#idx) & {
@@ -34,7 +34,7 @@ header {
 .header {
     display: flex;
     flex-direction: column;
-    align-items: end;
+    align-items: center;
     padding: calc(var(--space-xl) + var(--space-md)) var(--space-lg);
     background: linear-gradient(-190deg, var(--bg-overlay), transparent 70%),
                 linear-gradient(190deg, var(--bg-overlay), transparent 70%);
@@ -50,12 +50,8 @@ header {
 
         & > a {
             display: block;
-            padding-left: var(--space-xl);
+            padding-left: var(--space-lg);
             padding-right: var(--space-lg);
-
-            @include mq-up(xs) {
-                padding-left: calc(2 * var(--space-xl));
-            }
 
             &::before {
                 content: '';
@@ -73,7 +69,7 @@ header {
             margin: 0;
             text-align: right;
             font-family: var(--font-script);
-            @include fluid-type(36, 72, 480, 1280);
+            @include fluid-type(36, 100, 480, 1280);
             line-height: 100%;
             color: var(--text-primary);
             font-weight: 400;
@@ -90,8 +86,9 @@ header {
         }
 
         & > p {
-            margin: 0;
+            margin: var(--space-sm) 0 0;
             @include info($weight: 800);
+            text-align: center;
 
             &::before {
                 content: 'tagline or something here';

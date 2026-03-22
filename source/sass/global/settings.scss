@@ -49,3 +49,24 @@ body.g-4 .accordion--trigger.staffOnly {
 ul li::marker {
     content: '\f101';
 }
+.post.comm .post--content .postcolor tag-action[data-type]::before {
+    content: '\e242';
+}
+.post.comm .post--content .postcolor tag-action[data-type="loading" i]::before {
+    content: '\f110';
+}
+.post.comm .post--content .postcolor tag-action[data-type="skip" i]::before {
+    content: '\f1da';
+}
+.post.comm .post--content .postcolor tag-action[data-type="time" i]::before {
+    content: '\f017';
+}
+.post.comm .post--content .postcolor tag-action[data-type="read" i]::before {
+    content: '\f560';
+}
+.post.comm .post--content .postcolor tag-action[data-type="memo" i]::before {
+    content: '\f8f2';
+}
+.post.comm .post--content .postcolor tag-action[data-type="file" i]::before {
+    content: '\f15b';
+}

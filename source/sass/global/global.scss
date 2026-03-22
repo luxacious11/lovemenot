@@ -58,6 +58,7 @@ textarea {
     padding: 0 var(--space-md);
     line-height: 160%;
     color: var(--text-primary);
+    font-size: var(--text-size-md);
 
     &:focus-visible {
         outline: none;
@@ -222,11 +223,13 @@ tag-labels {
     top: calc(100% + 11px + var(--space-sm));
     right: 0;
     z-index: 5;
-    background: white;
     gap: var(--space-md);
     padding: var(--space-md);
     max-width: 500px;
     text-align: left;
+    background: var(--bg-secondary);
+    border: var(--border-secondary);
+    border-radius: var(--radius-large);
 
     @include mq-up(xs) {
         grid-template-columns: repeat(3, 1fr);
@@ -238,6 +241,17 @@ tag-labels {
     }
 
     .alert-section {
+        & > b {
+            display: block;
+            max-width: 100%;
+            width: max-content;
+            @include info(sm);
+            background: var(--bg-gradient-25);
+            border-radius: var(--radius-small);
+            color: var(--text-on-accent);
+            padding: var(--space-xs) var(--space-sm);
+            margin-bottom: var(--space-sm);
+        }
         .scroll {
             max-height: var(--size-alert-max-height);
         }
@@ -249,18 +263,20 @@ tag-labels {
 
             .fancy-input {
                 &::before {
-                    font-family: 'Font Awesome 7 Pro';
+                    display: none;
                 }
             }
         }
 
         label {
             cursor: pointer;
+            @include info(xxs);
         }
 
         hr {
             border: 0;
-            border-top: 1px solid black;
+            height: 1px;
+            background: var(--bg-gradient);
             margin: var(--space-sm) 0;
         }
     }

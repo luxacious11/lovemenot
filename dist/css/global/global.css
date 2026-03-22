@@ -60,7 +60,8 @@ textarea {
   border-radius: var(--radius-medium);
   padding: 0 var(--space-md);
   line-height: 160%;
-  color: var(--text-primary); }
+  color: var(--text-primary);
+  font-size: var(--text-size-md); }
   input:focus-visible,
   select:focus-visible,
   textarea:focus-visible {
@@ -251,28 +252,54 @@ tag-labels {
   top: calc(100% + 11px + var(--space-sm));
   right: 0;
   z-index: 5;
-  background: white;
   gap: var(--space-md);
   padding: var(--space-md);
   max-width: 500px;
-  text-align: left; }
+  text-align: left;
+  background: var(--bg-secondary);
+  border: var(--border-secondary);
+  border-radius: var(--radius-large); }
   @media (min-width: 601px) {
     .alert-select {
       grid-template-columns: repeat(3, 1fr);
       width: calc(100vw - 35px); } }
   .alert-select.is-open {
     display: grid; }
+  .alert-select .alert-section > b {
+    display: block;
+    max-width: 100%;
+    width: max-content;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 160%;
+    font-size: var(--text-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: var(--bg-gradient-25);
+    border-radius: var(--radius-small);
+    color: var(--text-on-accent);
+    padding: var(--space-xs) var(--space-sm);
+    margin-bottom: var(--space-sm); }
   .alert-select .alert-section .scroll {
     max-height: var(--size-alert-max-height); }
   .alert-select .alert-section .input-wrap:not(:last-child) {
     margin-bottom: var(--space-xs); }
   .alert-select .alert-section .input-wrap .fancy-input::before {
-    font-family: 'Font Awesome 7 Pro'; }
+    display: none; }
   .alert-select .alert-section label {
-    cursor: pointer; }
+    cursor: pointer;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 160%;
+    font-size: var(--text-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.2em; }
   .alert-select .alert-section hr {
     border: 0;
-    border-top: 1px solid black;
+    height: 1px;
+    background: var(--bg-gradient);
     margin: var(--space-sm) 0; }
   .alert-select input[type="button"] {
     grid-column: 1 / -1;

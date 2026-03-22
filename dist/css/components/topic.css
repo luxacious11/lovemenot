@@ -42,7 +42,7 @@
   #SF main .container > table:first-of-type,
   #ST main .container > table:first-of-type {
     position: sticky;
-    top: calc(var(--size-container-margin) - 2px);
+    top: calc(var(--size-container-margin) - 2px + var(--space-sm));
     z-index: 4; }
   #SF main .container > table:last-of-type ~ div[align="right"],
   #ST main .container > table:last-of-type ~ div[align="right"] {
@@ -135,9 +135,15 @@
   @media (min-width: 1025px) {
     .topics--section {
       grid-template-columns: 1fr 1fr; } }
+  .topics--section > br {
+    display: none; }
+  .topics--section > b {
+    grid-column: 1 / -1;
+    text-align: center; }
 
 .topic {
   display: grid;
+  grid-template-rows: auto max-content;
   align-items: center;
   background: var(--bg-primary);
   border-radius: var(--radius-large);
@@ -198,7 +204,8 @@
       width: 100%;
       height: 100%;
       display: block;
-      border-radius: 50%; }
+      border-radius: 50%;
+      background-size: cover; }
   .topic--main {
     padding: var(--space-md); }
     @media (min-width: 481px) {

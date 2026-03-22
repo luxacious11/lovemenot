@@ -38,6 +38,92 @@ a[href="<i>No Information</i>"] {
     .input-wrap .fancy-input i {
       color: transparent; }
 
+#CODE-WRAP {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  background: var(--bg-gradient);
+  border-radius: var(--radius-large);
+  padding: var(--space-md);
+  margin: var(--space-md) auto var(--space-md) 0; }
+  #CODE-WRAP .code--wrapper {
+    background: var(--bg-secondary);
+    border-radius: calc(var(--radius-large) - var(--space-md));
+    padding: var(--space-md); }
+  #CODE-WRAP .codeclick {
+    background: var(--bg-gradient-25);
+    border-radius: var(--radius-small);
+    width: max-content;
+    padding: var(--space-sm);
+    line-height: 100%;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 160%;
+    font-size: var(--text-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-secondary); }
+  #CODE-WRAP .codecon pre {
+    margin: var(--space-md) 0 0; }
+    #CODE-WRAP .codecon pre textarea,
+    #CODE-WRAP .codecon pre code {
+      white-space: break-spaces;
+      font-family: var(--font-sans);
+      display: block;
+      line-height: 160%;
+      max-height: 100px;
+      height: 80px;
+      border: none;
+      width: 100%;
+      padding: 0; }
+
+.block {
+  margin: var(--space-lg) auto;
+  max-width: 400px;
+  border-radius: var(--radius-large);
+  overflow: hidden;
+  padding: var(--space-sm) var(--space-sm) var(--space-sm) calc(64px + var(--space-sm)); }
+  @media (max-width: 480px) {
+    .block {
+      padding: var(--space-sm); }
+      .block .block--icon {
+        display: none; } }
+  .block:has(.triggers) {
+    background: var(--bg-gradient-v); }
+    .block:has(.triggers) .block--icon {
+      background: var(--bg-primary);
+      border: none; }
+  .block:has(.notes) {
+    background: var(--bg-tertiary);
+    border: var(--border-primary); }
+  .block--icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0 0 var(--radius-xl);
+    background: var(--bg-secondary);
+    border-right: var(--border-primary);
+    border-bottom: var(--border-primary);
+    padding: var(--space-md) var(--space-md) var(--space-lg);
+    width: 64px;
+    font-size: 12px; }
+    .block--icon i {
+      background: var(--bg-gradient-v);
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-sm);
+      color: var(--text-on-accent); }
+  .block--content {
+    background: var(--bg-secondary);
+    border-radius: calc(var(--radius-large) - var(--space-sm));
+    padding: var(--space-md);
+    text-align: justify; }
+
 /***** Online List ******/
 #Online main .container > .tableborder {
   margin: 0 auto var(--space-xl);
@@ -208,7 +294,8 @@ a[href="<i>No Information</i>"] {
   font-size: 0;
   justify-content: center; }
   #ST #qr_open .tablepad textarea {
-    height: 250px; }
+    height: 250px;
+    font-size: var(--text-size-md); }
 
 #ST #qr_open .input-wrap:first-of-type {
   margin-right: calc(var(--space-md) / 2); }
@@ -273,29 +360,80 @@ a[href="<i>No Information</i>"] {
     display: none; }
 
 /***** New Post/Reply ******/
-#Post main > form ~ br {
+#Post main .container > form ~ br {
   display: none; }
 
+#Post main .container > header + .tableborder {
+  display: block;
+  padding: calc(var(--space-md) + var(--size-container-margin)) var(--space-md) 0;
+  max-width: var(--size-max-screen);
+  margin: 0 auto; }
+  @media (min-width: 481px) {
+    #Post main .container > header + .tableborder {
+      padding: calc(var(--space-lg) + var(--size-container-margin)) var(--space-lg) 0; } }
+  #Post main .container > header + .tableborder + br {
+    display: none; }
+
 #Post #posting-form {
-  display: block; }
+  display: block;
+  padding: 0 var(--space-md) calc(var(--space-md) + var(--size-container-margin)) var(--space-md);
+  max-width: var(--size-max-screen);
+  margin: 0 auto; }
+  @media (min-width: 481px) {
+    #Post #posting-form {
+      padding: 0 var(--space-lg) calc(var(--space-lg) + var(--size-container-margin)) var(--space-lg); } }
   #Post #posting-form .maintitle {
     display: block;
-    text-align: center;
-    grid-column: 1 / -1 !important;
-    line-height: 160%;
-    max-width: max-content;
-    padding: var(--space-sm) 0 var(--space-sm) var(--space-lg); }
+    line-height: 120%;
+    font-family: var(--font-script);
+    text-transform: lowercase;
+    font-size: 30px;
+    color: var(--text-secondary);
+    font-weight: 400;
+    padding-bottom: var(--space-xs);
+    padding: var(--space-lg) 0 0; }
+    @media only screen and (min-width: 480px) {
+      #Post #posting-form .maintitle {
+        font-size: calc(30px + 12 * (100vw - 480px) / (1280 - 480)); } }
+    @media only screen and (min-width: 1280px) {
+      #Post #posting-form .maintitle {
+        font-size: 42px; } }
+    #Post #posting-form .maintitle::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--bg-gradient); }
+    @media (max-width: 1024px) {
+      #Post #posting-form .maintitle {
+        margin: 0 var(--space-md); } }
   #Post #posting-form > tbody {
     display: block;
+    border-radius: var(--radius-large);
+    background: var(--bg-primary);
     width: 100%; }
+    @media (min-width: 1025px) {
+      #Post #posting-form > tbody {
+        display: grid;
+        gap: var(--space-sm) var(--space-lg);
+        grid-template-columns: var(--size-ucp-menu) 1fr;
+        padding-right: var(--space-lg); }
+        #Post #posting-form > tbody > tr:not(#code-buttons) {
+          grid-column: 2 / 3;
+          margin: 0; }
+        #Post #posting-form > tbody > tr#code-buttons {
+          grid-column: 1 / 2;
+          grid-row: 1 / 5; } }
     #Post #posting-form > tbody > tr:first-child {
       display: block;
-      margin-bottom: var(--space-lg);
       width: 100%; }
     #Post #posting-form > tbody > tr:not(:first-child) {
       padding: var(--space-md) var(--space-md) 0; }
     #Post #posting-form > tbody > tr:last-child {
-      padding-bottom: var(--space-md); }
+      padding-bottom: var(--space-lg); }
     #Post #posting-form > tbody > tr#topic-settings-header, #Post #posting-form > tbody > tr#code-buttons-header, #Post #posting-form > tbody > tr#enter-your-post-header, #Post #posting-form > tbody > tr#post-as-header,
     #Post #posting-form > tbody > tr#post-as + tr:not(:last-child),
     #Post #posting-form > tbody > tr#post-as .pformleft,
@@ -320,22 +458,61 @@ a[href="<i>No Information</i>"] {
       padding: var(--space-xs) var(--space-md); }
     #Post #posting-form > tbody > tr#code-buttons {
       display: block;
-      padding: var(--space-md); }
+      padding: var(--space-md) var(--space-md) 0; }
+      @media (min-width: 1025px) {
+        #Post #posting-form > tbody > tr#code-buttons {
+          padding: 0; }
+          #Post #posting-form > tbody > tr#code-buttons .pformright {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-sm);
+            position: sticky;
+            top: calc(var(--size-container-margin) - 1px);
+            display: flex;
+            flex-direction: column;
+            padding: var(--space-md);
+            justify-content: end;
+            border-bottom: var(--border-primary);
+            border-right: var(--border-primary);
+            border-bottom-right-radius: var(--radius-xl);
+            border-top-left-radius: var(--radius-large); } }
+    @media (min-width: 1025px) and (min-width: 481px) {
+      #Post #posting-form > tbody > tr#code-buttons .pformright {
+        padding: var(--space-lg) var(--space-md) var(--space-xl); } }
       #Post #posting-form > tbody > tr#code-buttons .pformright {
         font-size: 0;
-        line-height: 0; }
+        line-height: 0;
+        display: flex;
+        flex-direction: column;
+        background: var(--bg-secondary);
+        gap: var(--space-md); }
+        @media (max-width: 1024px) {
+          #Post #posting-form > tbody > tr#code-buttons .pformright {
+            border: var(--border-primary);
+            border-radius: var(--radius-medium);
+            padding: var(--space-md) var(--space-md) 0; } }
+        #Post #posting-form > tbody > tr#code-buttons .pformright .buttonHolder.is-active {
+          display: flex;
+          flex-wrap: wrap;
+          gap: var(--space-xs);
+          padding-top: var(--space-sm); }
         #Post #posting-form > tbody > tr#code-buttons .pformright > input,
         #Post #posting-form > tbody > tr#code-buttons .pformright > br {
           display: none; }
         #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons {
           display: flex;
-          flex-wrap: wrap;
-          gap: var(--space-xs); }
+          flex-direction: column; }
           #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons input,
           #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons select {
             margin: 0;
-            font-size: var(--text-size-md);
-            line-height: 160%; }
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            line-height: 160%;
+            font-size: var(--text-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            height: 30px; }
           #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons > a,
           #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons > br {
             display: none; }
@@ -385,20 +562,32 @@ a[href="<i>No Information</i>"] {
         justify-content: center; }
 
 #Post #topic-summary {
-  margin-top: var(--space-md); }
-  @media (min-width: 601px) {
+  display: block;
+  padding: 0 var(--space-md) var(--space-md);
+  max-width: var(--size-max-screen);
+  margin: 0 auto; }
+  @media (min-width: 481px) {
     #Post #topic-summary {
-      margin-top: var(--space-lg); } }
+      padding: 0 var(--space-lg) var(--space-lg); } }
   #Post #topic-summary > .tableborder .pformstrip {
     display: block;
     max-width: max-content;
-    padding: var(--space-xs) var(--space-sm); }
+    padding: var(--space-xs) var(--space-sm);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 160%;
+    font-size: var(--text-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    background: var(--bg-gradient-25);
+    border-radius: var(--radius-small); }
+    #Post #topic-summary > .tableborder .pformstrip:has(a) {
+      margin-top: var(--space-md); }
+      #Post #topic-summary > .tableborder .pformstrip:has(a) a {
+        color: var(--text-secondary); }
   #Post #topic-summary > .tableborder > table {
-    display: block;
-    margin-top: var(--space-md); }
-    @media (min-width: 601px) {
-      #Post #topic-summary > .tableborder > table {
-        margin-top: var(--space-lg); } }
+    display: block; }
     #Post #topic-summary > .tableborder > table tbody {
       display: flex;
       flex-direction: column; }
@@ -406,14 +595,49 @@ a[href="<i>No Information</i>"] {
         display: flex;
         flex-direction: column;
         gap: var(--space-sm);
-        padding: var(--space-lg); }
+        padding: var(--space-md);
+        border-radius: var(--radius-large) var(--radius-large) 0 0;
+        background: var(--bg-primary);
+        margin-top: var(--space-lg); }
         #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td {
-          padding: 0;
+          padding: 0 var(--space-md);
           width: 100%; }
+          #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td b {
+            line-height: 120%;
+            font-family: var(--font-script);
+            text-transform: lowercase;
+            font-size: 30px;
+            color: var(--text-secondary);
+            font-weight: 400;
+            padding-bottom: var(--space-xs); }
+            @media only screen and (min-width: 480px) {
+              #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td b {
+                font-size: calc(30px + 12 * (100vw - 480px) / (1280 - 480)); } }
+            @media only screen and (min-width: 1280px) {
+              #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td b {
+                font-size: 42px; } }
+            #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td b::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 4px;
+              border-radius: 2px;
+              background: var(--bg-gradient); }
+          #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td:last-child {
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            line-height: 160%;
+            font-size: var(--text-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.4em; }
       #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) {
         display: block;
-        padding: var(--space-lg);
-        margin: var(--space-md) 0 var(--space-lg); }
+        padding: 0 var(--space-md) var(--space-md);
+        border-radius: 0 0 var(--radius-large) var(--radius-large);
+        background: var(--bg-primary); }
         #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) td {
           display: block;
           width: 100%;
@@ -422,15 +646,29 @@ a[href="<i>No Information</i>"] {
           line-height: 200%; }
           #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) td:first-child {
             display: none; }
+          #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) td:last-child {
+            background: var(--bg-secondary);
+            border: var(--border-secondary);
+            padding: var(--space-md);
+            border-radius: calc(var(--radius-large) - var(--space-md)); }
 
-#Post #post-preview .pformstrip {
-  display: block;
-  max-width: max-content;
-  padding: var(--space-xs) var(--space-sm); }
-
-#Post #post-preview .row1 {
-  padding: var(--space-lg) !important;
-  margin-top: var(--space-md); }
+#Post #post-preview {
+  padding: 0 var(--space-md) calc(var(--space-md) + var(--size-container-margin)) var(--space-md);
+  max-width: var(--size-max-screen);
+  margin: 0 auto; }
+  @media (min-width: 481px) {
+    #Post #post-preview {
+      padding: 0 var(--space-lg) calc(var(--space-lg) + var(--size-container-margin)) var(--space-lg); } }
+  #Post #post-preview .pformstrip {
+    display: none; }
+  #Post #post-preview .row1 {
+    padding: var(--space-md) !important;
+    margin-top: var(--space-md);
+    border-radius: var(--radius-large);
+    background: var(--bg-primary); }
+    @media (min-width: 481px) {
+      #Post #post-preview .row1 {
+        padding: var(--space-lg) !important; } }
 
 /***** Registration ******/
 #Reg main .container > .header + .tableborder {

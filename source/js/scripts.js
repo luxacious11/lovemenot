@@ -203,6 +203,8 @@ if(pageType === 'ST') {
         label.querySelector('input').insertAdjacentHTML('afterend', `<div class="fancy-input checkbox">${checkboxChecked}</div>`);
     });
     $('#qr_open .tablepad > input').wrapAll('<div class="qr_buttons"></div>');
+
+    initMarkdown();
 }
 
 /********** Topic View **********/
@@ -263,10 +265,10 @@ if(pageType === 'Post') {
         let cbHolder = ``;
       
         for (const group of bbcode) {
-            cbHolder += `<div class="customButtonSection ${group.extraClasses ?? ''}">`;
+            cbHolder += `<div class="customButtonSection accordion ${group.extraClasses ?? ''}">`;
             if (group.tags.length < 1) continue;
-            cbHolder += `<div class="cbHeader">${group.groupName}</div>`;
-            cbHolder += `<div class="buttonHolder ${group.collapsed ? "bbcCollapse" : "bbcNoCollapse"}">`
+            cbHolder += `<div class="cbHeader accordion--trigger">${group.groupName}</div>`;
+            cbHolder += `<div class="buttonHolder accordion--content ${group.collapsed ? "bbcCollapse" : "bbcNoCollapse"}">`
             for (const bbc of group.tags) {
                 // Hide buttons that already exist
                 const exists = document.querySelector(`input[value=" ${bbc.tag.toUpperCase()} "]`);
@@ -291,6 +293,7 @@ if(pageType === 'Post') {
     };
       
     setUpCustomBBcodeButtons();
+    initAccordion();
 }
 
 const doSelectionReplace = (button) => {

@@ -145,14 +145,15 @@ function initClipboard() {
     });
 }
 function initCodebox() {
-    $("table[id='CODE-WRAP']").each(function() {
-        var cc = $(this).find("td[id='CODE']").html();
-
-        $(this).html(
-            "<div class='codeblock code--wrapper'><div class='c-title codeclick'>Click to Copy</div><div class='codecon'><pre><code class='scroll'>"
-            + cc +
-            "</code></pre></div></div>"
-        );
+    document.querySelectorAll('table#CODE-WRAP').forEach(wrap => {
+        let html = wrap.querySelector('#CODE').innerText;
+        wrap.insertAdjacentHTML('afterend', `<div id="CODE-WRAP"><div class='codeblock code--wrapper'><div class='c-title codeclick'>Click to Copy</div><div class='codecon'><pre><textarea class='scroll'>${html}</textarea></pre></div></div></div>`);
+        wrap.remove();
+    });
+    let clipcode = new Clipboard('.codeclick', {
+        target: function(trigger) {
+        return trigger.nextElementSibling;
+        }
     });
 }
 function initCopyLink() {
@@ -540,14 +541,17 @@ function appendSearchQuery(param, value) {
 
 /****** Posting ******/
 function translationSwitch(e) {
-        let current = e.innerText;
-        let original = e.dataset.original;
-        let translation = e.dataset.result;
-        if(current === original) {
-            e.innerText = translation;
-        } else {
-            e.innerText = original;
-        }
+    let current = e.innerText;
+    let original = e.dataset.original;
+    let translation = e.dataset.result;
+    if(original === '') {
+        e.dataset.original = current;
+        e.innerText = translation;
+    } else if(current === original) {
+        e.innerText = translation;
+    } else {
+        e.innerText = original;
+    }
 }
 function highlightCode() {
     let clipcodeQuick = new Clipboard('.copyQuick', {
@@ -1115,17 +1119,19 @@ function initMiniSplide() {
     });
 }
 function initSocials() {
-    $('.post.social:not(:has(tag-summary))').nextUntil('.post + .activeuserstrip').andSelf().wrapAll('<div class="posts--socials-wrap"><div class="posts--socials-wrap-inner"><div class="scroll"></div></div></div>');
-    if(document.querySelector('.post.social:has(tag-summary)')) {
-        document.querySelector('.post.social:has(tag-summary) .post--name').innerText = document.querySelector('.maintitle .topic-title').innerText;
-        document.querySelector('.post.social:has(tag-summary) .post--top').insertAdjacentHTML('beforeend', `<div class="post--tagline">${document.querySelector('.maintitle .topic-desc').innerHTML}</div>`);
+    $('.post.social:not(:has(tag-bio))').nextUntil('.post + .activeuserstrip').andSelf().wrapAll('<div class="posts--socials-wrap"><div class="posts--socials-wrap-inner"><div class="scroll"></div></div></div>');
+    if(document.querySelector('.post.social:has(tag-bio)')) {
+        document.querySelector('.post.social:has(tag-bio) .post--top > a').innerText = document.querySelector('.maintitle .topic-title').innerText;
+        document.querySelector('.post.social:has(tag-bio) .post--top').insertAdjacentHTML('beforeend', `<div class="post--tagline">${document.querySelector('.maintitle .topic-desc').innerHTML}</div>`);
 
         if(!document.querySelector('.posts--socials-wrap')) {
-            document.querySelector('.post.social:has(tag-summary)').insertAdjacentHTML('afterend', `<div class="posts--socials-wrap"><div class="posts--no-posts">Oops, this is a new profile. There's nothing here!</div></div>`);
+            document.querySelector('.post.social:has(tag-bio)').insertAdjacentHTML('afterend', `<div class="posts--socials-wrap"><div class="posts--no-posts">Oops, this is a new profile. There's nothing here!</div></div>`);
         }
     }
     document.querySelectorAll('.posts--socials-wrap .post.social').forEach(post => {
-        post.querySelector('.post--name').innerText = post.querySelector('tag-contact').innerText;
+        if(post.querySelector('tag-account')) {
+            post.querySelector('.post--top > a').innerText = post.querySelector('tag-account').innerText;
+        }
     });
     $('.posts--socials-wrap .scroll').masonry({gutter: 15});
 }
@@ -1134,15 +1140,26 @@ function initComms() {
     $('.tableborder:has(.post.comm) .maintitle').nextUntil('.posts--comms-wrap').andSelf().wrapAll('<div class="posts--header"></div>'); 
     $('.activeuserstrip').nextUntil('.activeuserstrip').andSelf().wrapAll('<div class="posts--info"></div>'); 
     let posts = document.querySelectorAll('.post.comm');
-    let descriptionRaw = document.querySelector('.topic-desc').innerHTML;
-    let contact = document.querySelector('.topic-desc').innerText.split('{')[1].split('}')[0];
-    let preContact = descriptionRaw.split('{')[0];
-    let postContact = descriptionRaw.split('}')[1];
-    document.querySelector('.topic-desc').innerHTML = `${preContact}${postContact}`;
-    posts.forEach((post, i) => {
-        if(i % 2 !== 0) {
-            post.querySelector('.post--top a').innerHTML = contact.toLowerCase();
-        }
+    let latestHTML = ``;
+    if(posts.length >= 2) {
+        latestHTML = `<div class="post--latest">
+            <img src="${posts[posts.length - 2].dataset.avatar}" loading="lazy" />
+            <div class="post--contact">${posts[posts.length - 2].querySelector('tag-comm') ? `${posts[posts.length - 2].querySelector('tag-comm').dataset.type} ${posts[posts.length - 2].querySelector('tag-comm').innerText}` : `texting ${posts[posts.length - 2].dataset.fullName}`}</div>
+        </div>`;
+    } else if(posts[0].querySelector('tag-start')) {
+        latestHTML = `<div class="post--latest">
+            <img src="${posts[0].querySelector('tag-start').dataset.avatar}" loading="lazy" />
+            <div class="post--contact">${posts[0].querySelector('tag-start').innerText}</div>
+        </div>`;
+    } else {
+        latestHTML = `<div class="post--latest">
+            <img src="${defaultAvatar}" loading="lazy" />
+            <div class="post--contact">${defaultCommText}</div>
+        </div>`;
+    }
+    document.querySelector('.posts--comms-wrap').insertAdjacentHTML('afterbegin', latestHTML);
+    posts.forEach((post) => {
+        post.querySelector('a.contact-clip').innerHTML = post.querySelector('tag-comm') ? post.querySelector('tag-comm').innerText : post.dataset.fullName;
     });
 }
 function initPlayerInfo(parent = null) {

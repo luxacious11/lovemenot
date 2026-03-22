@@ -29,6 +29,8 @@ const defaultSquare = 'https://picsum.photos/100';
 const checkboxChecked = `<i class="fa-solid fa-check"></i>`;
 const carouselCategories = [3];
 const condensedCategories = [4,5];
+const defaultAvatar = 'https://picsum.photos/400/500';
+const defaultCommText = 'open comm!';
 
 //this is for character sorting, highlighting the edge of the sorting related messages
 //the group name should by lowercase and should match what would appear in the Group column of the google sheet
@@ -85,38 +87,57 @@ const bbcode = [
         tags: [
             {
                 tag: "h2",
-                type: "simple",
-                displayName: "H2"
+                desc: "style options are: normal, underline, color, underline color",
+                type: "complex",
+                displayName: "H2",
+                simpleIndicator: "Title",
+                complexIndicator: "style"
             },
             {
                 tag: "h3",
-                type: "simple",
-                displayName: "H3"
+                desc: "style options are: normal, underline, color, underline color",
+                type: "complex",
+                displayName: "H3",
+                simpleIndicator: "Title",
+                complexIndicator: "style"
             },
             {
                 tag: "h4",
-                type: "simple",
-                displayName: "H4"
+                desc: "style options are: normal, underline, color, underline color",
+                type: "complex",
+                displayName: "H4",
+                simpleIndicator: "Title",
+                complexIndicator: "style"
             },
             {
                 tag: "h5",
-                type: "simple",
-                displayName: "H5"
+                desc: "style options are: normal, underline, color, underline color",
+                type: "complex",
+                displayName: "H5",
+                simpleIndicator: "Title",
+                complexIndicator: "style"
             },
             {
                 tag: "h6",
-                type: "simple",
-                displayName: "H6"
+                desc: "style options are: normal, underline, color, underline color",
+                type: "complex",
+                displayName: "H6",
+                simpleIndicator: "Title",
+                complexIndicator: "style"
             },
             {
                 tag: "h7",
-                type: "simple",
-                displayName: "H7"
+                desc: "style options are: normal, underline, color, underline color",
+                type: "complex",
+                displayName: "H7",
+                simpleIndicator: "Title",
+                complexIndicator: "style"
             },
             {
                 tag: "h8",
                 type: "simple",
-                displayName: "H8"
+                displayName: "H8",
+                simpleIndicator: "Title"
             },
             {
                 tag: "b",
@@ -181,9 +202,8 @@ const bbcode = [
             {
                 tag: "post",
                 desc: "Use a basic post template; option 1",
-                type: "complex",
-                displayName: "Post 1 Wrap",
-                complexIndicator: "theme number"
+                type: "simple",
+                displayName: "TBD"
             },
         ]
     },
@@ -191,14 +211,31 @@ const bbcode = [
         groupName: "Comms",
         tags: [
             {
+                tag: "contact",
+                type: "complex",
+                displayName: "Contact Info",
+                simpleIndicator: "contact name for YOUR character",
+                complexIndicator: "sidebar action"
+            },
+            {
+                tag: "start",
+                type: "complex",
+                displayName: "First Post Info",
+                simpleIndicator: "sidebar text for the FIRST post",
+                complexIndicator: "sidebar image url for the FIRST post"
+            },
+            {
                 tag: "msg",
                 type: "simple",
                 displayName: "Message"
             },
             {
                 tag: "action",
-                type: "simple",
-                displayName: "Action"
+                desc: "style options are: action, loading, skip, time, read, memo, file",
+                type: "complex",
+                displayName: "Action",
+                simpleIndicator: "text",
+                complexIndicator: "style"
             },
         ]
     },
@@ -206,80 +243,101 @@ const bbcode = [
         groupName: "Socials",
         tags: [
             {
-                tag: "profile",
+                tag: "bio",
                 type: "simple",
-                displayName: "Profile"
+                displayName: "Bio Text"
             },
             {
-                tag: "displayname",
+                tag: "handle",
+                desc: "Not required for profiles (first posts containing a Bio element)",
                 type: "simple",
-                displayName: "Display Name"
+                displayName: "Handle"
             },
             {
                 tag: "gallery",
                 type: "simple",
-                displayName: "Gallery"
+                displayName: "Gallery",
+                simpleIndicator: "Image Elements"
             },
             {
                 tag: "image",
                 type: "simple",
-                displayName: "Image"
+                displayName: "Image",
+                simpleIndicator: "Image URL"
             },
             {
                 tag: "caption",
                 type: "simple",
-                displayName: "Caption"
+                displayName: "Caption/Text Post"
             },
             {
-                tag: "alert",
+                tag: "react",
                 type: "simple",
-                displayName: "Alert"
+                displayName: "React",
+                simpleIndicator: "E.g., Swiped Left!"
             },
         ]
     },
     {
         groupName: "Dev",
-        extraClasses: 'fullWidth',
         tags: [
             {
+                tag: "imagedev",
+                type: "complex",
+                displayName: "Images",
+                simpleIndicator: "image elements",
+                complexIndicator: "number of columns"
+            },
+            {
                 tag: "image",
-                desc: "",
                 type: "simple"
             },
             {
-                tag: "simplequote",
-                desc: "",
-                type: "simple",
-                displayName: "Simple Quote",
-                simpleIndicator: "quote"
-            },
-            {
-                tag: "sourcequote",
-                desc: "",
+                tag: "quotedev",
                 type: "complex",
-                displayName: "Sourced Quote",
+                displayName: "Quote",
                 simpleIndicator: "quote",
                 complexIndicator: "source"
             },
             {
+                tag: "playlist",
+                type: "simple",
+                simpleIndicator: "elements"
+            },
+            {
+                tag: "song",
+                type: "complex",
+                simpleIndicator: "artist",
+                complexIndicator: "song title"
+            },
+            {
+                tag: "timeline",
+                type: "simple",
+                simpleIndicator: "elements"
+            },
+            {
                 tag: "year",
-                desc: "",
                 type: "simple"
             },
             {
                 tag: "month",
-                desc: "",
                 type: "simple"
             },
             {
-                tag: "day",
-                desc: "",
+                tag: "event",
                 type: "simple"
             },
             {
-                tag: "spotify",
-                desc: "",
-                type: "simple"
+                tag: "search",
+                type: "simple",
+                simpleIndicator: "elements"
+            },
+            {
+                tag: "searchitem",
+                type: "complex",
+                displayName: "Search Item",
+                simpleIndicator: "search text",
+                complexIndicator: "icon code"
             },
         ]
     },

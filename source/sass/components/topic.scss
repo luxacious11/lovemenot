@@ -52,7 +52,7 @@
 
             &:first-of-type {
                 position: sticky;
-                top: calc(var(--size-container-margin) - 2px);
+                top: calc(var(--size-container-margin) - 2px + var(--space-sm));
                 z-index: 4;
             }
             &:last-of-type {
@@ -120,12 +120,22 @@
         @include mq-up(md) {
             grid-template-columns: 1fr 1fr;
         }
+
+        & > br {
+            display: none;
+        }
+
+        & > b {
+            grid-column: 1 / -1;
+            text-align: center;
+        }
     }
 }
 
 
 .topic {
     display: grid;
+    grid-template-rows: auto max-content;
     align-items: center;
     background: var(--bg-primary);
     border-radius: var(--radius-large);
@@ -170,6 +180,7 @@
             height: 100%;
             display: block;
             border-radius: 50%;
+            background-size: cover;
         }
     }
     &--main {

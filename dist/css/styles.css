@@ -131,6 +131,14 @@ a {
   --size-min-post-avatar: 225px;
   --size-max-post-avatar: 500px;
   --size-post-avatar-ratio: 4 / 5;
+  --size-min-insta: 300px;
+  --size-max-insta: 500px;
+  --size-social-post-aspect: 5 / 3;
+  --size-social-profile-aspect: 5 / 4;
+  --size-tindr-profile-aspect: 2 / 3;
+  --size-tindr-post-height: 200px;
+  --size-min-tindr: 300px;
+  --size-max-tindr: 400px;
   --bg-container: rgba(24, 24, 24, 0.3);
   --bg-primary: rgba(24, 24, 24, 1);
   --bg-secondary: rgba(37, 37, 37, 1);
@@ -192,18 +200,29 @@ body [class*="g-"], body[class*="mgroup-"],
 body [class*="mgroup-"], body:has(.profile[class*="g-"]) {
   --accent-1: rgb(var(--rgb-1));
   --accent-1-75: rgba(var(--rgb-1), 0.75);
+  --accent-1-50: rgba(var(--rgb-1), 0.5);
   --accent-1-25: rgba(var(--rgb-1), 0.25);
   --accent-2: rgb(var(--rgb-2));
   --accent-2-75: rgba(var(--rgb-2), 0.75);
+  --accent-2-50: rgba(var(--rgb-2), 0.5);
   --accent-2-25: rgba(var(--rgb-2), 0.25);
   --accent-3: rgb(var(--rgb-3));
   --accent-3-75: rgba(var(--rgb-3), 0.75);
+  --accent-3-50: rgba(var(--rgb-3), 0.5);
   --accent-3-25: rgba(var(--rgb-3), 0.25);
   --bg-accent: var(--accent-3);
   --bg-gradient: linear-gradient(to right, var(--accent-1), var(--accent-2), var(--accent-3));
   --bg-gradient-75: linear-gradient(to right, var(--accent-1-75), var(--accent-2-75), var(--accent-3-75));
+  --bg-gradient-50: linear-gradient(to right, var(--accent-1-50), var(--accent-2-50), var(--accent-3-50));
   --bg-gradient-25: linear-gradient(to right, var(--accent-1-25), var(--accent-2-25), var(--accent-3-25));
   --bg-gradient-v: linear-gradient(to bottom, var(--accent-1), var(--accent-2), var(--accent-3));
+  --bg-gradient-v-75: linear-gradient(to bottom, var(--accent-1-75), var(--accent-2-75), var(--accent-3-75));
+  --bg-gradient-v-50: linear-gradient(to bottom, var(--accent-1-50), var(--accent-2-50), var(--accent-3-50));
+  --bg-gradient-v-25: linear-gradient(to bottom, var(--accent-1-25), var(--accent-2-25), var(--accent-3-25));
+  --bg-gradient-vr: linear-gradient(to top, var(--accent-1), var(--accent-2), var(--accent-3));
+  --bg-gradient-vr-75: linear-gradient(to top, var(--accent-1-75), var(--accent-2-75), var(--accent-3-75));
+  --bg-gradient-vr-50: linear-gradient(to top, var(--accent-1-50), var(--accent-2-50), var(--accent-3-50));
+  --bg-gradient-vr-25: linear-gradient(to top, var(--accent-1-25), var(--accent-2-25), var(--accent-3-25));
   --text-accent: var(--accent-1);
   --text-on-accent: rgb(225, 225, 225);
   --border-accent: 1px solid var(--accent-1);
@@ -483,7 +502,8 @@ textarea {
   border-radius: var(--radius-medium);
   padding: 0 var(--space-md);
   line-height: 160%;
-  color: var(--text-primary); }
+  color: var(--text-primary);
+  font-size: var(--text-size-md); }
   input:focus-visible,
   select:focus-visible,
   textarea:focus-visible {
@@ -709,11 +729,13 @@ tag-labels {
   top: calc(100% + 11px + var(--space-sm));
   right: 0;
   z-index: 5;
-  background: white;
   gap: var(--space-md);
   padding: var(--space-md);
   max-width: 500px;
-  text-align: left; }
+  text-align: left;
+  background: var(--bg-secondary);
+  border: var(--border-secondary);
+  border-radius: var(--radius-large); }
   @media (min-width: 601px) {
     .alert-select {
       -ms-grid-columns: (1fr)[3];
@@ -722,17 +744,43 @@ tag-labels {
   .alert-select.is-open {
     display: -ms-grid;
     display: grid; }
+  .alert-select .alert-section > b {
+    display: block;
+    max-width: 100%;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 160%;
+    font-size: var(--text-size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: var(--bg-gradient-25);
+    border-radius: var(--radius-small);
+    color: var(--text-on-accent);
+    padding: var(--space-xs) var(--space-sm);
+    margin-bottom: var(--space-sm); }
   .alert-select .alert-section .scroll {
     max-height: var(--size-alert-max-height); }
   .alert-select .alert-section .input-wrap:not(:last-child) {
     margin-bottom: var(--space-xs); }
   .alert-select .alert-section .input-wrap .fancy-input::before {
-    font-family: 'Font Awesome 7 Pro'; }
+    display: none; }
   .alert-select .alert-section label {
-    cursor: pointer; }
+    cursor: pointer;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 160%;
+    font-size: var(--text-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.2em; }
   .alert-select .alert-section hr {
     border: 0;
-    border-top: 1px solid black;
+    height: 1px;
+    background: var(--bg-gradient);
     margin: var(--space-sm) 0; }
   .alert-select input[type="button"] {
     grid-column: 1 / -1;
@@ -1183,7 +1231,21 @@ fieldset {
 .post--content h7,
 .post--content .h7,
 .post--content h8,
-.post--content .h8 {
+.post--content .h8,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 {
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
@@ -1230,7 +1292,21 @@ fieldset {
   .post--content h7:first-child,
   .post--content .h7:first-child,
   .post--content h8:first-child,
-  .post--content .h8:first-child {
+  .post--content .h8:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8:first-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8:first-child {
     margin-top: 0; }
   .webpage h2:last-child,
   .webpage .h2:last-child,
@@ -1273,7 +1349,21 @@ fieldset {
   .post--content h7:last-child,
   .post--content .h7:last-child,
   .post--content h8:last-child,
-  .post--content .h8:last-child {
+  .post--content .h8:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8:last-child,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8:last-child {
     margin-bottom: 0; }
   .webpage h2 + h2,
   .webpage h2 + .h2,
@@ -1862,8 +1952,261 @@ fieldset {
   .post--content .h8 + h7,
   .post--content .h8 + .h7,
   .post--content .h8 + h8,
-  .post--content .h8 + .h8 {
+  .post--content .h8 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + .h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + .h2,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + .h3,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + .h4,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + .h5,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + .h6,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + .h7,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + h8,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + .h8 {
     margin-top: 1em; }
+  .webpage h2 + br,
+  .webpage .h2 + br,
+  .webpage h3 + br,
+  .webpage .h3 + br,
+  .webpage h4 + br,
+  .webpage .h4 + br,
+  .webpage h5 + br,
+  .webpage .h5 + br,
+  .webpage h6 + br,
+  .webpage .h6 + br,
+  .webpage h7 + br,
+  .webpage .h7 + br,
+  .webpage h8 + br,
+  .webpage .h8 + br,
+  .profile .canStyle h2 + br,
+  .profile .canStyle .h2 + br,
+  .profile .canStyle h3 + br,
+  .profile .canStyle .h3 + br,
+  .profile .canStyle h4 + br,
+  .profile .canStyle .h4 + br,
+  .profile .canStyle h5 + br,
+  .profile .canStyle .h5 + br,
+  .profile .canStyle h6 + br,
+  .profile .canStyle .h6 + br,
+  .profile .canStyle h7 + br,
+  .profile .canStyle .h7 + br,
+  .profile .canStyle h8 + br,
+  .profile .canStyle .h8 + br,
+  .post--content h2 + br,
+  .post--content .h2 + br,
+  .post--content h3 + br,
+  .post--content .h3 + br,
+  .post--content h4 + br,
+  .post--content .h4 + br,
+  .post--content h5 + br,
+  .post--content .h5 + br,
+  .post--content h6 + br,
+  .post--content .h6 + br,
+  .post--content h7 + br,
+  .post--content .h7 + br,
+  .post--content h8 + br,
+  .post--content .h8 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 + br,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 + br {
+    display: none; }
   .webpage h2 a,
   .webpage .h2 a,
   .webpage h3 a,
@@ -1905,15 +2248,93 @@ fieldset {
   .post--content h7 a,
   .post--content .h7 a,
   .post--content h8 a,
-  .post--content .h8 a {
+  .post--content .h8 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8 a,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 a {
     color: var(--text-accent); }
+  .webpage h2.color,
+  .webpage .h2.color,
+  .webpage h3.color,
+  .webpage .h3.color,
+  .webpage h4.color,
+  .webpage .h4.color,
+  .webpage h5.color,
+  .webpage .h5.color,
+  .webpage h6.color,
+  .webpage .h6.color,
+  .webpage h7.color,
+  .webpage .h7.color,
+  .webpage h8.color,
+  .webpage .h8.color,
+  .profile .canStyle h2.color,
+  .profile .canStyle .h2.color,
+  .profile .canStyle h3.color,
+  .profile .canStyle .h3.color,
+  .profile .canStyle h4.color,
+  .profile .canStyle .h4.color,
+  .profile .canStyle h5.color,
+  .profile .canStyle .h5.color,
+  .profile .canStyle h6.color,
+  .profile .canStyle .h6.color,
+  .profile .canStyle h7.color,
+  .profile .canStyle .h7.color,
+  .profile .canStyle h8.color,
+  .profile .canStyle .h8.color,
+  .post--content h2.color,
+  .post--content .h2.color,
+  .post--content h3.color,
+  .post--content .h3.color,
+  .post--content h4.color,
+  .post--content .h4.color,
+  .post--content h5.color,
+  .post--content .h5.color,
+  .post--content h6.color,
+  .post--content .h6.color,
+  .post--content h7.color,
+  .post--content .h7.color,
+  .post--content h8.color,
+  .post--content .h8.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8.color,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8.color {
+    color: var(--text-accent);
+    background-image: var(--bg-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent; }
 
 .webpage h2:not(.underline),
 .webpage .h2:not(.underline),
 .profile .canStyle h2:not(.underline),
 .profile .canStyle .h2:not(.underline),
 .post--content h2:not(.underline),
-.post--content .h2:not(.underline) {
+.post--content .h2:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2:not(.underline) {
   line-height: 120%;
   font-family: var(--font-script);
   text-transform: lowercase;
@@ -1926,7 +2347,9 @@ fieldset {
     .profile .canStyle h2:not(.underline),
     .profile .canStyle .h2:not(.underline),
     .post--content h2:not(.underline),
-    .post--content .h2:not(.underline) {
+    .post--content .h2:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2:not(.underline) {
       font-size: calc(30px + 12 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .webpage h2:not(.underline),
@@ -1934,14 +2357,18 @@ fieldset {
     .profile .canStyle h2:not(.underline),
     .profile .canStyle .h2:not(.underline),
     .post--content h2:not(.underline),
-    .post--content .h2:not(.underline) {
+    .post--content .h2:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2:not(.underline) {
       font-size: 42px; } }
   .webpage h2:not(.underline)::after,
   .webpage .h2:not(.underline)::after,
   .profile .canStyle h2:not(.underline)::after,
   .profile .canStyle .h2:not(.underline)::after,
   .post--content h2:not(.underline)::after,
-  .post--content .h2:not(.underline)::after {
+  .post--content .h2:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2:not(.underline)::after {
     display: none; }
 
 .webpage h2.underline,
@@ -1949,7 +2376,9 @@ fieldset {
 .profile .canStyle h2.underline,
 .profile .canStyle .h2.underline,
 .post--content h2.underline,
-.post--content .h2.underline {
+.post--content .h2.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2.underline {
   line-height: 120%;
   font-family: var(--font-script);
   text-transform: lowercase;
@@ -1965,7 +2394,9 @@ fieldset {
     .profile .canStyle h2.underline,
     .profile .canStyle .h2.underline,
     .post--content h2.underline,
-    .post--content .h2.underline {
+    .post--content .h2.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2.underline {
       font-size: calc(30px + 12 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .webpage h2.underline,
@@ -1973,14 +2404,18 @@ fieldset {
     .profile .canStyle h2.underline,
     .profile .canStyle .h2.underline,
     .post--content h2.underline,
-    .post--content .h2.underline {
+    .post--content .h2.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2.underline {
       font-size: 42px; } }
   .webpage h2.underline::after,
   .webpage .h2.underline::after,
   .profile .canStyle h2.underline::after,
   .profile .canStyle .h2.underline::after,
   .post--content h2.underline::after,
-  .post--content .h2.underline::after {
+  .post--content .h2.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h2.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h2.underline::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -1995,7 +2430,9 @@ fieldset {
 .profile .canStyle h3:not(.underline),
 .profile .canStyle .h3:not(.underline),
 .post--content h3:not(.underline),
-.post--content .h3:not(.underline) {
+.post--content .h3:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3:not(.underline) {
   line-height: 120%;
   font-family: var(--font-script);
   text-transform: lowercase;
@@ -2008,7 +2445,9 @@ fieldset {
     .profile .canStyle h3:not(.underline),
     .profile .canStyle .h3:not(.underline),
     .post--content h3:not(.underline),
-    .post--content .h3:not(.underline) {
+    .post--content .h3:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3:not(.underline) {
       font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .webpage h3:not(.underline),
@@ -2016,14 +2455,18 @@ fieldset {
     .profile .canStyle h3:not(.underline),
     .profile .canStyle .h3:not(.underline),
     .post--content h3:not(.underline),
-    .post--content .h3:not(.underline) {
+    .post--content .h3:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3:not(.underline) {
       font-size: 28px; } }
   .webpage h3:not(.underline)::after,
   .webpage .h3:not(.underline)::after,
   .profile .canStyle h3:not(.underline)::after,
   .profile .canStyle .h3:not(.underline)::after,
   .post--content h3:not(.underline)::after,
-  .post--content .h3:not(.underline)::after {
+  .post--content .h3:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3:not(.underline)::after {
     display: none; }
 
 .webpage h3.underline,
@@ -2031,7 +2474,9 @@ fieldset {
 .profile .canStyle h3.underline,
 .profile .canStyle .h3.underline,
 .post--content h3.underline,
-.post--content .h3.underline {
+.post--content .h3.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3.underline {
   line-height: 120%;
   font-family: var(--font-script);
   text-transform: lowercase;
@@ -2047,7 +2492,9 @@ fieldset {
     .profile .canStyle h3.underline,
     .profile .canStyle .h3.underline,
     .post--content h3.underline,
-    .post--content .h3.underline {
+    .post--content .h3.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3.underline {
       font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .webpage h3.underline,
@@ -2055,14 +2502,18 @@ fieldset {
     .profile .canStyle h3.underline,
     .profile .canStyle .h3.underline,
     .post--content h3.underline,
-    .post--content .h3.underline {
+    .post--content .h3.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3.underline {
       font-size: 28px; } }
   .webpage h3.underline::after,
   .webpage .h3.underline::after,
   .profile .canStyle h3.underline::after,
   .profile .canStyle .h3.underline::after,
   .post--content h3.underline::after,
-  .post--content .h3.underline::after {
+  .post--content .h3.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h3.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h3.underline::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -2077,7 +2528,9 @@ fieldset {
 .profile .canStyle h4:not(.underline),
 .profile .canStyle .h4:not(.underline),
 .post--content h4:not(.underline),
-.post--content .h4:not(.underline) {
+.post--content .h4:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4:not(.underline) {
   font-family: var(--font-sans);
   font-style: normal;
   line-height: 120%;
@@ -2091,7 +2544,9 @@ fieldset {
     .profile .canStyle h4:not(.underline),
     .profile .canStyle .h4:not(.underline),
     .post--content h4:not(.underline),
-    .post--content .h4:not(.underline) {
+    .post--content .h4:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4:not(.underline) {
       font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .webpage h4:not(.underline),
@@ -2099,14 +2554,18 @@ fieldset {
     .profile .canStyle h4:not(.underline),
     .profile .canStyle .h4:not(.underline),
     .post--content h4:not(.underline),
-    .post--content .h4:not(.underline) {
+    .post--content .h4:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4:not(.underline),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4:not(.underline) {
       font-size: 28px; } }
   .webpage h4:not(.underline)::after,
   .webpage .h4:not(.underline)::after,
   .profile .canStyle h4:not(.underline)::after,
   .profile .canStyle .h4:not(.underline)::after,
   .post--content h4:not(.underline)::after,
-  .post--content .h4:not(.underline)::after {
+  .post--content .h4:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4:not(.underline)::after {
     display: none; }
 
 .webpage h4.underline,
@@ -2114,7 +2573,9 @@ fieldset {
 .profile .canStyle h4.underline,
 .profile .canStyle .h4.underline,
 .post--content h4.underline,
-.post--content .h4.underline {
+.post--content .h4.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4.underline {
   font-family: var(--font-sans);
   font-style: normal;
   line-height: 120%;
@@ -2131,7 +2592,9 @@ fieldset {
     .profile .canStyle h4.underline,
     .profile .canStyle .h4.underline,
     .post--content h4.underline,
-    .post--content .h4.underline {
+    .post--content .h4.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4.underline {
       font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
   @media only screen and (min-width: 1280px) {
     .webpage h4.underline,
@@ -2139,14 +2602,18 @@ fieldset {
     .profile .canStyle h4.underline,
     .profile .canStyle .h4.underline,
     .post--content h4.underline,
-    .post--content .h4.underline {
+    .post--content .h4.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4.underline,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4.underline {
       font-size: 28px; } }
   .webpage h4.underline::after,
   .webpage .h4.underline::after,
   .profile .canStyle h4.underline::after,
   .profile .canStyle .h4.underline::after,
   .post--content h4.underline::after,
-  .post--content .h4.underline::after {
+  .post--content .h4.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h4.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h4.underline::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -2161,7 +2628,9 @@ fieldset {
 .profile .canStyle h5:not(.underline),
 .profile .canStyle .h5:not(.underline),
 .post--content h5:not(.underline),
-.post--content .h5:not(.underline) {
+.post--content .h5:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5:not(.underline) {
   font-family: var(--font-sans);
   font-style: normal;
   line-height: 120%;
@@ -2174,7 +2643,9 @@ fieldset {
   .profile .canStyle h5:not(.underline)::after,
   .profile .canStyle .h5:not(.underline)::after,
   .post--content h5:not(.underline)::after,
-  .post--content .h5:not(.underline)::after {
+  .post--content .h5:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5:not(.underline)::after {
     display: none; }
 
 .webpage h5.underline,
@@ -2182,7 +2653,9 @@ fieldset {
 .profile .canStyle h5.underline,
 .profile .canStyle .h5.underline,
 .post--content h5.underline,
-.post--content .h5.underline {
+.post--content .h5.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5.underline {
   font-family: var(--font-sans);
   font-style: normal;
   line-height: 120%;
@@ -2198,7 +2671,9 @@ fieldset {
   .profile .canStyle h5.underline::after,
   .profile .canStyle .h5.underline::after,
   .post--content h5.underline::after,
-  .post--content .h5.underline::after {
+  .post--content .h5.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h5.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h5.underline::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -2213,7 +2688,9 @@ fieldset {
 .profile .canStyle h6:not(.underline),
 .profile .canStyle .h6:not(.underline),
 .post--content h6:not(.underline),
-.post--content .h6:not(.underline) {
+.post--content .h6:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6:not(.underline) {
   font-family: var(--font-sans);
   font-style: normal;
   line-height: 120%;
@@ -2227,7 +2704,9 @@ fieldset {
   .profile .canStyle h6:not(.underline)::after,
   .profile .canStyle .h6:not(.underline)::after,
   .post--content h6:not(.underline)::after,
-  .post--content .h6:not(.underline)::after {
+  .post--content .h6:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6:not(.underline)::after {
     display: none; }
 
 .webpage h6.underline,
@@ -2235,7 +2714,9 @@ fieldset {
 .profile .canStyle h6.underline,
 .profile .canStyle .h6.underline,
 .post--content h6.underline,
-.post--content .h6.underline {
+.post--content .h6.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6.underline {
   font-family: var(--font-sans);
   font-style: normal;
   line-height: 120%;
@@ -2252,7 +2733,9 @@ fieldset {
   .profile .canStyle h6.underline::after,
   .profile .canStyle .h6.underline::after,
   .post--content h6.underline::after,
-  .post--content .h6.underline::after {
+  .post--content .h6.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h6.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h6.underline::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -2266,7 +2749,9 @@ fieldset {
 .profile .canStyle h7:not(.underline),
 .profile .canStyle .h7:not(.underline),
 .post--content h7:not(.underline),
-.post--content .h7:not(.underline) {
+.post--content .h7:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7:not(.underline),
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7:not(.underline) {
   display: block;
   font-family: var(--font-sans);
   font-style: normal;
@@ -2281,7 +2766,9 @@ fieldset {
   .profile .canStyle h7:not(.underline)::after,
   .profile .canStyle .h7:not(.underline)::after,
   .post--content h7:not(.underline)::after,
-  .post--content .h7:not(.underline)::after {
+  .post--content .h7:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7:not(.underline)::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7:not(.underline)::after {
     display: none; }
 
 .webpage h7.underline,
@@ -2289,7 +2776,9 @@ fieldset {
 .profile .canStyle h7.underline,
 .profile .canStyle .h7.underline,
 .post--content h7.underline,
-.post--content .h7.underline {
+.post--content .h7.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7.underline,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7.underline {
   display: block;
   font-family: var(--font-sans);
   font-style: normal;
@@ -2307,7 +2796,9 @@ fieldset {
   .profile .canStyle h7.underline::after,
   .profile .canStyle .h7.underline::after,
   .post--content h7.underline::after,
-  .post--content .h7.underline::after {
+  .post--content .h7.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h7.underline::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h7.underline::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -2321,7 +2812,9 @@ fieldset {
 .profile .canStyle h8,
 .profile .canStyle .h8,
 .post--content h8,
-.post--content .h8 {
+.post--content .h8,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8 {
   display: block;
   font-family: var(--font-sans);
   font-style: normal;
@@ -2342,7 +2835,9 @@ fieldset {
   .profile .canStyle h8::after,
   .profile .canStyle .h8::after,
   .post--content h8::after,
-  .post--content .h8::after {
+  .post--content .h8::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8::after {
     display: none; }
   .webpage h8::before, .webpage h8::after,
   .webpage .h8::before,
@@ -2354,7 +2849,11 @@ fieldset {
   .post--content h8::before,
   .post--content h8::after,
   .post--content .h8::before,
-  .post--content .h8::after {
+  .post--content .h8::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8::before,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8::before,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8::after {
     display: block !important;
     content: '';
     position: absolute;
@@ -2367,14 +2866,18 @@ fieldset {
   .profile .canStyle h8::before,
   .profile .canStyle .h8::before,
   .post--content h8::before,
-  .post--content .h8::before {
+  .post--content .h8::before,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8::before,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8::before {
     top: 0; }
   .webpage h8::after,
   .webpage .h8::after,
   .profile .canStyle h8::after,
   .profile .canStyle .h8::after,
   .post--content h8::after,
-  .post--content .h8::after {
+  .post--content .h8::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor h8::after,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor .h8::after {
     bottom: 0; }
 
 .webpage b,
@@ -2388,13 +2891,18 @@ fieldset {
 .post--content b,
 .post--content i,
 .post--content u,
-.post--content s {
+.post--content s,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor b,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor i,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor u,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor s {
   color: var(--text-secondary);
   font-size: 1.05em; }
 
 .webpage b,
 .profile .canStyle b,
-.post--content b {
+.post--content b,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor b {
   padding: var(--space-xs) var(--space-sm);
   background: var(--bg-gradient-25);
   border-radius: var(--radius-small);
@@ -2403,22 +2911,41 @@ fieldset {
 
 .webpage u,
 .profile .canStyle u,
-.post--content u {
+.post--content u,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor u {
   -webkit-text-decoration-color: var(--text-accent);
           text-decoration-color: var(--text-accent);
   text-underline-offset: var(--space-xs); }
 
 .webpage s,
 .profile .canStyle s,
-.post--content s {
+.post--content s,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor s {
   -webkit-text-decoration-color: var(--text-accent);
           text-decoration-color: var(--text-accent);
   text-decoration-thickness: 2px; }
 
+.webpage a,
+.profile .canStyle a,
+.post--content a,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor a {
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 160%;
+  font-size: var(--text-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: underline;
+  -webkit-text-decoration-color: var(--text-accent);
+          text-decoration-color: var(--text-accent);
+  text-underline-offset: var(--space-xs); }
+
 .webpage tag-spoiler,
 .profile .canStyle tag-spoiler,
-.post--content tag-spoiler {
-  background: var(--bg-secondary);
+.post--content tag-spoiler,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor tag-spoiler {
+  background: var(--bg-primary);
   color: transparent;
   padding: var(--space-xs) var(--space-sm);
   border-radius: var(--radius-small);
@@ -2426,30 +2953,51 @@ fieldset {
   -webkit-box-decoration-break: clone; }
   .webpage tag-spoiler:not(.is-visible),
   .profile .canStyle tag-spoiler:not(.is-visible),
-  .post--content tag-spoiler:not(.is-visible) {
-    pointer: cursor; }
+  .post--content tag-spoiler:not(.is-visible),
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor tag-spoiler:not(.is-visible) {
+    cursor: pointer; }
   .webpage tag-spoiler.is-visible,
   .profile .canStyle tag-spoiler.is-visible,
-  .post--content tag-spoiler.is-visible {
+  .post--content tag-spoiler.is-visible,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor tag-spoiler.is-visible {
     color: var(--text-primary); }
+
+.webpage tag-translation,
+.profile .canStyle tag-translation,
+.post--content tag-translation,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor tag-translation {
+  text-decoration: underline;
+  -webkit-text-decoration-color: var(--text-accent);
+          text-decoration-color: var(--text-accent);
+  text-underline-offset: var(--space-xs);
+  -webkit-text-decoration-style: dashed;
+          text-decoration-style: dashed;
+  font-style: italic;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer; }
 
 .webpage ul,
 .profile .canStyle ul,
-.post--content ul {
+.post--content ul,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor ul {
   padding-left: 12px;
   margin: var(--space-lg) 0; }
   .webpage ul li,
   .profile .canStyle ul li,
-  .post--content ul li {
+  .post--content ul li,
+  #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor ul li {
     padding-left: var(--space-sm);
-    line-height: 160%; }
+    line-height: 200%; }
     .webpage ul li:not(:last-child),
     .profile .canStyle ul li:not(:last-child),
-    .post--content ul li:not(:last-child) {
+    .post--content ul li:not(:last-child),
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor ul li:not(:last-child) {
       margin-bottom: var(--space-sm); }
     .webpage ul li::marker,
     .profile .canStyle ul li::marker,
-    .post--content ul li::marker {
+    .post--content ul li::marker,
+    #topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor ul li::marker {
       font-family: 'Font Awesome 7 Pro';
       color: var(--text-accent);
       background-image: var(--bg-gradient);
@@ -2461,7 +3009,8 @@ fieldset {
 
 .webpage blockquote,
 .profile .canStyle blockquote,
-.post--content blockquote {
+.post--content blockquote,
+#topic-summary > .tableborder > table > tbody > tr:nth-child(2n) .postcolor blockquote {
   background: var(--bg-gradient-25);
   border: var(--border-accent-alt);
   padding: var(--space-lg) calc(var(--space-lg) + 5px);
@@ -2647,19 +3196,19 @@ grad {
 
 [data-width="xs" i],
 [data-width="extrasmall" i] {
-  max-width: 275px; }
+  max-width: 300px; }
 
 [data-width="sm" i],
 [data-width="small" i] {
-  max-width: 350px; }
+  max-width: 375px; }
 
 [data-width="lg" i],
 [data-width="large" i] {
-  max-width: 500px; }
+  max-width: 525px; }
 
 [data-width="xl" i],
 [data-width="extralarge" i] {
-  max-width: 575px; }
+  max-width: 600px; }
 
 tag-image[data-ratio="1:1"],
 [data-ratio="1:1"] tag-image {
@@ -2754,6 +3303,7 @@ tag-image[data-ratio="16:9"],
     border-left: 1px solid var(--accent-1);
     border-top-left-radius: 15px; }
     .nav--breadcrumb #navstrip {
+      font-size: 0;
       -webkit-box-flex: 0;
       -webkit-flex: 0 0 auto;
           -ms-flex: 0 0 auto;
@@ -2792,6 +3342,7 @@ tag-image[data-ratio="16:9"],
         text-transform: uppercase;
         letter-spacing: 0.4em; }
       .nav--breadcrumb #navstrip i {
+        font-size: 10px;
         padding: 0 var(--space-xs);
         -webkit-box-flex: 0;
         -webkit-flex: 0 0 max-content;
@@ -3435,7 +3986,7 @@ header {
       height: calc(75vh - (2 * var(--size-menu-height))); } }
   @media (min-width: 1025px) {
     header {
-      height: calc(100vh - (2 * var(--size-menu-height))); } }
+      height: calc(90vh - (2 * var(--size-menu-height))); } }
   body:not(#idx) header {
     height: auto !important;
     background: none; }
@@ -3452,10 +4003,10 @@ header {
   -webkit-flex-direction: column;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: end;
-  -webkit-align-items: end;
-      -ms-flex-align: end;
-          align-items: end;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: calc(var(--space-xl) + var(--space-md)) var(--space-lg);
   background: linear-gradient(-190deg, var(--bg-overlay), transparent 70%), linear-gradient(190deg, var(--bg-overlay), transparent 70%); }
   @media (min-width: 601px) {
@@ -3469,11 +4020,8 @@ header {
     max-width: 100%; }
     .header--content > a {
       display: block;
-      padding-left: var(--space-xl);
+      padding-left: var(--space-lg);
       padding-right: var(--space-lg); }
-      @media (min-width: 601px) {
-        .header--content > a {
-          padding-left: calc(2 * var(--space-xl)); } }
       .header--content > a::before {
         content: '';
         position: absolute;
@@ -3493,10 +4041,10 @@ header {
       font-weight: 400; }
       @media only screen and (min-width: 480px) {
         .header--content h1 {
-          font-size: calc(36px + 36 * (100vw - 480px) / (1280 - 480)); } }
+          font-size: calc(36px + 64 * (100vw - 480px) / (1280 - 480)); } }
       @media only screen and (min-width: 1280px) {
         .header--content h1 {
-          font-size: 72px; } }
+          font-size: 100px; } }
       .header--content h1 i {
         text-transform: uppercase;
         font-family: var(--font-sans);
@@ -3506,14 +4054,15 @@ header {
         font-size: 1.4em;
         margin-right: -0.15em; }
     .header--content > p {
-      margin: 0;
+      margin: var(--space-sm) 0 0;
       color: var(--text-primary);
       font-family: var(--font-sans);
       font-weight: 800;
       line-height: 160%;
       font-size: var(--text-size-xs);
       text-transform: uppercase;
-      letter-spacing: 0.4em; }
+      letter-spacing: 0.4em;
+      text-align: center; }
       .header--content > p::before {
         content: 'tagline or something here'; }
   .header--svg {
@@ -3946,7 +4495,8 @@ header {
       width: 100%;
       height: 100%;
       display: block;
-      border-radius: 50%; }
+      border-radius: 50%;
+      background-size: cover; }
   .forum:has(.forum--clipped-image) {
     margin-left: 0 !important; }
     @media (min-width: 481px) {
@@ -4685,7 +5235,7 @@ header {
   #ST main .container > table:first-of-type {
     position: -webkit-sticky;
     position: sticky;
-    top: calc(var(--size-container-margin) - 2px);
+    top: calc(var(--size-container-margin) - 2px + var(--space-sm));
     z-index: 4; }
   #SF main .container > table:last-of-type ~ div[align="right"],
   #ST main .container > table:last-of-type ~ div[align="right"] {
@@ -4801,10 +5351,19 @@ header {
     .topics--section {
       -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr; } }
+  .topics--section > br {
+    display: none; }
+  .topics--section > b {
+    grid-column: 1 / -1;
+    text-align: center; }
 
 .topic {
   display: -ms-grid;
   display: grid;
+  -ms-grid-rows: auto -webkit-max-content;
+  -ms-grid-rows: auto max-content;
+  grid-template-rows: auto -webkit-max-content;
+  grid-template-rows: auto max-content;
   -webkit-box-align: center;
   -webkit-align-items: center;
       -ms-flex-align: center;
@@ -4878,7 +5437,8 @@ header {
       width: 100%;
       height: 100%;
       display: block;
-      border-radius: 50%; }
+      border-radius: 50%;
+      background-size: cover; }
   .topic--main {
     padding: var(--space-md); }
     @media (min-width: 481px) {
@@ -5143,26 +5703,343 @@ header {
       #ST .tableborder:has(.post) .activeuserstrip + .row2 a {
         color: var(--text-secondary); }
 
-.post {
+#ST .tableborder:has(> .social) {
+  display: -ms-grid;
+  display: grid;
+  gap: 0 var(--space-lg); }
+  #ST .tableborder:has(> .social) .maintitle {
+    display: none; }
+  #ST .tableborder:has(> .social) .postlinksbar {
+    grid-column: 1 / -1;
+    margin-top: var(--space-lg); }
+  #ST .tableborder:has(> .social) .activeuserstrip,
+  #ST .tableborder:has(> .social) .row2 {
+    grid-column: 1 / -1; }
+
+#ST .tableborder:has(> .insta) {
+  -ms-grid-columns: 100%;
+  grid-template-columns: 100%; }
+  @media (min-width: 769px) {
+    #ST .tableborder:has(> .insta) {
+      -ms-grid-columns: clamp(var(--size-min-insta), 35vw, var(--size-max-insta)) 1fr;
+      grid-template-columns: clamp(var(--size-min-insta), 35vw, var(--size-max-insta)) 1fr; } }
+  @media (min-width: 769px) {
+    #ST .tableborder:has(> .insta) .posts--socials-wrap {
+      position: absolute;
+      top: 0;
+      left: 0; }
+      #ST .tableborder:has(> .insta) .posts--socials-wrap .posts--socials-wrap-inner {
+        padding-bottom: var(--space-md); } }
+
+#ST .tableborder:has(> .tindr) {
+  -ms-grid-columns: 100%;
+  grid-template-columns: 100%; }
+  @media (min-width: 1025px) {
+    #ST .tableborder:has(> .tindr) {
+      -ms-grid-columns: clamp(var(--size-min-tindr), 35vw, var(--size-max-tindr)) 1fr;
+      grid-template-columns: clamp(var(--size-min-tindr), 35vw, var(--size-max-tindr)) 1fr; } }
+  @media (min-width: 1025px) {
+    #ST .tableborder:has(> .tindr) .posts--socials-wrap .posts--socials-wrap-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding-bottom: var(--space-md); } }
+  @media (min-width: 769px) {
+    #ST .tableborder:has(> .tindr) .posts--socials-wrap .post.tindr {
+      width: calc((100% / 2) - ((var(--space-md) * 1) / 2)); } }
+  @media (min-width: 1025px) {
+    #ST .tableborder:has(> .tindr) .posts--socials-wrap .post.tindr {
+      width: 100%; } }
+  @media (min-width: 1281px) {
+    #ST .tableborder:has(> .tindr) .posts--socials-wrap .post.tindr {
+      width: calc((100% / 2) - ((var(--space-md) * 1) / 2)); } }
+  @media (max-width: 1024px) {
+    #ST .tableborder:has(> .tindr) > .post.tindr {
+      max-width: var(--size-max-tindr);
+      margin: 0 auto var(--space-lg); } }
+
+#ST .tableborder:not(:has(> .social)):not(:has(> .insta)):has(.posts--socials-wrap) .posts--socials-wrap-inner {
+  position: relative; }
+  #ST .tableborder:not(:has(> .social)):not(:has(> .insta)):has(.posts--socials-wrap) .posts--socials-wrap-inner .post.social {
+    width: 100%; }
+    @media (min-width: 601px) {
+      #ST .tableborder:not(:has(> .social)):not(:has(> .insta)):has(.posts--socials-wrap) .posts--socials-wrap-inner .post.social {
+        width: calc((100% / 2) - ((var(--space-md) * 1) / 2)); } }
+    @media (min-width: 1025px) {
+      #ST .tableborder:not(:has(> .social)):not(:has(> .insta)):has(.posts--socials-wrap) .posts--socials-wrap-inner .post.social {
+        width: calc((100% / 3) - ((var(--space-md) * 2) / 3)); } }
+    @media (min-width: 1281px) {
+      #ST .tableborder:not(:has(> .social)):not(:has(> .insta)):has(.posts--socials-wrap) .posts--socials-wrap-inner .post.social {
+        width: calc((100% / 4) - ((var(--space-md) * 3) / 4)); } }
+
+#ST .tableborder:not(:has(> .social)):not(:has(> .tindr)):has(.posts--socials-wrap) .posts--socials-wrap-inner {
+  position: relative; }
+  #ST .tableborder:not(:has(> .social)):not(:has(> .tindr)):has(.posts--socials-wrap) .posts--socials-wrap-inner .post.social {
+    width: 100%; }
+    @media (min-width: 769px) {
+      #ST .tableborder:not(:has(> .social)):not(:has(> .tindr)):has(.posts--socials-wrap) .posts--socials-wrap-inner .post.social {
+        width: calc((100% / 2) - ((var(--space-md) * 1) / 2)); } }
+    @media (min-width: 1281px) {
+      #ST .tableborder:not(:has(> .social)):not(:has(> .tindr)):has(.posts--socials-wrap) .posts--socials-wrap-inner .post.social {
+        width: calc((100% / 3) - ((var(--space-md) * 2) / 3)); } }
+    @media (min-width: 1901px) {
+      #ST .tableborder:not(:has(> .social)):not(:has(> .tindr)):has(.posts--socials-wrap) .posts--socials-wrap-inner .post.social {
+        width: calc((100% / 4) - ((var(--space-md) * 3) / 4)); } }
+
+#ST main > .container .bar {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  padding: 0 var(--space-md) !important;
+  max-width: var(--size-max-screen);
+  margin: var(--space-lg) auto; }
+  @media (min-width: 481px) {
+    #ST main > .container .bar {
+      padding: 0 var(--space-lg) !important; } }
+  #ST main > .container .bar > * {
+    float: none;
+    clear: both; }
+  #ST main > .container .bar ~ div[align="right"] {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: var(--space-sm);
+    padding: 0 var(--space-md) !important;
+    max-width: var(--size-max-screen);
+    margin: var(--space-lg) auto !important; }
+    @media (min-width: 481px) {
+      #ST main > .container .bar ~ div[align="right"] {
+        padding: 0 var(--space-lg) !important; } }
+    #ST main > .container .bar ~ div[align="right"] > br {
+      display: none; }
+
+.posts--comms-wrap {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+  background: var(--bg-gradient);
+  border-radius: var(--radius-large);
+  padding: var(--space-md); }
+  @media (max-width: 600px) {
+    .posts--comms-wrap {
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -webkit-flex-direction: column;
+          -ms-flex-direction: column;
+              flex-direction: column; } }
+  @media (min-width: 601px) {
+    .posts--comms-wrap {
+      aspect-ratio: 16 / 9; } }
+  .posts--comms-wrap-inner {
+    background: var(--bg-secondary);
+    border-radius: 0 0 calc(var(--radius-large) - var(--space-md)) calc(var(--radius-large) - var(--space-md));
+    height: 100%;
+    -webkit-box-flex: 1;
+    -webkit-flex-grow: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    padding: var(--space-md); }
+    @media (max-width: 600px) {
+      .posts--comms-wrap-inner .scroll {
+        max-height: 300px; } }
+    @media (min-width: 601px) {
+      .posts--comms-wrap-inner {
+        border-radius: 0 calc(var(--radius-large) - var(--space-md)) calc(var(--radius-large) - var(--space-md)) 0; } }
+  .posts--comms-wrap .post--latest {
+    aspect-ratio: 5 / 4;
+    height: 100%;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 auto;
+        -ms-flex: 0 0 auto;
+            flex: 0 0 auto;
+    overflow: hidden;
+    border-radius: calc(var(--radius-large) - var(--space-md)) calc(var(--radius-large) - var(--space-md)) 0 0; }
+    @media (min-width: 601px) {
+      .posts--comms-wrap .post--latest {
+        aspect-ratio: 4 / 5;
+        border-radius: calc(var(--radius-large) - var(--space-md)) 0 0 calc(var(--radius-large) - var(--space-md)); } }
+    .posts--comms-wrap .post--latest img {
+      width: 100%;
+      height: 100%; }
+    .posts--comms-wrap .post--latest .post--contact {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      background: var(--bg-primary);
+      padding: var(--space-sm);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-weight: 600;
+      line-height: 160%;
+      font-size: var(--text-size-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.2em; }
+      @media (max-width: 600px) {
+        .posts--comms-wrap .post--latest .post--contact {
+          border-top: var(--border-primary);
+          border-bottom: var(--border-primary);
+          width: 100%; } }
+      @media (min-width: 601px) {
+        .posts--comms-wrap .post--latest .post--contact {
+          -webkit-writing-mode: sideways-lr;
+              -ms-writing-mode: sideways-lr;
+                  writing-mode: sideways-lr;
+          border-left: var(--border-primary);
+          border-right: var(--border-primary);
+          height: 100%;
+          text-align: right; } }
+
+.posts--socials-wrap-inner {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: var(--bg-primary);
+  padding: var(--space-md) var(--space-md) 0;
+  border-radius: var(--radius-large); }
+  .posts--socials-wrap-inner .scroll {
+    padding-right: 0;
+    margin-right: 0; }
+
+.posts--socials-wrap .post.social {
+  background: var(--bg-secondary);
+  border: var(--border-secondary);
+  width: 100%;
+  margin-bottom: var(--space-md);
+  border-radius: calc(var(--radius-large) - var(--space-md)); }
+  .posts--socials-wrap .post.social .post--avatar {
+    aspect-ratio: var(--size-social-post-aspect); }
+  .posts--socials-wrap .post.social .post--top > a {
+    font-family: var(--font-sans);
+    font-style: normal;
+    line-height: 120%;
+    text-transform: uppercase;
+    font-size: var(--text-size-lg);
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    font-weight: 900; }
+    .posts--socials-wrap .post.social .post--top > a::after {
+      display: none; }
+
+@media (min-width: 601px) {
+  .posts--socials-wrap .post.insta {
+    width: calc((100% / 2) - ((var(--space-md) * 1) / 2)); } }
+
+@media (min-width: 769px) {
+  .posts--socials-wrap .post.insta {
+    width: 100%; } }
+
+@media (min-width: 1025px) {
+  .posts--socials-wrap .post.insta {
+    width: calc((100% / 2) - ((var(--space-md) * 1) / 2)); } }
+
+@media (min-width: 481px) {
+  .posts--socials-wrap .post.insta .post--top {
+    padding: 0 var(--space-md); } }
+
+@media (min-width: 481px) {
+  .posts--socials-wrap .post.insta .post--content {
+    padding: 0 var(--space-md); } }
+
+@media (min-width: 481px) {
+  .posts--socials-wrap .post.insta .post--date {
+    padding: 0 var(--space-md); } }
+
+@media (min-width: 481px) {
+  .posts--socials-wrap .post.insta .post--buttons {
+    margin: 0 var(--space-md) var(--space-md); } }
+
+.posts--socials-wrap .post.tindr {
+  height: var(--size-tindr-post-height); }
+  .posts--socials-wrap .post.tindr .post--avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: calc(100% - (var(--size-tindr-post-height) * 0.8));
+    height: 100%; }
+    .posts--socials-wrap .post.tindr .post--avatar .tall {
+      display: none; }
+    .posts--socials-wrap .post.tindr .post--avatar .wide {
+      display: initial; }
+  .posts--socials-wrap .post.tindr .post--container {
+    left: auto;
+    right: 0;
+    bottom: calc(-1 * var(--space-md));
+    width: auto;
+    height: calc(100% + (2 * var(--space-md)));
+    border-radius: calc(var(--size-tindr-post-height) / 2) 0 0 calc(var(--size-tindr-post-height) / 2);
+    padding: var(--space-md) 0 var(--space-md) var(--space-md); }
+  .posts--socials-wrap .post.tindr .post--container-inner {
+    padding: var(--space-md);
+    border-radius: calc((var(--size-tindr-post-height) / 2) - var(--space-md)) 0 0 calc((var(--size-tindr-post-height) / 2) - var(--space-md));
+    height: 100%;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+  .posts--socials-wrap .post.tindr .post--top > a {
+    color: var(--text-primary); }
+
+.posts--no-posts {
+  background: var(--bg-primary);
+  padding: var(--space-md);
+  border-radius: var(--radius-large); }
+  @media (min-width: 481px) {
+    .posts--no-posts {
+      padding: var(--space-lg); } }
+
+.post--date {
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 160%;
+  font-size: var(--text-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-style: italic; }
+
+.post:not(.comm):not(.social) {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 100%;
   grid-template-columns: 100%;
   border-radius: var(--radius-large);
   background: var(--bg-primary);
-  height: 100%; }
+  height: 100%;
+  margin-bottom: var(--space-lg); }
   @media (min-width: 769px) {
-    .post {
+    .post:not(.comm):not(.social) {
       -ms-grid-columns: 71px clamp(var(--size-min-post-avatar), 35vw, var(--size-max-post-avatar)) 1fr;
       grid-template-columns: 71px clamp(var(--size-min-post-avatar), 35vw, var(--size-max-post-avatar)) 1fr; } }
-  .post--buttons {
+  .post:not(.comm):not(.social) .post--buttons {
     width: -webkit-max-content;
     width: -moz-max-content;
     width: max-content; }
-    .post--buttons .sticky {
+    .post:not(.comm):not(.social) .post--buttons .sticky {
       position: -webkit-sticky;
       position: sticky;
-      top: calc(var(--size-container-margin) + 70px);
+      top: calc(var(--size-container-margin) + 70px + var(--space-sm));
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -5178,17 +6055,17 @@ header {
       border-right: var(--border-primary);
       border-bottom-right-radius: var(--radius-xl); }
       @media (max-width: 768px) {
-        .post--buttons .sticky {
+        .post:not(.comm):not(.social) .post--buttons .sticky {
           padding: var(--space-md) var(--space-xl) var(--space-md) var(--space-lg); } }
       @media (min-width: 769px) {
-        .post--buttons .sticky {
+        .post:not(.comm):not(.social) .post--buttons .sticky {
           -webkit-box-orient: vertical;
           -webkit-box-direction: normal;
           -webkit-flex-direction: column;
               -ms-flex-direction: column;
                   flex-direction: column;
           padding: var(--space-lg) var(--space-md) var(--space-xl); } }
-    .post--buttons a {
+    .post:not(.comm):not(.social) .post--buttons a {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -5197,7 +6074,7 @@ header {
       padding: var(--space-xs);
       border-radius: 50%;
       border: none; }
-      .post--buttons a::before {
+      .post:not(.comm):not(.social) .post--buttons a::before {
         content: '';
         position: absolute;
         top: 0;
@@ -5209,9 +6086,9 @@ header {
         scale: 1;
         -webkit-transition: var(--transition-standard);
         transition: var(--transition-standard); }
-      .post--buttons a:hover::before {
+      .post:not(.comm):not(.social) .post--buttons a:hover::before {
         scale: 1.3; }
-      .post--buttons a i {
+      .post:not(.comm):not(.social) .post--buttons a i {
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -5231,9 +6108,9 @@ header {
         border-radius: 50%;
         font-size: 10px;
         font-style: normal; }
-      .post--buttons a.is-active::before {
+      .post:not(.comm):not(.social) .post--buttons a.is-active::before {
         scale: 1.3; }
-    .post--buttons label {
+    .post:not(.comm):not(.social) .post--buttons label {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -5252,34 +6129,34 @@ header {
       border: none;
       width: 40px;
       height: 40px; }
-      body.g-4 .post--buttons label {
+      body.g-4 .post:not(.comm):not(.social) .post--buttons label {
         display: -webkit-box !important;
         display: -webkit-flex !important;
         display: -ms-flexbox !important;
         display: flex !important; }
-  .post--side {
+  .post:not(.comm):not(.social) .post--side {
     padding: var(--space-md) var(--space-md) 0; }
     @media (min-width: 1025px) {
-      .post--side {
+      .post:not(.comm):not(.social) .post--side {
         padding: var(--space-lg) var(--space-lg) var(--space-md); } }
-    .post--side .sticky {
+    .post:not(.comm):not(.social) .post--side .sticky {
       position: -webkit-sticky;
       position: sticky;
-      top: calc(var(--size-container-margin) + 70px); }
-  .post--avatar {
+      top: calc(var(--size-container-margin) + 70px + (2 * var(--space-sm))); }
+  .post:not(.comm):not(.social) .post--avatar {
     width: 100%;
     border-radius: var(--space-lg);
     overflow: hidden;
     margin: 0 auto; }
     @media (max-width: 768px) {
-      .post--avatar {
+      .post:not(.comm):not(.social) .post--avatar {
         height: 250px; } }
     @media (min-width: 769px) {
-      .post--avatar {
+      .post:not(.comm):not(.social) .post--avatar {
         aspect-ratio: var(--size-post-avatar-ratio);
         min-height: 400px;
         margin: 0; } }
-    .post--avatar::before {
+    .post:not(.comm):not(.social) .post--avatar::before {
       content: '';
       position: absolute;
       top: 0;
@@ -5289,21 +6166,21 @@ header {
       background: -webkit-gradient(linear, left top, left bottom, from(transparent), to(black));
       background: linear-gradient(to bottom, transparent, black);
       z-index: 1; }
-    .post--avatar > img {
+    .post:not(.comm):not(.social) .post--avatar > img {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%; }
       @media (max-width: 768px) {
-        .post--avatar > img.tabletUp {
+        .post:not(.comm):not(.social) .post--avatar > img.tabletUp {
           display: none; } }
       @media (min-width: 769px) {
-        .post--avatar > img.tabletDown {
+        .post:not(.comm):not(.social) .post--avatar > img.tabletDown {
           display: none; } }
-    .post--avatar:hover .post--hover {
+    .post:not(.comm):not(.social) .post--avatar:hover .post--hover {
       top: 0; }
-  .post--hover {
+  .post:not(.comm):not(.social) .post--hover {
     border-radius: var(--space-lg);
     padding: var(--space-md);
     background: var(--bg-gradient-v);
@@ -5315,7 +6192,7 @@ header {
     -webkit-transition: var(--transition-xlong);
     transition: var(--transition-xlong);
     z-index: 1; }
-    .post--hover .items {
+    .post:not(.comm):not(.social) .post--hover .items {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -5335,48 +6212,48 @@ header {
           -ms-flex-align: start;
               align-items: start; }
       @media (max-width: 1024px) {
-        .post--hover .items .items--item {
+        .post:not(.comm):not(.social) .post--hover .items .items--item {
           -webkit-box-orient: vertical;
           -webkit-box-direction: normal;
           -webkit-flex-direction: column;
               -ms-flex-direction: column;
                   flex-direction: column;
           margin-bottom: var(--space-md); }
-          .post--hover .items .items--item span {
+          .post:not(.comm):not(.social) .post--hover .items .items--item span {
             padding-top: var(--space-xs); }
-            .post--hover .items .items--item span::after {
+            .post:not(.comm):not(.social) .post--hover .items .items--item span::after {
               position: absolute;
               top: 0;
               margin: 0; } }
       @media (max-width: 768px) {
-        .post--hover .items {
+        .post:not(.comm):not(.social) .post--hover .items {
           gap: 0 var(--space-lg);
           -webkit-box-orient: horizontal;
           -webkit-box-direction: normal;
           -webkit-flex-direction: row;
               -ms-flex-direction: row;
                   flex-direction: row; }
-          .post--hover .items .items--item {
+          .post:not(.comm):not(.social) .post--hover .items .items--item {
             -webkit-box-flex: 0;
             -webkit-flex: 0 0 calc(50% - (var(--space-lg) / 2));
                 -ms-flex: 0 0 calc(50% - (var(--space-lg) / 2));
                     flex: 0 0 calc(50% - (var(--space-lg) / 2));
             width: calc(50% - (var(--space-lg) / 2)); } }
       @media (max-width: 600px) {
-        .post--hover .items {
+        .post:not(.comm):not(.social) .post--hover .items {
           gap: 0;
           -webkit-box-orient: vertical;
           -webkit-box-direction: normal;
           -webkit-flex-direction: column;
               -ms-flex-direction: column;
                   flex-direction: column; }
-          .post--hover .items .items--item {
+          .post:not(.comm):not(.social) .post--hover .items .items--item {
             -webkit-box-flex: 0;
             -webkit-flex: 0 0 auto;
                 -ms-flex: 0 0 auto;
                     flex: 0 0 auto;
             width: 100%; } }
-  .post--main {
+  .post:not(.comm):not(.social) .post--main {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -5389,13 +6266,13 @@ header {
     gap: var(--space-md);
     padding: var(--space-lg) var(--space-md) 0; }
     @media (min-width: 769px) {
-      .post--main {
+      .post:not(.comm):not(.social) .post--main {
         padding: var(--space-md) var(--space-md) 0 0; } }
     @media (min-width: 1025px) {
-      .post--main {
+      .post:not(.comm):not(.social) .post--main {
         padding: var(--space-lg) var(--space-lg) var(--space-md) 0;
         gap: var(--space-lg); } }
-  .post--header {
+  .post:not(.comm):not(.social) .post--header {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -5405,7 +6282,7 @@ header {
     -webkit-flex-direction: column;
         -ms-flex-direction: column;
             flex-direction: column; }
-    .post--header > a {
+    .post:not(.comm):not(.social) .post--header > a {
       text-transform: uppercase;
       display: -webkit-box;
       display: -webkit-flex;
@@ -5420,14 +6297,14 @@ header {
       line-height: 120%;
       margin: 0;
       font-weight: bold; }
-      .post--header > a b {
+      .post:not(.comm):not(.social) .post--header > a b {
         color: var(--text-secondary); }
-      .post--header > a span {
+      .post:not(.comm):not(.social) .post--header > a span {
         font-size: 0.6em;
         letter-spacing: 0.1em;
         line-height: 100%;
         color: var(--text-primary); }
-  .post--links {
+  .post:not(.comm):not(.social) .post--links {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -5437,7 +6314,7 @@ header {
             flex-wrap: wrap;
     gap: var(--space-xs);
     margin: var(--space-sm) 0; }
-    .post--links a {
+    .post:not(.comm):not(.social) .post--links a {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -5457,14 +6334,14 @@ header {
       font-weight: 900;
       -webkit-transition: var(--transition-standard);
       transition: var(--transition-standard); }
-      .post--links a:hover {
+      .post:not(.comm):not(.social) .post--links a:hover {
         color: var(--text-secondary); }
-      .post--links a:not(:first-child)::before {
+      .post:not(.comm):not(.social) .post--links a:not(:first-child)::before {
         content: '';
         width: var(--space-lg);
         height: 1px;
         background: var(--bg-accent); }
-  .post--content {
+  .post:not(.comm):not(.social) .post--content {
     -webkit-box-flex: 1;
     -webkit-flex-grow: 1;
         -ms-flex-positive: 1;
@@ -5474,9 +6351,9 @@ header {
     border-radius: calc(var(--radius-large) - var(--space-md));
     padding: var(--space-md); }
     @media (min-width: 1025px) {
-      .post--content {
+      .post:not(.comm):not(.social) .post--content {
         padding: var(--space-lg); } }
-  .post--footer {
+  .post:not(.comm):not(.social) .post--footer {
     grid-column: 1 / -1;
     display: -webkit-box;
     display: -webkit-flex;
@@ -5497,7 +6374,7 @@ header {
         -ms-flex-align: center;
             align-items: center; }
     @media (max-width: 768px) {
-      .post--footer {
+      .post:not(.comm):not(.social) .post--footer {
         display: -ms-grid;
         display: grid;
         -ms-grid-columns: -webkit-max-content 1fr;
@@ -5509,14 +6386,14 @@ header {
         grid-template-rows: -webkit-max-content -webkit-max-content;
         grid-template-rows: max-content max-content;
         padding: var(--space-md); }
-        .post--footer .post--footer-flex {
+        .post:not(.comm):not(.social) .post--footer .post--footer-flex {
           grid-column: 1 / -1; } }
-    .post--footer > a {
+    .post:not(.comm):not(.social) .post--footer > a {
       color: var(--text-secondary);
       text-transform: uppercase;
       font-weight: 900;
       font-size: var(--text-size-xl); }
-    .post--footer-flex {
+    .post:not(.comm):not(.social) .post--footer-flex {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -5543,32 +6420,32 @@ header {
       line-height: 100%;
       padding-left: calc(24px + var(--space-md)); }
       @media (min-width: 769px) {
-        .post--footer-flex {
+        .post:not(.comm):not(.social) .post--footer-flex {
           padding: 0; }
-          .post--footer-flex:nth-child(2) {
+          .post:not(.comm):not(.social) .post--footer-flex:nth-child(2) {
             -webkit-box-pack: space-evenly;
             -webkit-justify-content: space-evenly;
                 -ms-flex-pack: space-evenly;
                     justify-content: space-evenly; }
-          .post--footer-flex:nth-child(3) {
+          .post:not(.comm):not(.social) .post--footer-flex:nth-child(3) {
             -webkit-box-pack: end;
             -webkit-justify-content: end;
                 -ms-flex-pack: end;
                     justify-content: end; } }
-  .post--triggers {
+  .post:not(.comm):not(.social) .post--triggers {
     background: var(--bg-gradient-75);
     border-radius: 50%; }
-    .post--triggers.warnings {
+    .post:not(.comm):not(.social) .post--triggers.warnings {
       padding: var(--space-xs);
       position: absolute;
       bottom: calc(-1 * var(--space-xs));
       right: calc(-1 * var(--space-lg)); }
-      .post--triggers.warnings .post--triggers-hover {
+      .post:not(.comm):not(.social) .post--triggers.warnings .post--triggers-hover {
         right: 0; }
-      .post--triggers.warnings > i {
+      .post:not(.comm):not(.social) .post--triggers.warnings > i {
         width: 30px;
         font-size: 10px; }
-    .post--triggers:not(.warnings) {
+    .post:not(.comm):not(.social) .post--triggers:not(.warnings) {
       padding: 4px;
       margin: calc(-1 * var(--space-md)) calc(-1 * var(--space-md)) calc(-1 * var(--space-md)) calc((-1 * var(--space-md)) + var(--space-sm));
       height: -webkit-max-content;
@@ -5578,12 +6455,12 @@ header {
           -ms-flex-item-align: center;
                   -ms-grid-row-align: center;
               align-self: center; }
-      .post--triggers:not(.warnings) .post--triggers-hover {
+      .post:not(.comm):not(.social) .post--triggers:not(.warnings) .post--triggers-hover {
         left: 0; }
-      .post--triggers:not(.warnings) > i {
+      .post:not(.comm):not(.social) .post--triggers:not(.warnings) > i {
         width: 20px;
         font-size: 8px; }
-    .post--triggers::before {
+    .post:not(.comm):not(.social) .post--triggers::before {
       content: '';
       position: absolute;
       top: 0;
@@ -5595,13 +6472,13 @@ header {
       scale: 1;
       -webkit-transition: var(--transition-standard);
       transition: var(--transition-standard); }
-    .post--triggers:hover::before {
+    .post:not(.comm):not(.social) .post--triggers:hover::before {
       scale: 1.3; }
-    .post--triggers:hover .post--triggers-hover {
+    .post:not(.comm):not(.social) .post--triggers:hover .post--triggers-hover {
       -webkit-transform: scaleY(1);
           -ms-transform: scaleY(1);
               transform: scaleY(1); }
-    .post--triggers > i {
+    .post:not(.comm):not(.social) .post--triggers > i {
       display: -webkit-box;
       display: -webkit-flex;
       display: -ms-flexbox;
@@ -5619,7 +6496,7 @@ header {
       aspect-ratio: 1 / 1;
       border-radius: 50%;
       font-size: 10px; }
-    .post--triggers-hover {
+    .post:not(.comm):not(.social) .post--triggers-hover {
       -webkit-transform: scaleY(0);
           -ms-transform: scaleY(0);
               transform: scaleY(0);
@@ -5648,13 +6525,464 @@ header {
       scrollbar-color: var(--bg-accent) transparent;
       max-height: 100px;
       text-align: justify; }
-      .post--triggers-hover::-webkit-scrollbar {
+      .post:not(.comm):not(.social) .post--triggers-hover::-webkit-scrollbar {
         width: 6px; }
-      .post--triggers-hover::-webkit-scrollbar-track {
+      .post:not(.comm):not(.social) .post--triggers-hover::-webkit-scrollbar-track {
         background: transparent; }
-      .post--triggers-hover::-webkit-scrollbar-thumb {
+      .post:not(.comm):not(.social) .post--triggers-hover::-webkit-scrollbar-thumb {
         background: var(--bg-accent);
         border: none; }
+
+.post.comm:not(:first-child) {
+  margin-top: var(--space-md); }
+
+.post.comm > a {
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 160%;
+  font-size: var(--text-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 900;
+  color: var(--text-secondary); }
+
+.post.comm .post--content .postcolor {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: var(--space-xs); }
+  .post.comm .post--content .postcolor tag-msg {
+    border-radius: var(--radius-small);
+    background: var(--bg-gradient-25);
+    padding: var(--space-xs) var(--space-sm); }
+  .post.comm .post--content .postcolor tag-action {
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 160%;
+    font-size: var(--text-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-style: italic;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-xs) var(--space-sm) var(--space-xs) 0; }
+    .post.comm .post--content .postcolor tag-action::before {
+      width: 23px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--bg-gradient-v-50);
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      color: var(--text-secondary);
+      font-family: 'Font Awesome 7 Pro';
+      font-style: normal;
+      font-size: 12px;
+      text-align: center;
+      padding-left: 1px;
+      font-weight: 400; }
+
+.post.comm .post--date {
+  margin: var(--space-xs) 0; }
+
+.post.comm .post--buttons {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  gap: var(--space-xs); }
+  .post.comm .post--buttons label,
+  .post.comm .post--buttons a {
+    background: var(--bg-gradient-75);
+    padding: var(--space-xs);
+    border-radius: 50%;
+    border: none;
+    width: 24px;
+    height: 24px;
+    padding: 2px; }
+    .post.comm .post--buttons label::before,
+    .post.comm .post--buttons a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--bg-gradient-25);
+      border-radius: 50%;
+      scale: 1;
+      -webkit-transition: var(--transition-standard);
+      transition: var(--transition-standard); }
+    .post.comm .post--buttons label:hover::before,
+    .post.comm .post--buttons a:hover::before {
+      scale: 1.3; }
+    .post.comm .post--buttons label i,
+    .post.comm .post--buttons a i {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      width: 30px;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      font-size: 10px;
+      font-style: normal; }
+    .post.comm .post--buttons label > .macro--small i,
+    .post.comm .post--buttons label > i,
+    .post.comm .post--buttons a > .macro--small i,
+    .post.comm .post--buttons a > i {
+      width: 19.5px;
+      height: 20px;
+      font-size: 8px; }
+    .post.comm .post--buttons label .fancy-input,
+    .post.comm .post--buttons a .fancy-input {
+      width: 19.5px;
+      height: 20px;
+      border-radius: 50%;
+      border: none; }
+  .post.comm .post--buttons label:not(:has(input:checked)) i {
+    color: transparent; }
+
+.post.comm tag-start,
+.post.comm tag-comm {
+  display: none; }
+
+.post.comm .quick-edit .editor textarea {
+  min-height: 100px;
+  height: 100px; }
+
+.post.social {
+  border-radius: var(--radius-large);
+  overflow: hidden;
+  background: var(--bg-primary); }
+  .post.social tag-account,
+  .post.social .anchorLink {
+    display: none; }
+  .post.social .post--top {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    gap: var(--space-sm);
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center; }
+    .post.social .post--top > a {
+      font-family: var(--font-sans);
+      font-style: normal;
+      line-height: 120%;
+      text-transform: uppercase;
+      font-size: 20px;
+      color: var(--text-secondary);
+      font-weight: 900; }
+      .post.social .post--top > a::after {
+        display: none; }
+  .post.social .post--tagline {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+    gap: var(--space-sm);
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+  .post.social .post--content .postcolor {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: var(--space-md); }
+    .post.social .post--content .postcolor > br {
+      display: none; }
+  .post.social .post--buttons {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    gap: var(--space-xs); }
+    .post.social .post--buttons label,
+    .post.social .post--buttons a {
+      background: var(--bg-gradient-75);
+      padding: var(--space-xs);
+      border-radius: 50%;
+      border: none;
+      width: 24px;
+      height: 24px;
+      padding: 2px; }
+      .post.social .post--buttons label::before,
+      .post.social .post--buttons a::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--bg-gradient-25);
+        border-radius: 50%;
+        scale: 1;
+        -webkit-transition: var(--transition-standard);
+        transition: var(--transition-standard); }
+      .post.social .post--buttons label:hover::before,
+      .post.social .post--buttons a:hover::before {
+        scale: 1.3; }
+      .post.social .post--buttons label i,
+      .post.social .post--buttons a i {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+            -ms-flex-align: center;
+                align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+        background: var(--bg-secondary);
+        color: var(--text-secondary);
+        width: 30px;
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;
+        font-size: 10px;
+        font-style: normal; }
+      .post.social .post--buttons label > .macro--small i,
+      .post.social .post--buttons label > i,
+      .post.social .post--buttons a > .macro--small i,
+      .post.social .post--buttons a > i {
+        width: 19.5px;
+        height: 20px;
+        font-size: 8px; }
+      .post.social .post--buttons label .fancy-input,
+      .post.social .post--buttons a .fancy-input {
+        width: 19.5px;
+        height: 20px;
+        border-radius: 50%;
+        border: none; }
+    .post.social .post--buttons label:not(:has(input:checked)) i {
+      color: transparent; }
+  .post.social tag-bio {
+    text-align: justify;
+    font-size: calc(var(--text-size-md) + 1px); }
+  .post.social tag-gallery {
+    -ms-grid-columns: (1fr)[3];
+    grid-template-columns: repeat(3, 1fr); }
+
+.post.insta {
+  display: -ms-grid;
+  display: grid;
+  gap: var(--space-md); }
+  .post.insta .post--avatar {
+    aspect-ratio: var(--size-social-profile-aspect);
+    width: calc(100% + (2 * var(--space-md)) + 2px);
+    height: auto;
+    line-height: 0;
+    border-radius: 0 0 50% 50%;
+    background: var(--bg-gradient);
+    padding: 0 var(--space-md) var(--space-md);
+    margin-left: calc((-1 * var(--space-md)) - 1px); }
+    .post.insta .post--avatar img {
+      width: 100%;
+      height: 100%;
+      border-radius: 0 0 50% 50%; }
+  .post.insta .post--top {
+    padding: var(--space-md); }
+    @media (min-width: 481px) {
+      .post.insta .post--top {
+        padding: var(--space-md) var(--space-lg) 0; } }
+  .post.insta .post--content {
+    padding: 0 var(--space-md); }
+    @media (min-width: 481px) {
+      .post.insta .post--content {
+        padding: 0 var(--space-lg); } }
+  .post.insta .post--date {
+    padding: 0 var(--space-md); }
+    @media (min-width: 481px) {
+      .post.insta .post--date {
+        padding: 0 var(--space-lg); } }
+  .post.insta .post--buttons {
+    margin: 0 var(--space-md) var(--space-md); }
+    @media (min-width: 481px) {
+      .post.insta .post--buttons {
+        margin: 0 var(--space-lg) var(--space-lg); } }
+
+.post.tindr .post--avatar {
+  aspect-ratio: var(--size-tindr-profile-aspect);
+  width: 100%;
+  line-height: 0; }
+  .post.tindr .post--avatar img {
+    width: 100%;
+    height: 100%; }
+  .post.tindr .post--avatar .tall {
+    display: initial; }
+  .post.tindr .post--avatar .wide {
+    display: none; }
+
+.post.tindr .post--container {
+  position: absolute;
+  bottom: 0;
+  left: calc(-1 * var(--space-md));
+  width: calc(100% + (2 * var(--space-md)));
+  background: var(--bg-gradient);
+  border-radius: 50% 50% 0 0;
+  padding: var(--space-md) var(--space-md) 0; }
+  .post.tindr .post--container-inner {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: var(--space-sm);
+    background: var(--bg-primary);
+    border-radius: 50% 50% 0 0;
+    padding: var(--space-md); }
+    @media (min-width: 481px) {
+      .post.tindr .post--container-inner {
+        padding: var(--space-lg); } }
+
+.post.tindr tag-react {
+  line-height: 120%;
+  font-family: var(--font-script);
+  text-transform: lowercase;
+  font-size: 20px;
+  color: var(--text-secondary);
+  font-weight: 400; }
+  @media only screen and (min-width: 480px) {
+    .post.tindr tag-react {
+      font-size: calc(20px + 8 * (100vw - 480px) / (1280 - 480)); } }
+  @media only screen and (min-width: 1280px) {
+    .post.tindr tag-react {
+      font-size: 28px; } }
+  .post.tindr tag-react::after {
+    display: none; }
+
+.quick-edit {
+  padding: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: var(--space-xs); }
+  .quick-edit .editor {
+    width: 100%;
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 100%;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    margin: 0;
+    padding: 0; }
+    .quick-edit .editor textarea {
+      width: 100% !important;
+      min-height: 150px; }
+  .quick-edit .buttons,
+  .quick-edit .right-buttons {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    gap: var(--space-xs);
+    -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+            flex-wrap: wrap; }
+    .quick-edit .buttons input,
+    .quick-edit .buttons a,
+    .quick-edit .right-buttons input,
+    .quick-edit .right-buttons a {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      line-height: 160%;
+      font-size: var(--text-size-sm);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-primary);
+      gap: var(--space-sm);
+      padding: var(--space-sm) var(--space-md);
+      border-radius: 5px;
+      overflow: hidden;
+      font-weight: 900;
+      border: var(--border-primary-solid);
+      -webkit-transition: var(--transition-standard);
+      transition: var(--transition-standard);
+      -webkit-box-flex: 1;
+      -webkit-flex-grow: 1;
+          -ms-flex-positive: 1;
+              flex-grow: 1;
+      background: var(--bg-secondary);
+      line-height: 160%;
+      margin: 0 !important; }
+      .quick-edit .buttons input:hover,
+      .quick-edit .buttons a:hover,
+      .quick-edit .right-buttons input:hover,
+      .quick-edit .right-buttons a:hover {
+        border: var(--border-accent-alt);
+        color: var(--text-secondary);
+        background: var(--bg-tertiary); }
 
 /*******************************
     Profile
@@ -7174,6 +8502,103 @@ a[href="<i>No Information</i>"] {
     .input-wrap .fancy-input i {
       color: transparent; }
 
+#CODE-WRAP {
+  display: block;
+  width: 100%;
+  max-width: 350px;
+  background: var(--bg-gradient);
+  border-radius: var(--radius-large);
+  padding: var(--space-md);
+  margin: var(--space-md) auto var(--space-md) 0; }
+  #CODE-WRAP .code--wrapper {
+    background: var(--bg-secondary);
+    border-radius: calc(var(--radius-large) - var(--space-md));
+    padding: var(--space-md); }
+  #CODE-WRAP .codeclick {
+    background: var(--bg-gradient-25);
+    border-radius: var(--radius-small);
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    padding: var(--space-sm);
+    line-height: 100%;
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 160%;
+    font-size: var(--text-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--text-secondary); }
+  #CODE-WRAP .codecon pre {
+    margin: var(--space-md) 0 0; }
+    #CODE-WRAP .codecon pre textarea,
+    #CODE-WRAP .codecon pre code {
+      white-space: break-spaces;
+      font-family: var(--font-sans);
+      display: block;
+      line-height: 160%;
+      max-height: 100px;
+      height: 80px;
+      border: none;
+      width: 100%;
+      padding: 0; }
+
+.block {
+  margin: var(--space-lg) auto;
+  max-width: 400px;
+  border-radius: var(--radius-large);
+  overflow: hidden;
+  padding: var(--space-sm) var(--space-sm) var(--space-sm) calc(64px + var(--space-sm)); }
+  @media (max-width: 480px) {
+    .block {
+      padding: var(--space-sm); }
+      .block .block--icon {
+        display: none; } }
+  .block:has(.triggers) {
+    background: var(--bg-gradient-v); }
+    .block:has(.triggers) .block--icon {
+      background: var(--bg-primary);
+      border: none; }
+  .block:has(.notes) {
+    background: var(--bg-tertiary);
+    border: var(--border-primary); }
+  .block--icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 0 0 var(--radius-xl);
+    background: var(--bg-secondary);
+    border-right: var(--border-primary);
+    border-bottom: var(--border-primary);
+    padding: var(--space-md) var(--space-md) var(--space-lg);
+    width: 64px;
+    font-size: 12px; }
+    .block--icon i {
+      background: var(--bg-gradient-v);
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      padding: var(--space-sm);
+      color: var(--text-on-accent); }
+  .block--content {
+    background: var(--bg-secondary);
+    border-radius: calc(var(--radius-large) - var(--space-sm));
+    padding: var(--space-md);
+    text-align: justify; }
+
 /***** Online List ******/
 #Online main .container > .tableborder {
   margin: 0 auto var(--space-xl);
@@ -7369,7 +8794,8 @@ a[href="<i>No Information</i>"] {
       -ms-flex-pack: center;
           justify-content: center; }
   #ST #qr_open .tablepad textarea {
-    height: 250px; }
+    height: 250px;
+    font-size: var(--text-size-md); }
 
 #ST #qr_open .input-wrap:first-of-type {
   margin-right: calc(var(--space-md) / 2); }
@@ -7451,31 +8877,88 @@ a[href="<i>No Information</i>"] {
     display: none; }
 
 /***** New Post/Reply ******/
-#Post main > form ~ br {
+#Post main .container > form ~ br {
   display: none; }
 
+#Post main .container > header + .tableborder {
+  display: block;
+  padding: calc(var(--space-md) + var(--size-container-margin)) var(--space-md) 0;
+  max-width: var(--size-max-screen);
+  margin: 0 auto; }
+  @media (min-width: 481px) {
+    #Post main .container > header + .tableborder {
+      padding: calc(var(--space-lg) + var(--size-container-margin)) var(--space-lg) 0; } }
+  #Post main .container > header + .tableborder + br {
+    display: none; }
+
 #Post #posting-form {
-  display: block; }
+  display: block;
+  padding: 0 var(--space-md) calc(var(--space-md) + var(--size-container-margin)) var(--space-md);
+  max-width: var(--size-max-screen);
+  margin: 0 auto; }
+  @media (min-width: 481px) {
+    #Post #posting-form {
+      padding: 0 var(--space-lg) calc(var(--space-lg) + var(--size-container-margin)) var(--space-lg); } }
   #Post #posting-form .maintitle {
     display: block;
-    text-align: center;
-    grid-column: 1 / -1 !important;
-    line-height: 160%;
-    max-width: -webkit-max-content;
-    max-width: -moz-max-content;
-    max-width: max-content;
-    padding: var(--space-sm) 0 var(--space-sm) var(--space-lg); }
+    line-height: 120%;
+    font-family: var(--font-script);
+    text-transform: lowercase;
+    font-size: 30px;
+    color: var(--text-secondary);
+    font-weight: 400;
+    padding-bottom: var(--space-xs);
+    padding: var(--space-lg) 0 0; }
+    @media only screen and (min-width: 480px) {
+      #Post #posting-form .maintitle {
+        font-size: calc(30px + 12 * (100vw - 480px) / (1280 - 480)); } }
+    @media only screen and (min-width: 1280px) {
+      #Post #posting-form .maintitle {
+        font-size: 42px; } }
+    #Post #posting-form .maintitle::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--bg-gradient); }
+    @media (max-width: 1024px) {
+      #Post #posting-form .maintitle {
+        margin: 0 var(--space-md); } }
   #Post #posting-form > tbody {
     display: block;
+    border-radius: var(--radius-large);
+    background: var(--bg-primary);
     width: 100%; }
+    @media (min-width: 1025px) {
+      #Post #posting-form > tbody {
+        display: -ms-grid;
+        display: grid;
+        gap: var(--space-sm) var(--space-lg);
+        -ms-grid-columns: var(--size-ucp-menu) 1fr;
+        grid-template-columns: var(--size-ucp-menu) 1fr;
+        padding-right: var(--space-lg); }
+        #Post #posting-form > tbody > tr:not(#code-buttons) {
+          -ms-grid-column: 2;
+          -ms-grid-column-span: 1;
+          grid-column: 2 / 3;
+          margin: 0; }
+        #Post #posting-form > tbody > tr#code-buttons {
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 1;
+          grid-column: 1 / 2;
+          -ms-grid-row: 1;
+          -ms-grid-row-span: 4;
+          grid-row: 1 / 5; } }
     #Post #posting-form > tbody > tr:first-child {
       display: block;
-      margin-bottom: var(--space-lg);
       width: 100%; }
     #Post #posting-form > tbody > tr:not(:first-child) {
       padding: var(--space-md) var(--space-md) 0; }
     #Post #posting-form > tbody > tr:last-child {
-      padding-bottom: var(--space-md); }
+      padding-bottom: var(--space-lg); }
     #Post #posting-form > tbody > tr#topic-settings-header, #Post #posting-form > tbody > tr#code-buttons-header, #Post #posting-form > tbody > tr#enter-your-post-header, #Post #posting-form > tbody > tr#post-as-header,
     #Post #posting-form > tbody > tr#post-as + tr:not(:last-child),
     #Post #posting-form > tbody > tr#post-as .pformleft,
@@ -7501,10 +8984,67 @@ a[href="<i>No Information</i>"] {
       padding: var(--space-xs) var(--space-md); }
     #Post #posting-form > tbody > tr#code-buttons {
       display: block;
-      padding: var(--space-md); }
+      padding: var(--space-md) var(--space-md) 0; }
+      @media (min-width: 1025px) {
+        #Post #posting-form > tbody > tr#code-buttons {
+          padding: 0; }
+          #Post #posting-form > tbody > tr#code-buttons .pformright {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+                -ms-flex-direction: column;
+                    flex-direction: column;
+            gap: var(--space-sm);
+            position: -webkit-sticky;
+            position: sticky;
+            top: calc(var(--size-container-margin) - 1px);
+            display: flex;
+            flex-direction: column;
+            padding: var(--space-md);
+            -webkit-box-pack: end;
+            -webkit-justify-content: end;
+                -ms-flex-pack: end;
+                    justify-content: end;
+            border-bottom: var(--border-primary);
+            border-right: var(--border-primary);
+            border-bottom-right-radius: var(--radius-xl);
+            border-top-left-radius: var(--radius-large); } }
+    @media (min-width: 1025px) and (min-width: 481px) {
+      #Post #posting-form > tbody > tr#code-buttons .pformright {
+        padding: var(--space-lg) var(--space-md) var(--space-xl); } }
       #Post #posting-form > tbody > tr#code-buttons .pformright {
         font-size: 0;
-        line-height: 0; }
+        line-height: 0;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+                flex-direction: column;
+        background: var(--bg-secondary);
+        gap: var(--space-md); }
+        @media (max-width: 1024px) {
+          #Post #posting-form > tbody > tr#code-buttons .pformright {
+            border: var(--border-primary);
+            border-radius: var(--radius-medium);
+            padding: var(--space-md) var(--space-md) 0; } }
+        #Post #posting-form > tbody > tr#code-buttons .pformright .buttonHolder.is-active {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-flex-wrap: wrap;
+              -ms-flex-wrap: wrap;
+                  flex-wrap: wrap;
+          gap: var(--space-xs);
+          padding-top: var(--space-sm); }
         #Post #posting-form > tbody > tr#code-buttons .pformright > input,
         #Post #posting-form > tbody > tr#code-buttons .pformright > br {
           display: none; }
@@ -7513,15 +9053,22 @@ a[href="<i>No Information</i>"] {
           display: -webkit-flex;
           display: -ms-flexbox;
           display: flex;
-          -webkit-flex-wrap: wrap;
-              -ms-flex-wrap: wrap;
-                  flex-wrap: wrap;
-          gap: var(--space-xs); }
+          -webkit-box-orient: vertical;
+          -webkit-box-direction: normal;
+          -webkit-flex-direction: column;
+              -ms-flex-direction: column;
+                  flex-direction: column; }
           #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons input,
           #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons select {
             margin: 0;
-            font-size: var(--text-size-md);
-            line-height: 160%; }
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            line-height: 160%;
+            font-size: var(--text-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            height: 30px; }
           #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons > a,
           #Post #posting-form > tbody > tr#code-buttons .pformright #bbcode-buttons > br {
             display: none; }
@@ -7591,22 +9138,34 @@ a[href="<i>No Information</i>"] {
                 justify-content: center; }
 
 #Post #topic-summary {
-  margin-top: var(--space-md); }
-  @media (min-width: 601px) {
+  display: block;
+  padding: 0 var(--space-md) var(--space-md);
+  max-width: var(--size-max-screen);
+  margin: 0 auto; }
+  @media (min-width: 481px) {
     #Post #topic-summary {
-      margin-top: var(--space-lg); } }
+      padding: 0 var(--space-lg) var(--space-lg); } }
   #Post #topic-summary > .tableborder .pformstrip {
     display: block;
     max-width: -webkit-max-content;
     max-width: -moz-max-content;
     max-width: max-content;
-    padding: var(--space-xs) var(--space-sm); }
+    padding: var(--space-xs) var(--space-sm);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    line-height: 160%;
+    font-size: var(--text-size-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    background: var(--bg-gradient-25);
+    border-radius: var(--radius-small); }
+    #Post #topic-summary > .tableborder .pformstrip:has(a) {
+      margin-top: var(--space-md); }
+      #Post #topic-summary > .tableborder .pformstrip:has(a) a {
+        color: var(--text-secondary); }
   #Post #topic-summary > .tableborder > table {
-    display: block;
-    margin-top: var(--space-md); }
-    @media (min-width: 601px) {
-      #Post #topic-summary > .tableborder > table {
-        margin-top: var(--space-lg); } }
+    display: block; }
     #Post #topic-summary > .tableborder > table tbody {
       display: -webkit-box;
       display: -webkit-flex;
@@ -7628,14 +9187,49 @@ a[href="<i>No Information</i>"] {
             -ms-flex-direction: column;
                 flex-direction: column;
         gap: var(--space-sm);
-        padding: var(--space-lg); }
+        padding: var(--space-md);
+        border-radius: var(--radius-large) var(--radius-large) 0 0;
+        background: var(--bg-primary);
+        margin-top: var(--space-lg); }
         #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td {
-          padding: 0;
+          padding: 0 var(--space-md);
           width: 100%; }
+          #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td b {
+            line-height: 120%;
+            font-family: var(--font-script);
+            text-transform: lowercase;
+            font-size: 30px;
+            color: var(--text-secondary);
+            font-weight: 400;
+            padding-bottom: var(--space-xs); }
+            @media only screen and (min-width: 480px) {
+              #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td b {
+                font-size: calc(30px + 12 * (100vw - 480px) / (1280 - 480)); } }
+            @media only screen and (min-width: 1280px) {
+              #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td b {
+                font-size: 42px; } }
+            #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td b::after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              width: 100%;
+              height: 4px;
+              border-radius: 2px;
+              background: var(--bg-gradient); }
+          #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n + 1) td:last-child {
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            font-weight: 600;
+            line-height: 160%;
+            font-size: var(--text-size-xs);
+            text-transform: uppercase;
+            letter-spacing: 0.4em; }
       #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) {
         display: block;
-        padding: var(--space-lg);
-        margin: var(--space-md) 0 var(--space-lg); }
+        padding: 0 var(--space-md) var(--space-md);
+        border-radius: 0 0 var(--radius-large) var(--radius-large);
+        background: var(--bg-primary); }
         #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) td {
           display: block;
           width: 100%;
@@ -7644,17 +9238,29 @@ a[href="<i>No Information</i>"] {
           line-height: 200%; }
           #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) td:first-child {
             display: none; }
+          #Post #topic-summary > .tableborder > table tbody tr:nth-child(2n) td:last-child {
+            background: var(--bg-secondary);
+            border: var(--border-secondary);
+            padding: var(--space-md);
+            border-radius: calc(var(--radius-large) - var(--space-md)); }
 
-#Post #post-preview .pformstrip {
-  display: block;
-  max-width: -webkit-max-content;
-  max-width: -moz-max-content;
-  max-width: max-content;
-  padding: var(--space-xs) var(--space-sm); }
-
-#Post #post-preview .row1 {
-  padding: var(--space-lg) !important;
-  margin-top: var(--space-md); }
+#Post #post-preview {
+  padding: 0 var(--space-md) calc(var(--space-md) + var(--size-container-margin)) var(--space-md);
+  max-width: var(--size-max-screen);
+  margin: 0 auto; }
+  @media (min-width: 481px) {
+    #Post #post-preview {
+      padding: 0 var(--space-lg) calc(var(--space-lg) + var(--size-container-margin)) var(--space-lg); } }
+  #Post #post-preview .pformstrip {
+    display: none; }
+  #Post #post-preview .row1 {
+    padding: var(--space-md) !important;
+    margin-top: var(--space-md);
+    border-radius: var(--radius-large);
+    background: var(--bg-primary); }
+    @media (min-width: 481px) {
+      #Post #post-preview .row1 {
+        padding: var(--space-lg) !important; } }
 
 /***** Registration ******/
 #Reg main .container > .header + .tableborder {

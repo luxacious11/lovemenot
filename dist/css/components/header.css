@@ -11,7 +11,7 @@ header {
       height: calc(75vh - (2 * var(--size-menu-height))); } }
   @media (min-width: 1025px) {
     header {
-      height: calc(100vh - (2 * var(--size-menu-height))); } }
+      height: calc(90vh - (2 * var(--size-menu-height))); } }
   body:not(#idx) header {
     height: auto !important;
     background: none; }
@@ -21,7 +21,7 @@ header {
 .header {
   display: flex;
   flex-direction: column;
-  align-items: end;
+  align-items: center;
   padding: calc(var(--space-xl) + var(--space-md)) var(--space-lg);
   background: linear-gradient(-190deg, var(--bg-overlay), transparent 70%), linear-gradient(190deg, var(--bg-overlay), transparent 70%); }
   @media (min-width: 601px) {
@@ -33,11 +33,8 @@ header {
     max-width: 100%; }
     .header--content > a {
       display: block;
-      padding-left: var(--space-xl);
+      padding-left: var(--space-lg);
       padding-right: var(--space-lg); }
-      @media (min-width: 601px) {
-        .header--content > a {
-          padding-left: calc(2 * var(--space-xl)); } }
       .header--content > a::before {
         content: '';
         position: absolute;
@@ -57,10 +54,10 @@ header {
       font-weight: 400; }
       @media only screen and (min-width: 480px) {
         .header--content h1 {
-          font-size: calc(36px + 36 * (100vw - 480px) / (1280 - 480)); } }
+          font-size: calc(36px + 64 * (100vw - 480px) / (1280 - 480)); } }
       @media only screen and (min-width: 1280px) {
         .header--content h1 {
-          font-size: 72px; } }
+          font-size: 100px; } }
       .header--content h1 i {
         text-transform: uppercase;
         font-family: var(--font-sans);
@@ -70,14 +67,15 @@ header {
         font-size: 1.4em;
         margin-right: -0.15em; }
     .header--content > p {
-      margin: 0;
+      margin: var(--space-sm) 0 0;
       color: var(--text-primary);
       font-family: var(--font-sans);
       font-weight: 800;
       line-height: 160%;
       font-size: var(--text-size-xs);
       text-transform: uppercase;
-      letter-spacing: 0.4em; }
+      letter-spacing: 0.4em;
+      text-align: center; }
       .header--content > p::before {
         content: 'tagline or something here'; }
   .header--svg {
