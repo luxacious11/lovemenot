@@ -361,7 +361,7 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: calc(100% - (var(--size-tindr-post-height) * 0.8));
+    width: calc(100% - (var(--size-tindr-post-height) * 0.5));
     height: 100%; }
     .posts--socials-wrap .post.tindr .post--avatar .tall {
       display: none; }
